@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+// import Raisin from './tempraisin.jpg'
 import ReactMapGL from 'react-map-gl';
 
 const Map = () => {

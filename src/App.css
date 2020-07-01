@@ -7,41 +7,37 @@ h1 {
   margin: 0;
 }
 
-.main {
-  /* background-color: aqua;
-  display: flex;
-  height: 100vh;
-  position: static;
-  width: 100%; */
-  display: flex;
-  height: 100vh;
-
-  background: #B8C1C8;
-  border-bottom: 1px solid #989EA4;
-  border-top: 1px solid #717D85;
-  color: #FFF;
-  margin: 0;
-  padding: 2px 0 0 12px;
-  position: -webkit-sticky;
-  position: sticky;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+.panel__content {
+  width: 320px;
 }
 
-.sidebar {
-  width: 320px;
+.main {
+  background-color: aqua;
+  position: -webkit-sticky;
+  position: sticky;
   max-height: 100vh;
+  top: -1px;
 }
 
 .map {
   right: 0;
   top: 0;
+  height: 100vh;
+  width: calc(100% - 320px);
+  float: right;
   position: sticky;
+  max-height: 100vh;
+  top: 0;
+
+  background-position: center;
+background-size: cover;
+
+}
+
+img {
   width: calc(100% - 320px);
 }
 
 .section {
-  background: pink;
+  background: red;
 }
