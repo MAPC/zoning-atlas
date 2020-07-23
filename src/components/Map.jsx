@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import ReactMapGL from 'react-map-gl';
 
-const Map = () => {
+const Map = (currentPanel) => {
   const [innerWidth, setWidth] = useState(window.innerWidth - 350)
   const [viewport, setViewport] = useState({
     width: 400,

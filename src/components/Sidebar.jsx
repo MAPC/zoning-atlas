@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import "intersection-observer";
 import scrollama from "scrollama";
 
-const Sidebar = () => {
+const Sidebar = ({ setCurrentPanel }) => {
   useEffect(() => {
-    console.log(document.querySelector('.sidebar__item'))
     const scroller = scrollama();
       scroller
         .setup({
@@ -12,6 +11,7 @@ const Sidebar = () => {
           offset: .4,
         })
         .onStepEnter(response => {
+          setCurrentPanel(response.element.dataset.step)
           response.element.classList.toggle('panel--active')
         })
         .onStepExit(response => {

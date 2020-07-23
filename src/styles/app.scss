@@ -1,0 +1,35 @@
+p {
+  margin: 1rem 0;
+}
+
+.map {
+  bottom: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: calc(100% - 320px);
+}
+
+.sidebar {
+  width: 320px;
+}
+
+.panel {
+  opacity: .5;
+  padding: 2rem 3rem;
+
+  &--active {
+    opacity: 1;
+  }
+}
+
+.legend__wrapper {
+  position: fixed;
+  top: 0;
+}
+
+.mapboxgl-ctrl-top-left {
+  display: flex;
+  flex-direction: row;
+}
+
