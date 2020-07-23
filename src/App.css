@@ -1,10 +1,18 @@
 h1 {
   width: 100%;
-  background: red;
+  background: #00613F;
+  color: white;
   z-index: 30;
   position: relative;
   padding: 1rem 0;
   margin: 0;
+}
+.panel {
+ opacity: .5;
+}
+
+.panel--active {
+  opacity: 1;
 }
 
 .panel__content {
@@ -23,15 +31,12 @@ h1 {
   right: 0;
   top: 0;
   height: 100vh;
-  width: calc(100% - 320px);
   float: right;
   position: sticky;
   max-height: 100vh;
   top: 0;
-
   background-position: center;
-background-size: cover;
-
+  background-size: cover;
 }
 
 img {
