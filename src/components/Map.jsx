@@ -1,9 +1,11 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ReactMapGL, { Source, Layer } from 'react-map-gl';
 
 const Map = (currentPanel) => {
   console.log(currentPanel)
+  const [width, setWidth] = useState(0)
+  const [height, setHeight] = useState(0)
   const [viewport, setViewport] = useState({
     width: 400,
     height: 400,
@@ -24,6 +26,13 @@ const Map = (currentPanel) => {
     'source-layer': 'Basemap',
   };
 
+  useEffect(() => {
+     if (typeof window !== "undefined") {
+      setHeight(window.innerHeight)
+      setWidth(window.innerWidth - 350)
+    }
+  }, [])
+
   return (
     <div className="map">
       <ReactMapGL
@@ -31,9 +40,10 @@ const Map = (currentPanel) => {
         {...viewport}
         onViewportChange={nextViewport => setViewport(nextViewport)}
         mapboxApiAccessToken={'pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg'}
-        width={200}
-        height={100}
+        width={width}
+        height={height}
         scrollZoom={false}
+        dragPan={false}
       >
         <Source id="Zoning Atlas" type="vector" url="mapbox://ihill.85scb4pn">
           <Layer {...layer} 
