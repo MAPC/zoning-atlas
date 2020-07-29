@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
-import ReactMapGL from 'react-map-gl';
+import ReactMapGL, { Source, Layer } from 'react-map-gl';
 
 const Map = (currentPanel) => {
-  const [innerWidth, setWidth] = useState(window.innerWidth - 350)
+  console.log(currentPanel)
   const [viewport, setViewport] = useState({
     width: 400,
     height: 400,
@@ -18,6 +18,29 @@ const Map = (currentPanel) => {
     ],
   });
 
+  const layer = {
+    id: 'Basemap',
+    type: 'fill',
+    'source-layer': 'Basemap',
+    // paint: {
+    //   'fill-color': [
+    //     "match",
+    //     ["get", "ZONE_TYPE"],
+    //     0,
+    //     "#dadada",
+    //     [1],
+    //     "#fffdbc",
+    //     [2],
+    //     "#940003",
+    //     [3],
+    //     "#dd8608",
+    //     [4],
+    //     "#BDD08D",
+    //     "hsl(0, 5%, 36%)"
+    //   ]
+    // }
+  };
+
   return (
     <div className="map">
       <ReactMapGL
@@ -25,10 +48,30 @@ const Map = (currentPanel) => {
         {...viewport}
         onViewportChange={nextViewport => setViewport(nextViewport)}
         mapboxApiAccessToken={'pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg'}
-        width={innerWidth}
+        width={window.innerWidth - 350}
         height={window.innerHeight}
         scrollZoom={false}
-      />
+      >
+        <Source id="Zoning Atlas" type="vector" url="mapbox://ihill.85scb4pn">
+          <Layer {...layer} 
+          paint={{
+            'fill-color': ["match",
+                ["get", "ZONE_TYPE"],
+                0,
+                "#dadada",
+                [1],
+                "#fffdbc",
+                [2],
+                "#940003",
+                [3],
+                "#dd8608",
+                [4],
+                "#BDD08D",
+                "hsl(0, 5%, 36%)"
+              ]
+            }}/>
+        </Source>
+      </ReactMapGL>
     </div>
   );
 }
