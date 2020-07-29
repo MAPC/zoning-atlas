@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: '/zoning-atlas',
   siteMetadata: {
     title: `MAPC Zoning Atlas - Staging`,
     description: `Staging and experimental site for MAPC Zoning Atlas`,
