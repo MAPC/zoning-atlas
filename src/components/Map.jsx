@@ -22,23 +22,6 @@ const Map = (currentPanel) => {
     id: 'Basemap',
     type: 'fill',
     'source-layer': 'Basemap',
-    // paint: {
-    //   'fill-color': [
-    //     "match",
-    //     ["get", "ZONE_TYPE"],
-    //     0,
-    //     "#dadada",
-    //     [1],
-    //     "#fffdbc",
-    //     [2],
-    //     "#940003",
-    //     [3],
-    //     "#dd8608",
-    //     [4],
-    //     "#BDD08D",
-    //     "hsl(0, 5%, 36%)"
-    //   ]
-    // }
   };
 
   return (
@@ -48,8 +31,8 @@ const Map = (currentPanel) => {
         {...viewport}
         onViewportChange={nextViewport => setViewport(nextViewport)}
         mapboxApiAccessToken={'pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg'}
-        width={window.innerWidth - 350}
-        height={window.innerHeight}
+        width={200}
+        height={100}
         scrollZoom={false}
       >
         <Source id="Zoning Atlas" type="vector" url="mapbox://ihill.85scb4pn">
