@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 p {
   margin: 1rem 0;
 }
@@ -15,16 +19,17 @@ p {
   position: sticky;
   right: 0;
   top: 0;
-  width: calc(100vw - 340px);
+  width: calc(100% - 340px);
 }
 
 .sidebar {
-  width: 320px;
+  width: 340px;
 }
 
 .panel {
   opacity: .5;
   padding: 2rem 3rem;
+  width: 360px;
 
   &--active {
     opacity: 1;
@@ -41,3 +46,35 @@ p {
   flex-direction: row;
 }
 
+@media only screen and (max-width: 500px) {
+  main {
+    width: 100%;
+  }
+
+  .sidebar {
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+  }
+
+  .map {
+    height: 100%;
+    width: 100%;
+  }
+
+  .panel {
+    background: white;
+    padding: 1rem;
+    position: relative;
+    margin: 0 auto;
+    z-index: 20;
+  }
+
+  .panel:not(:first-child) {
+    margin: 50vh auto 100vh auto;
+  }
+
+  .panel:last-child {
+    margin: 50vh auto 0 auto;
+  }
+}
