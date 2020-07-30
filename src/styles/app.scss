@@ -2,12 +2,20 @@ p {
   margin: 1rem 0;
 }
 
+.storymap {
+  &__wrapper {
+    display: block;
+  }
+}
+
 .map {
-  bottom: 0;
-  position: fixed;
+  float: right;
+  height: 100vh;
+  max-height: 100vh;
+  position: sticky;
   right: 0;
   top: 0;
-  width: calc(100% - 320px);
+  width: calc(100vw - 340px);
 }
 
 .sidebar {

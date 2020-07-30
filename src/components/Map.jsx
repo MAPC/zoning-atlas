@@ -29,7 +29,7 @@ const Map = (currentPanel) => {
   useEffect(() => {
      if (typeof window !== "undefined") {
       setHeight(window.innerHeight)
-      setWidth(window.innerWidth - 350)
+      setWidth(window.innerWidth - 340)
     }
   }, [])
 
