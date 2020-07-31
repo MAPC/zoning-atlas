@@ -33,7 +33,7 @@ const Map = (currentPanel) => {
        if (window.innerWidth > 500) {
         setWidth(window.innerWidth - 340)
        } else {
-        setWidth(window.innerWidth)
+        setWidth(1000)
        }
     }
   }, [])

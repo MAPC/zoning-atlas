@@ -8,8 +8,17 @@ p {
 
 .storymap {
   &__wrapper {
-    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
   }
+}
+
+.storymap__wrapper > * {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .map {
@@ -23,13 +32,12 @@ p {
 }
 
 .sidebar {
-  width: 340px;
+  max-width: 20rem;
 }
 
 .panel {
   opacity: .5;
   padding: 2rem 3rem;
-  width: 360px;
 
   &--active {
     opacity: 1;
