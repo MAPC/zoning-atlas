@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import ReactMapGL, {getMap} from 'react-map-gl';
+import ReactMapGL from 'react-map-gl';
 import * as Compare from 'mapbox-gl-compare';
 
 const MapSliderContainer = () => {
@@ -20,51 +20,40 @@ const MapSliderContainer = () => {
   const before = React.createRef();
   const after = React.createRef();
   useEffect(() => {
-    const map = new Compare(
+    new Compare(
       before.current.getMap(),
       after.current.getMap(),
-      '.map__wrapper',
+      '.comparison__wrapper',
       {}
     )
   }, [])
   return (
-    <div className="map__wrapper" id="#comparison-container">
+    <div className="comparison__wrapper">
       <ReactMapGL
         mapStyle={'mapbox://styles/ihill/ckbr0gjxb2cwh1iplxlmt01bh'}
         {...viewport}
         onViewportChange={nextViewport => setViewport(nextViewport)}
         mapboxApiAccessToken={'pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg'}
-        width={500}
-        height={500}
+        width={'100%'}
+        height={'100%'}
         scrollZoom={false}
         dragPan={false}
-        className="before"
+        className="comparison comparison__before"
         ref={before}
-        style={{
-            position: 'absolute',
-            top: 0,
-            bottom: 0,
-            width: '100%',
-        }}
-        // ref={ref => ref && setMap(ref.getMap())}
+        style={{position: 'absolute'}}
       />
       <ReactMapGL
         mapStyle={'mapbox://styles/ihill/ckb7xc2iq1sxf1ip9rdi5x0u6'}
         {...viewport}
         onViewportChange={nextViewport => setViewport(nextViewport)}
         mapboxApiAccessToken={'pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg'}
-        width={500}
-        height={500}
+        width={'100%'}
+        height={'100%'}
         scrollZoom={false}
         dragPan={false}
-        className="after"
+        className="comparison comparison__after"
         ref={after}
-        style={{
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          width: '100%',
-      }}
+        style={{position: 'absolute'}}
       />
     </div>
   );

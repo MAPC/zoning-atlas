@@ -49,6 +49,18 @@ p {
   flex-direction: row;
 }
 
+.comparison {
+  bottom: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  &__wrapper {
+    height: 100%;
+    width: 100%;
+  }
+}
+
 @media only screen and (max-width: 500px) {
   $marginSize: 1rem;
   $paddingSize: 1rem;
