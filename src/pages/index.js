@@ -1,9 +1,8 @@
-import React, { useState } from "react"
+import React from "react"
 import Storymap from '../components/Storymap';
 import '../styles/app.scss'
 
 export default function Home() {
-  const [currentPanel, setCurrentPanel] = useState();
   return (
     <>
       <h1>Zoning Atlas</h1>

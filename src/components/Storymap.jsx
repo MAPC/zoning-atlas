@@ -6,8 +6,8 @@ const Storymap = () => {
   const [currentPanel, setCurrentPanel] = useState();
   return (
     <section className="storymap__wrapper">
-      <Map currentPanel={currentPanel} />
       <Sidebar setCurrentPanel={setCurrentPanel} />
+      <Map currentPanel={currentPanel} />
     </section>
   );
 }
