@@ -1,4 +1,3 @@
-console.log(__dirname)
 module.exports = {
   pathPrefix: '/zoning-atlas',
   siteMetadata: {
