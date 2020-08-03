@@ -1,3 +1,4 @@
+console.log(__dirname)
 module.exports = {
   pathPrefix: '/zoning-atlas',
   siteMetadata: {
@@ -12,7 +13,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `/src/images`,
+        path: `${__dirname}/src/images`,
       },
     },
     `gatsby-transformer-sharp`,
