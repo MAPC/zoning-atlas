@@ -44,25 +44,24 @@ p {
   }
 }
 
-.legend__wrapper {
-  position: fixed;
-  top: 0;
-}
-
 .mapboxgl-ctrl-top-left {
   display: flex;
   flex-direction: row;
 }
 
 @media only screen and (max-width: 500px) {
+  $marginSize: 1rem;
+  $paddingSize: 1rem;
+  $panelOffset: $marginSize + $marginSize + $paddingSize + $paddingSize;
+
   main {
     width: 100%;
   }
 
   .sidebar {
-    margin: 0 auto;
-    position: relative;
-    width: 100%;
+    max-width: unset;
+    width: 100vw;
+    z-index: 20;
   }
 
   .map {
@@ -72,17 +71,9 @@ p {
 
   .panel {
     background: white;
+    margin: 50vh $marginSize;
     padding: 1rem;
     position: relative;
-    margin: 0 auto;
-    z-index: 20;
-  }
-
-  .panel:not(:first-child) {
-    margin: 50vh auto 100vh auto;
-  }
-
-  .panel:last-child {
-    margin: 50vh auto 0 auto;
+    width: calc(100vw - #{$panelOffset});
   }
 }
