@@ -6,7 +6,9 @@ module.exports = {
     description: `Staging and experimental site for MAPC Zoning Atlas`,
     author: `@mapcmetroboston`,
   },
+  
   plugins: [
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
