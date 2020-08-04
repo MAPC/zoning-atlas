@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import ReactMapGL from 'react-map-gl';
-import * as Compare from 'mapbox-gl-compare';
+import Compare from 'mapbox-gl-compare';
 
 const MapSliderContainer = () => {
   const [viewport, setViewport] = useState({
@@ -19,14 +19,12 @@ const MapSliderContainer = () => {
   });
   const before = React.createRef();
   const after = React.createRef();
+
   useEffect(() => {
-    new Compare(
-      before.current.getMap(),
-      after.current.getMap(),
-      '.comparison__wrapper',
-      {}
-    )
-  }, [])
+    if (before.current.getMap() && after.current.getMap()) {
+      new Compare(before.current.getMap(), after.current.getMap(), '.comparison__wrapper');
+    }
+  }, [before.current, after.current])
   return (
     <div className="comparison__wrapper">
       <ReactMapGL
