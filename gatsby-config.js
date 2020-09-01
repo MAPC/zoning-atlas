@@ -11,6 +11,14 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: "gatsby-source-pg",
+      options: {
+        connectionString: `postgres://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.HOST}/zoningatlas_testing`,
+        schema: "public",
+        refetchInterval: 60, // Refetch data every 60 seconds
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,

@@ -1,25 +1,22 @@
 import React, { useMemo } from "react"
 import { Helmet } from "react-helmet"
 import { useTable } from 'react-table'
+import { graphql } from 'gatsby'
 
-export default function Tabular() {
-  const data = useMemo(() => [{
-      col1: 'Hello',
-      col2: 'World',
-    }, {
-      col1: 'react-table',
-      col2: 'rocks',
-    }, {
-      col1: 'whatever',
-      col2: 'you want',
-    },
-  ], [])
+export default function Tabular({data}) {
+  data = useMemo(() => data.postgres.allUserIssues.nodes, [])
   const columns = useMemo(() => [{
-      Header: 'Column 1',
-      accessor: 'col1', // accessor is the "key" in the data
+      Header: 'Name',
+      accessor: 'name', // accessor is the "key" in the data
     }, {
-      Header: 'Column 2',
-      accessor: 'col2',
+      Header: 'Description',
+      accessor: 'description',
+    }, {
+      Header: 'Type',
+      accessor: 'type',
+    }, {
+      Header: 'Primary Requestor',
+      accessor: 'primaryRequestor',
     },
   ], [])
   const tableInstance = useTable({ columns, data })
@@ -37,7 +34,7 @@ export default function Tabular() {
       />
       <h1>Zoning Atlas</h1>
       <table {...getTableProps()}>
-        <thead> {
+        <thead>{
           headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>{
             headerGroup.headers.map(column => (
@@ -68,3 +65,18 @@ export default function Tabular() {
     </>
   )
 }
+
+export const data = graphql`
+  query {
+    postgres {
+      allUserIssues {
+        nodes {
+          name
+          description
+          type
+          primaryRequestor
+        }
+      }
+    }
+  }
+`
