@@ -1,6 +1,6 @@
 import React, { useMemo } from "react"
 import { Helmet } from "react-helmet"
-import { useTable, usePagination } from 'react-table'
+import { useTable, usePagination, useSortBy } from 'react-table'
 import { graphql } from 'gatsby'
 
 export default function Tabular({data}) {
@@ -35,7 +35,7 @@ export default function Tabular({data}) {
       accessor: 'multifam',
     }
   ], [])
-  const tableInstance = useTable({ columns, data, initialState: { pageSize: 20 } }, usePagination)
+  const tableInstance = useTable({ columns, data, initialState: { pageSize: 20 } }, useSortBy, usePagination)
   const {
     getTableProps,
     getTableBodyProps,
@@ -61,8 +61,15 @@ export default function Tabular({data}) {
           headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>{
             headerGroup.headers.map(column => (
-              <th {...column.getHeaderProps()}>{
+              <th {...column.getHeaderProps(column.getSortByToggleProps())}>{
                 column.render('Header')}
+                <span>
+                  {column.isSorted
+                    ? column.isSortedDesc
+                      ? ' 🔽'
+                      : ' 🔼'
+                    : ''}
+                </span>
               </th>
             ))}
           </tr>
