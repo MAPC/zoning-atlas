@@ -4,20 +4,36 @@ import { useTable } from 'react-table'
 import { graphql } from 'gatsby'
 
 export default function Tabular({data}) {
-  data = useMemo(() => data.postgres.allUserIssues.nodes, [])
+  data = useMemo(() => data.postgres.allDraftDatabasesList.map((row) => {
+    return {
+      mnlsOve: row.mnlsOve,
+      multifam: row.multifam,
+      muni: row.muni,
+      zoCode: row.zoCode,
+      zoName: row.zoName,
+      zoUsety: row.zoUsety
+    }
+  }), [])
   const columns = useMemo(() => [{
-      Header: 'Name',
-      accessor: 'name', // accessor is the "key" in the data
+      Header: 'Municipality',
+      accessor: 'muni', // accessor is the "key" in the data
     }, {
-      Header: 'Description',
-      accessor: 'description',
+      Header: 'Zoning Name',
+      accessor: 'zoName',
     }, {
-      Header: 'Type',
-      accessor: 'type',
+      Header: 'Zoning Code',
+      accessor: 'zoCode',
     }, {
-      Header: 'Primary Requestor',
-      accessor: 'primaryRequestor',
+      Header: 'Zoning Usety',
+      accessor: 'zoUsety',
+    }, {
+      Header: 'Zoning mnlsOve',
+      accessor: 'mnlsOve',
     },
+    {
+      Header: 'Multifamily Housing',
+      accessor: 'multifam',
+    }
   ], [])
   const tableInstance = useTable({ columns, data })
   const {
@@ -69,13 +85,13 @@ export default function Tabular({data}) {
 export const data = graphql`
   query {
     postgres {
-      allUserIssues {
-        nodes {
-          name
-          description
-          type
-          primaryRequestor
-        }
+      allDraftDatabasesList {
+        mnlsOve
+        multifam
+        muni
+        zoCode
+        zoName
+        zoUsety
       }
     }
   }
