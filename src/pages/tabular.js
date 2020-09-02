@@ -1,6 +1,6 @@
 import React, { useMemo } from "react"
 import { Helmet } from "react-helmet"
-import { useTable } from 'react-table'
+import { useTable, usePagination } from 'react-table'
 import { graphql } from 'gatsby'
 
 export default function Tabular({data}) {
@@ -35,13 +35,20 @@ export default function Tabular({data}) {
       accessor: 'multifam',
     }
   ], [])
-  const tableInstance = useTable({ columns, data })
+  const tableInstance = useTable({ columns, data, initialState: { pageSize: 20 } }, usePagination)
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    rows,
+    page,
     prepareRow,
+    canPreviousPage,
+    canNextPage,
+    previousPage,
+    nextPage,
+    gotoPage,
+    pageCount,
+    state: { pageIndex, pageSize },
   } = tableInstance
   return (
     <>
@@ -61,14 +68,14 @@ export default function Tabular({data}) {
           </tr>
           ))}
         </thead>
-        <tbody {...getTableBodyProps()}>{// Loop over the table rows
-          rows.map(row => {
+        <tbody {...getTableBodyProps()}>{
+          page.map(row => {
             prepareRow(row)
             return (
-              <tr {...row.getRowProps()}>{// Loop over the rows cells
+              <tr {...row.getRowProps()}>{
                 row.cells.map(cell => {
                   return (
-                    <td {...cell.getCellProps()}>{// Render the cell contents
+                    <td {...cell.getCellProps()}>{
                       cell.render('Cell')}
                     </td>
                   )
@@ -78,6 +85,22 @@ export default function Tabular({data}) {
           })}
         </tbody>
       </table>
+      <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+        {'<<'}
+      </button>{' '}
+      <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+        {'<'}
+      </button>
+      {' '}
+      <span>
+        Page {pageIndex + 1} of {pageCount}
+      </span>
+      <button onClick={() => nextPage()} disabled={!canNextPage}>
+        {'>'}
+      </button>
+      <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+        {'>>'}
+      </button>{' '}
     </>
   )
 }
