@@ -6,9 +6,11 @@ import Table from '../components/Table';
 import TableFilters from '../components/TableFilters';
 import TablePagination from '../components/TablePagination';
 
-function SelectColumnFilter({
+function MultiSelectColumnFilter({
   column: { filterValue, setFilter, preFilteredRows, id },
 }) {
+  // Calculate the options for filtering
+  // using the preFilteredRows
   const options = React.useMemo(() => {
     const options = new Set()
     preFilteredRows.forEach(row => {
@@ -16,11 +18,18 @@ function SelectColumnFilter({
     })
     return [...options.values()]
   }, [id, preFilteredRows])
+
+  // Render a multi-select box
   return (
     <select
+      multiple // this prop for multiselect
       value={filterValue}
+      // an appropriate multiselect handler (use Ctrl key to select multiple)
       onChange={e => {
-        setFilter(e.target.value || undefined)
+        const allValues = Array.from(
+          e.target.selectedOptions,
+        ).map(o => o.value).filter(Boolean)
+        setFilter(allValues && allValues .length ? allValues : undefined);
       }}
     >
       <option value="">All</option>
@@ -36,19 +45,17 @@ function SelectColumnFilter({
 export default function Tabular({data}) {
   const filterTypes = React.useMemo(
     () => ({
-      text: (rows, id, filterValue) => {
+      multiple: (rows, id, filterValue) => {
         return rows.filter(row => {
-          const rowValue = row.values[id]
+          const rowValue = row.values[id];
           return rowValue !== undefined
-            ? String(rowValue)
-                .toLowerCase()
-                .startsWith(String(filterValue).toLowerCase())
-            : true
-        })
-      },
+            ? filterValue.includes(rowValue)
+            : true;
+        });
+      }
     }),
     []
-  )
+  );
 
   const defaultColumn = React.useMemo(() => ({
       Filter: () => { return <div/>},
@@ -67,8 +74,8 @@ export default function Tabular({data}) {
   const columns = useMemo(() => [{
       Header: 'Municipality',
       accessor: 'muni',
-      Filter: SelectColumnFilter,
-      filter: 'includes',
+      Filter: MultiSelectColumnFilter,
+      filter: "multiple"
     }, {
       Header: 'Zoning Name',
       accessor: 'zoName',
@@ -123,7 +130,7 @@ export default function Tabular({data}) {
     useSortBy,
     usePagination
   )
-  headerGroups.map(headerGroup => (headerGroup.headers.map(column => console.log(column))))
+  // headerGroups.map(headerGroup => (headerGroup.headers.map(column => console.log(column))))
 
   return (
     <>
@@ -131,25 +138,29 @@ export default function Tabular({data}) {
         title={"Zoning Atlas - Tabular Data"}
       />
       <h1>Zoning Atlas</h1>
-      <TableFilters
-        headerGroups={headerGroups}
-      />
-      <Table 
-        getTableProps={getTableProps}
-        getTableBodyProps={getTableBodyProps}
-        headerGroups={headerGroups}
-        page={page}
-        prepareRow={prepareRow}
-      />
-      <TablePagination
-        gotoPage={gotoPage}
-        previousPage={previousPage}
-        canPreviousPage={canPreviousPage}
-        nextPage={nextPage}
-        canNextPage={canNextPage}
-        pageIndex={pageIndex}
-        pageCount={pageCount}
-      />
+      <div className="tabular-data__wrapper">
+        <TableFilters
+          headerGroups={headerGroups}
+        />
+        <div className="tabular-data">
+          <Table 
+            getTableProps={getTableProps}
+            getTableBodyProps={getTableBodyProps}
+            headerGroups={headerGroups}
+            page={page}
+            prepareRow={prepareRow}
+          />
+          <TablePagination
+            gotoPage={gotoPage}
+            previousPage={previousPage}
+            canPreviousPage={canPreviousPage}
+            nextPage={nextPage}
+            canNextPage={canNextPage}
+            pageIndex={pageIndex}
+            pageCount={pageCount}
+          />
+        </div>
+      </div>
     </>
   )
 }
