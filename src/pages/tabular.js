@@ -1,9 +1,56 @@
 import React, { useMemo } from "react"
 import { Helmet } from "react-helmet"
-import { useTable, usePagination, useSortBy } from 'react-table'
+import { useTable, usePagination, useSortBy, useFilters } from 'react-table'
 import { graphql } from 'gatsby'
 
+function SelectColumnFilter({
+  column: { filterValue, setFilter, preFilteredRows, id },
+}) {
+  const options = React.useMemo(() => {
+    const options = new Set()
+    preFilteredRows.forEach(row => {
+      options.add(row.values[id])
+    })
+    return [...options.values()]
+  }, [id, preFilteredRows])
+  return (
+    <select
+      value={filterValue}
+      onChange={e => {
+        setFilter(e.target.value || undefined)
+      }}
+    >
+      <option value="">All</option>
+      {options.map((option, i) => (
+        <option key={i} value={option}>
+          {option}
+        </option>
+      ))}
+    </select>
+  )
+}
+
 export default function Tabular({data}) {
+  const filterTypes = React.useMemo(
+    () => ({
+      text: (rows, id, filterValue) => {
+        return rows.filter(row => {
+          const rowValue = row.values[id]
+          return rowValue !== undefined
+            ? String(rowValue)
+                .toLowerCase()
+                .startsWith(String(filterValue).toLowerCase())
+            : true
+        })
+      },
+    }),
+    []
+  )
+
+  const defaultColumn = React.useMemo(() => ({
+      Filter: () => { return <div/>},
+    }), [])
+
   data = useMemo(() => data.postgres.allDraftDatabasesList.map((row) => {
     return {
       mnlsOve: row.mnlsOve,
@@ -16,26 +63,37 @@ export default function Tabular({data}) {
   }), [])
   const columns = useMemo(() => [{
       Header: 'Municipality',
-      accessor: 'muni', // accessor is the "key" in the data
+      accessor: 'muni',
+      Filter: SelectColumnFilter,
+      filter: 'includes',
     }, {
       Header: 'Zoning Name',
       accessor: 'zoName',
+      defaultCanFilter: false,
+      canFilter: false,
     }, {
       Header: 'Zoning Code',
       accessor: 'zoCode',
+      defaultCanFilter: false,
+      canFilter: false,
     }, {
       Header: 'Zoning Usety',
       accessor: 'zoUsety',
+      defaultCanFilter: false,
+      canFilter: false,
     }, {
       Header: 'Zoning mnlsOve',
       accessor: 'mnlsOve',
+      defaultCanFilter: false,
+      canFilter: false,
     },
     {
       Header: 'Multifamily Housing',
       accessor: 'multifam',
+      defaultCanFilter: false,
+      canFilter: false,
     }
   ], [])
-  const tableInstance = useTable({ columns, data, initialState: { pageSize: 20 } }, useSortBy, usePagination)
   const {
     getTableProps,
     getTableBodyProps,
@@ -48,14 +106,35 @@ export default function Tabular({data}) {
     nextPage,
     gotoPage,
     pageCount,
-    state: { pageIndex, pageSize },
-  } = tableInstance
+    state: { pageIndex },
+  } = useTable(
+  {
+    columns,
+    data,
+    initialState: { pageSize: 20 },
+    defaultColumn,
+    filterTypes,
+    defaultCanFilter: false,
+  },
+    useFilters,
+    useSortBy,
+    usePagination
+  )
+  headerGroups.map(headerGroup => (headerGroup.headers.map(column => console.log(column))))
+
   return (
     <>
       <Helmet
         title={"Zoning Atlas - Tabular Data"}
       />
       <h1>Zoning Atlas</h1>
+      <div>
+        {headerGroups.map(headerGroup => (
+          headerGroup.headers.map(column => (
+            column.canFilter ? column.render('Filter') : null
+          ))
+        ))}
+      </div>
       <table {...getTableProps()}>
         <thead>{
           headerGroups.map(headerGroup => (
