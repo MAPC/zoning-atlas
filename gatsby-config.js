@@ -1,3 +1,6 @@
+require('dotenv').config({
+  path: `.ENV`
+});
 module.exports = {
   pathPrefix: '/zoning-atlas',
   siteMetadata: {
@@ -14,6 +17,7 @@ module.exports = {
       resolve: "gatsby-source-pg",
       options: {
         connectionString: `postgres://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.HOST}/zoningatlas_testing`,
+        // connectionString: 'postgres:///gatsby_example',
         schema: "public",
         refetchInterval: 60, // Refetch data every 60 seconds
       },
