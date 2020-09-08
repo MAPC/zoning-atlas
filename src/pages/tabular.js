@@ -19,6 +19,7 @@ function MultiSelectColumnFilter({
   }, [id, preFilteredRows])
 
   useEffect(() => {
+    console.log('Update state')
     setFilter(selectedMunis)
   }, [selectedMunis])
   return (
@@ -29,8 +30,13 @@ function MultiSelectColumnFilter({
           onClick={(e) => {
             if (selectedMunis === undefined) {
               setSelectedMunis([e.target.innerText])
-            } else if (!selectedMunis.includes([e.target.innerText])) {
+            } else if (!selectedMunis.includes(e.target.innerText)) {
               setSelectedMunis(selectedMunis.concat([e.target.innerText]))
+            } else if (selectedMunis.includes(e.target.innerText) && selectedMunis.length > 1) {
+              const selectedIndex = selectedMunis.indexOf(e.target.innerText)
+              setSelectedMunis(selectedMunis.slice(0, selectedIndex).concat(selectedMunis.slice(selectedIndex+1)))
+            } else {
+              setSelectedMunis(undefined)
             }
           }}
         >
