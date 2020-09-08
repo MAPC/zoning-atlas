@@ -1,51 +1,11 @@
-import React, { useMemo, useState, useEffect } from "react"
+import React, { useMemo } from "react"
 import { Helmet } from "react-helmet"
 import { useTable, usePagination, useSortBy, useFilters } from 'react-table'
 import { graphql } from 'gatsby'
 import Table from '../components/Table';
 import TableFilters from '../components/TableFilters';
 import TablePagination from '../components/TablePagination';
-
-function MultiSelectColumnFilter({
-  column: { filterValue, setFilter, preFilteredRows, id },
-}) {
-  const [selectedMunis, setSelectedMunis] = useState()
-  const options = React.useMemo(() => {
-    const options = new Set()
-    preFilteredRows.forEach(row => {
-      options.add(row.values[id])
-    })
-    return [...options.values()]
-  }, [id, preFilteredRows])
-
-  useEffect(() => {
-    console.log('Update state')
-    setFilter(selectedMunis)
-  }, [selectedMunis])
-  return (
-    <ul>
-      {options.map((option, i) => (
-        <li
-          key={`option-${i}`}
-          onClick={(e) => {
-            if (selectedMunis === undefined) {
-              setSelectedMunis([e.target.innerText])
-            } else if (!selectedMunis.includes(e.target.innerText)) {
-              setSelectedMunis(selectedMunis.concat([e.target.innerText]))
-            } else if (selectedMunis.includes(e.target.innerText) && selectedMunis.length > 1) {
-              const selectedIndex = selectedMunis.indexOf(e.target.innerText)
-              setSelectedMunis(selectedMunis.slice(0, selectedIndex).concat(selectedMunis.slice(selectedIndex+1)))
-            } else {
-              setSelectedMunis(undefined)
-            }
-          }}
-        >
-          {option}
-        </li>
-      ))}
-    </ul>
-  )
-}
+import MultiSelectColumnFilter from '../components/MultiSelectColumnFilter'
 
 export default function Tabular({data}) {
   const filterTypes = React.useMemo(
@@ -135,7 +95,6 @@ export default function Tabular({data}) {
     useSortBy,
     usePagination
   )
-  // headerGroups.map(headerGroup => (headerGroup.headers.map(column => console.log(column))))
 
   return (
     <>
