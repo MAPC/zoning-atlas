@@ -1,4 +1,4 @@
-import React, { useMemo } from "react"
+import React, { useMemo, useState, useEffect } from "react"
 import { Helmet } from "react-helmet"
 import { useTable, usePagination, useSortBy, useFilters } from 'react-table'
 import { graphql } from 'gatsby'
@@ -9,8 +9,7 @@ import TablePagination from '../components/TablePagination';
 function MultiSelectColumnFilter({
   column: { filterValue, setFilter, preFilteredRows, id },
 }) {
-  // Calculate the options for filtering
-  // using the preFilteredRows
+  const [selectedMunis, setSelectedMunis] = useState()
   const options = React.useMemo(() => {
     const options = new Set()
     preFilteredRows.forEach(row => {
@@ -19,26 +18,26 @@ function MultiSelectColumnFilter({
     return [...options.values()]
   }, [id, preFilteredRows])
 
-  // Render a multi-select box
+  useEffect(() => {
+    setFilter(selectedMunis)
+  }, [selectedMunis])
   return (
-    <select
-      multiple // this prop for multiselect
-      value={filterValue}
-      // an appropriate multiselect handler (use Ctrl key to select multiple)
-      onChange={e => {
-        const allValues = Array.from(
-          e.target.selectedOptions,
-        ).map(o => o.value).filter(Boolean)
-        setFilter(allValues && allValues .length ? allValues : undefined);
-      }}
-    >
-      <option value="">All</option>
+    <ul>
       {options.map((option, i) => (
-        <option key={i} value={option}>
+        <li
+          key={`option-${i}`}
+          onClick={(e) => {
+            if (selectedMunis === undefined) {
+              setSelectedMunis([e.target.innerText])
+            } else if (!selectedMunis.includes([e.target.innerText])) {
+              setSelectedMunis(selectedMunis.concat([e.target.innerText]))
+            }
+          }}
+        >
           {option}
-        </option>
+        </li>
       ))}
-    </select>
+    </ul>
   )
 }
 
@@ -75,7 +74,7 @@ export default function Tabular({data}) {
       Header: 'Municipality',
       accessor: 'muni',
       Filter: MultiSelectColumnFilter,
-      filter: "multiple"
+      filter: "multiple",
     }, {
       Header: 'Zoning Name',
       accessor: 'zoName',
