@@ -15,3 +15,9 @@ jobs:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: gh-pages
           gatsby-args: --prefix-paths
+      - name: set-env
+        uses: allenevans/set-env@v1.1.0
+        with:
+          DB_PASS: ${{ secrets.DB_PASS }}
+          DB_USER: ${{ secrets.DB_USER }}
+          HOST: ${{ secrets.HOST }}
