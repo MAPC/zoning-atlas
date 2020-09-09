@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 function MultiSelectColumnFilter({
   column: { filterValue, setFilter, preFilteredRows, id },
@@ -11,18 +11,33 @@ function MultiSelectColumnFilter({
     })
     return [...options.values()]
   }, [id, preFilteredRows])
+
+  useEffect(() => {
+    document.querySelectorAll('.filters__option').forEach((row) => {
+      if (filterValue) {
+        if (filterValue.includes (row.getAttribute('data-value'))) {
+          row.classList.add('filters__option--active')
+          row.querySelector('.filters__button').classList.add('filters__button--active')
+        } else {
+          row.classList.remove('filters__option--active')
+          row.querySelector('.filters__button').classList.remove('filters__button--active')
+        }
+      } else {
+        row.classList.remove('filters__option--active')
+        row.querySelector('.filters__button').classList.remove('filters__button--active')
+      }
+    })
+  }, [filterValue, searchString])
   return (
     <>
       <input className="filters__search" type="text" placeholder="Type here to search filters by Town/City" onChange={(e) => setSearch(e.target.value.toLowerCase())} />
       <ul className="filters__list">
-        {options.filter((option) => option.toLowerCase().includes(searchString)).map((option, i) => (
+        {options.filter((option) => option.toLowerCase().includes(searchString)).sort().map((option, i) => (
           <li
+            data-value={option}
             className="filters__option"
             key={`option-${i}`}
             onClick={(e) => {
-              e.currentTarget.querySelector('.filters__button').classList.toggle('filters__button--active');
-              e.currentTarget.classList.toggle('filters__option--active');
-              e.currentTarget.querySelector('.filters__value').classList.toggle('filters__option--active');
               const muni = e.currentTarget.querySelector('.filters__value').innerText;
               if (filterValue === undefined) {
                 setFilter([muni])
