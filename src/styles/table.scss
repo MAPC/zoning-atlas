@@ -1,18 +1,12 @@
 .tabular-data {
+  overflow-x: scroll;
+  width: 400px;
   &__wrapper {
     display: flex;
   }
 }
 
 .filters {
-  border-color: #2e6c85;
-  max-height: calc(100vh - 200px);
-  width: 450px;
-
-  &__wrapper {
-    display: flex;
-  }
-
   &__list {
     height: 65vh;
     list-style: none;
