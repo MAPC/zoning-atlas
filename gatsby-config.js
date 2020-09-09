@@ -1,6 +1,7 @@
 require('dotenv').config({
   path: `.ENV`
 });
+console.log(`User for database: ${process.env.DB_USER}`)
 module.exports = {
   pathPrefix: '/zoning-atlas',
   siteMetadata: {
