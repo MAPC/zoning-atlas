@@ -17,19 +17,22 @@ function MultiSelectColumnFilter({
       if (filterValue) {
         if (filterValue.includes (row.getAttribute('data-value'))) {
           row.classList.add('filters__option--active')
+          row.querySelector('.filters__value').classList.add('filters__value--active')
           row.querySelector('.filters__button').classList.add('filters__button--active')
         } else {
           row.classList.remove('filters__option--active')
+          row.querySelector('.filters__value').classList.remove('filters__value--active')
           row.querySelector('.filters__button').classList.remove('filters__button--active')
         }
       } else {
         row.classList.remove('filters__option--active')
+        row.querySelector('.filters__value').classList.remove('filters__value--active')
         row.querySelector('.filters__button').classList.remove('filters__button--active')
       }
     })
   }, [filterValue, searchString])
   return (
-    <>
+    <div className="filters">
       <input className="filters__search" type="text" placeholder="Type here to search filters by Town/City" onChange={(e) => setSearch(e.target.value.toLowerCase())} />
       <ul className="filters__list">
         {options.filter((option) => option.toLowerCase().includes(searchString)).sort().map((option, i) => (
@@ -55,7 +58,7 @@ function MultiSelectColumnFilter({
           </li>
         ))}
       </ul>
-    </>
+    </div>
   )
 }
 
