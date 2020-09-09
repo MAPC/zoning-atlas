@@ -6,6 +6,7 @@ import Table from '../components/Table';
 import TableFilters from '../components/TableFilters';
 import TablePagination from '../components/TablePagination';
 import MultiSelectColumnFilter from '../components/MultiSelectColumnFilter'
+import '../styles/app.scss'
 
 export default function Tabular({data}) {
   const filterTypes = React.useMemo(
