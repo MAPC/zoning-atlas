@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 
 function toggleCategory(category, visibleFilter, setVisibleFilter) {
-  document.getElementById(category).classList.add('filters-panel__category--active')
   document.getElementById(visibleFilter).classList.remove('filters-panel__category--active')
+  document.getElementById(category).classList.add('filters-panel__category--active')
   setVisibleFilter(category)
 }
 
@@ -17,8 +17,6 @@ const TableFilters = ({headerGroups}) => {
     }
     return categories
   }, []);
-
-  console.log(headerGroups[0].headers)
 
   return (
     <aside className='filters-panel'>

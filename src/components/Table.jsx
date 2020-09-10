@@ -5,6 +5,7 @@ const Table = ({getTableProps,
   headerGroups,
   page,
   prepareRow}) => {
+
   return (
     <table {...getTableProps()}>
     <thead>{
@@ -29,7 +30,7 @@ const Table = ({getTableProps,
       page.map(row => {
         prepareRow(row)
         return (
-          <tr {...row.getRowProps()}>{
+          <tr {...row.getRowProps()} className="row">{
             row.cells.map(cell => {
               return (
                 <td {...cell.getCellProps()}>{

@@ -1,7 +1,20 @@
 .tabular-data {
-  overflow-x: scroll;
-  width: 400px;
+  width: calc(100% - 500px);
   &__wrapper {
     display: flex;
+  }
+}
+
+.row {
+  line-height: 1.5rem;
+}
+
+.cell {
+  &__item {
+    background: red;
+    border-radius: 5px;
+    display: inline-block;
+    margin: .25rem;
+    padding: .25rem;
   }
 }

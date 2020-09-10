@@ -28,12 +28,13 @@ export default function Tabular({data}) {
     }), [])
 
   data = useMemo(() => data.postgres.allDraftDatabasesList.map((row) => {
+
     return {
       mnlsOve: row.mnlsOve,
       multifam: row.multifam,
       muni: row.muni,
       zoCode: row.zoCode,
-      zoName: row.zoName,
+      zoName: row.zoName.split(","),
       zoUsety: row.zoUsety
     }
   }), [])
@@ -48,7 +49,8 @@ export default function Tabular({data}) {
       accessor: 'zoName',
       Filter: MultiSelectColumnFilter,
       filter: "multiple",
-      searchText: 'Type here to search filters by Zoning Name'
+      searchText: 'Type here to search filters by Zoning Name',
+      Cell: ({value}) => value.map(item => <span className="cell__item">{item}</span>)
     }, {
       Header: 'Zoning Code',
       accessor: 'zoCode',

@@ -6,12 +6,17 @@ function MultiSelectColumnFilter({
   const [searchString, setSearch] = useState('');
   const options = React.useMemo(() => {
     const options = new Set()
-    preFilteredRows.forEach(row => {
-      options.add(row.values[id])
+    preFilteredRows.forEach((row) => {
+      if (Array.isArray(row.values[id])) {
+        row.values[id].forEach(entry => {
+          options.add(entry)
+        })
+      } else {
+        options.add(row.values[id])
+      }
     })
     return [...options.values()]
   }, [id, preFilteredRows])
-
   useEffect(() => {
     document.querySelectorAll('.filters__option').forEach((row) => {
       if (filterValue) {
@@ -31,6 +36,7 @@ function MultiSelectColumnFilter({
       }
     })
   }, [filterValue, searchString])
+  // console.log(options)
 
   return (
     <div className="filters">
