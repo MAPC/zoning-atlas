@@ -26,6 +26,7 @@
   &__category {
     border: 0 solid #CCC;
     border-width: 0 1px 1px 0;
+    cursor: pointer;
     padding: .5rem .5rem .5rem 2rem;
 
     &:last-child {
@@ -65,26 +66,28 @@
 
   &__option {
     align-items: center;
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 3px 0;
 
     &--active {
+      font-style: italic;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
 
-      &:before {
-        background: #006E47;
-        border-radius: 50%;
-        content: '';
-        display: block;
-        height: 8px;
-        left: auto;
-        position: absolute;
-        width: 8px;
-      }
+      // &:before {
+      //   background: #006E47;
+      //   border-radius: 50%;
+      //   content: '';
+      //   display: block;
+      //   height: 8px;
+      //   left: auto;
+      //   position: absolute;
+      //   width: 8px;
+      // }
     }
   }
 

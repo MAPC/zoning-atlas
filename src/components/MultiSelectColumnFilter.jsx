@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 
 function MultiSelectColumnFilter({
-  column: { filterValue, setFilter, preFilteredRows, id },
+  column: { filterValue, setFilter, preFilteredRows, id, searchText },
 }) {
   const [searchString, setSearch] = useState('');
   const options = React.useMemo(() => {
@@ -31,9 +31,10 @@ function MultiSelectColumnFilter({
       }
     })
   }, [filterValue, searchString])
+
   return (
     <div className="filters">
-      <input className="filters__search" type="text" placeholder="Type here to search filters by Town/City" onChange={(e) => setSearch(e.target.value.toLowerCase())} />
+      <input className="filters__search" type="text" placeholder={searchText} onChange={(e) => setSearch(e.target.value.toLowerCase())} />
       <ul className="filters__list">
         {options.filter((option) => option.toLowerCase().includes(searchString)).sort().map((option, i) => (
           <li
@@ -41,13 +42,13 @@ function MultiSelectColumnFilter({
             className="filters__option"
             key={`option-${i}`}
             onClick={(e) => {
-              const muni = e.currentTarget.querySelector('.filters__value').innerText;
+              const selectedOption = e.currentTarget.querySelector('.filters__value').innerText;
               if (filterValue === undefined) {
-                setFilter([muni])
-              } else if (!filterValue.includes(muni)) {
-                setFilter(filterValue.concat([muni]))
-              } else if (filterValue.includes(muni) && filterValue.length > 1) {
-                const selectedIndex = filterValue.indexOf(muni)
+                setFilter([selectedOption])
+              } else if (!filterValue.includes(selectedOption)) {
+                setFilter(filterValue.concat([selectedOption]))
+              } else if (filterValue.includes(selectedOption) && filterValue.length > 1) {
+                const selectedIndex = filterValue.indexOf(selectedOption)
                 setFilter(filterValue.slice(0, selectedIndex).concat(filterValue.slice(selectedIndex+1)))
               } else {
                 setFilter(undefined)

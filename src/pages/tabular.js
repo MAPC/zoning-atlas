@@ -42,11 +42,13 @@ export default function Tabular({data}) {
       accessor: 'muni',
       Filter: MultiSelectColumnFilter,
       filter: "multiple",
+      searchText: 'Type here to search filters by Town/City'
     }, {
       Header: 'Zoning Name',
       accessor: 'zoName',
-      defaultCanFilter: false,
-      canFilter: false,
+      Filter: MultiSelectColumnFilter,
+      filter: "multiple",
+      searchText: 'Type here to search filters by Zoning Name'
     }, {
       Header: 'Zoning Code',
       accessor: 'zoCode',
