@@ -8,6 +8,17 @@ function toggleCategory(category, visibleFilter, setVisibleFilter) {
 
 const TableFilters = ({headerGroups}) => {
   const [visibleFilter, setVisibleFilter] = useState('muni')
+  const activeCategories = headerGroups[0].headers.reduce((categories, category) => {
+    if (category.filterValue) {
+      categories.push(category.id)
+      document.getElementById(category.id).classList.add('filters-panel__category--filtered')
+    } else if (document.getElementById(category.id)) {
+      document.getElementById(category.id).classList.remove('filters-panel__category--filtered')
+    }
+    return categories
+  }, []);
+
+  console.log(headerGroups[0].headers)
 
   return (
     <aside className='filters-panel'>

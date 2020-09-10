@@ -37,6 +37,18 @@
       border-left: 2px solid #006E47;
       padding-left: calc(2rem - 2px);
     }
+
+    &--filtered:before {
+      background: #006E47;
+      border-radius: 50%;
+      content: '';
+      display: block;
+      height: 8px;
+      left: 8px;
+      position: absolute;
+      transform: translateY(4px);
+      width: 8px;
+    }
   }
 }
 
@@ -73,27 +85,26 @@
     padding: 3px 0;
 
     &--active {
-      font-style: italic;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-
-      // &:before {
-      //   background: #006E47;
-      //   border-radius: 50%;
-      //   content: '';
-      //   display: block;
-      //   height: 8px;
-      //   left: auto;
-      //   position: absolute;
-      //   width: 8px;
-      // }
     }
   }
 
-  &__value {
-    &--active {
-      padding-left: 14px;
+  &__value--active {
+    display: flex;
+    left: 8px;
+    position: relative;
+    &:before {
+      background: #006E47;
+      border-radius: 50%;
+      content: '';
+      display: block;
+      height: 8px;
+      left: -8px;
+      position: relative;
+      top: 4px;
+      width: 8px;
     }
   }
 
