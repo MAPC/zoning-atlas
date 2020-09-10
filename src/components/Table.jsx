@@ -27,10 +27,10 @@ const Table = ({getTableProps,
       ))}
     </thead>
     <tbody {...getTableBodyProps()}>{
-      page.map(row => {
+      page.map((row) => {
         prepareRow(row)
         return (
-          <tr {...row.getRowProps()} className="row">{
+          <tr {...row.getRowProps()} className="row" key={`row-${row.id}`}>{
             row.cells.map(cell => {
               return (
                 <td {...cell.getCellProps()}>{

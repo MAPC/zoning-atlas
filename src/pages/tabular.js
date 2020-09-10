@@ -18,6 +18,15 @@ export default function Tabular({data}) {
             ? filterValue.includes(rowValue)
             : true;
         });
+      },
+      multiplePartial: (rows, id, filterValue) => {
+        console.log(filterValue)
+        return rows.filter(row => {
+          const rowValue = row.values[id];
+          return rowValue !== undefined
+            ? rowValue.includes(filterValue[filterValue.length - 1])
+            : true;
+        })
       }
     }),
     []
@@ -28,7 +37,6 @@ export default function Tabular({data}) {
     }), [])
 
   data = useMemo(() => data.postgres.allDraftDatabasesList.map((row) => {
-
     return {
       mnlsOve: row.mnlsOve,
       multifam: row.multifam,
@@ -38,6 +46,7 @@ export default function Tabular({data}) {
       zoUsety: row.zoUsety
     }
   }), [])
+
   const columns = useMemo(() => [{
       Header: 'Municipality',
       accessor: 'muni',
@@ -48,7 +57,7 @@ export default function Tabular({data}) {
       Header: 'Zoning Name',
       accessor: 'zoName',
       Filter: MultiSelectColumnFilter,
-      filter: "multiple",
+      filter: "multiplePartial",
       searchText: 'Type here to search filters by Zoning Name',
       Cell: ({value}) => value.map(item => <span className="cell__item">{item}</span>)
     }, {

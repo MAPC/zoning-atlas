@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import ReactMapGL, { Source, Layer } from 'react-map-gl';
 
 const Map = (currentPanel) => {
-  console.log(currentPanel)
+  // console.log(currentPanel)
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
   const [viewport, setViewport] = useState({

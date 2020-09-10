@@ -36,7 +36,6 @@ function MultiSelectColumnFilter({
       }
     })
   }, [filterValue, searchString])
-  // console.log(options)
 
   return (
     <div className="filters">
@@ -48,6 +47,7 @@ function MultiSelectColumnFilter({
             className="filters__option"
             key={`option-${i}`}
             onClick={(e) => {
+              // console.log(e.currentTarget.querySelector('.filters__value').innerText)
               const selectedOption = e.currentTarget.querySelector('.filters__value').innerText;
               if (filterValue === undefined) {
                 setFilter([selectedOption])
@@ -59,6 +59,7 @@ function MultiSelectColumnFilter({
               } else {
                 setFilter(undefined)
               }
+              // console.log(filterValue)
             }}>
             <span className="filters__value">{option}</span>
             <button className="filters__button">+</button>
