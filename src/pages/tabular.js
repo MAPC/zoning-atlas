@@ -56,13 +56,15 @@ export default function Tabular({data}) {
       accessor: 'muni',
       Filter: MultiSelectColumnFilter,
       filter: "multiple",
-      searchText: 'Type here to search filters by Town/City'
+      searchText: 'Type here to search filters by town/city',
+      emptyFilterText: 'No towns/cities selected'
     }, {
       Header: 'Zoning Name',
       accessor: 'zoName',
       Filter: MultiSelectColumnFilter,
       filter: "multiplePartial",
-      searchText: 'Type here to search filters by Zoning Name',
+      searchText: 'Type here to search filters by zoning name',
+      emptyFilterText: 'No zoning names selected',
       Cell: ({value, row}) => value.map(item => <span className="cell__item" key={`${value}-${row.index}`}>{item}</span>)
     }, {
       Header: 'Zoning Code',
