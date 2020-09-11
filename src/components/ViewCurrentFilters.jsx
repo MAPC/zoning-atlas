@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ViewCurrentFilters() {
+function ViewCurrentFilters({column}) {
   return (
     <div>View current filters</div>
   )

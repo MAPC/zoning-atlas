@@ -14,7 +14,6 @@ export default function Tabular({data}) {
       if (status === "apply") window.location.reload();
     });
   }
-  console.log("Tabular")
   const filterTypes = React.useMemo(
     () => ({
       multiple: (rows, id, filterValue) => {
@@ -26,7 +25,6 @@ export default function Tabular({data}) {
         });
       },
       multiplePartial: (rows, id, filterValue) => {
-        console.log(filterValue)
         return rows.filter(row => {
           const rowValue = row.values[id];
           return rowValue !== undefined

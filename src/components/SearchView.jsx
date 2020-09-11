@@ -1,7 +1,6 @@
 import React, { useState, useMemo } from 'react';
 
 function SearchView({column: { filterValue, setFilter, preFilteredRows, id, searchText }}) {
-  console.log('SearchView')
   const [searchString, setSearch] = useState('');
     const options = useMemo(() => {
     const options = new Set()
