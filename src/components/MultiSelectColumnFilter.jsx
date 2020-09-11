@@ -39,6 +39,10 @@ function MultiSelectColumnFilter({
 
   return (
     <div className="filters">
+      <div className="filters__views">
+        <button className="filters__view">Search</button>
+        <button className="filters__view">View</button>
+      </div>
       <input className="filters__search" type="text" placeholder={searchText} onChange={(e) => setSearch(e.target.value.toLowerCase())} />
       <ul className="filters__list">
         {options.filter((option) => option.toLowerCase().includes(searchString)).sort().map((option, i) => (
@@ -47,7 +51,6 @@ function MultiSelectColumnFilter({
             className="filters__option"
             key={`option-${i}`}
             onClick={(e) => {
-              // console.log(e.currentTarget.querySelector('.filters__value').innerText)
               const selectedOption = e.currentTarget.querySelector('.filters__value').innerText;
               if (filterValue === undefined) {
                 setFilter([selectedOption])
@@ -59,7 +62,6 @@ function MultiSelectColumnFilter({
               } else {
                 setFilter(undefined)
               }
-              // console.log(filterValue)
             }}>
             <span className="filters__value">{option}</span>
             <button className="filters__button">+</button>

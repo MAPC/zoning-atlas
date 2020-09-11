@@ -56,10 +56,28 @@
   flex: 1;
   min-width: 66.66%;
 
+  &__views {
+    padding: .5rem;
+  }
+
+  &__view {
+    background: 0 0;
+    border: none;
+    font-size: 1rem;
+    outline: 0;
+    position: relative;
+    width: 50%;
+
+    &:first-child {
+      border-right: 1px solid #CCC;
+    }
+  }
+
   &__search {
     background: 0 0;
     border: 0;
     border-bottom: 1px solid #CCC;
+    border-top: 1px solid #CCC;
     font-size: 12px;
     height: 1.5rem;
     outline: 0;
