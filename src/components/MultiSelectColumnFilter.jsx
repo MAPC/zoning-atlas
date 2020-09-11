@@ -25,13 +25,13 @@ function MultiSelectColumnFilter({
   //   })
   // }, [filterValue])
 
-  const [subview, setSubview] = useState(<SearchView preFilteredRows={preFilteredRows} searchText={searchText} column={column}/>)
+  const [subview, setSubview] = useState(<SearchView column={column}/>)
   console.log('MultiSelectColumnFilter')
-  console.log(preFilteredRows)
+  console.log(column)
   return (
     <div className="filters">
       <div className="filters__views">
-        <button className="filters__view" onClick={() => setSubview(<SearchView preFilteredRows={preFilteredRows} searchText={searchText} />)}>Search</button>
+        <button className="filters__view" onClick={() => setSubview(<SearchView column={column} />)}>Search</button>
         <button className="filters__view" onClick={() => setSubview(<ViewCurrentFilters />)}>View</button>
       </div>
       {subview}

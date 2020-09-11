@@ -65,7 +65,7 @@ export default function Tabular({data}) {
       Filter: MultiSelectColumnFilter,
       filter: "multiplePartial",
       searchText: 'Type here to search filters by Zoning Name',
-      Cell: ({value}) => value.map(item => <span className="cell__item">{item}</span>)
+      Cell: ({value, row}) => value.map(item => <span className="cell__item" key={`${value}-${row.index}`}>{item}</span>)
     }, {
       Header: 'Zoning Code',
       accessor: 'zoCode',

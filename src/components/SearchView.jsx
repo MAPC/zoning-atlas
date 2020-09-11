@@ -1,27 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 
-function SearchView(searchText, preFilteredRows, column) {
+function SearchView({column: { filterValue, setFilter, preFilteredRows, id, searchText }}) {
   console.log('SearchView')
-  console.log(preFilteredRows)
   const [searchString, setSearch] = useState('');
-    // const options = React.useMemo(() => {
-  //   const options = new Set()
-  //   preFilteredRows.forEach((row) => {
-  //     if (Array.isArray(row.values[id])) {
-  //       row.values[id].forEach(entry => {
-  //         options.add(entry)
-  //       })
-  //     } else {
-  //       options.add(row.values[id])
-  //     }
-  //   })
-  //   return [...options.values()]
-  // }, [id, preFilteredRows])
+    const options = useMemo(() => {
+    const options = new Set()
+    preFilteredRows.forEach((row) => {
+      if (Array.isArray(row.values[id])) {
+        row.values[id].forEach(entry => {
+          options.add(entry)
+        })
+      } else {
+        options.add(row.values[id])
+      }
+    })
+    return [...options.values()]
+  }, [id, preFilteredRows])
 
   return (
     <>
       <input className="filters__search" type="text" placeholder={searchText} onChange={(e) => setSearch(e.target.value.toLowerCase())} />
-      {/* <ul className="filters__list">
+      <ul className="filters__list">
         {options.filter((option) => option.toLowerCase().includes(searchString)).sort().map((option, i) => (
           <li
             data-value={option}
@@ -44,7 +43,7 @@ function SearchView(searchText, preFilteredRows, column) {
             <button className="filters__button">+</button>
           </li>
         ))}
-      </ul> */}
+      </ul>
     </>
   )
 }
