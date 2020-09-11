@@ -9,6 +9,12 @@ import MultiSelectColumnFilter from '../components/MultiSelectColumnFilter'
 import '../styles/app.scss'
 
 export default function Tabular({data}) {
+  if (module.hot) {
+    module.hot.addStatusHandler(status => {
+      if (status === "apply") window.location.reload();
+    });
+  }
+  console.log("Tabular")
   const filterTypes = React.useMemo(
     () => ({
       multiple: (rows, id, filterValue) => {
@@ -45,7 +51,7 @@ export default function Tabular({data}) {
       zoName: row.zoName.split(","),
       zoUsety: row.zoUsety
     }
-  }), [])
+  }), [data.postgres.allDraftDatabasesList])
 
   const columns = useMemo(() => [{
       Header: 'Municipality',
