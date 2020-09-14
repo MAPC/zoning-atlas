@@ -7,7 +7,9 @@ function SearchView({column: { filterValue, setFilter, preFilteredRows, id, sear
     preFilteredRows.forEach((row) => {
       if (Array.isArray(row.values[id])) {
         row.values[id].forEach(entry => {
-          options.add(entry)
+          if (entry.trim() !== '') {
+            options.add(entry.trim());
+          }
         })
       } else {
         options.add(row.values[id])

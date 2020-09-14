@@ -14,26 +14,24 @@ export default function Tabular({data}) {
       if (status === "apply") window.location.reload();
     });
   }
-  const filterTypes = React.useMemo(
-    () => ({
-      multiple: (rows, id, filterValue) => {
-        return rows.filter(row => {
-          const rowValue = row.values[id];
-          return rowValue !== undefined
-            ? filterValue.includes(rowValue)
-            : true;
-        });
-      },
-      multiplePartial: (rows, id, filterValue) => {
-        return rows.filter(row => {
-          const rowValue = row.values[id];
-          return rowValue !== undefined
-            ? rowValue.includes(filterValue[filterValue.length - 1])
-            : true;
-        })
-      }
-    }),
-    []
+  const filterTypes = React.useMemo(() => ({
+    multiple: (rows, id, filterValue) => {
+      return rows.filter(row => {
+        const rowValue = row.values[id];
+        return rowValue !== undefined
+          ? filterValue.includes(rowValue)
+          : true;
+      });
+    },
+    inclusiveOr: (rows, id, filterValue) => {
+      return rows.filter(row => {
+        const rowValue = row.values[id];
+        return rowValue !== undefined
+          ? rowValue.some(itemInRow => filterValue.includes(itemInRow))
+          : true;
+      })
+    }
+    }), []
   );
 
   const defaultColumn = React.useMemo(() => ({
@@ -62,10 +60,10 @@ export default function Tabular({data}) {
       Header: 'Zoning Name',
       accessor: 'zoName',
       Filter: MultiSelectColumnFilter,
-      filter: "multiplePartial",
+      filter: "inclusiveOr",
       searchText: 'Type here to search filters by zoning name',
       emptyFilterText: 'No zoning names selected',
-      Cell: ({value, row}) => value.map(item => <span className="cell__item" key={`${value}-${row.index}`}>{item}</span>)
+      Cell: ({value, row}) => value.map((item, i) => <span className="cell__item" key={`${value}-${row.index}-${i}`}>{item}</span>)
     }, {
       Header: 'Zoning Code',
       accessor: 'zoCode',
