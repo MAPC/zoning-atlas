@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 
 const TableFilters = ({headerGroups}) => {
-  const [visibleFilter, setVisibleFilter] = useState('muni')
+  const [visibleFilter, setVisibleFilter] = useState('mxhtEff')
   headerGroups[0].headers.forEach((category) => {
     if (category.filterValue) {
       document.getElementById(category.id).classList.add('filters-panel__category--filtered')
@@ -27,6 +27,7 @@ const TableFilters = ({headerGroups}) => {
         <ul className="filters-panel__categories">
           <li id="muni" className="filters-panel__category filters-panel__category--active" onClick={() => setVisibleFilter('muni')}>Town/City</li>
           <li id="zoName" className="filters-panel__category" onClick={() => setVisibleFilter('zoName')}>Zoning Name</li>
+          <li id="mxhtEff" className="filters-panel__category" onClick={() => setVisibleFilter('mxhtEff')}>Key Info</li>
         </ul>
         { headerGroups[0].headers.find(header => header.id === visibleFilter).render('Filter') }
       </div>

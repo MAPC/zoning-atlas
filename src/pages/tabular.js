@@ -6,6 +6,7 @@ import Table from '../components/Table';
 import TableFilters from '../components/TableFilters';
 import TablePagination from '../components/TablePagination';
 import MultiSelectColumnFilter from '../components/MultiSelectColumnFilter'
+import NumericRangeFilter from '../components/NumericRangeFilter'
 import '../styles/app.scss'
 
 export default function Tabular({data}) {
@@ -30,7 +31,26 @@ export default function Tabular({data}) {
           ? rowValue.some(itemInRow => filterValue.includes(itemInRow))
           : true;
       })
-    }
+    },
+    numericRange: (rows, id, filterValue) => {
+      const createEquation = (rowValue) => {
+        if (filterValue && filterValue.operator === 'eq') {
+          return +filterValue.operand === rowValue;
+        } else if (filterValue && filterValue.operator === 'gt') {
+          return rowValue > +filterValue.operand;
+        } else if (filterValue && filterValue.operator === 'lt') {
+          return rowValue < +filterValue.operand;
+        } else {
+          return true
+        }
+      }
+        return rows.filter((row) => {
+          const rowValue = row.values[id];
+          return rowValue !== undefined
+            ? createEquation(rowValue)
+            : true;
+        })
+    },
     }), []
   );
 
@@ -40,11 +60,9 @@ export default function Tabular({data}) {
 
   data = useMemo(() => data.postgres.allDraftDatabasesList.map((row) => {
     return {
-      multifam: row.multifam,
       muni: row.muni,
-      zoCode: row.zoCode,
       zoName: row.zoName ? row.zoName.split(",") : [""],
-      zoUsety: row.zoUsety
+      mxhtEff: row.mxhtEff,
     }
   }), [data.postgres.allDraftDatabasesList])
 
@@ -64,20 +82,10 @@ export default function Tabular({data}) {
       emptyFilterText: 'No zoning names selected',
       Cell: ({value, row}) => value.map((item, i) => <span className="cell__item" key={`${value}-${row.index}-${i}`}>{item}</span>)
     }, {
-      Header: 'Zoning Code',
-      accessor: 'zoCode',
-      defaultCanFilter: false,
-      canFilter: false,
-    }, {
-      Header: 'Zoning Usety',
-      accessor: 'zoUsety',
-      defaultCanFilter: false,
-      canFilter: false,
-    }, {
-      Header: 'Multifamily Housing',
-      accessor: 'multifam',
-      defaultCanFilter: false,
-      canFilter: false,
+      Header: 'Effective Max Height',
+      accessor: 'mxhtEff',
+      Filter: NumericRangeFilter,
+      filter: "numericRange",
     }
   ], [])
   const {
@@ -144,11 +152,9 @@ export const data = graphql`
   query {
     postgres {
       allDraftDatabasesList {
-        multifam
         muni
-        zoCode
         zoName
-        zoUsety
+        mxhtEff
       }
     }
   }
