@@ -40,11 +40,10 @@ export default function Tabular({data}) {
 
   data = useMemo(() => data.postgres.allDraftDatabasesList.map((row) => {
     return {
-      mnlsOve: row.mnlsOve,
       multifam: row.multifam,
       muni: row.muni,
       zoCode: row.zoCode,
-      zoName: row.zoName.split(","),
+      zoName: row.zoName ? row.zoName.split(",") : [""],
       zoUsety: row.zoUsety
     }
   }), [data.postgres.allDraftDatabasesList])
@@ -75,12 +74,6 @@ export default function Tabular({data}) {
       defaultCanFilter: false,
       canFilter: false,
     }, {
-      Header: 'Zoning mnlsOve',
-      accessor: 'mnlsOve',
-      defaultCanFilter: false,
-      canFilter: false,
-    },
-    {
       Header: 'Multifamily Housing',
       accessor: 'multifam',
       defaultCanFilter: false,
@@ -151,7 +144,6 @@ export const data = graphql`
   query {
     postgres {
       allDraftDatabasesList {
-        mnlsOve
         multifam
         muni
         zoCode
