@@ -19,6 +19,7 @@ const TableFilters = ({headerGroups}) => {
           <FilterCategory
             activeCategory={state.activeCategory}
             category="muni"
+            columns={[headerGroups[0].headers[0]]}
             dispatch={dispatch}
             panel={<MultiSelectColumnFilter column={headerGroups[0].headers[0]} />}
             text="Town/City"
@@ -26,6 +27,7 @@ const TableFilters = ({headerGroups}) => {
           <FilterCategory
             activeCategory={state.activeCategory}
             category="zoName"
+            columns={[headerGroups[0].headers[1]]}
             dispatch={dispatch}
             panel={<MultiSelectColumnFilter column={headerGroups[0].headers[1]} />}
             text="Zoning Name"
@@ -33,6 +35,7 @@ const TableFilters = ({headerGroups}) => {
           <FilterCategory
             activeCategory={state.activeCategory}
             category="keyInfo"
+            columns={[headerGroups[0].headers[2], headerGroups[0].headers[3]]}
             dispatch={dispatch}
             panel={<KeyInfoPanel columns={[headerGroups[0].headers[2], headerGroups[0].headers[3]]} />}
             text="Key Info"

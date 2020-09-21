@@ -1,10 +1,21 @@
 import React from 'react'
 
-const FilterCategory = ({activeCategory, category, text, dispatch, panel}) => {
+const FilterCategory = ({activeCategory, category, columns, text, dispatch, panel}) => {
+  let classList = 'filters-panel__category'
+  if (activeCategory === category) {
+    classList += ' filters-panel__category--active'
+  }
+
+  columns.forEach(column => {
+    if (column.filterValue) {
+      classList += ' filters-panel__category--filtered'
+    }
+  })
+
   return (
     <li
       id={category}
-      className={activeCategory === category ? 'filters-panel__category filters-panel__category--active' : 'filters-panel__category'}
+      className={classList}
       onClick={() => dispatch({category, panel})}
     >
       {text}
