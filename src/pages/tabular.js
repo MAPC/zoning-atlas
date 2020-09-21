@@ -6,7 +6,7 @@ import Table from '../components/Table';
 import TableFilters from '../components/TableFilters';
 import TablePagination from '../components/TablePagination';
 import MultiSelectColumnFilter from '../components/MultiSelectColumnFilter'
-import NumericRangeFilter from '../components/NumericRangeFilter'
+import NumericRangeFilter from '../components/NumericRangeFilter';
 import '../styles/app.scss'
 
 export default function Tabular({data}) {
@@ -63,6 +63,7 @@ export default function Tabular({data}) {
       muni: row.muni,
       zoName: row.zoName ? row.zoName.split(",") : [""],
       mxhtEff: row.mxhtEff,
+      mxflEff: row.mxflEff,
     }
   }), [data.postgres.allDraftDatabasesList])
 
@@ -84,6 +85,13 @@ export default function Tabular({data}) {
     }, {
       Header: 'Effective Max Height',
       accessor: 'mxhtEff',
+      classElement: 'mxht',
+      Filter: NumericRangeFilter,
+      filter: "numericRange",
+    }, {
+      Header: 'Effective Max Floors',
+      accessor: 'mxflEff',
+      classElement: 'mxfl',
       Filter: NumericRangeFilter,
       filter: "numericRange",
     }
@@ -155,6 +163,7 @@ export const data = graphql`
         muni
         zoName
         mxhtEff
+        mxflEff
       }
     }
   }
