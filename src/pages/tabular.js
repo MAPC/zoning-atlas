@@ -2,11 +2,11 @@ import React, { useMemo } from "react"
 import { Helmet } from "react-helmet"
 import { useTable, usePagination, useSortBy, useFilters } from 'react-table'
 import { graphql } from 'gatsby'
-import Table from '../components/Table';
-import TableFilters from '../components/TableFilters';
-import TablePagination from '../components/TablePagination';
-import MultiSelectColumnFilter from '../components/MultiSelectColumnFilter'
-import NumericRangeFilter from '../components/NumericRangeFilter';
+import Table from '../components/table/Table';
+import TableFilters from '../components/filters/TableFilters';
+import TablePagination from '../components/table/TablePagination';
+import MultiSelectColumnFilter from '../components/filters/MultiSelectColumnFilter'
+import NumericRangeFilter from '../components/filters/NumericRangeFilter';
 import '../styles/app.scss'
 
 export default function Tabular({data}) {

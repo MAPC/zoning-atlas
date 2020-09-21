@@ -1,6 +1,6 @@
 import React from "react"
-import Storymap from '../components/Storymap';
-import MapSliderContainer from '../components/MapSliderContainer';
+import Storymap from '../components/map/Storymap';
+import MapSliderContainer from '../components/map/MapSliderContainer';
 import { Helmet } from "react-helmet"
 import '../styles/app.scss'
 

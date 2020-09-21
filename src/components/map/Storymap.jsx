@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Sidebar from '../components/Sidebar';
-import Map from '../components/Map';
+import Sidebar from './Sidebar';
+import Map from './Map';
 
 const Storymap = () => {
   const [currentPanel, setCurrentPanel] = useState();
