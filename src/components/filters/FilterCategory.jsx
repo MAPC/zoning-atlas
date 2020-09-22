@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FilterCategory = ({activeCategory, category, columns, text, dispatch, panel}) => {
+const FilterCategory = ({activeCategory, category, columns, text, dispatch}) => {
   let classList = 'filters-panel__category'
   if (activeCategory === category) {
     classList += ' filters-panel__category--active'
@@ -16,10 +16,10 @@ const FilterCategory = ({activeCategory, category, columns, text, dispatch, pane
     <li
       id={category}
       className={classList}
-      onClick={() => dispatch({category, panel})}
+      onClick={() => dispatch({category})}
     >
       {text}
-  </li>
+    </li>
   )
 }
 

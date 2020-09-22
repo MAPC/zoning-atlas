@@ -1,28 +1,9 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import SearchView from './SearchView'
 import ViewCurrentFilters from './ViewCurrentFilters'
 
 function MultiSelectColumnFilter({column}) {
   const [subview, setSubview] = useState('search')
-  useEffect(() => {
-    document.querySelectorAll('.filters__option').forEach((row) => {
-      if (column.filterValue) {
-        if (column.filterValue.includes (row.getAttribute('data-value'))) {
-          row.classList.add('filters__option--active')
-          row.querySelector('.filters__value').classList.add('filters__value--active')
-          row.querySelector('.filters__button').classList.add('filters__button--active')
-        } else {
-          row.classList.remove('filters__option--active')
-          row.querySelector('.filters__value').classList.remove('filters__value--active')
-          row.querySelector('.filters__button').classList.remove('filters__button--active')
-        }
-      } else {
-        row.classList.remove('filters__option--active')
-        row.querySelector('.filters__value').classList.remove('filters__value--active')
-        row.querySelector('.filters__button').classList.remove('filters__button--active')
-      }
-    })
-  }, [column.filterValue, subview])
 
   return (
     <div className="filters">

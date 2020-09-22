@@ -5,12 +5,21 @@ import MultiSelectColumnFilter from './MultiSelectColumnFilter'
 
 const TableFilters = ({headerGroups}) => {
   const reducer = (state, action) => {
-    return {...state, activePanel: action.panel, activeCategory: action.category}
+    return {...state, activeCategory: action.category}
   }
   const [state, dispatch] = useReducer(reducer, {
-    activePanel: <KeyInfoPanel columns={[headerGroups[0].headers[2], headerGroups[0].headers[3]]}/>,
-    activeCategory: 'keyInfo'
+    activeCategory: 'muni'
   })
+
+  let activePanel = <MultiSelectColumnFilter column={headerGroups[0].headers[0]} />
+  if (state.activeCategory === 'muni') {
+    activePanel = <MultiSelectColumnFilter column={headerGroups[0].headers[0]} />
+  } else if (state.activeCategory === 'zoName') {
+    activePanel = <MultiSelectColumnFilter column={headerGroups[0].headers[1]} />
+  } else {
+    activePanel = <KeyInfoPanel columns={[headerGroups[0].headers[2], headerGroups[0].headers[3]]} />
+  }
+
   return (
     <aside className='filters-panel'>
       <h2 className="filters-panel__header">Filters</h2>
@@ -41,7 +50,7 @@ const TableFilters = ({headerGroups}) => {
             text="Key Info"
           />
         </ul>
-        {state.activePanel}
+        { activePanel }
       </div>
     </aside>
   )
