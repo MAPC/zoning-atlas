@@ -2,6 +2,7 @@ import React, { useReducer } from "react"
 import FilterCategory from './FilterCategory'
 import KeyInfoPanel from './KeyInfoPanel'
 import MultiSelectColumnFilter from './MultiSelectColumnFilter'
+import ZoneFunctionPanel from './ZoneFunctionPanel'
 
 const TableFilters = ({headerGroups}) => {
   const reducer = (state, action) => {
@@ -14,19 +15,14 @@ const TableFilters = ({headerGroups}) => {
   let activePanel = <MultiSelectColumnFilter column={headerGroups[0].headers[0]} />
   if (state.activeCategory === 'muni') {
     activePanel = <MultiSelectColumnFilter column={headerGroups[0].headers[0]} />
+  } else if (state.activeCategory === 'function') {
+    activePanel = (<MultiSelectColumnFilter column={headerGroups[0].headers[1]} />)
+  } else if (state.activeCategory === 'multifam') {
+    activePanel = (<MultiSelectColumnFilter column={headerGroups[0].headers[2]} />)
   } else if (state.activeCategory === 'zoName') {
     activePanel = <MultiSelectColumnFilter column={headerGroups[0].headers[9]} />
   } else {
-    activePanel = <KeyInfoPanel columns={[
-      headerGroups[0].headers[3],
-      headerGroups[0].headers[4],
-      headerGroups[0].headers[5],
-      headerGroups[0].headers[6],
-      headerGroups[0].headers[7],
-      headerGroups[0].headers[8],
-      headerGroups[0].headers[10],
-      headerGroups[0].headers[11]
-    ]} />
+    activePanel = <KeyInfoPanel columns={headerGroups[0].headers.filter((header) => header.panel === 'keyInfo')} />
   }
 
   return (
@@ -40,7 +36,31 @@ const TableFilters = ({headerGroups}) => {
             columns={[headerGroups[0].headers[0]]}
             dispatch={dispatch}
             panel={<MultiSelectColumnFilter column={headerGroups[0].headers[0]} />}
-            text="Town/City"
+            text="Municipality"
+          />
+          <FilterCategory
+            activeCategory={state.activeCategory}
+            category="function"
+            columns={[headerGroups[0].headers[1]]}
+            dispatch={dispatch}
+            panel={<MultiSelectColumnFilter column={headerGroups[0].headers[1]} /> }
+            text="Zone Function"
+          />
+          <FilterCategory
+            activeCategory={state.activeCategory}
+            category="multifam"
+            columns={[headerGroups[0].headers[2]]}
+            dispatch={dispatch}
+            panel={<MultiSelectColumnFilter column={headerGroups[0].headers[2]} /> }
+            text="Multifamily"
+          />
+          <FilterCategory
+            activeCategory={state.activeCategory}
+            category="keyInfo"
+            columns={headerGroups[0].headers.filter((header) => header.panel === 'keyInfo')}
+            dispatch={dispatch}
+            panel={<KeyInfoPanel columns={headerGroups[0].headers.filter((header) => header.panel === 'keyInfo')} />}
+            text="Key Info"
           />
           <FilterCategory
             activeCategory={state.activeCategory}
@@ -49,32 +69,6 @@ const TableFilters = ({headerGroups}) => {
             dispatch={dispatch}
             panel={<MultiSelectColumnFilter column={headerGroups[0].headers[9]} />}
             text="Zoning Name *"
-          />
-          <FilterCategory
-            activeCategory={state.activeCategory}
-            category="keyInfo"
-            columns={[
-              headerGroups[0].headers[3],
-              headerGroups[0].headers[4],
-              headerGroups[0].headers[5],
-              headerGroups[0].headers[6],
-              headerGroups[0].headers[7],
-              headerGroups[0].headers[8],
-              headerGroups[0].headers[10],
-              headerGroups[0].headers[11]
-            ]}
-            dispatch={dispatch}
-            panel={<KeyInfoPanel columns={[
-              headerGroups[0].headers[3],
-              headerGroups[0].headers[4],
-              headerGroups[0].headers[5],
-              headerGroups[0].headers[6],
-              headerGroups[0].headers[7],
-              headerGroups[0].headers[8],
-              headerGroups[0].headers[10],
-              headerGroups[0].headers[11]
-            ]} />}
-            text="Key Info"
           />
         </ul>
         { activePanel }

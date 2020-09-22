@@ -107,49 +107,62 @@ export default function Tabular({data}) {
       Filter: MultiSelectColumnFilter,
       filter: "multiple",
       searchText: 'Type here to search filters by town/city',
-      emptyFilterText: 'No towns/cities selected'
+      emptyFilterText: 'No towns/cities selected',
+      panel: 'muni'
     }, {
       Header: 'Zone Use Type',
       accessor: 'zoUsety',
+      panel: 'function',
+      Filter: MultiSelectColumnFilter,
+      filter: "multiple",
     }, {
       Header: 'Multifamily',
       accessor: 'multifam',
+      panel: 'multifam',
+      Filter: MultiSelectColumnFilter,
+      filter: "multiple",
     }, {
       Header: 'Minimum Lot Size (sf)',
       accessor: 'minlotsize',
       classElement: 'minlotsize',
       Filter: NumericRangeFilter,
       filter: "numericRange",
+      panel: 'keyInfo'
     }, {
       Header: 'Percent Lot Coverage (%)',
       accessor: 'pctlotcov',
       classElement: 'pctlotcov',
       Filter: NumericRangeFilter,
       filter: "numericRange",
+      panel: 'keyInfo'
     }, {
       Header: 'Percent Lot Coverage, Effective (%)',
       accessor: 'plcEff',
       classElement: 'plceff',
       Filter: NumericRangeFilter,
       filter: "numericRange",
+      panel: 'keyInfo'
     }, {
       Header: 'Minimum Lot Area per Dwelling Unit (sf)',
       accessor: 'lApDu',
       classElement: 'lapdu',
       Filter: NumericRangeFilter,
       filter: "numericRange",
+      panel: 'keyInfo'
     }, {
       Header: 'Maximum Swelling Units per Acre (#)',
       accessor: 'dUpAc',
       classElement: 'dupac',
       Filter: NumericRangeFilter,
       filter: "numericRange",
+      panel: 'keyInfo'
     }, {
       Header: 'Floor-Area Ratio',
       accessor: 'far',
       classElement: 'far',
       Filter: NumericRangeFilter,
       filter: "numericRange",
+      panel: 'keyInfo'
     }, {
       Header: 'Zoning Name',
       accessor: 'zoName',
@@ -157,19 +170,22 @@ export default function Tabular({data}) {
       filter: "inclusiveOr",
       searchText: 'Type here to search filters by zoning name',
       emptyFilterText: 'No zoning names selected',
-      Cell: ({value, row}) => value.map((item, i) => <span className="cell__item" key={`${value}-${row.index}-${i}`}>{item}</span>)
+      Cell: ({value, row}) => value.map((item, i) => <span className="cell__item" key={`${value}-${row.index}-${i}`}>{item}</span>),
+      panel: 'zoName'
     }, {
       Header: 'Effective Max Height',
       accessor: 'mxhtEff',
       classElement: 'mxht',
       Filter: NumericRangeFilter,
       filter: "numericRange",
+      panel: 'keyInfo'
     }, {
       Header: 'Effective Max Floors',
       accessor: 'mxflEff',
       classElement: 'mxfl',
       Filter: NumericRangeFilter,
       filter: "numericRange",
+      panel: 'keyInfo'
     }
   ], [])
   const {
