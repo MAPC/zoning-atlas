@@ -62,6 +62,14 @@ export default function Tabular({data}) {
     return {
       muni: row.muni,
       zoName: row.zoName ? row.zoName.split(",") : [""],
+      zoUsety: row.zoUsety,
+      multifam: row.multifam,
+      plcEff: row.plcEff,
+      minlotsize: row.minlotsize,
+      pctlotcov: row.pctlotcov,
+      lApDu: row.lApDu,
+      dUpAc: row.dUpAc,
+      far: row.far,
       mxhtEff: row.mxhtEff,
       mxflEff: row.mxflEff,
     }
@@ -74,6 +82,30 @@ export default function Tabular({data}) {
       filter: "multiple",
       searchText: 'Type here to search filters by town/city',
       emptyFilterText: 'No towns/cities selected'
+    }, {
+      Header: 'Zone Use Type',
+      accessor: 'zoUsety',
+    }, {
+      Header: 'Multifamily',
+      accessor: 'multifam',
+    }, {
+      Header: 'Minimum Lot Size (sf)',
+      accessor: 'minlotsize',
+    }, {
+      Header: 'Percent Lot Coverage (%)',
+      accessor: 'pctlotcov',
+    }, {
+      Header: 'Percent Lot Coverage, Effective (%)',
+      accessor: 'plcEff',
+    }, {
+      Header: 'Minimum Lot Area per Dwelling Unit (sf)',
+      accessor: 'lApDu',
+    }, {
+      Header: 'Maximum Swelling Units per Acre (#)',
+      accessor: 'dUpAc',
+    }, {
+      Header: 'Floor-Area Ratio',
+      accessor: 'far',
     }, {
       Header: 'Zoning Name',
       accessor: 'zoName',
@@ -113,7 +145,7 @@ export default function Tabular({data}) {
   {
     columns,
     data,
-    initialState: { pageSize: 20 },
+    initialState: { pageSize: 10 },
     defaultColumn,
     filterTypes,
     defaultCanFilter: false,
@@ -162,6 +194,14 @@ export const data = graphql`
       allDraftDatabasesList {
         muni
         zoName
+        zoUsety
+        multifam
+        plcEff
+        minlotsize
+        pctlotcov
+        lApDu
+        dUpAc
+        far
         mxhtEff
         mxflEff
       }

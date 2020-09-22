@@ -7,12 +7,12 @@ const Table = ({getTableProps,
   prepareRow}) => {
 
   return (
-    <table {...getTableProps()}>
+    <table {...getTableProps()} className="table">
     <thead>{
       headerGroups.map(headerGroup => (
       <tr {...headerGroup.getHeaderGroupProps()}>{
         headerGroup.headers.map(column => (
-          <th {...column.getHeaderProps(column.getSortByToggleProps())}>{
+          <th {...column.getHeaderProps(column.getSortByToggleProps())} className="table__header">{
             column.render('Header')}
             <span>
               {column.isSorted

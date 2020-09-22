@@ -1,7 +1,14 @@
 .tabular-data {
+  overflow-x: scroll;
   width: calc(100% - 500px);
   &__wrapper {
     display: flex;
+  }
+}
+
+.table {
+  &__header {
+    min-width: 10rem;
   }
 }
 

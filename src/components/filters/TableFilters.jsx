@@ -39,7 +39,7 @@ const TableFilters = ({headerGroups}) => {
             columns={[headerGroups[0].headers[1]]}
             dispatch={dispatch}
             panel={<MultiSelectColumnFilter column={headerGroups[0].headers[1]} />}
-            text="Zoning Name"
+            text="Zoning Name *"
           />
           <FilterCategory
             activeCategory={state.activeCategory}
