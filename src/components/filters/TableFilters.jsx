@@ -15,9 +15,18 @@ const TableFilters = ({headerGroups}) => {
   if (state.activeCategory === 'muni') {
     activePanel = <MultiSelectColumnFilter column={headerGroups[0].headers[0]} />
   } else if (state.activeCategory === 'zoName') {
-    activePanel = <MultiSelectColumnFilter column={headerGroups[0].headers[1]} />
+    activePanel = <MultiSelectColumnFilter column={headerGroups[0].headers[9]} />
   } else {
-    activePanel = <KeyInfoPanel columns={[headerGroups[0].headers[2], headerGroups[0].headers[3]]} />
+    activePanel = <KeyInfoPanel columns={[
+      headerGroups[0].headers[3],
+      headerGroups[0].headers[4],
+      headerGroups[0].headers[5],
+      headerGroups[0].headers[6],
+      headerGroups[0].headers[7],
+      headerGroups[0].headers[8],
+      headerGroups[0].headers[10],
+      headerGroups[0].headers[11]
+    ]} />
   }
 
   return (
@@ -36,17 +45,35 @@ const TableFilters = ({headerGroups}) => {
           <FilterCategory
             activeCategory={state.activeCategory}
             category="zoName"
-            columns={[headerGroups[0].headers[1]]}
+            columns={[headerGroups[0].headers[9]]}
             dispatch={dispatch}
-            panel={<MultiSelectColumnFilter column={headerGroups[0].headers[1]} />}
+            panel={<MultiSelectColumnFilter column={headerGroups[0].headers[9]} />}
             text="Zoning Name *"
           />
           <FilterCategory
             activeCategory={state.activeCategory}
             category="keyInfo"
-            columns={[headerGroups[0].headers[2], headerGroups[0].headers[3]]}
+            columns={[
+              headerGroups[0].headers[3],
+              headerGroups[0].headers[4],
+              headerGroups[0].headers[5],
+              headerGroups[0].headers[6],
+              headerGroups[0].headers[7],
+              headerGroups[0].headers[8],
+              headerGroups[0].headers[10],
+              headerGroups[0].headers[11]
+            ]}
             dispatch={dispatch}
-            panel={<KeyInfoPanel columns={[headerGroups[0].headers[2], headerGroups[0].headers[3]]} />}
+            panel={<KeyInfoPanel columns={[
+              headerGroups[0].headers[3],
+              headerGroups[0].headers[4],
+              headerGroups[0].headers[5],
+              headerGroups[0].headers[6],
+              headerGroups[0].headers[7],
+              headerGroups[0].headers[8],
+              headerGroups[0].headers[10],
+              headerGroups[0].headers[11]
+            ]} />}
             text="Key Info"
           />
         </ul>
