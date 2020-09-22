@@ -9,6 +9,32 @@ import MultiSelectColumnFilter from '../components/filters/MultiSelectColumnFilt
 import NumericRangeFilter from '../components/filters/NumericRangeFilter';
 import '../styles/app.scss'
 
+function setZoneUse(id) {
+  switch(id) {
+    case 0:
+      return 'No Zone';
+    case 1:
+      return 'Residential';
+    case 2:
+      return 'Non-Residential';
+    case 3:
+      return 'Mixed Use (Residential and Non-Residential)';
+    case 4:
+      return 'Other (Open space, etc.)'
+  }
+}
+
+function setMultifamily(id) {
+  switch(id) {
+    case 0:
+      return 'No';
+    case 1:
+      return 'By special permit';
+    case 2:
+      return 'By right';
+  }
+}
+
 export default function Tabular({data}) {
   if (module.hot) {
     module.hot.addStatusHandler(status => {
@@ -62,8 +88,8 @@ export default function Tabular({data}) {
     return {
       muni: row.muni,
       zoName: row.zoName ? row.zoName.split(",") : [""],
-      zoUsety: row.zoUsety,
-      multifam: row.multifam,
+      zoUsety: setZoneUse(row.zoUsety),
+      multifam: setMultifamily(row.multifam),
       plcEff: row.plcEff,
       minlotsize: row.minlotsize,
       pctlotcov: row.pctlotcov,
