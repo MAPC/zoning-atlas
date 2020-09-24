@@ -221,11 +221,11 @@ export default function Tabular({data}) {
         title={"Zoning Atlas - Tabular Data"}
       />
       <h1>Zoning Atlas</h1>
-      <div className="tabular-data__wrapper">
+      <div className="tabular-data">
         <TableFilters
           headerGroups={headerGroups}
         />
-        <div className="tabular-data">
+        <div className="tabular-data__display">
           <Table 
             getTableProps={getTableProps}
             getTableBodyProps={getTableBodyProps}

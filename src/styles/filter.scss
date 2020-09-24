@@ -3,8 +3,9 @@
   border-radius: 5px;
   border-style: solid;
   border-width: 6px 1px 1px;
+  flex-basis: 450px;
   height: 600px;
-  width: 450px;
+  width: 100%;
 
   &__header {
     font-size: 1.5rem;
@@ -15,6 +16,7 @@
   &__body {
     border-top: 1px solid #CCC;
     display: flex;
+    width: 450px;
   }
 
   &__categories {
@@ -86,7 +88,7 @@
     font-size: 12px;
     height: 1.5rem;
     outline: 0;
-    padding: 4px 10px;
+    // padding: 4px 10px;
     width: 100%;
   }
 
