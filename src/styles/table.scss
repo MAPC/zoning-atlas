@@ -20,6 +20,13 @@
     border: 1px solid #ddd;
     min-width: 10rem;
   }
+
+  &__sort-icon {
+    cursor: pointer;
+    margin-left: .25rem;
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+  }
 }
 
 .row {

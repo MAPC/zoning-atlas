@@ -36,11 +36,6 @@ function setMultifamily(id) {
 }
 
 export default function Tabular({data}) {
-  if (module.hot) {
-    module.hot.addStatusHandler(status => {
-      if (status === "apply") window.location.reload();
-    });
-  }
   const filterTypes = React.useMemo(() => ({
     multiple: (rows, id, filterValue) => {
       return rows.filter(row => {

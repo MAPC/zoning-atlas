@@ -1,4 +1,5 @@
-import React from "react"
+import React from "react";
+import TableHeader from './TableHeader';
 
 const Table = ({getTableProps,
   getTableBodyProps,
@@ -11,19 +12,8 @@ const Table = ({getTableProps,
       <table {...getTableProps()} className="table">
       <thead>{
         headerGroups.map(headerGroup => (
-        <tr {...headerGroup.getHeaderGroupProps()}>{
-          headerGroup.headers.map(column => (
-            <th {...column.getHeaderProps(column.getSortByToggleProps())} className="table__header">{
-              column.render('Header')}
-              <span>
-                {column.isSorted
-                  ? column.isSortedDesc
-                    ? ' 🔽'
-                    : ' 🔼'
-                  : ''}
-              </span>
-            </th>
-          ))}
+        <tr {...headerGroup.getHeaderGroupProps()}>
+          {headerGroup.headers.map(column => <TableHeader column={column} />)}
         </tr>
         ))}
       </thead>
