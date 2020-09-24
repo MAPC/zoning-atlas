@@ -88,8 +88,8 @@
     font-size: 12px;
     height: 1.5rem;
     outline: 0;
-    // padding: 4px 10px;
-    width: 100%;
+    padding: 4px 10px;
+    width: calc(100% - 20px);
   }
 
   &__list {

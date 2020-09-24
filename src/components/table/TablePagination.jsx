@@ -2,7 +2,7 @@ import React from 'react'
 
 const TablePagination = ({gotoPage, previousPage, canPreviousPage, nextPage, canNextPage, pageIndex, pageCount}) => {
   return (
-    <div>
+    <div className="pagination__wrapper">
       <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
         {'<<'}
       </button>{' '}
