@@ -2,38 +2,14 @@ import React, { useMemo } from "react"
 import { Helmet } from "react-helmet"
 import { useTable, usePagination, useSortBy, useFilters } from 'react-table'
 import { graphql } from 'gatsby'
+import setZoneUse from '../utils/setZoneUse';
+import setMultifamily from '../utils/setMultiFamily'
 import Table from '../components/table/Table';
 import TableFilters from '../components/filters/TableFilters';
 import TablePagination from '../components/table/TablePagination';
 import MultiSelectColumnFilter from '../components/filters/MultiSelectColumnFilter'
 import NumericRangeFilter from '../components/filters/NumericRangeFilter';
 import '../styles/app.scss'
-
-function setZoneUse(id) {
-  switch(id) {
-    case 0:
-      return 'No Zone';
-    case 1:
-      return 'Residential';
-    case 2:
-      return 'Non-Residential';
-    case 3:
-      return 'Mixed Use (Residential and Non-Residential)';
-    case 4:
-      return 'Other (Open space, etc.)'
-  }
-}
-
-function setMultifamily(id) {
-  switch(id) {
-    case 0:
-      return 'No';
-    case 1:
-      return 'By special permit';
-    case 2:
-      return 'By right';
-  }
-}
 
 export default function Tabular({data}) {
   const filterTypes = React.useMemo(() => ({

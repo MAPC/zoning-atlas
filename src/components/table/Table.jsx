@@ -13,7 +13,7 @@ const Table = ({getTableProps,
         headerGroups.map(headerGroup => (
         <tr {...headerGroup.getHeaderGroupProps()}>
           <th className="table__header">Edit <i className="fas fa-external-link-alt icon" /></th>
-          {headerGroup.headers.map(column => <TableHeader column={column} />)}
+          {headerGroup.headers.map(column => <TableHeader column={column} key={column.id} />)}
         </tr>
         ))}
       </thead>
