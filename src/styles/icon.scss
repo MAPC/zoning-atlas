@@ -1,0 +1,17 @@
+.icon {
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 900;
+  margin-left: .25rem;
+
+  &__table {
+    cursor: pointer;
+  }
+
+  &__edit {
+    cursor: pointer;
+
+    &:hover {
+      color: #006E47;
+    }
+  }
+}

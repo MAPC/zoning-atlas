@@ -4,11 +4,11 @@ const TableHeader = ({column}) => {
   let headerIcon;
   const arrowDown = <i
     role="button"
-    className="fa fa-long-arrow-down table__sort-icon"
+    className="fa fa-long-arrow-down icon icon__sort"
   />
   const arrowUp = <i
     role="button"
-    className="fa fa-long-arrow-up table__sort-icon"
+    className="fa fa-long-arrow-up icon icon__sort"
   />
   const [isHovered, setHovered] = useState(false)
   if (isHovered && !column.isSorted) {
