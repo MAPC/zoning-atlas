@@ -30,11 +30,19 @@ const Table = ({
           return (
             <tr {...row.getRowProps()} className="row" key={`row-${row.id}`}>
               <td className="cell">
-                <i
-                  className="fas fa-edit icon icon__edit"
+                <div
+                  className="icon__wrapper"
                   role="button"
                   onClick={() => console.log(row.values)}
-                />
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      console.log(row.values);
+                    }
+                  }}
+                  tabIndex="0"
+                >
+                  <i className="fas fa-edit icon icon__edit" />
+                </div>
               </td>
               {
               row.cells.map((cell) => (

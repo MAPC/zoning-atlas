@@ -40,10 +40,14 @@ const FilterOptionRow = ({
 };
 
 FilterOptionRow.propTypes = {
-  filterValue: PropTypes.array.isRequired,
+  filterValue: PropTypes.array,
   index: PropTypes.number.isRequired,
   option: PropTypes.string.isRequired,
   setFilter: PropTypes.func.isRequired,
+};
+
+FilterOptionRow.defaultProps = {
+  filterValue: undefined,
 };
 
 export default FilterOptionRow;

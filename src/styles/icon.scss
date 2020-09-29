@@ -8,10 +8,20 @@
   }
 
   &__edit {
+    color: #006E47; 
     cursor: pointer;
 
     &:hover {
-      color: #006E47;
+      color: #00F099;
     }
+
+    &:focus {
+      color: #00F099; 
+    }
+  }
+
+  &__wrapper:focus {
+    border: 2px solid #00F099;
+    box-shadow: 0 0 5px #00F099;
   }
 }
