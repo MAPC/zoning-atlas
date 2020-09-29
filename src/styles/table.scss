@@ -12,8 +12,13 @@
 .table {
   border: 1px solid #ddd;
   border-collapse: collapse;
+
   &__wrapper {
     overflow-x: scroll;
+    &:focus {
+      border: 2px solid #00F099;
+      box-shadow: 0 0 5px #00F099;
+    }
   }
 
   &__header {

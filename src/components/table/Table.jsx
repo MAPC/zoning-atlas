@@ -47,12 +47,10 @@ const Table = ({
               {
               row.cells.map((cell) => (
                 <td {...cell.getCellProps()} className="cell">
-                  {
-                    cell.render('Cell')
-}
+                  {cell.render('Cell')}
                 </td>
               ))
-}
+              }
             </tr>
           );
         })
