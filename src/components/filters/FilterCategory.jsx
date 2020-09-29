@@ -16,7 +16,7 @@ const FilterCategory = ({
   });
 
   return (
-    <li>
+    <li style={{ borderBottom: '1px solid #ccc' }}>
       <div
         id={category}
         className={classList}

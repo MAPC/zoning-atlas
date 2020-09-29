@@ -62,10 +62,12 @@ const TableFilters = ({ headerGroups }) => {
             category="zoName"
             columns={[headerGroups[0].headers[9]]}
             dispatch={dispatch}
-            text="Zoning Name *"
+            text="Zoning Name"
           />
         </ul>
-        { activePanel }
+        <div className="filters">
+          { activePanel }
+        </div>
       </nav>
     </aside>
   );
