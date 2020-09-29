@@ -31,6 +31,11 @@
     cursor: pointer;
     padding: .5rem .5rem .5rem 2rem;
 
+    &:focus {
+      border: 2px solid #00F099;
+      box-shadow: 0 0 5px #00F099;
+    }
+
     &:last-child {
       border-bottom-width: 0;
     }

@@ -1,34 +1,32 @@
-import React, { useReducer } from "react"
-import FilterCategory from './FilterCategory'
-import KeyInfoPanel from './KeyInfoPanel'
-import MultiSelectColumnFilter from './MultiSelectColumnFilter'
-import ZoneFunctionPanel from './ZoneFunctionPanel'
+import React, { useReducer } from 'react';
+import PropTypes from 'prop-types';
+import FilterCategory from './FilterCategory';
+import KeyInfoPanel from './KeyInfoPanel';
+import MultiSelectColumnFilter from './MultiSelectColumnFilter';
 
-const TableFilters = ({headerGroups}) => {
-  const reducer = (state, action) => {
-    return {...state, activeCategory: action.category}
-  }
+const TableFilters = ({ headerGroups }) => {
+  const reducer = (state, action) => ({ ...state, activeCategory: action.category });
   const [state, dispatch] = useReducer(reducer, {
-    activeCategory: 'muni'
-  })
+    activeCategory: 'muni',
+  });
 
-  let activePanel = <MultiSelectColumnFilter column={headerGroups[0].headers[0]} />
+  let activePanel = <MultiSelectColumnFilter column={headerGroups[0].headers[0]} />;
   if (state.activeCategory === 'muni') {
-    activePanel = <MultiSelectColumnFilter column={headerGroups[0].headers[0]} />
+    activePanel = <MultiSelectColumnFilter column={headerGroups[0].headers[0]} />;
   } else if (state.activeCategory === 'function') {
-    activePanel = (<MultiSelectColumnFilter column={headerGroups[0].headers[1]} />)
+    activePanel = (<MultiSelectColumnFilter column={headerGroups[0].headers[1]} />);
   } else if (state.activeCategory === 'multifam') {
-    activePanel = (<MultiSelectColumnFilter column={headerGroups[0].headers[2]} />)
+    activePanel = (<MultiSelectColumnFilter column={headerGroups[0].headers[2]} />);
   } else if (state.activeCategory === 'zoName') {
-    activePanel = <MultiSelectColumnFilter column={headerGroups[0].headers[9]} />
+    activePanel = <MultiSelectColumnFilter column={headerGroups[0].headers[9]} />;
   } else {
-    activePanel = <KeyInfoPanel columns={headerGroups[0].headers.filter((header) => header.panel === 'keyInfo')} />
+    activePanel = <KeyInfoPanel columns={headerGroups[0].headers.filter((header) => header.panel === 'keyInfo')} />;
   }
 
   return (
-    <aside className='filters-panel'>
+    <aside className="filters-panel">
       <h2 className="filters-panel__header">Filters</h2>
-      <div className="filters-panel__body">
+      <nav className="filters-panel__body">
         <ul className="filters-panel__categories">
           <FilterCategory
             activeCategory={state.activeCategory}
@@ -43,7 +41,6 @@ const TableFilters = ({headerGroups}) => {
             category="function"
             columns={[headerGroups[0].headers[1]]}
             dispatch={dispatch}
-            panel={<MultiSelectColumnFilter column={headerGroups[0].headers[1]} /> }
             text="Zone Function"
           />
           <FilterCategory
@@ -51,7 +48,6 @@ const TableFilters = ({headerGroups}) => {
             category="multifam"
             columns={[headerGroups[0].headers[2]]}
             dispatch={dispatch}
-            panel={<MultiSelectColumnFilter column={headerGroups[0].headers[2]} /> }
             text="Multifamily"
           />
           <FilterCategory
@@ -59,7 +55,6 @@ const TableFilters = ({headerGroups}) => {
             category="keyInfo"
             columns={headerGroups[0].headers.filter((header) => header.panel === 'keyInfo')}
             dispatch={dispatch}
-            panel={<KeyInfoPanel columns={headerGroups[0].headers.filter((header) => header.panel === 'keyInfo')} />}
             text="Key Info"
           />
           <FilterCategory
@@ -67,14 +62,17 @@ const TableFilters = ({headerGroups}) => {
             category="zoName"
             columns={[headerGroups[0].headers[9]]}
             dispatch={dispatch}
-            panel={<MultiSelectColumnFilter column={headerGroups[0].headers[9]} />}
             text="Zoning Name *"
           />
         </ul>
         { activePanel }
-      </div>
+      </nav>
     </aside>
-  )
+  );
+};
+
+TableFilters.propTypes = {
+  headerGroups: PropTypes.array.isRequired,
 };
 
 export default TableFilters;
