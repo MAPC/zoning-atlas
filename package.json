@@ -11,7 +11,7 @@
     "start": "yarn develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "test": "jest",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
@@ -44,7 +44,11 @@
     "scrollama": "^2.2.1"
   },
   "devDependencies": {
-    "prettier": "2.0.5"
+    "babel-jest": "^26.3.0",
+    "babel-preset-gatsby": "^0.5.11",
+    "jest": "^26.4.2",
+    "prettier": "2.0.5",
+    "react-test-renderer": "^16.13.1"
   },
   "repository": {
     "type": "git",
