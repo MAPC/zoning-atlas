@@ -1,27 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+
+const selectionResult = (option, filterValue) => {
+  if (filterValue === undefined) {
+    return [option];
+  } if (!filterValue.includes(option)) {
+    return filterValue.concat([option]);
+  } if (filterValue.includes(option) && filterValue.length > 1) {
+    const selectedIndex = filterValue.indexOf(option);
+    return filterValue.slice(0, selectedIndex).concat(filterValue.slice(selectedIndex + 1));
+  }
+  return undefined;
+};
 
 const FilterOptionRow = ({
   filterValue, index, option, setFilter,
 }) => {
-  const [isActive, setActiveRow] = useState(false);
-  const handleSelection = () => {
-    if (filterValue === undefined) {
-      setFilter([option]);
-      setActiveRow(true);
-    } else if (!filterValue.includes(option)) {
-      setFilter(filterValue.concat([option]));
-      setActiveRow(true);
-    } else if (filterValue.includes(option) && filterValue.length > 1) {
-      const selectedIndex = filterValue.indexOf(option);
-      setFilter(filterValue.slice(0, selectedIndex).concat(filterValue.slice(selectedIndex + 1)));
-      setActiveRow(false);
-    } else {
-      setFilter(undefined);
-      setActiveRow(false);
-    }
-  };
-
+  const isActive = filterValue && filterValue.includes(option);
   return (
     <li>
       <div
@@ -32,10 +27,10 @@ const FilterOptionRow = ({
         role="button"
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
-            handleSelection();
+            setFilter(selectionResult(option, filterValue));
           }
         }}
-        onClick={() => handleSelection()}
+        onClick={() => setFilter(selectionResult(option, filterValue))}
       >
         <span className={isActive ? 'filters__value filters__value--active' : 'filters__value'}>{option}</span>
         <span className={isActive ? 'filters__button filters__button--active' : 'filters__button'}>+</span>
@@ -56,3 +51,4 @@ FilterOptionRow.defaultProps = {
 };
 
 export default FilterOptionRow;
+export { selectionResult };
