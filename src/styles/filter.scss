@@ -48,6 +48,12 @@
     &--active {
       border-left: 4px solid #006E47;
       padding-left: calc(2rem - 4px);
+
+      &:focus {
+        border: 2px solid #00F099;
+        border-left: 4px solid #006E47;
+        box-shadow: 0 0 5px #00F099;
+      }
     }
 
     &--filtered:before {
