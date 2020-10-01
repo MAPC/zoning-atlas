@@ -1,28 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react';
 
-const NumericRangeFilter = ({column: { setFilter, Header, classElement }}) => {
-  const checkFilter = () => {
-    const operator = document.querySelector(`.operator__${classElement}`).value
-    const operand = document.querySelector(`.operand__${classElement}`).value
-    if (operand) {
-      setFilter({operator, operand})
-    } else {
-      setFilter(null)
-    }
-   };
+const checkFilter = (operator, operand) => {
+  if (operand !== '') {
+    return { operator, operand };
+  }
+  return null;
+};
+
+const NumericRangeFilter = ({ column: { setFilter, Header } }) => {
+  const [operator, setOperator] = useState('gt');
+  const [operand, setOperand] = useState('');
   return (
     <li
       className="filters__option"
     >
       {Header}
-      <select name="height-inf" onChange={() => checkFilter()} className={`operator__${classElement}`}>
+      <select
+        onChange={(e) => {
+          setOperator(e.target.value);
+          setFilter(checkFilter(e.target.value, operand));
+        }}
+      >
         <option value="gt">&gt;</option>
         <option value="eq">=</option>
         <option value="lt">&lt;</option>
       </select>
-      <input name="height" type="number" className={`operand__${classElement}`} onChange={() => checkFilter()} step="any" min="0" />
+      <input
+        type="number"
+        onChange={(e) => {
+          setOperand(e.target.value);
+          setFilter(checkFilter(operator, e.target.value));
+        }}
+        step="any"
+        min="0"
+      />
     </li>
-  )
-}
+  );
+};
 
-export default NumericRangeFilter
+export default NumericRangeFilter;
+export { checkFilter };

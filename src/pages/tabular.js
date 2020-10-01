@@ -96,35 +96,30 @@ export default function Tabular({ data }) {
   }, {
     Header: 'Percent Lot Coverage (%)',
     accessor: 'pctlotcov',
-    classElement: 'pctlotcov',
     Filter: NumericRangeFilter,
     filter: 'numericRange',
     panel: 'keyInfo',
   }, {
     Header: 'Percent Lot Coverage, Effective (%)',
     accessor: 'plcEff',
-    classElement: 'plceff',
     Filter: NumericRangeFilter,
     filter: 'numericRange',
     panel: 'keyInfo',
   }, {
     Header: 'Minimum Lot Area per Dwelling Unit (sf)',
     accessor: 'lApDu',
-    classElement: 'lapdu',
     Filter: NumericRangeFilter,
     filter: 'numericRange',
     panel: 'keyInfo',
   }, {
     Header: 'Maximum Swelling Units per Acre (#)',
     accessor: 'dUpAc',
-    classElement: 'dupac',
     Filter: NumericRangeFilter,
     filter: 'numericRange',
     panel: 'keyInfo',
   }, {
     Header: 'Floor-Area Ratio',
     accessor: 'far',
-    classElement: 'far',
     Filter: NumericRangeFilter,
     filter: 'numericRange',
     panel: 'keyInfo',
@@ -140,7 +135,6 @@ export default function Tabular({ data }) {
   }, {
     Header: 'Effective Max Height',
     accessor: 'mxhtEff',
-    classElement: 'mxht',
     Filter: NumericRangeFilter,
     filter: 'numericRange',
     panel: 'keyInfo',
