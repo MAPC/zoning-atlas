@@ -1,26 +1,30 @@
 import React from 'react';
 import FilterOptionRow from './FilterOptionRow';
 
-function ViewCurrentFilters({column: {filterValue, setFilter, emptyFilterText}}) {
+const setItems = (filterValue, emptyFilterText, setFilter) => {
   if (!filterValue || filterValue.length === 0) {
     return (
-      <span className="filters__text">{emptyFilterText}</span>
-    )
-  } else {
-    return (
-      <ul className="filters__list">
-        {filterValue.sort().map((option, i) => (
-          <FilterOptionRow
-            key={`option-${i}`} 
-            filterValue={filterValue}
-            index={i}
-            option={option}
-            setFilter={setFilter}
-          />
-        ))}
-      </ul>
-    )
+      <li className="filters__text">{emptyFilterText}</li>
+    );
   }
-}
+  return (
+    filterValue.sort().map((option, i) => (
+      <FilterOptionRow
+        key={`option-${i}`}
+        filterValue={filterValue}
+        index={i}
+        option={option}
+        setFilter={setFilter}
+      />
+    ))
+  );
+};
 
-export default ViewCurrentFilters
+const ViewCurrentFilters = ({ column: { filterValue, setFilter, emptyFilterText } }) => (
+  <ul className="filters__list">
+    { setItems(filterValue, emptyFilterText, setFilter) }
+  </ul>
+);
+
+export default ViewCurrentFilters;
+export { setItems };

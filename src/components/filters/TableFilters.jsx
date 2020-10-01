@@ -4,24 +4,27 @@ import FilterCategory from './FilterCategory';
 import KeyInfoPanel from './KeyInfoPanel';
 import MultiSelectColumnFilter from './MultiSelectColumnFilter';
 
+const setActivePanel = (activeCategory, headerGroups) => {
+  if (activeCategory === 'muni') {
+    return <MultiSelectColumnFilter column={headerGroups[0].headers[0]} />;
+  }
+  if (activeCategory === 'function') {
+    return <MultiSelectColumnFilter column={headerGroups[0].headers[1]} />;
+  }
+  if (activeCategory === 'multifam') {
+    return <MultiSelectColumnFilter column={headerGroups[0].headers[2]} />;
+  }
+  if (activeCategory === 'zoName') {
+    return <MultiSelectColumnFilter column={headerGroups[0].headers[9]} />;
+  }
+  return <KeyInfoPanel columns={headerGroups[0].headers.filter((header) => header.panel === 'keyInfo')} />;
+};
+
 const TableFilters = ({ headerGroups }) => {
   const reducer = (state, action) => ({ ...state, activeCategory: action.category });
   const [state, dispatch] = useReducer(reducer, {
     activeCategory: 'muni',
   });
-
-  let activePanel = <MultiSelectColumnFilter column={headerGroups[0].headers[0]} />;
-  if (state.activeCategory === 'muni') {
-    activePanel = <MultiSelectColumnFilter column={headerGroups[0].headers[0]} />;
-  } else if (state.activeCategory === 'function') {
-    activePanel = (<MultiSelectColumnFilter column={headerGroups[0].headers[1]} />);
-  } else if (state.activeCategory === 'multifam') {
-    activePanel = (<MultiSelectColumnFilter column={headerGroups[0].headers[2]} />);
-  } else if (state.activeCategory === 'zoName') {
-    activePanel = <MultiSelectColumnFilter column={headerGroups[0].headers[9]} />;
-  } else {
-    activePanel = <KeyInfoPanel columns={headerGroups[0].headers.filter((header) => header.panel === 'keyInfo')} />;
-  }
 
   return (
     <aside className="filters-panel">
@@ -66,7 +69,7 @@ const TableFilters = ({ headerGroups }) => {
           />
         </ul>
         <div className="filters">
-          { activePanel }
+          { setActivePanel(state.activeCategory, headerGroups) }
         </div>
       </nav>
     </aside>
@@ -78,3 +81,4 @@ TableFilters.propTypes = {
 };
 
 export default TableFilters;
+export { setActivePanel };
