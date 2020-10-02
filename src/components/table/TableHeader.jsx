@@ -1,40 +1,51 @@
 import React, { useState } from 'react';
 
-const TableHeader = ({ column }) => {
-  let headerIcon;
-  const arrowDown = (
-    <i
-      role="button"
-      className="fa fa-long-arrow-down icon icon__sort"
-    />
-  );
-  const arrowUp = (
-    <i
-      role="button"
-      className="fa fa-long-arrow-up icon icon__sort"
-    />
-  );
-  const [isHovered, setHovered] = useState(false);
-  if (isHovered && !column.isSorted) {
-    headerIcon = arrowDown;
-  } else if (!isHovered && !column.isSorted) {
-    headerIcon = '';
-  } else if (column.isSorted && column.isSortedDesc) {
-    headerIcon = arrowUp;
-  } else if (column.isSorted && !column.isSortedDesc) {
-    headerIcon = arrowDown;
-  }
+const arrowDown = (
+  <i
+    role="button"
+    className="fa fa-long-arrow-down icon icon__sort"
+    aria-label="Sort A to Z"
+  />
+);
+const arrowUp = (
+  <i
+    role="button"
+    className="fa fa-long-arrow-up icon icon__sort"
+    aria-label="Sort Z to A"
+  />
+);
 
+const handleHover = (isHovered, colIsSorted, colIsSortedDesc) => {
+  if (isHovered && !colIsSorted && !colIsSortedDesc) {
+    return arrowDown;
+  }
+  if (!isHovered && colIsSorted && !colIsSortedDesc) {
+    return arrowDown;
+  }
+  if (isHovered && colIsSorted && !colIsSortedDesc) {
+    return arrowDown;
+  }
+  if (!isHovered && colIsSorted && colIsSortedDesc) {
+    return arrowUp;
+  }
+  if (isHovered && colIsSorted && colIsSortedDesc) {
+    return arrowUp;
+  }
+  return '';
+};
+
+const TableHeader = ({ column }) => {
+  const [isHovered, setHover] = useState(false);
   return (
     <th
       {...column.getHeaderProps(column.getSortByToggleProps())}
       className="table__header"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onFocus={() => setHovered(true)}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      onFocus={() => setHover(true)}
       onKeyDown={(e) => {
         if (e.key === 'Tab') {
-          setHovered(false);
+          setHover(false);
         } else if (e.key === 'Enter') {
           column.toggleSortBy();
         }
@@ -42,9 +53,10 @@ const TableHeader = ({ column }) => {
       tabIndex="0"
     >
       <span>{column.render('Header')}</span>
-      {headerIcon}
+      {handleHover(isHovered, column.isSorted, column.isSortedDesc)}
     </th>
   );
 };
 
 export default TableHeader;
+export { arrowDown, arrowUp, handleHover };
