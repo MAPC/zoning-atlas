@@ -7,12 +7,11 @@ const Table = ({
   headerGroups,
   page,
   prepareRow,
-}) => {
-  return (
-    <div className="table__wrapper">
-      <table {...getTableProps()} className="table">
-        <thead>
-          {
+}) => (
+  <div className="table__wrapper">
+    <table {...getTableProps()} className="table">
+      <thead>
+        {
           headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               <th className="table__header">
@@ -23,9 +22,9 @@ const Table = ({
             </tr>
           ))
   }
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {
+      </thead>
+      <tbody {...getTableBodyProps()}>
+        {
           page.map((row) => {
             prepareRow(row);
             return (
@@ -56,10 +55,9 @@ const Table = ({
             );
           })
   }
-        </tbody>
-      </table>
-    </div>
-  );
-};
+      </tbody>
+    </table>
+  </div>
+);
 
 export default Table;
