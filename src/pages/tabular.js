@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import {
   useTable, usePagination, useSortBy, useFilters,
@@ -8,9 +8,9 @@ import setZoneUse from '../utils/setZoneUse';
 import setMultifamily from '../utils/setMultiFamily';
 import { multiple, inclusiveOr, numericRange } from '../utils/setFilterTypes';
 import setColumns from '../utils/setColumns';
-import Table from '../components/table/Table';
 import TableFilters from '../components/filters/TableFilters';
-import TablePagination from '../components/table/TablePagination';
+import TableWrapper from '../components/table/TableWrapper';
+import Map from '../components/map/Map';
 import '../styles/app.scss';
 
 export default function Tabular({ data }) {
@@ -40,32 +40,11 @@ export default function Tabular({ data }) {
   })), [data.postgres.allDraftDatabasesList]);
 
   const columns = useMemo(() => setColumns, []);
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    page,
-    prepareRow,
-    canPreviousPage,
-    canNextPage,
-    previousPage,
-    nextPage,
-    gotoPage,
-    pageCount,
-    state: { pageIndex },
-  } = useTable(
-    {
-      columns,
-      data,
-      initialState: { pageSize: 10 },
-      defaultColumn,
-      filterTypes,
-      defaultCanFilter: false,
-    },
-    useFilters,
-    useSortBy,
-    usePagination,
-  );
+  const reactTable = useTable({
+    columns, data, initialState: { pageSize: 10 }, defaultColumn, filterTypes, defaultCanFilter: false,
+  }, useFilters, useSortBy, usePagination);
+
+  const [view, setView] = useState('tabular');
 
   return (
     <>
@@ -73,28 +52,25 @@ export default function Tabular({ data }) {
         title="Zoning Atlas - Tabular Data"
       />
       <h1>Zoning Atlas</h1>
+      <button
+        type="button"
+        onClick={() => setView('tabular')}
+      >
+        Tabular
+      </button>
+      <button
+        type="button"
+        onClick={() => setView('spatial')}
+      >
+        Spatial
+      </button>
       <div className="tabular-data">
         <TableFilters
-          headerGroups={headerGroups}
+          headerGroups={reactTable.headerGroups}
         />
-        <div className="tabular-data__display">
-          <Table
-            getTableProps={getTableProps}
-            getTableBodyProps={getTableBodyProps}
-            headerGroups={headerGroups}
-            page={page}
-            prepareRow={prepareRow}
-          />
-          <TablePagination
-            gotoPage={gotoPage}
-            previousPage={previousPage}
-            canPreviousPage={canPreviousPage}
-            nextPage={nextPage}
-            canNextPage={canNextPage}
-            pageIndex={pageIndex}
-            pageCount={pageCount}
-          />
-        </div>
+        {view === 'tabular'
+          ? <TableWrapper reactTable={reactTable} />
+          : <Map reactTable={reactTable} />}
       </div>
     </>
   );
