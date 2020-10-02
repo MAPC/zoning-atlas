@@ -1,11 +1,7 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ReactMapGL, { Source, Layer } from 'react-map-gl';
 
-const Map = (currentPanel) => {
-  console.log(currentPanel)
-  const [width, setWidth] = useState(0)
-  const [height, setHeight] = useState(0)
+const Map = () => {
   const [viewport, setViewport] = useState({
     width: 400,
     height: 400,
@@ -26,51 +22,42 @@ const Map = (currentPanel) => {
     'source-layer': 'Basemap',
   };
 
-  useEffect(() => {
-     if (typeof window !== "undefined") {
-      setHeight(window.innerHeight)
-       if (window.innerWidth > 500) {
-        setWidth(window.innerWidth - 320)
-       } else {
-        setWidth(500)
-       }
-    }
-  }, [])
-
   return (
     <div className="map">
       <ReactMapGL
-        mapStyle={'mapbox://styles/ihill/ckbwj9b7t16h11htdrlq9ondi'}
+        mapStyle="mapbox://styles/ihill/ckbwj9b7t16h11htdrlq9ondi"
         {...viewport}
-        onViewportChange={nextViewport => setViewport(nextViewport)}
-        mapboxApiAccessToken={'pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg'}
-        width={width}
-        height={height}
+        onViewportChange={(nextViewport) => setViewport(nextViewport)}
+        mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
+        width={viewport.width}
+        height={viewport.height}
         scrollZoom={false}
         dragPan={false}
       >
         <Source id="Zoning Atlas" type="vector" url="mapbox://ihill.85scb4pn">
-          <Layer {...layer} 
-          paint={{
-            'fill-color': ["match",
-                ["get", "ZONE_TYPE"],
+          <Layer
+            {...layer}
+            paint={{
+              'fill-color': ['match',
+                ['get', 'ZONE_TYPE'],
                 0,
-                "#dadada",
+                '#dadada',
                 [1],
-                "#fffdbc",
+                '#fffdbc',
                 [2],
-                "#940003",
+                '#940003',
                 [3],
-                "#dd8608",
+                '#dd8608',
                 [4],
-                "#BDD08D",
-                "hsl(0, 5%, 36%)"
-              ]
-            }}/>
+                '#BDD08D',
+                'hsl(0, 5%, 36%)',
+              ],
+            }}
+          />
         </Source>
       </ReactMapGL>
     </div>
   );
-}
+};
 
 export default Map;

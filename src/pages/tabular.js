@@ -10,7 +10,7 @@ import { multiple, inclusiveOr, numericRange } from '../utils/setFilterTypes';
 import setColumns from '../utils/setColumns';
 import TableFilters from '../components/filters/TableFilters';
 import TableWrapper from '../components/table/TableWrapper';
-import Map from '../components/map/Map';
+import Map from '../components/map/NarrativeMap';
 import '../styles/app.scss';
 
 export default function Tabular({ data }) {

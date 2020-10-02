@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
-import Map from './Map';
+import NarrativeMap from './NarrativeMap';
 
 const Storymap = () => {
   const [currentPanel, setCurrentPanel] = useState();
   return (
     <section className="storymap__wrapper">
       <Sidebar setCurrentPanel={setCurrentPanel} />
-      <Map currentPanel={currentPanel} />
+      <NarrativeMap currentPanel={currentPanel} />
     </section>
   );
 }
