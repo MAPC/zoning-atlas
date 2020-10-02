@@ -1,13 +1,13 @@
 const multiple = (rows, id, filterValue) => rows.filter((row) => {
   const rowValue = row.values[id];
-  return rowValue !== undefined
+  return rowValue !== undefined && filterValue
     ? filterValue.includes(rowValue)
     : true;
 });
 
 const inclusiveOr = (rows, id, filterValue) => rows.filter((row) => {
   const rowValue = row.values[id];
-  return rowValue !== undefined
+  return rowValue !== undefined && filterValue
     ? rowValue.some((itemInRow) => filterValue.includes(itemInRow))
     : true;
 });
@@ -25,7 +25,7 @@ const numericRange = (rows, id, filterValue) => {
   };
   return rows.filter((row) => {
     const rowValue = row.values[id];
-    return rowValue !== undefined
+    return rowValue !== undefined && filterValue
       ? createEquation(rowValue)
       : true;
   });

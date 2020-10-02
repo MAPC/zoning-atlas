@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
 const checkFilter = (operator, operand) => {
-  if (operand !== '') {
-    return { operator, operand };
+  if (operand === '') {
+    return null;
   }
-  return null;
+  return { operator, operand };
 };
 
-const NumericRangeFilter = ({ column: { setFilter, Header } }) => {
-  const [operator, setOperator] = useState('gt');
-  const [operand, setOperand] = useState('');
+const NumericRangeFilter = ({ column: { filterValue, setFilter, Header } }) => {
+  const [operator, setOperator] = useState(filterValue ? filterValue.operator : 'gt');
+  const [operand, setOperand] = useState(filterValue ? filterValue.operand : '');
   return (
     <li
       className="filters__option"
@@ -20,6 +20,7 @@ const NumericRangeFilter = ({ column: { setFilter, Header } }) => {
           setOperator(e.target.value);
           setFilter(checkFilter(e.target.value, operand));
         }}
+        value={operator}
       >
         <option value="gt">&gt;</option>
         <option value="eq">=</option>
@@ -33,6 +34,7 @@ const NumericRangeFilter = ({ column: { setFilter, Header } }) => {
         }}
         step="any"
         min="0"
+        value={filterValue ? filterValue.operand : ''}
       />
     </li>
   );

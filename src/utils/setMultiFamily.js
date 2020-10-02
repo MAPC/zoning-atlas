@@ -1,5 +1,5 @@
 export default function setMultifamily(id) {
-  switch(id) {
+  switch (id) {
     case 0:
       return 'No';
     case 1:

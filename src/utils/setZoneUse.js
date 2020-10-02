@@ -1,5 +1,5 @@
 export default function setZoneUse(id) {
-  switch(id) {
+  switch (id) {
     case 0:
       return 'No Zone';
     case 1:

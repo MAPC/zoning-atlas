@@ -1,8 +1,6 @@
 import { describe, test, expect } from '@jest/globals';
 import { arrowDown, arrowUp, handleHover } from '../TableHeader';
 
-// isHovered, colIsSorted, colIsSortedDesc
-
 describe('Table Header', () => {
   describe('will display a down-arrow', () => {
     test('when unsorted and hovered over', () => {
