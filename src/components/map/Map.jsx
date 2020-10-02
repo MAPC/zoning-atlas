@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import ReactMapGL, { Source, Layer } from 'react-map-gl';
 
-const Map = () => {
+const Map = ({reactTable}) => {
+  const [muniFilter, setMuniFilter] = useState(reactTable.columns[0].filterValue ? reactTable.columns[0].filterValue[0] : '');
   const [viewport, setViewport] = useState({
-    width: 400,
-    height: 400,
+    width: 700,
+    height: 700,
     latitude: 42.3317,
     longitude: -71.0408,
-    zoom: 9,
+    zoom: 11,
     maxZoom: 13,
     minZoom: 6,
     maxBounds: [
@@ -31,8 +32,6 @@ const Map = () => {
         mapboxApiAccessToken="pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
         width={viewport.width}
         height={viewport.height}
-        scrollZoom={false}
-        dragPan={false}
       >
         <Source id="Zoning Atlas" type="vector" url="mapbox://ihill.85scb4pn">
           <Layer
@@ -51,6 +50,12 @@ const Map = () => {
                 [4],
                 '#BDD08D',
                 'hsl(0, 5%, 36%)',
+              ],
+              'fill-opacity': ['match',
+                ['get', 'MUNI'],
+                muniFilter,
+                1,
+                0,
               ],
             }}
           />

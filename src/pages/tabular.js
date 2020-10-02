@@ -10,7 +10,7 @@ import { multiple, inclusiveOr, numericRange } from '../utils/setFilterTypes';
 import setColumns from '../utils/setColumns';
 import TableFilters from '../components/filters/TableFilters';
 import TableWrapper from '../components/table/TableWrapper';
-import Map from '../components/map/NarrativeMap';
+import Map from '../components/map/Map';
 import '../styles/app.scss';
 
 export default function Tabular({ data }) {
@@ -44,7 +44,7 @@ export default function Tabular({ data }) {
     columns, data, initialState: { pageSize: 10 }, defaultColumn, filterTypes, defaultCanFilter: false,
   }, useFilters, useSortBy, usePagination);
 
-  const [view, setView] = useState('tabular');
+  const [view, setView] = useState('spatial');
 
   return (
     <>
