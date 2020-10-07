@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import ReactMapGL, { Source, Layer } from 'react-map-gl';
+import ReactMapGL, { Source, Layer, Popup } from 'react-map-gl';
 
-const Map = ({reactTable}) => {
+const Map = ({ reactTable }) => {
   const [muniFilter, setMuniFilter] = useState(reactTable.columns[0].filterValue ? reactTable.columns[0].filterValue[0] : '');
+  const [showPopup, setPopup] = useState(false);
   const [viewport, setViewport] = useState({
     width: 700,
     height: 700,
@@ -16,11 +17,25 @@ const Map = ({reactTable}) => {
       [-66.541, 46.032], // Northeast bound
     ],
   });
+  const lines = {
+    id: '2',
+    type: 'line',
+    source: {
+      type: 'geojson',
+      data: 'https://geo.mapc.org:6443/arcgis/rest/services/transportation/MBTA/FeatureServer/2/query?where=1=1&outfields=*&f=geojson',
+    },
+    layout: {
+      'line-cap': 'butt',
+      'line-join': 'miter',
+    },
+    paint: {
+      'line-color': '#214A2D',
+      'line-width': 2,
+    },
+  };
 
-  const layer = {
-    id: 'Basemap',
-    type: 'fill',
-    'source-layer': 'Basemap',
+  const stops = {
+
   };
 
   return (
@@ -33,33 +48,20 @@ const Map = ({reactTable}) => {
         width={viewport.width}
         height={viewport.height}
       >
-        <Source id="Zoning Atlas" type="vector" url="mapbox://ihill.85scb4pn">
-          <Layer
-            {...layer}
-            paint={{
-              'fill-color': ['match',
-                ['get', 'ZONE_TYPE'],
-                0,
-                '#dadada',
-                [1],
-                '#fffdbc',
-                [2],
-                '#940003',
-                [3],
-                '#dd8608',
-                [4],
-                '#BDD08D',
-                'hsl(0, 5%, 36%)',
-              ],
-              'fill-opacity': ['match',
-                ['get', 'MUNI'],
-                muniFilter,
-                1,
-                0,
-              ],
-            }}
-          />
-        </Source>
+        {showPopup && (
+        <Popup
+          latitude={42.3317}
+          longitude={-71.0408}
+          dynamicPosition
+          closeButton
+          closeOnClick={false}
+          onClose={() => setPopup(false)}
+          anchor="top"
+        >
+          <div>You are here</div>
+        </Popup>
+        )}
+        <Layer {...lines}/>
       </ReactMapGL>
     </div>
   );
