@@ -27,6 +27,11 @@ p {
   flex: 1;
 }
 
+.leaflet-container {
+  height: 600px;
+  width: 600px;
+}
+
 .map {
   float: right;
   height: 100vh;
