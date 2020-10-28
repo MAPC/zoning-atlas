@@ -7,6 +7,10 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
             test: /mapbox-gl-compare/,
             use: loaders.null(),
           },
+          {
+            test: /esri-leaflet/,
+            use: loaders.null(),
+          },
         ],
       },
     })

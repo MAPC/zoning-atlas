@@ -27,14 +27,14 @@ const NarrativeMap = (currentPanel) => {
   };
 
   useEffect(() => {
-     if (typeof window !== "undefined") {
-      setHeight(window.innerHeight)
-       if (window.innerWidth > 500) {
-        setWidth(window.innerWidth - 320)
-       } else {
-        setWidth(500)
-       }
-    }
+    //  if (typeof window !== "undefined") {
+    //   setHeight(window.innerHeight)
+    //    if (window.innerWidth > 500) {
+    //     setWidth(window.innerWidth - 320)
+    //    } else {
+    //     setWidth(500)
+    //    }
+    // }
   }, [])
 
   return (
