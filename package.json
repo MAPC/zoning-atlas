@@ -24,7 +24,7 @@
     "eslint-plugin-react-hooks": "^4.1.2",
     "esri-leaflet": "^2.5.1",
     "gatsby": "^2.24.2",
-    "gatsby-cli": "^2.12.102",
+    "gatsby-cli": "^2.12.113",
     "gatsby-plugin-manifest": "^2.4.20",
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-react-leaflet": "^2.0.13",
@@ -44,7 +44,7 @@
     "react-dom": "^16.12.0",
     "react-esri-leaflet": "^0.2.2",
     "react-helmet": "^6.1.0",
-    "react-leaflet": "^2.8.0",
+    "react-leaflet": "^3.0.0-rc.0",
     "react-map-gl": "^5.2.7",
     "react-table": "^7.5.0",
     "scrollama": "^2.2.1"
