@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import Layers from './Layers';
 
-const LeafletMap = () => (
+const LeafletMap = ({ reactTable }) => (
   <MapContainer
     center={[42.3317, -71.0408]}
     zoom={9}
@@ -14,7 +14,7 @@ const LeafletMap = () => (
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
     />
-    <Layers />
+    <Layers reactTable={reactTable} />
   </MapContainer>
 );
 

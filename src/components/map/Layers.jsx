@@ -17,7 +17,14 @@ function setSimplifyFactor(zoom) {
   }
 }
 
-const Layers = () => {
+function setMunicipalityFilter(filterValue) {
+  if (!filterValue) {
+    return null;
+  }
+  return filterValue.reduce((queryString, muni) => queryString.concat(`muni = '${muni}' OR `), '').slice(0, -4);
+}
+
+const Layers = ({ reactTable }) => {
   const mapRef = useMap();
   const [zoom, setZoom] = useState(mapRef.getZoom());
 
@@ -29,13 +36,14 @@ const Layers = () => {
     <FeatureLayer
       url="https://geo.mapc.org/server/rest/services/gisdata/ZoningKitchenSinkTest_v03/MapServer/0"
       simplifyFactor={setSimplifyFactor(zoom)}
-      useCors={false}
       style={{
         color: 'blue',
         weight: 0.5,
       }}
+      where={setMunicipalityFilter(reactTable.columns[0].filterValue)}
     />
   );
 };
 
 export default Layers;
+export { setSimplifyFactor, setMunicipalityFilter }
