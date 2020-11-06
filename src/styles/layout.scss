@@ -7,9 +7,11 @@
   padding: 2.5rem 0 1rem 1.25rem;
 
   &__logo-wrapper {
+    border: 0;
     display: flex;
     flex-direction: row;
     align-items: flex-end;
+    text-decoration: none;
   }
 
   &__logo {
@@ -51,7 +53,6 @@
     &--active {
       border-bottom: .3rem solid $color_font-white;
       color: $color_font-white;
-      transition: border .5s;
     }
   }
 }
