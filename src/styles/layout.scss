@@ -6,12 +6,24 @@
   justify-content: space-between;
   padding: 2.5rem 0 1rem 1.25rem;
 
+  &__logo-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  &__logo {
+    align-self: flex-start;
+  }
+
   &__title {
     color: $color_font-white;
     font-size: 2.75rem;
     margin: 0;
+    padding-left: 1.25rem;
     font-weight: 600;
     font-style: normal;
+    line-height: 3.875rem;
   }
 }
 
@@ -20,22 +32,26 @@
     display: flex;
     flex-direction: row;
     list-style: none;
+    padding: 0;
   }
 
   &__item {
     font-size: 1.25rem;
     font-weight: 600;
     font-style: normal;
-    margin: 0 1.875rem;
+    padding: 0 1.875rem;
     text-transform: uppercase;
   }
 
   &__link {
     color: $color_accent-green;
+    letter-spacing: .125rem;
     text-decoration: none;
 
     &--active {
+      border-bottom: .3rem solid $color_font-white;
       color: $color_font-white;
+      transition: border .5s;
     }
   }
 }
