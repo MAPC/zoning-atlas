@@ -36,11 +36,24 @@ const Layers = ({ reactTable }) => {
     <FeatureLayer
       url="https://geo.mapc.org/server/rest/services/gisdata/ZoningKitchenSinkTest_v03/MapServer/0"
       simplifyFactor={setSimplifyFactor(zoom)}
-      style={{
-        color: 'blue',
-        weight: 0.5,
+      style={() => {
+        if (zoom > 9) {
+          return {
+            color: 'blue',
+            weight: 0.5,
+            fillOpacity: 0,
+            opacity: 0,
+          };
+        }
+        return {
+          color: 'blue',
+          weight: 0.5,
+          fillOpacity: 0.2,
+          opacity: 1,
+        };
       }}
-      where={setMunicipalityFilter(reactTable.columns[0].filterValue)}
+      // where={setMunicipalityFilter(reactTable.columns[0].filterValue)}
+      useCors={false}
     />
   );
 };
