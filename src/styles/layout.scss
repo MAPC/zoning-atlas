@@ -1,3 +1,41 @@
 .header {
+  background-color: $color_bg-green;
+  display: flex;
+  flex-direction: row;
   font-family: 'Calibre';
+  justify-content: space-between;
+  padding: 2.5rem 0 1rem 1.25rem;
+
+  &__title {
+    color: $color_font-white;
+    font-size: 2.75rem;
+    margin: 0;
+    font-weight: 600;
+    font-style: normal;
+  }
+}
+
+.navigation {
+  &__list {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+  }
+
+  &__item {
+    font-size: 1.25rem;
+    font-weight: 600;
+    font-style: normal;
+    margin: 0 1.875rem;
+    text-transform: uppercase;
+  }
+
+  &__link {
+    color: $color_accent-green;
+    text-decoration: none;
+
+    &--active {
+      color: $color_font-white;
+    }
+  }
 }
