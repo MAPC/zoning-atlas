@@ -35,6 +35,7 @@ const NumericRangeFilter = ({ column: { filterValue, setFilter, Header } }) => {
         step="any"
         min="0"
         value={filterValue ? filterValue.operand : ''}
+        className="filters__input"
       />
     </li>
   );

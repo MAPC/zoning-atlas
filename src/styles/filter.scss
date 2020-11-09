@@ -1,44 +1,50 @@
 .filters-panel {
-  border-color: #006E47;
+  border-color: $color_bg-green;
   border-radius: 5px;
   border-style: solid;
   border-width: 6px 1px 1px;
   display: flex;
-  flex-basis: 450px;
+  flex-basis: 27rem;
   flex-direction: column;
   margin-right: 1.25rem;
-  width: 100%;
+  width: 27rem;
 
   &__header {
+    font-family: 'Calibre';
+    font-style: normal;
     font-size: 1.5rem;
-    margin: 0;
-    padding: 1rem 1.5rem;
+    font-weight: 600;
+    margin: .5rem 0 0 1rem;
   }
 
   &__body {
-    border-top: 1px solid #CCC;
+    border-top: 1px solid $color_default-gray;
     display: flex;
     height: 100%;
-    width: 450px;
   }
 
   &__categories {
     list-style: none;
     margin: 0;
     padding: 0;
+    width: 12.5rem;
   }
 
   &__item {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid $color_default-gray;
   }
 
   &__category {
+    color: $color_default-gray;
     cursor: pointer;
+    font-family: 'SwiftNeueLTPro', serif;
+    font-style: normal;
+    font-weight: normal;
     padding: .5rem .5rem .5rem 2rem;
 
     &:focus {
-      border: 2px solid #00F099;
-      box-shadow: 0 0 5px #00F099;
+      border: 2px solid $color_accent-green;
+      box-shadow: 0 0 5px $color_accent-green;
     }
 
     &:last-child {
@@ -46,37 +52,38 @@
     }
 
     &--active {
-      border-left: 4px solid #006E47;
+      border-left: 4px solid $color_bg-green;
+      color: $color_bg-green;
       padding-left: calc(2rem - 4px);
 
       &:focus {
-        border: 2px solid #00F099;
-        border-left: 4px solid #006E47;
-        box-shadow: 0 0 5px #00F099;
+        border: 2px solid $color_accent-green;
+        border-left: 4px solid $color_bg-green;
+        box-shadow: 0 0 5px $color_accent-green;
       }
     }
 
     &--filtered:before {
-      background: #006E47;
+      background: $color_bg-green;
       border-radius: 50%;
       content: '';
       display: block;
-      height: 8px;
-      left: 8px;
+      height: .5rem;
+      left: 2rem;
       position: absolute;
-      transform: translateY(4px);
-      width: 8px;
+      transform: translateY(.25rem);
+      width: .5rem;
     }
   }
 }
 
 .filters {
-  border-left: 1px solid #ccc;
+  border-left: 1px solid $color_default-gray;
   flex: 1;
-  min-width: 66.66%;
 
   &__views {
-    border-bottom: 1px solid #CCC;
+    border-bottom: 1px solid $color_default-gray;
+    background-color: $color_bg-beige;
     padding: .5rem;
   }
 
@@ -89,12 +96,12 @@
     width: 50%;
 
     &:first-child {
-      border-right: 1px solid #CCC;
+      border-right: 1px solid $color_default-gray;
     }
 
     &:focus {
-      border: 2px solid #00F099;
-      box-shadow: 0 0 5px #00F099;
+      border: 2px solid $color_accent-green;
+      box-shadow: 0 0 5px $color_accent-green;
     }
   }
 
@@ -106,8 +113,11 @@
   &__search {
     background: 0 0;
     border: 0;
-    border-bottom: 1px solid #CCC;
-    font-size: 12px;
+    border-bottom: 1px solid $color_default-gray;
+    color: $color_default-gray;
+    font-family: 'Calibre';
+    font-size: 0.75rem;
+    font-weight: normal;
     height: 1.5rem;
     outline: 0;
     padding: 4px 10px;
@@ -115,7 +125,7 @@
   }
 
   &__list {
-    height: 400px;
+    height: 28rem;
     list-style: none;
     margin: 0;
     overflow-y: scroll;
@@ -124,15 +134,18 @@
 
   &__option {
     align-items: center;
+    color: $color_default-gray;
     cursor: pointer;
     display: flex;
+    font-family: 'Calibre';
+    font-size: 0.875rem;
+    font-weight: normal;
     flex-direction: row;
     justify-content: space-between;
-    padding: 3px 0;
     
     &:focus {
-      border: 2px solid #00F099;
-      box-shadow: 0 0 5px #00F099;
+      border: 2px solid $color_accent-green;
+      box-shadow: 0 0 5px $color_accent-green;
     }
 
     &--active {
@@ -147,7 +160,7 @@
     left: 8px;
     position: relative;
     &:before {
-      background: #006E47;
+      background: $color_bg-green;
       border-radius: 50%;
       content: '';
       display: block;
@@ -169,5 +182,9 @@
     &--active {
       transform: rotate(45deg);
     }
+  }
+
+  &__input {
+    width: 30px;
   }
 }

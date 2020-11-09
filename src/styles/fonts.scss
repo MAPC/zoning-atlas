@@ -1,3 +1,29 @@
+@import url("//hello.myfonts.net/count/37908e");
+
+@font-face {
+  font-family: 'SwiftNeueLTPro';
+  src: url('./fonts/SwiftNeueLTPro.eot') format('eot');
+  src: local('Swift Neue LT Pro'),
+      url('./fonts/SwiftNeueLTPro.eot?#iefix') format('embedded-opentype'),
+      url('./fonts/SwiftNeueLTPro.woff2') format('woff2'),
+      url('./fonts/SwiftNeueLTPro.woff') format('woff'),
+      url('./fonts/SwiftNeueLTPro.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'SwiftNeueLTPro';
+  src: url('./fonts/SwiftNeueLTPro-Italic.eot') format('eot');
+  src: local('Swift Neue LT Pro Italic'),
+      url('./fonts/SwiftNeueLTPro-Italic.eot?#iefix') format('embedded-opentype'),
+      url('./fonts/SwiftNeueLTPro-Italic.woff2') format('woff2'),
+      url('./fonts/SwiftNeueLTPro-Italic.woff') format('woff'),
+      url('./fonts/SwiftNeueLTPro-Italic.ttf') format('truetype');
+  font-style: italic;
+  font-weight: normal;
+}
+
 @font-face {
   font-family: 'Calibre';
   src: url('./fonts/Calibre-Light.eot');
