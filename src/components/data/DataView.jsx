@@ -8,15 +8,15 @@ function toggleState(currentState) {
 }
 
 const DataView = ({ view, setView }) => (
-  <aside className="dataview__wrapper">
-    <span className="dataview__title">Data View</span>
-    <div className=" dataview__toggle toggle__wrapper">
-      <label className="toggle__switch" data-children-count="1">
-        <input type="checkbox" className="toggle__input" onClick={() => setView(toggleState(view))} />
-        <span className="toggle__circle" />
-        <div className="toggle__options-wrapper">
-          <span className={view === 'spatial' ? 'toggle__option toggle__option--active' : 'toggle__option'}>Map</span>
-          <span className={view === 'tabular' ? 'toggle__option toggle__option--active' : 'toggle__option'}>Table</span>
+  <aside className="data-view__wrapper">
+    <span className="data-view__title">Data View</span>
+    <div className="data-view__toggle">
+      <label className="data-view__switch" data-children-count="1">
+        <input type="checkbox" className="data-view__input" onClick={() => setView(toggleState(view))} />
+        <span className="data-view__circle" />
+        <div className="data-view__options-wrapper">
+          <span className={view === 'spatial' ? 'data-view__option data-view__option--active' : 'data-view__option'}>Map</span>
+          <span className={view === 'tabular' ? 'data-view__option data-view__option--active' : 'data-view__option'}>Table</span>
         </div>
       </label>
     </div>

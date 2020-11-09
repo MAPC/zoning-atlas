@@ -1,0 +1,15 @@
+.data-options {
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    font-family: 'Calibre';
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+  }
+}

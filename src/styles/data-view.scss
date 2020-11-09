@@ -1,22 +1,15 @@
-.dataview {
+.data-view {
   &__wrapper {
     align-items: center;
     display: flex;
     flex-direction: row;
-    margin-bottom: 2rem;
   }
 
   &__title {
-    font-family: 'Calibre';
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 600;
     margin-right: 2.75rem;
   }
-}
 
-.toggle {
-  &__wrapper {
+  &__toggle {
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -36,7 +29,7 @@
     opacity: 0;
     width: 0;
 
-    &:checked + .toggle__circle::before {
+    &:checked + .data-view__circle::before {
       -ms-transform: translateX(100px);
       -webkit-transform: translateX(100px);
       transform: translateX(100px);

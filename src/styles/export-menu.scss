@@ -1,0 +1,11 @@
+.export-menu {
+  &__wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__title {
+    margin-right: 1rem;
+  }
+}
