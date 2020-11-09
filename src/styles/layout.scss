@@ -1,10 +1,15 @@
 .header {
-  background-color: $color_bg-green;
   display: flex;
   flex-direction: row;
   font-family: 'Calibre';
   justify-content: space-between;
+  margin: 0 auto;
+  max-width: $container_width;
   padding: 2.5rem 0 1rem 1.25rem;
+
+  &__wrapper {
+    background-color: $color_bg-green;
+  }
 
   &__logo-wrapper {
     border: 0;
@@ -57,9 +62,15 @@
   }
 }
 
+.main {
+  &__wrapper {
+    margin: 1.875rem $container_margin-right 1.875rem $container_margin-left;
+    max-width: $container_width;
+  }
+}
+
 .footer {
   align-items: center;
-  background-color: $color_bg-green;
   color: $color_font-white;
   display: flex;
   flex-direction: row;
@@ -67,7 +78,16 @@
   font-family: 'Calibre';
   font-size: 1rem;
   justify-content: space-between;
-  padding: 0 1.25rem;
+  margin: 0 auto;
+  max-width: $container_width;
+  padding: 0 $container_margin-right 0 $container_margin-left;
+
+  &__wrapper {
+    background-color: $color_bg-green;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+  }
 
   &__logo-wrapper {
     display: flex;
