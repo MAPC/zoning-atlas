@@ -1,0 +1,17 @@
+.contribute-menu {
+  &__wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2.25rem;
+  }
+
+  &__title {
+    margin-right: 1rem;
+  }
+
+  &__options-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+}

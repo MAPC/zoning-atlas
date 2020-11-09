@@ -11,6 +11,7 @@ import setColumns from '../utils/setColumns';
 import Layout from '../components/Layout';
 import DataOptionsHeader from '../components/data/DataOptionsHeader';
 import DataContainer from '../components/data/DataContainer';
+import ContributeMenu from '../components/data/ContributeMenu';
 import '../styles/app.scss';
 
 export default function Tabular({ data }) {
@@ -66,6 +67,7 @@ export default function Tabular({ data }) {
         reactTable={reactTable}
         view={view}
       />
+      <ContributeMenu />
     </Layout>
   );
 }
