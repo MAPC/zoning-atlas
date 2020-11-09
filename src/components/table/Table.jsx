@@ -14,7 +14,7 @@ const Table = ({
         {
           headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
-              <th className="table__header">
+              <th className="table__header table__header--edit">
                 Edit
                 <i className="fas fa-external-link-alt icon" />
               </th>
