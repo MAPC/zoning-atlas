@@ -5,7 +5,7 @@
   justify-content: space-between;
   margin: 0 auto;
   max-width: $container_width;
-  padding: 2.5rem 0 1rem 1.25rem;
+  padding: 2.5rem $container_margin-right 1rem $container_margin-left;
 
   &__wrapper {
     background-color: $color_bg-green;
@@ -64,8 +64,9 @@
 
 .main {
   &__wrapper {
-    margin: 1.875rem $container_margin-right 1.875rem $container_margin-left;
+    margin: 1.875rem auto;
     max-width: $container_width;
+    padding: 0 $container_margin-right 0 $container_margin-left;
   }
 }
 

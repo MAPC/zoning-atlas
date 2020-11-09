@@ -9,7 +9,7 @@ function toggleState(currentState) {
 
 const DataView = ({ view, setView }) => (
   <aside className="data-view__wrapper">
-    <span className="data-view__title">Data View</span>
+    <span className="data-options__title data-view__title">Data View</span>
     <div className="data-view__toggle">
       <label className="data-view__switch" data-children-count="1">
         <input type="checkbox" className="data-view__input" onClick={() => setView(toggleState(view))} />
