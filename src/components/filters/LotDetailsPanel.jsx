@@ -1,7 +1,7 @@
 import React from 'react';
 import NumericRangeFilter from './NumericRangeFilter';
 
-const KeyInfoPanel = ({ columns }) => (
+const LotDetailsPanel = ({ columns }) => (
   <ul className="filters__list">
     <NumericRangeFilter column={columns[0]} />
     <NumericRangeFilter column={columns[1]} />
@@ -14,4 +14,4 @@ const KeyInfoPanel = ({ columns }) => (
   </ul>
 );
 
-export default KeyInfoPanel;
+export default LotDetailsPanel;

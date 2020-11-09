@@ -27,7 +27,6 @@ export default function Tabular({ data }) {
 
   data = useMemo(() => data.postgres.allDraftDatabasesList.map((row) => ({
     muni: row.muni,
-    zoName: row.zoName ? row.zoName.split(',') : [''],
     zoUsety: setZoneUse(row.zoUsety),
     multifam: setMultifamily(row.multifam),
     plcEff: row.plcEff * 100,
@@ -77,7 +76,6 @@ export const data = graphql`
     postgres {
       allDraftDatabasesList {
         muni
-        zoName
         zoUsety
         multifam
         plcEff

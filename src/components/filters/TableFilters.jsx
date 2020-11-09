@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import PropTypes from 'prop-types';
 import FilterCategory from './FilterCategory';
-import KeyInfoPanel from './KeyInfoPanel';
+import LotDetailsPanel from './LotDetailsPanel';
 import MultiSelectColumnFilter from './MultiSelectColumnFilter';
 
 const setActivePanel = (activeCategory, headerGroups) => {
@@ -14,10 +14,7 @@ const setActivePanel = (activeCategory, headerGroups) => {
   if (activeCategory === 'multifam') {
     return <MultiSelectColumnFilter column={headerGroups[0].headers[2]} />;
   }
-  if (activeCategory === 'zoName') {
-    return <MultiSelectColumnFilter column={headerGroups[0].headers[9]} />;
-  }
-  return <KeyInfoPanel columns={headerGroups[0].headers.filter((header) => header.panel === 'keyInfo')} />;
+  return <LotDetailsPanel columns={headerGroups[0].headers.filter((header) => header.panel === 'lotDetails')} />;
 };
 
 const TableFilters = ({ headerGroups }) => {
@@ -44,28 +41,21 @@ const TableFilters = ({ headerGroups }) => {
             category="function"
             columns={[headerGroups[0].headers[1]]}
             dispatch={dispatch}
-            text="Zone Function"
+            text="Zone Use Type"
           />
           <FilterCategory
             activeCategory={state.activeCategory}
             category="multifam"
             columns={[headerGroups[0].headers[2]]}
             dispatch={dispatch}
-            text="Multifamily"
+            text="Multifamily Housing"
           />
           <FilterCategory
             activeCategory={state.activeCategory}
-            category="keyInfo"
-            columns={headerGroups[0].headers.filter((header) => header.panel === 'keyInfo')}
+            category="lotDetails"
+            columns={headerGroups[0].headers.filter((header) => header.panel === 'lotDetails')}
             dispatch={dispatch}
-            text="Key Info"
-          />
-          <FilterCategory
-            activeCategory={state.activeCategory}
-            category="zoName"
-            columns={[headerGroups[0].headers[9]]}
-            dispatch={dispatch}
-            text="Zoning Name"
+            text="Lot Details"
           />
         </ul>
         <div className="filters">
