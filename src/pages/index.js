@@ -9,6 +9,7 @@ import setMultifamily from '../utils/setMultiFamily';
 import { multiple, inclusiveOr, numericRange } from '../utils/setFilterTypes';
 import setColumns from '../utils/setColumns';
 import Layout from '../components/Layout';
+import DataView from '../components/data/DataView';
 import TableFilters from '../components/filters/TableFilters';
 import TableWrapper from '../components/table/TableWrapper';
 import LeafletMap from '../components/map/LeafletMap';
@@ -50,7 +51,7 @@ export default function Tabular({ data }) {
   return (
     <Layout>
       <Helmet
-        title="Zoning Atlas - Tabular Data"
+        title="Zoning Atlas"
       >
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -59,18 +60,10 @@ export default function Tabular({ data }) {
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
       </Helmet>
-      <button
-        type="button"
-        onClick={() => setView('tabular')}
-      >
-        Tabular
-      </button>
-      <button
-        type="button"
-        onClick={() => setView('spatial')}
-      >
-        Spatial
-      </button>
+      <DataView
+        view={view}
+        setView={setView}
+      />
       <div className="tabular-data">
         <TableFilters
           headerGroups={reactTable.headerGroups}
