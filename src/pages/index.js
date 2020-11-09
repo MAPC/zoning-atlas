@@ -10,9 +10,7 @@ import { multiple, inclusiveOr, numericRange } from '../utils/setFilterTypes';
 import setColumns from '../utils/setColumns';
 import Layout from '../components/Layout';
 import DataOptionsHeader from '../components/data/DataOptionsHeader';
-import TableFilters from '../components/filters/TableFilters';
-import TableWrapper from '../components/table/TableWrapper';
-import LeafletMap from '../components/map/LeafletMap';
+import DataContainer from '../components/data/DataContainer';
 import '../styles/app.scss';
 
 export default function Tabular({ data }) {
@@ -64,14 +62,10 @@ export default function Tabular({ data }) {
         view={view}
         setView={setView}
       />
-      <div className="tabular-data">
-        <TableFilters
-          headerGroups={reactTable.headerGroups}
-        />
-        {view === 'tabular'
-          ? <TableWrapper reactTable={reactTable} />
-          : <LeafletMap reactTable={reactTable} />}
-      </div>
+      <DataContainer
+        reactTable={reactTable}
+        view={view}
+      />
     </Layout>
   );
 }

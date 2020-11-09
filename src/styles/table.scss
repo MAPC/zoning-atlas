@@ -1,12 +1,7 @@
 .tabular-data {
   display: flex;
-  
-  &__display {
-    display: flex;
-    flex-direction: column;
-    margin: 0 2rem;
-    overflow: hidden;
-  }
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .table {

@@ -3,7 +3,7 @@ import Table from './Table';
 import TablePagination from './TablePagination';
 
 const TableWrapper = ({ reactTable }) => (
-  <div className="tabular-data__display">
+  <div className="tabular-data">
     <Table
       getTableProps={reactTable.getTableProps}
       getTableBodyProps={reactTable.getTableBodyProps}
