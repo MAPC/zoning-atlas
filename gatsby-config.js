@@ -30,6 +30,14 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `content`,
+        path: `${__dirname}/src/content`,
+      },
+    },
+    `gatsby-transformer-remark`,
+    {
       resolve: 'gatsby-plugin-react-leaflet',
       options: {
         linkStyles: true // (default: true) Enable/disable loading stylesheets via CDN
