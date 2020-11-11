@@ -1,17 +1,20 @@
 @import url("https://pro.fontawesome.com/releases/v5.13.0/css/all.css");
-@import 'vars';
-@import 'defaults';
-@import 'fonts';
-@import 'layout';
-@import 'contribute-menu.scss';
-@import 'data-container.scss';
-@import 'data-options';
-@import 'data-view.scss';
-@import 'export-menu.scss';
-@import 'external-site-cell.scss';
-@import 'button';
-@import 'icon';
-@import 'map';
-@import 'report-link.scss';
-@import 'table';
-@import 'filter';
+
+@import 'partials/vars';
+@import 'partials/defaults';
+@import 'partials/fonts';
+
+@import 'modules/button';
+@import 'modules/icon';
+@import 'modules/layout';
+
+@import 'components/contribute-menu.scss';
+@import 'components/data-container.scss';
+@import 'components/data-options';
+@import 'components/data-view.scss';
+@import 'components/export-menu.scss';
+@import 'components/external-site-cell.scss';
+@import 'components/filter';
+@import 'components/map';
+@import 'components/report-link.scss';
+@import 'components/table';
