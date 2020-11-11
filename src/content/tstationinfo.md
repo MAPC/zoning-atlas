@@ -1,8 +1,8 @@
 ---
 data-site: "T Station Info"
 ---
-### T Station Info
+<h3 class="external-site__title" />T Station Info</h3>
 
 A new age if transit orientated development is underway in Metropolitan Boston. Tstation.info has demographic, economic, transportation, and development information for over 300 existing and planned MBTA transit station areas. Compare stations across the region, or to find development opportunities.
 
-Go to data
+<a href="https://www.tstation.info" class="external-site__link">Go to data</a>

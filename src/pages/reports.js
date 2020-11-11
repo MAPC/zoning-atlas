@@ -23,7 +23,7 @@ const Reports = ({ data }) => {
         <ReportLink />
       </section>
       <h2>Find and Download Data on Housing in the Region</h2>
-      <section>
+      <section className="external-site__grid">
         {externalSites}
       </section>
     </Layout>
