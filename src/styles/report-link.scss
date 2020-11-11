@@ -1,0 +1,40 @@
+.report-link {
+  &__wrapper {
+    position: relative;
+    height: 17.1875rem;
+    width: 14.0625rem;
+
+    &:hover {
+      background: $color_bg-green;
+
+      .report-link__image {
+        opacity: 0.15;
+      }
+
+      .report-link__hover-content {
+        display: unset;
+      }
+    }
+  }
+
+  &__hover-content {
+    bottom: 1.875rem;
+    display: none;
+    left: 0;
+    margin: 1rem;
+    position: absolute;
+  }
+
+  &__image {
+    object-fit: cover;
+  }
+
+  &__title {
+    color: $color_font-white;
+    font-family: 'Calibre';
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    margin: 1rem 0 0 0;
+  }
+}
