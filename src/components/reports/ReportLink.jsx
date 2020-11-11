@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import triangleDownWhite from '../../images/triangleDownWhite.svg';
 
-const ReportLink = ({ image, title }) => (
-  <a href="#">
+const ReportLink = ({ image, title, url }) => (
+  <Link to={url}>
     <div className="report-link__wrapper">
       <img src={image} className="report-link__image" />
       <div className="report-link__hover-content">
@@ -10,7 +11,7 @@ const ReportLink = ({ image, title }) => (
         <h3 className="report-link__title">{ title }</h3>
       </div>
     </div>
-  </a>
+  </Link>
 );
 
 export default ReportLink;

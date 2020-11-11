@@ -1,4 +1,10 @@
 .report-link {
+  &__marquee {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
   &__wrapper {
     position: relative;
     height: 17.1875rem;
@@ -26,7 +32,9 @@
   }
 
   &__image {
+    height: 17.1875rem;
     object-fit: cover;
+    width: 14.0625rem;
   }
 
   &__title {
