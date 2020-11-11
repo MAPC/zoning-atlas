@@ -1,6 +1,7 @@
 /* eslint-disable arrow-body-style */
-import React, { useState } from 'react';
-import { MapContainer, TileLayer } from 'react-leaflet';
+import React from 'react';
+import { MapContainer, TileLayer, ZoomControl } from 'react-leaflet';
+import EsriLeafletGeoSearch from "react-esri-leaflet/plugins/EsriLeafletGeoSearch";
 import Layers from './Layers';
 
 const LeafletMap = ({ reactTable }) => (
@@ -9,12 +10,16 @@ const LeafletMap = ({ reactTable }) => (
     zoom={9}
     maxZoom={14}
     minZoom={9}
+    zoomControl={false}
   >
     <TileLayer
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
     />
     <Layers reactTable={reactTable} />
+    <ZoomControl position="bottomright" />
+    <EsriLeafletGeoSearch useMapBounds={false} position="topleft" />
+    <div>Save space for toggle</div>
   </MapContainer>
 );
 

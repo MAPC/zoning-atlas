@@ -57,6 +57,11 @@ export default function Tabular({ data }) {
         <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
+           <link
+            rel="stylesheet"
+            href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css"
+          />
+          <script src="https://unpkg.com/esri-leaflet-geocoder"></script>
       </Helmet>
       <main className='main__wrapper'>
         <DataOptionsHeader
