@@ -1,0 +1,11 @@
+.main {
+  &__wrapper {
+    margin: 1.875rem auto;
+    max-width: $container_width;
+    padding: 0 0 0 $container_margin-left;
+
+    // &--spatial {
+    //   padding-right: 0;
+    // }
+  }
+}

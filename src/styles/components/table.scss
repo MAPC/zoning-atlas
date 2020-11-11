@@ -10,6 +10,7 @@
 
   &__wrapper {
     overflow-x: scroll;
+    margin-right: $container_margin-right;
     &:focus {
       border: 2px solid $color_accent-green;
       box-shadow: 0 0 5px $color_accent-green;

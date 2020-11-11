@@ -18,33 +18,35 @@ const Reports = ({ data }) => {
   ));
   return (
     <Layout>
-      <h2>Explore Related Reports & Publications</h2>
-      <section className="report-link__marquee">
-        <ReportLink
-          image={report1}
-          title="The State of Zoning for Multi-Family Housing in Greater Boston"
-          url="/reports/#"
-        />
-        <ReportLink
-          image={report2}
-          title="Zoning 101"
-          url="/reports/#"
-        />
-        <ReportLink
-          image={report3}
-          title="Crowded In and Priced Out: Why It's so Hard to Find a Family-Sized Unit in Greater Boston"
-          url="/reports/#"
-        />
-        <ReportLink
-          image={report4}
-          title="Lorem Ipsum Report"
-          url="/reports/#"
-        />
-      </section>
-      <h2>Find and Download Data on Housing in the Region</h2>
-      <section className="external-site__grid">
-        {externalSites}
-      </section>
+      <main className="main__wrapper">
+        <h2>Explore Related Reports & Publications</h2>
+        <section className="report-link__marquee">
+          <ReportLink
+            image={report1}
+            title="The State of Zoning for Multi-Family Housing in Greater Boston"
+            url="/reports/#"
+          />
+          <ReportLink
+            image={report2}
+            title="Zoning 101"
+            url="/reports/#"
+          />
+          <ReportLink
+            image={report3}
+            title="Crowded In and Priced Out: Why It's so Hard to Find a Family-Sized Unit in Greater Boston"
+            url="/reports/#"
+          />
+          <ReportLink
+            image={report4}
+            title="Lorem Ipsum Report"
+            url="/reports/#"
+          />
+        </section>
+        <h2>Find and Download Data on Housing in the Region</h2>
+        <section className="external-site__grid">
+          {externalSites}
+        </section>
+      </main>
     </Layout>
   );
 };

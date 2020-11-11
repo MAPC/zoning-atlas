@@ -58,15 +58,17 @@ export default function Tabular({ data }) {
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
       </Helmet>
-      <DataOptionsHeader
-        view={view}
-        setView={setView}
-      />
-      <DataContainer
-        reactTable={reactTable}
-        view={view}
-      />
-      <ContributeMenu />
+      <main className='main__wrapper'>
+        <DataOptionsHeader
+          view={view}
+          setView={setView}
+        />
+        <DataContainer
+          reactTable={reactTable}
+          view={view}
+        />
+        <ContributeMenu />
+      </main>
     </Layout>
   );
 }

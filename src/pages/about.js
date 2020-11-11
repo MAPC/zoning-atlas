@@ -3,7 +3,9 @@ import Layout from '../components/Layout';
 
 const About = () => (
   <Layout>
-    About page
+    <main className="main__wrapper">
+      About page
+    </main>
   </Layout>
 );
 
