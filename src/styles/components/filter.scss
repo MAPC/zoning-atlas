@@ -85,24 +85,25 @@
   &__views {
     border-bottom: 1px solid $color_default-gray;
     background-color: $color_bg-beige;
-    padding: .5rem;
   }
 
   &__view {
     background: 0 0;
-    border: none;
+    border: 1px solid $color_light-gray;
+    border-bottom: none;
     font-size: 1rem;
     outline: 0;
+    padding: .5rem;
     position: relative;
     width: 50%;
-
-    &:first-child {
-      border-right: 1px solid $color_default-gray;
-    }
 
     &:focus {
       border: 2px solid $color_accent-green;
       box-shadow: 0 0 5px $color_accent-green;
+    }
+
+    &--active {
+      border-bottom: 5px solid $color_bg-green;
     }
   }
 
