@@ -51,19 +51,24 @@ export default function Tabular({ data }) {
       <Helmet
         title="Zoning Atlas"
       >
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin=""/>
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
-           <link
-            rel="stylesheet"
-            href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css"
-          />
-          <script src="https://unpkg.com/esri-leaflet-geocoder"></script>
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossOrigin=""
+        />
+        <script
+          src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+          integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+          crossOrigin=""
+        />
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css"
+        />
+        <script src="https://unpkg.com/esri-leaflet-geocoder" />
       </Helmet>
-      <main className='main__wrapper'>
+      <main className="main__wrapper">
         <DataOptionsHeader
           view={view}
           setView={setView}

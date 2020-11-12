@@ -15,8 +15,7 @@ const LeafletMap = ({ reactTable }) => (
       minZoom={9}
       zoomControl={false}
     >
-      <EsriLeafletGeoSearch useMapBounds={false} position="topleft" />
-      <LayersControl position="topleft" collapsed={false}>
+      <LayersControl position="topleft">
         <LayersControl.BaseLayer name="Streets" checked>
           <TileLayer
             url="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
@@ -34,10 +33,14 @@ const LeafletMap = ({ reactTable }) => (
           />
         </LayersControl.BaseLayer>
       </LayersControl>
+      <EsriLeafletGeoSearch useMapBounds={false} position="topleft" />
       <Layers reactTable={reactTable} />
       <ZoomControl position="bottomright" />
     </MapContainer>
     <a href="http://mapbox.com/about/maps" className="map__watermark" target="_blank">Mapbox</a>
+    <div className="map__legend">
+      Legend
+    </div>
   </div>
 );
 
