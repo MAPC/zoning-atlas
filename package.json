@@ -38,8 +38,6 @@
     "gh-pages": "^3.1.0",
     "intersection-observer": "^0.11.0",
     "leaflet": "^1.7.1",
-    "mapbox-gl": "^1.11.1",
-    "mapbox-gl-compare": "^0.4.0",
     "node-sass": "^4.14.1",
     "phosphor-react": "^1.0.0",
     "prop-types": "^15.7.2",
@@ -48,9 +46,7 @@
     "react-esri-leaflet": "^0.2.2",
     "react-helmet": "^6.1.0",
     "react-leaflet": "^3.0.0",
-    "react-map-gl": "^5.2.10",
-    "react-table": "^7.5.0",
-    "scrollama": "^2.2.1"
+    "react-table": "^7.5.0"
   },
   "devDependencies": {
     "@testing-library/dom": "^7.26.5",

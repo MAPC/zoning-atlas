@@ -34,7 +34,7 @@ const LeafletMap = ({ reactTable }) => (
           />
         </LayersControl.BaseLayer>
       </LayersControl>
-      {/* <Layers reactTable={reactTable} /> */}
+      <Layers reactTable={reactTable} />
       <ZoomControl position="bottomright" />
     </MapContainer>
     <a href="http://mapbox.com/about/maps" className="map__watermark" target="_blank">Mapbox</a>
