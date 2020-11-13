@@ -17,6 +17,7 @@ const setColumns = [{
   Filter: MultiSelectColumnFilter,
   filter: 'multiple',
   searchText: 'Type here to search filters by zone use type',
+  emptyFilterText: 'No zone use type selected',
 }, {
   Header: 'Multifamily Housing',
   accessor: 'multifam',
@@ -24,6 +25,7 @@ const setColumns = [{
   Filter: MultiSelectColumnFilter,
   filter: 'multiple',
   searchText: 'Type here to search filters multifamily housing zoning',
+  emptyFilterText: 'No multifamily housing zoning options selected',
 }, {
   Header: 'Minimum Lot Size (sf)',
   accessor: 'minlotsize',

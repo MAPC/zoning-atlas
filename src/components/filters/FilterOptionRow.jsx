@@ -18,23 +18,21 @@ const FilterOptionRow = ({
 }) => {
   const isActive = filterValue && filterValue.includes(option);
   return (
-    <li>
-      <div
-        tabIndex="0"
-        data-value={option}
-        className={isActive ? 'filters__option filters__option--active' : 'filters__option'}
-        key={`option-${index}`}
-        role="button"
-        onKeyDown={(e) => {
-          if (e.key === 'Enter') {
-            setFilter(selectionResult(option, filterValue));
-          }
-        }}
-        onClick={() => setFilter(selectionResult(option, filterValue))}
-      >
-        <span className={isActive ? 'filters__value filters__value--active' : 'filters__value'}>{option}</span>
-        <span className={isActive ? 'filters__button filters__button--active' : 'filters__button'}>+</span>
-      </div>
+    <li
+      tabIndex="0"
+      data-value={option}
+      className={isActive ? 'filters__option filters__option--active' : 'filters__option'}
+      key={`option-${index}`}
+      role="button"
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') {
+          setFilter(selectionResult(option, filterValue));
+        }
+      }}
+      onClick={() => setFilter(selectionResult(option, filterValue))}
+    >
+      <span className={isActive ? 'filters__value filters__value--active' : 'filters__value'}>{option}</span>
+      <span className={isActive ? 'filters__button filters__button--active' : 'filters__button'}>+</span>
     </li>
   );
 };

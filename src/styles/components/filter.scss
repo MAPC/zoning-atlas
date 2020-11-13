@@ -70,7 +70,7 @@
       content: '';
       display: block;
       height: .5rem;
-      left: 2rem;
+      margin-left: -1rem;
       position: absolute;
       transform: translateY(.25rem);
       width: .5rem;
@@ -85,6 +85,8 @@
   &__views {
     border-bottom: 1px solid $color_default-gray;
     background-color: $color_bg-beige;
+    display: flex;
+    flex-direction: row;
   }
 
   &__view {
@@ -104,11 +106,16 @@
 
     &--active {
       border-bottom: 5px solid $color_bg-green;
+      padding-bottom: calc(.5rem - 5px);
     }
   }
 
   &__text {
     display: block;
+    color: #707070;
+    font-family: 'Calibre';
+    font-size: 0.875rem;
+    font-weight: normal;
     padding: .5rem;
   }
 
@@ -130,20 +137,20 @@
     height: 28rem;
     list-style: none;
     margin: 0;
+    overflow-x: hidden;
     overflow-y: scroll;
     padding: .5rem;
   }
 
   &__option {
-    align-items: flex-start;
     color: $color_default-gray;
     cursor: pointer;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 16px;
+    grid-template-rows: 1fr;
     font-family: 'Calibre';
     font-size: 0.875rem;
     font-weight: normal;
-    flex-direction: row;
-    justify-content: space-between;
     padding-bottom: 0.25rem;
     
     &:focus {
@@ -152,27 +159,22 @@
     }
 
     &--active {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      grid-template-columns: 0 1fr 16px;
+      &:before {
+        background: $color_bg-green;
+        border-radius: 50%;
+        content: '';
+        display: inline-block;
+        height: 8px;
+        position: relative;
+        top: 2px;
+        width: 8px;
+      }
     }
   }
 
   &__value--active {
-    display: flex;
-    left: 8px;
-    position: relative;
-    &:before {
-      background: $color_bg-green;
-      border-radius: 50%;
-      content: '';
-      display: block;
-      height: 8px;
-      left: -8px;
-      position: relative;
-      top: 4px;
-      width: 8px;
-    }
+    margin-left: 1rem;
   }
 
   &__button {
@@ -183,6 +185,7 @@
     position: relative;
 
     &--active {
+      // left: -2rem;
       transform: rotate(45deg);
     }
   }
