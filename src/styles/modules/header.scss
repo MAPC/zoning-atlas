@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  background-color: $color_bg-green;
+  font-family: 'Calibre';
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: $container_width;
+  padding: 2.5rem $container_margin-right 1rem $container_margin-left;
+
+  &__wrapper {
+    background-color: $color_bg-green;
+  }
+
+  &__logo-wrapper {
+    border: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    text-decoration: none;
+  }
+
+  &__logo {
+    align-self: flex-start;
+  }
+
+  &__title {
+    color: $color_font-white;
+    font-size: 2.75rem;
+    margin: 0;
+    padding-left: 1.25rem;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 3.875rem;
+  }
+}
