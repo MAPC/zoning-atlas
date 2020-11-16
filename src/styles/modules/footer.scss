@@ -13,6 +13,7 @@
 
   &__wrapper {
     background-color: $color_bg-green;
+    flex-shrink: 0;
     width: 100%;
   }
 
