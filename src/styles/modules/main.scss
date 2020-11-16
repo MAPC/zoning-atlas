@@ -1,8 +1,9 @@
 .main {
   &__wrapper {
+    background-color: white;
     flex: 1 0 auto;
     margin: 1.875rem auto;
     max-width: $container_width;
-    padding: 0 0 0 $container_margin-left;
+    width: 100%;
   }
 }
