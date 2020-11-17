@@ -66,7 +66,6 @@ export default function Tabular({ data }) {
           rel="stylesheet"
           href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css"
         />
-        <script src="https://unpkg.com/esri-leaflet-geocoder" />
       </Helmet>
       <main className="main__wrapper">
         <DataOptionsHeader

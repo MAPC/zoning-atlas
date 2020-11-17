@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FeatureLayer } from 'react-esri-leaflet';
 import { useMap, useMapEvent } from 'react-leaflet';
+import { zoneUse } from '../../utils/setZoneUse';
 
 function setSimplifyFactor(zoom) {
   switch (zoom) {
@@ -21,7 +22,18 @@ function setMunicipalityFilter(filterValue) {
   if (!filterValue) {
     return null;
   }
-  return filterValue.reduce((queryString, muni) => queryString.concat(`muni = '${muni}' OR `), '').slice(0, -4);
+  return filterValue.reduce((queryString, muni) => queryString.concat(`muni='${muni}' OR `), '').slice(0, -4);
+}
+
+function setZoneUse(filterValue) {
+  if (!filterValue) {
+    return null;
+  }
+  return filterValue.reduce((queryString, use) => queryString.concat(`ZO_USETY_1=${zoneUse[use]} OR `), '').slice(0, -4);
+}
+
+function setWhere(reactTable) {
+  return `${setMunicipalityFilter(reactTable.columns[0].filterValue)} AND ${setZoneUse(reactTable.columns[1].filterValue)}`;
 }
 
 const Layers = ({ reactTable }) => {
@@ -36,27 +48,16 @@ const Layers = ({ reactTable }) => {
     <FeatureLayer
       url="https://geo.mapc.org/server/rest/services/gisdata/ZoningKitchenSinkTest_v03/MapServer/0"
       simplifyFactor={setSimplifyFactor(zoom)}
-      style={() => {
-        if (zoom > 9) {
-          return {
-            color: 'blue',
-            weight: 0.5,
-            fillOpacity: 0,
-            opacity: 0,
-          };
-        }
-        return {
-          color: 'blue',
-          weight: 0.5,
-          fillOpacity: 0.2,
-          opacity: 1,
-        };
+      style={{
+        color: 'blue',
+        weight: 0.5,
+        fillOpacity: 0.2,
+        opacity: 1,
       }}
-      // where={setMunicipalityFilter(reactTable.columns[0].filterValue)}
-      useCors={false}
+      where={setWhere(reactTable)}
     />
   );
 };
 
 export default Layers;
-export { setSimplifyFactor, setMunicipalityFilter }
+export { setSimplifyFactor, setMunicipalityFilter };

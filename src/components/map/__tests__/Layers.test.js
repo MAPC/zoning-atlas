@@ -7,10 +7,10 @@ describe('Zoning layer filter', () => {
   });
 
   test('displays one municipality when filterValue is a one-item-long Array', () => {
-    expect(setMunicipalityFilter(['Acton'])).toBe("muni = 'Acton'");
+    expect(setMunicipalityFilter(['Acton'])).toBe("muni='Acton'");
   });
 
   test('displays multiple municipalities when filterValue is a multi-item array', () => {
-    expect(setMunicipalityFilter(['Acton', 'Bellingham'])).toBe("muni = 'Acton' OR muni = 'Bellingham'");
+    expect(setMunicipalityFilter(['Acton', 'Bellingham'])).toBe("muni='Acton' OR muni='Bellingham'");
   });
 });

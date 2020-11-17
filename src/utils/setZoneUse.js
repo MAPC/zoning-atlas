@@ -14,3 +14,11 @@ export default function setZoneUse(id) {
       return new Error();
   }
 }
+
+export const zoneUse = {
+  'No Zone': 0,
+  Residential: 1,
+  'Non-Residential': 2,
+  'Mixed Use (Residential and Non-Residential)': 3,
+  'Other (Open space, etc.)': 4,
+};
