@@ -3,7 +3,7 @@
     align-items: center;
     display: flex;
     flex-direction: row;
-    margin-bottom: 2.25rem;
+    margin: 1.25rem $container_margin-right 0 $container_margin-left;
   }
 
   &__title {
