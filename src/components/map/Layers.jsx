@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FeatureLayer } from 'react-esri-leaflet';
 import { useMap, useMapEvent } from 'react-leaflet';
 import { zoneUse } from '../../utils/setZoneUse';
+import { multiFamily } from '../../utils/setMultiFamily';
 
 function setSimplifyFactor(zoom) {
   switch (zoom) {
@@ -27,7 +28,12 @@ function setWhere(columns) {
   }
   if (columns[1].filterValue) {
     whereStatements.push(columns[1].filterValue
-      .map((use) => `ZO_USETY_1=${zoneUse[use]}`)
+      .map((value) => `ZO_USETY_1=${zoneUse[value]}`)
+      .join(' OR '));
+  }
+  if (columns[2].filterValue) {
+    whereStatements.push(columns[2].filterValue
+      .map((value) => `MULTIFAM=${multiFamily[value]}`)
       .join(' OR '));
   }
 

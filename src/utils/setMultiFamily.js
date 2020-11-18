@@ -10,3 +10,9 @@ export default function setMultifamily(id) {
       return new Error();
   }
 }
+
+export const multiFamily = {
+  'No': 0,
+  'By special permit': 1,
+  'By right': 2,
+};
