@@ -3,6 +3,7 @@ import { FeatureLayer } from 'react-esri-leaflet';
 import { useMap, useMapEvent } from 'react-leaflet';
 import { zoneUse } from '../../utils/setZoneUse';
 import { multiFamily } from '../../utils/setMultiFamily';
+import { lotDetails } from '../../utils/setLotDetails';
 
 function setSimplifyFactor(zoom) {
   switch (zoom) {
@@ -23,18 +24,22 @@ function setWhere(columns) {
   const whereStatements = [];
   if (columns[0].filterValue) {
     whereStatements.push(columns[0].filterValue
-      .map((muni) => `muni='${muni}'`)
+      .map((value) => `muni = '${value}'`)
       .join(' OR '));
   }
   if (columns[1].filterValue) {
     whereStatements.push(columns[1].filterValue
-      .map((value) => `ZO_USETY_1=${zoneUse[value]}`)
+      .map((value) => `ZO_USETY_1 = ${zoneUse[value]}`)
       .join(' OR '));
   }
   if (columns[2].filterValue) {
     whereStatements.push(columns[2].filterValue
-      .map((value) => `MULTIFAM=${multiFamily[value]}`)
+      .map((value) => `MULTIFAM = ${multiFamily[value]}`)
       .join(' OR '));
+  }
+  if (columns[6].filterValue) {
+    const value = columns[6].filterValue;
+    whereStatements.push(`LApDU ${lotDetails[value.operator]} ${+value.operand}`);
   }
 
   if (whereStatements.length === 0) {
