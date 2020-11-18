@@ -18,22 +18,26 @@ function setSimplifyFactor(zoom) {
   }
 }
 
-function setMunicipalityFilter(filterValue) {
-  if (!filterValue) {
-    return null;
+function setWhere(columns) {
+  const whereStatements = [];
+  if (columns[0].filterValue) {
+    whereStatements.push(columns[0].filterValue
+      .map((muni) => `muni='${muni}'`)
+      .join(' OR '));
   }
-  return filterValue.reduce((queryString, muni) => queryString.concat(`muni='${muni}' OR `), '').slice(0, -4);
-}
-
-function setZoneUse(filterValue) {
-  if (!filterValue) {
-    return null;
+  if (columns[1].filterValue) {
+    whereStatements.push(columns[1].filterValue
+      .map((use) => `ZO_USETY_1=${zoneUse[use]}`)
+      .join(' OR '));
   }
-  return filterValue.reduce((queryString, use) => queryString.concat(`ZO_USETY_1=${zoneUse[use]} OR `), '').slice(0, -4);
-}
 
-function setWhere(reactTable) {
-  return `${setMunicipalityFilter(reactTable.columns[0].filterValue)} AND ${setZoneUse(reactTable.columns[1].filterValue)}`;
+  if (whereStatements.length === 0) {
+    return '';
+  }
+  if (whereStatements.length === 1) {
+    return whereStatements[0];
+  }
+  return whereStatements.map((statement) => `(${statement})`).join(' AND ');
 }
 
 const Layers = ({ reactTable }) => {
@@ -54,10 +58,10 @@ const Layers = ({ reactTable }) => {
         fillOpacity: 0.2,
         opacity: 1,
       }}
-      where={setWhere(reactTable)}
+      where={setWhere(reactTable.columns)}
     />
   );
 };
 
 export default Layers;
-export { setSimplifyFactor, setMunicipalityFilter };
+export { setSimplifyFactor, setWhere };
