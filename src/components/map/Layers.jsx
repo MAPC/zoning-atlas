@@ -59,7 +59,7 @@ function setWhere(columns) {
   return whereStatements.map((statement) => `(${statement})`).join(' AND ');
 }
 
-const Layers = ({ reactTable }) => {
+const Layers = ({ reactTable, setSelected, setLatLng }) => {
   const mapRef = useMap();
   const [zoom, setZoom] = useState(mapRef.getZoom());
 
@@ -78,6 +78,12 @@ const Layers = ({ reactTable }) => {
         opacity: 1,
       }}
       where={setWhere(reactTable.columns)}
+      eventHandlers={{
+        click: (e) => {
+          setLatLng(e.latlng);
+          setSelected(e.layer.feature.properties);
+        },
+      }}
     />
   );
 };

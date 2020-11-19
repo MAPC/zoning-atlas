@@ -1,12 +1,16 @@
 /* eslint-disable arrow-body-style */
-import React from 'react';
+import React, { useState } from 'react';
 import {
   MapContainer, TileLayer, ZoomControl, LayersControl,
 } from 'react-leaflet';
 import EsriLeafletGeoSearch from 'react-esri-leaflet/plugins/EsriLeafletGeoSearch';
 import Layers from './Layers';
+import Popup from './Popup';
 
-const LeafletMap = ({ reactTable }) => (
+const LeafletMap = ({ reactTable }) => {
+  const [selectedAttr, setSelected] = useState();
+  const [popupLatLng, setLatLng] = useState();
+  return (
   <div className="map__wrapper">
     <MapContainer
       center={[42.3317, -71.0408]}
@@ -34,7 +38,8 @@ const LeafletMap = ({ reactTable }) => (
         </LayersControl.BaseLayer>
       </LayersControl>
       <EsriLeafletGeoSearch useMapBounds={false} position="topleft" />
-      <Layers reactTable={reactTable} />
+      <Layers reactTable={reactTable} setSelected={setSelected} setLatLng={setLatLng} />
+      {selectedAttr ? <Popup selectedAttr={selectedAttr} latLng={popupLatLng} /> : ''}
       <ZoomControl position="bottomright" />
     </MapContainer>
     <a href="http://mapbox.com/about/maps" className="map__watermark" target="_blank">Mapbox</a>
@@ -42,6 +47,6 @@ const LeafletMap = ({ reactTable }) => (
       Legend
     </div>
   </div>
-);
+)}
 
 export default LeafletMap;
