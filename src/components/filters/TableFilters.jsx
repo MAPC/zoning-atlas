@@ -9,10 +9,10 @@ const setActivePanel = (activeCategory, headerGroups) => {
     return <MultiSelectColumnFilter column={headerGroups[0].headers[0]} />;
   }
   if (activeCategory === 'function') {
-    return <MultiSelectColumnFilter column={headerGroups[0].headers[1]} />;
+    return <MultiSelectColumnFilter column={headerGroups[0].headers[2]} />;
   }
   if (activeCategory === 'multifam') {
-    return <MultiSelectColumnFilter column={headerGroups[0].headers[2]} />;
+    return <MultiSelectColumnFilter column={headerGroups[0].headers[4]} />;
   }
   return <LotDetailsPanel columns={headerGroups[0].headers.filter((header) => header.panel === 'lotDetails')} />;
 };
@@ -39,14 +39,14 @@ const TableFilters = ({ headerGroups }) => {
           <FilterCategory
             activeCategory={state.activeCategory}
             category="function"
-            columns={[headerGroups[0].headers[1]]}
+            columns={[headerGroups[0].headers[2]]}
             dispatch={dispatch}
             text="Zone Use Type"
           />
           <FilterCategory
             activeCategory={state.activeCategory}
             category="multifam"
-            columns={[headerGroups[0].headers[2]]}
+            columns={[headerGroups[0].headers[3]]}
             dispatch={dispatch}
             text="Multifamily Housing"
           />

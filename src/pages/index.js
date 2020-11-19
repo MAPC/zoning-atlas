@@ -25,19 +25,27 @@ export default function Tabular({ data }) {
     Filter: () => <div />,
   }), []);
 
-  data = useMemo(() => data.postgres.allDraftDatabasesList.map((row) => ({
+  data = useMemo(() => data.postgres.allUpdatedDraftDatabasesList.map((row) => ({
     muni: row.muni,
+    zoName: row.zoName,
     zoUsety: setZoneUse(row.zoUsety),
+    zoUsede: row.zoUsede,
     multifam: setMultifamily(row.multifam),
+    mnlsEff: row.mnlsEff,
+    mnlsEsval: row.mnlsEsval,
     plcEff: row.plcEff * 100,
-    minlotsize: row.minlotsize,
-    pctlotcov: row.pctlotcov * 100,
+    plcEsval: row.plcEsval,
     lApDu: row.lApDu,
-    dUpAc: row.dUpAc,
-    far: row.far,
     mxhtEff: row.mxhtEff,
-    mxflEff: row.mxflEff,
-  })), [data.postgres.allDraftDatabasesList]);
+    mxhtEsval: row.mxhtEsval,
+    mxduEff: row.mxduEff,
+    mxduEsval: row.mxduEsval,
+    dUpAcEff: row.dUpAcEff,
+    dUpAcEsval: row.dUpAcEsval,
+    farEff: row.farEff,
+    farEsval: row.farEsval,
+    spatialrec: row.spatialrec,
+  })), [data.postgres.allUpdatedDraftDatabasesList]);
 
   const columns = useMemo(() => setColumns, []);
   const reactTable = useTable({
@@ -85,18 +93,26 @@ export default function Tabular({ data }) {
 export const data = graphql`
   query {
     postgres {
-      allDraftDatabasesList {
+      allUpdatedDraftDatabasesList {
         muni
+        zoName
         zoUsety
+        zoUsede
         multifam
+        mnlsEff
+        mnlsEsval
         plcEff
-        minlotsize
-        pctlotcov
+        plcEsval
         lApDu
-        dUpAc
-        far
         mxhtEff
-        mxflEff
+        mxhtEsval
+        mxduEff
+        mxduEsval
+        dUpAcEff
+        dUpAcEsval
+        farEff
+        farEsval
+        spatialrec
       }
     }
   }

@@ -33,3 +33,7 @@ h2 {
   display: flex;
   flex-direction: column;
 }
+
+.leaflet-fade-anim .leaflet-tile,.leaflet-zoom-anim .leaflet-zoom-animated {
+  will-change: auto!important;
+}

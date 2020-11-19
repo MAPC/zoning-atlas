@@ -11,6 +11,9 @@ const setColumns = [{
   emptyFilterText: 'No towns/cities selected',
   panel: 'muni',
 }, {
+  Header: 'Zone Name',
+  accessor: 'zoName',
+}, {
   Header: 'Zone Use Type',
   accessor: 'zoUsety',
   panel: 'function',
@@ -19,7 +22,10 @@ const setColumns = [{
   searchText: 'Type here to search filters by zone use type',
   emptyFilterText: 'No zone use type selected',
 }, {
-  Header: 'Multifamily Housing',
+  Header: 'Zone Use Description',
+  accessor: 'zoUsede',
+}, {
+  Header: 'Multifamily',
   accessor: 'multifam',
   panel: 'multifam',
   Filter: MultiSelectColumnFilter,
@@ -27,24 +33,15 @@ const setColumns = [{
   searchText: 'Type here to search filters multifamily housing zoning',
   emptyFilterText: 'No multifamily housing zoning options selected',
 }, {
-  Header: 'Minimum Lot Size (sf)',
-  accessor: 'minlotsize',
-  classElement: 'minlotsize',
+  Header: 'Minimum Lot Size, Effective (sf)',
+  accessor: 'mnlsEff',
   Filter: NumericRangeFilter,
   filter: 'numericRange',
-  panel: 'lotDetails',
-}, {
-  Header: 'Percent Lot Coverage (%)',
-  accessor: 'pctlotcov',
-  Filter: NumericRangeFilter,
-  filter: 'numericRange',
-  panel: 'lotDetails',
 }, {
   Header: 'Percent Lot Coverage, Effective (%)',
   accessor: 'plcEff',
   Filter: NumericRangeFilter,
   filter: 'numericRange',
-  panel: 'lotDetails',
 }, {
   Header: 'Minimum Lot Area per Dwelling Unit (sf)',
   accessor: 'lApDu',
@@ -52,30 +49,26 @@ const setColumns = [{
   filter: 'numericRange',
   panel: 'lotDetails',
 }, {
-  Header: 'Maximum Swelling Units per Acre (#)',
-  accessor: 'dUpAc',
-  Filter: NumericRangeFilter,
-  filter: 'numericRange',
-  panel: 'lotDetails',
-}, {
-  Header: 'Floor-Area Ratio',
-  accessor: 'far',
-  Filter: NumericRangeFilter,
-  filter: 'numericRange',
-  panel: 'lotDetails',
-}, {
-  Header: 'Effective Max Height',
+  Header: 'Maximum Height, Effective (ft)',
   accessor: 'mxhtEff',
+}, {
+  Header: 'Maximum Dwelling Units, Effective (#)',
+  accessor: 'mxduEff',
+}, {
+  Header: 'Maximum Dwelling Units per Acre, Effective (#)',
+  accessor: 'dUpAcEff',
   Filter: NumericRangeFilter,
   filter: 'numericRange',
   panel: 'lotDetails',
 }, {
-  Header: 'Effective Max Floors',
-  accessor: 'mxflEff',
-  classElement: 'mxfl',
+  Header: 'Floor-Area Ratio, Effective',
+  accessor: 'farEff',
   Filter: NumericRangeFilter,
   filter: 'numericRange',
   panel: 'lotDetails',
+}, {
+  Header: 'Date Spatial Data Received',
+  accessor: 'spatialrec',
 }];
 
 export default setColumns;

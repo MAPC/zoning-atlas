@@ -27,18 +27,18 @@ function setWhere(columns) {
       .map((value) => `muni = '${value}'`)
       .join(' OR '));
   }
-  if (columns[1].filterValue) {
-    whereStatements.push(columns[1].filterValue
+  if (columns[2].filterValue) {
+    whereStatements.push(columns[2].filterValue
       .map((value) => `ZO_USETY_1 = ${zoneUse[value]}`)
       .join(' OR '));
   }
-  if (columns[2].filterValue) {
-    whereStatements.push(columns[2].filterValue
+  if (columns[4].filterValue) {
+    whereStatements.push(columns[4].filterValue
       .map((value) => `MULTIFAM = ${multiFamily[value]}`)
       .join(' OR '));
   }
-  if (columns[6].filterValue) {
-    const value = columns[6].filterValue;
+  if (columns[7].filterValue) {
+    const value = columns[7].filterValue;
     whereStatements.push(`LApDU ${lotDetails[value.operator]} ${+value.operand}`);
   }
 
