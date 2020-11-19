@@ -41,6 +41,14 @@ function setWhere(columns) {
     const value = columns[7].filterValue;
     whereStatements.push(`LApDU ${lotDetails[value.operator]} ${+value.operand}`);
   }
+  if (columns[10].filterValue) {
+    const value = columns[10].filterValue;
+    whereStatements.push(`DUpAC_EFF ${lotDetails[value.operator]} ${+value.operand}`);
+  }
+  if (columns[11].filterValue) {
+    const value = columns[11].filterValue;
+    whereStatements.push(`FAR_EFF ${lotDetails[value.operator]} ${+value.operand}`);
+  }
 
   if (whereStatements.length === 0) {
     return '';
