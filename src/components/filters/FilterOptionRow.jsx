@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ActiveFilterIcon from './ActiveFilterIcon';
 
 const selectionResult = (option, filterValue) => {
   if (filterValue === undefined) {
@@ -21,7 +22,7 @@ const FilterOptionRow = ({
     <li
       tabIndex="0"
       data-value={option}
-      className={isActive ? 'filters__option filters__option--active' : 'filters__option'}
+      className="filters__option"
       key={`option-${index}`}
       role="button"
       onKeyDown={(e) => {
@@ -31,7 +32,10 @@ const FilterOptionRow = ({
       }}
       onClick={() => setFilter(selectionResult(option, filterValue))}
     >
-      <span className={isActive ? 'filters__value filters__value--active' : 'filters__value'}>{option}</span>
+      <span className="filters__value">
+        { isActive ? <ActiveFilterIcon /> : ''}
+        {option}
+      </span>
       <span className={isActive ? 'filters__button filters__button--active' : 'filters__button'}>+</span>
     </li>
   );
