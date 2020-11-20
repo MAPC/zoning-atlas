@@ -33,7 +33,7 @@ const FilterOptionRow = ({
       onClick={() => setFilter(selectionResult(option, filterValue))}
     >
       <span className="filters__value">
-        { isActive ? <ActiveFilterIcon /> : ''}
+        { isActive ? <ActiveFilterIcon type="option" /> : ''}
         {option}
       </span>
       <span className={isActive ? 'filters__button filters__button--active' : 'filters__button'}>+</span>

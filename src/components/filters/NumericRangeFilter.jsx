@@ -13,7 +13,7 @@ const NumericRangeFilter = ({ column: { filterValue, setFilter, Header } }) => {
   const [operand, setOperand] = useState(filterValue ? filterValue.operand : '');
   return (
     <li>
-      { checkFilter(operator, operand) ? <ActiveFilterIcon /> : '' }
+      { checkFilter(operator, operand) ? <ActiveFilterIcon type="option" /> : '' }
       {Header}
       <select
         onChange={(e) => {

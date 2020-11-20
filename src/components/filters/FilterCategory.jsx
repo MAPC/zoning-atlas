@@ -2,21 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ActiveFilterIcon from './ActiveFilterIcon';
 
-const setModifierClasses = (category, activeCategory) => {
+const isActiveCategory = (activeCategory, category) => {
   if (activeCategory === category) {
-    return 'filters-panel__item filters-panel__item--active';
+    return true;
   }
-  return 'filters-panel__item';
+  return false;
 };
+
+const isFiltered = (columns) => {
+  if (columns.filter((column) => column.filterValue).length > 0) {
+    return true;
+  }
+  return false;
+}
 
 const FilterCategory = ({
   activeCategory, category, columns, text, dispatch,
 }) => (
-  <li className={setModifierClasses(category, activeCategory)}>
-     { columns.filter((column) => column.filterValue).length > 0 ? <ActiveFilterIcon /> : '' }
+  <li className={isActiveCategory(activeCategory, category) ? 'filters-panel__item filters-panel__item--active' : 'filters-panel__item'}>
+    { columns.filter((column) => column.filterValue).length > 0 ? <ActiveFilterIcon type="category" /> : '' }
     <div
       id={category}
-      className='filters-panel__category'
+      className={isFiltered(columns) ? 'filters-panel__category filters-panel__category--filtered' : 'filters-panel__category'}
       onClick={() => dispatch({ category })}
       onKeyDown={(e) => {
         if (e.key === 'Enter') {
@@ -40,4 +47,4 @@ FilterCategory.propTypes = {
 };
 
 export default FilterCategory;
-export { setModifierClasses };
+export { isActiveCategory, isFiltered }

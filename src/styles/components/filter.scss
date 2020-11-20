@@ -32,12 +32,14 @@
   }
 
   &__item {
+    align-items: center;
     border-bottom: 1px solid $color_default-gray;
+    display: flex;
+    flex-direction: row;
 
     &--active {
       border-left: 4px solid $color_bg-green;
       color: $color_bg-green;
-      padding-left: -4px;
 
       &:focus {
         border: 2px solid $color_accent-green;
@@ -48,12 +50,12 @@
   }
 
   &__category {
-    color: $color_default-gray;
     cursor: pointer;
-    font-family: 'SwiftNeueLTPro', serif;
-    font-style: normal;
-    font-weight: normal;
     padding: .5rem .5rem .5rem 2rem;
+
+    &--filtered {
+      padding-left: 0;
+    }
 
     &:focus {
       border: 2px solid $color_accent-green;
@@ -62,19 +64,6 @@
 
     &:last-child {
       border-bottom-width: 0;
-    }
-
-
-    &--filtered:before {
-      background: $color_bg-green;
-      border-radius: 50%;
-      content: '';
-      display: block;
-      height: .5rem;
-      margin-left: -1rem;
-      position: absolute;
-      transform: translateY(.25rem);
-      width: .5rem;
     }
   }
 }
@@ -161,9 +150,16 @@
   }
 
   &__active-icon {
-    margin-right: .25rem;
     max-height: .5rem;
     max-width: .5rem;
+
+    &--category {
+      margin: 0 .5rem;
+    }
+
+    &--option {
+      margin-right: .25rem;
+    }
   }
 
   &__button {
