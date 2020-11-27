@@ -3,22 +3,34 @@ import { setWhere } from '../Layers';
 
 const noFilters = [
   { filterValue: undefined }, // Municipalities
+  { filterValue: undefined }, //
   { filterValue: undefined }, // Zone Use Type
   { filterValue: undefined }, //
   { filterValue: undefined }, //
   { filterValue: undefined }, //
   { filterValue: undefined }, //
   { filterValue: undefined }, // Minimum lot area per dwelling unit
+  { filterValue: undefined }, // LApDU
+  { filterValue: undefined }, //
+  { filterValue: undefined }, //
+  { filterValue: undefined }, // DUpAC_EFF
+  { filterValue: undefined }, // FAR_EFF
 ];
 
 const andExample = [
   { filterValue: ['Acton'] }, // Municipalities
+  { filterValue: undefined }, //
   { filterValue: ['Residential'] }, // Zone Use Type
+  { filterValue: undefined }, //
   { filterValue: ['No'] }, // Multifamily
   { filterValue: undefined }, //
   { filterValue: undefined }, //
-  { filterValue: undefined }, //
   { filterValue: { operand: '2', operator: 'lt' } }, // Minimum lot area per dwelling unit
+  { filterValue: undefined }, // LApDU
+  { filterValue: undefined }, //
+  { filterValue: undefined }, //
+  { filterValue: undefined }, // DUpAC_EFF
+  { filterValue: undefined }, // FAR_EFF
 ];
 
 const orExample = [
@@ -29,16 +41,27 @@ const orExample = [
   { filterValue: undefined }, //
   { filterValue: undefined }, //
   { filterValue: undefined }, // Minimum lot area per dwelling unit
+  { filterValue: undefined }, // LApDU
+  { filterValue: undefined }, //
+  { filterValue: undefined }, //
+  { filterValue: undefined }, // DUpAC_EFF
+  { filterValue: undefined }, // FAR_EFF
 ];
 
 const orAndExample = [
   { filterValue: ['Acton', 'Arlington', 'Ashland'] }, // Municipalities
+  { filterValue: undefined }, //
   { filterValue: ['Residential', 'Non-Residential'] }, // Zone Use Type
+  { filterValue: undefined }, //
   { filterValue: ['No', 'By right'] }, // Multifamily
   { filterValue: undefined }, //
   { filterValue: undefined }, //
-  { filterValue: undefined }, //
   { filterValue: { operand: '2', operator: 'lt' } }, // Minimum lot area per dwelling unit
+  { filterValue: undefined }, // LApDU
+  { filterValue: undefined }, //
+  { filterValue: undefined }, //
+  { filterValue: undefined }, // DUpAC_EFF
+  { filterValue: undefined }, // FAR_EFF
 ];
 
 describe('Zoning layer filter', () => {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ActiveFilterIcon from './ActiveFilterIcon';
 
 const checkFilter = (operator, operand) => {
-  if (operand === '') {
+  if (operand === '' || operand === '0') {
     return null;
   }
   return { operator, operand };
@@ -12,9 +12,11 @@ const NumericRangeFilter = ({ column: { filterValue, setFilter, Header } }) => {
   const [operator, setOperator] = useState(filterValue ? filterValue.operator : 'gt');
   const [operand, setOperand] = useState(filterValue ? filterValue.operand : '');
   return (
-    <li>
-      { checkFilter(operator, operand) ? <ActiveFilterIcon type="option" /> : '' }
-      {Header}
+    <li className="filters__option filters__option--numeric">
+      <span>
+        { checkFilter(operator, operand) ? <ActiveFilterIcon type="option" /> : '' }
+        {Header}
+      </span>
       <select
         onChange={(e) => {
           setOperator(e.target.value);

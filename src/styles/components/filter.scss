@@ -142,7 +142,11 @@
     font-size: 0.875rem;
     font-weight: normal;
     padding-bottom: 0.25rem;
-    
+
+    &--numeric {
+      align-items: flex-start;
+    }
+
     &:focus {
       border: 2px solid $color_accent-green;
       box-shadow: 0 0 5px $color_accent-green;
