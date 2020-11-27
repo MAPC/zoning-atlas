@@ -1,0 +1,45 @@
+.popup {
+  &__title {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0;
+
+    &--muni {
+      color: $color_bg-green;
+      font-family: 'SwiftNeueLTPro', serif;
+    }
+
+    &--zoname {
+      color: $color_font-black;
+      font-family: 'Calibre', sans-serif;
+    }
+  }
+
+  &__list {
+    padding: 0;
+  }
+
+  &__item {
+    list-style: none;
+    margin: .25rem 0;
+    padding: 0;
+    color: #707070;
+    font-family: 'Calibre', sans-serif;
+    font-size: 0.875rem;
+  }
+
+  &__category {
+    font-weight: normal;
+  }
+
+  &__datum {
+    font-weight: 300;
+  }
+}
+
+.leaflet-popup-content-wrapper {
+  max-width: 300px;
+}
