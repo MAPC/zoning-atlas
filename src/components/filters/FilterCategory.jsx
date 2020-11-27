@@ -14,7 +14,7 @@ const isFiltered = (columns) => {
     return true;
   }
   return false;
-}
+};
 
 const FilterCategory = ({
   activeCategory, category, columns, text, dispatch,

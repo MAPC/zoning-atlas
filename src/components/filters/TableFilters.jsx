@@ -46,7 +46,7 @@ const TableFilters = ({ headerGroups }) => {
           <FilterCategory
             activeCategory={state.activeCategory}
             category="multifam"
-            columns={[headerGroups[0].headers[3]]}
+            columns={[headerGroups[0].headers[4]]}
             dispatch={dispatch}
             text="Multifamily Housing"
           />
