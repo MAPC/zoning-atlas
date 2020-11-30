@@ -1,0 +1,57 @@
+.edits {
+  &__wrapper {
+    width: 31.25rem;
+  }
+
+  &__header {
+    align-items: center;
+    background-color: $color_bg-green;
+    color: $color_font-white;
+    display: flex;
+    font-family: 'Calibre', sans-serif;
+    flex-direction: row;
+    font-size: 1.25rem;
+    font-weight: 600;
+    justify-content: space-between;
+    padding: .5rem 2.5rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    font-family: 'SwiftNeueLTPro', serif;
+    padding: .5rem 2.5rem;
+  }
+
+  &__section {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem 0 0;
+
+    &--multi-line {
+      flex-direction: column;
+    }
+  }
+
+  &__input {
+    border: 1px solid $color_default-gray;
+    flex-shrink: 0;
+    width: 9.5rem;
+  }
+
+  &__select {
+    width: 9.5rem;
+  }
+
+  &__textarea {
+    height: 4.5rem;
+    width: 100%;
+  }
+}

@@ -38,7 +38,7 @@ const LeafletMap = ({ reactTable }) => {
           </LayersControl.BaseLayer>
         </LayersControl>
         <EsriLeafletGeoSearch useMapBounds={false} position="topleft" />
-        <Layers reactTable={reactTable} setSelected={setSelected} setLatLng={setLatLng} />
+        {/* <Layers reactTable={reactTable} setSelected={setSelected} setLatLng={setLatLng} /> */}
         {selectedAttr ? <ZoningPopup selectedAttr={selectedAttr} latLng={popupLatLng} /> : ''}
         <ZoomControl position="bottomright" />
       </MapContainer>

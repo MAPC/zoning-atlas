@@ -47,6 +47,7 @@
     "react-esri-leaflet": "^0.2.2",
     "react-helmet": "^6.1.0",
     "react-leaflet": "^3.0.0",
+    "react-modal": "^3.12.1",
     "react-table": "^7.5.0"
   },
   "devDependencies": {
