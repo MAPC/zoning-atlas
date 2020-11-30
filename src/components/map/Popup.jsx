@@ -12,6 +12,13 @@ function checkValue(input) {
   return 'Data not available';
 }
 
+function setSquareFeet(input) {
+  if (input) {
+    return `${d3.format(',')(input)} sf`;
+  }
+  return 'Data not available';
+}
+
 function checkEsval(input) {
   if (input === 1) {
     return '*';
@@ -51,37 +58,37 @@ const ZoningPopup = ({
         <span className="popup__datum">{checkValue(setMultifamily(MULTIFAM))}</span>
       </li>
       <li className="popup__item">
-        <span className="popup__category">Minimum Lot Size, Effective (sf):</span>
+        <span className="popup__category">Effective Minimum Lot Size:</span>
         {' '}
-        <span className="popup__datum">{checkValue(d3.format(',')(MNLS_EFF_1))}</span>
+        <span className="popup__datum">{setSquareFeet(MNLS_EFF_1)}</span>
       </li>
       <li className="popup__item">
-        <span className="popup__category">Percent Lot Coverage, Effective:</span>
+        <span className="popup__category">Effective Percent Lot Coverage:</span>
         {' '}
         <span className="popup__datum">{checkValue(PCTLOTCOV)}</span>
       </li>
       <li className="popup__item">
-        <span className="popup__category">Minimum Lot Area per Dwelling Unit (sf):</span>
+        <span className="popup__category">Minimum Lot Area per Dwelling Unit:</span>
         {' '}
-        <span className="popup__datum">{checkValue(LApDU)}</span>
+        <span className="popup__datum">{setSquareFeet(LApDU)}</span>
       </li>
       <li className="popup__item">
-        <span className="popup__category">Maximum Height, Effective (sf):</span>
+        <span className="popup__category">Effective Maximum Height:</span>
         {' '}
-        <span className="popup__datum">{checkValue(MXHT_EFF_1)}</span>
+        <span className="popup__datum">{setSquareFeet(MXHT_EFF_1)}</span>
       </li>
       <li className="popup__item">
-        <span className="popup__category">Maximum Dwelling Units, Effective:</span>
+        <span className="popup__category">Effective Maximum Dwelling Units:</span>
         {' '}
         <span className="popup__datum">{checkValue(MXDU_EFF_1)}</span>
       </li>
       <li className="popup__item">
-        <span className="popup__category">Maximum Dwelling Units per Acre, Effective:</span>
+        <span className="popup__category">Effective Maximum Dwelling Units per Acre:</span>
         {' '}
         <span className="popup__datum">{checkValue(DUpAC_EFF_1)}</span>
       </li>
       <li className="popup__item">
-        <span className="popup__category">Floor-Area Ratio, Effective:</span>
+        <span className="popup__category">Effective Floor-Area Ratio:</span>
         {' '}
         <span className="popup__datum">
           { checkValue(FAR_EFF_1) }
@@ -94,6 +101,11 @@ const ZoningPopup = ({
         <span className="popup__datum">{REVIEWDATE}</span>
       </li>
     </ul>
+    <a className="popup__edit" href="#">
+      Submit an edit
+      {' '}
+      <i className="fas fa-external-link-alt icon" />
+    </a>
   </Popup>
 );
 

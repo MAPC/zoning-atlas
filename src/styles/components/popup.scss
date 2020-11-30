@@ -43,3 +43,12 @@
 .leaflet-popup-content-wrapper {
   max-width: 300px;
 }
+
+.leaflet-popup-content .popup__edit {
+  display: block;
+  margin: 0;
+  text-align: center;
+  color: $color_bg-green;
+  font-family: 'SwiftNeueLTPro', serif;
+  font-size: 0.875rem;
+}
