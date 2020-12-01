@@ -106,7 +106,18 @@ const ZoningPopup = ({
       className="popup__edit"
       onClick={() => {
         setZone({
-          muni_name, ZO_NAME_1, ZO_USETY_1, ZO_USEDE, MULTIFAM, MNLS_EFF_1, PCTLOTCOV, LApDU, MXHT_EFF_1, MXDU_EFF_1, DUpAC_EFF_1, FAR_EFF_1, FAR_ESVAL, REVIEWDATE,
+          muni: muni_name,
+          zoName: ZO_NAME_1,
+          zoUsety: ZO_USETY_1,
+          zoUsede: ZO_USEDE,
+          multifam: MULTIFAM,
+          mnlsEff: MNLS_EFF_1,
+          plcEff: PCTLOTCOV,
+          lApDu: LApDU,
+          mxhtEff: MXHT_EFF_1,
+          mxduEff: MXDU_EFF_1,
+          dUpAcEff: DUpAC_EFF_1,
+          farEff: FAR_EFF_1,
         });
         setFormIsOpen(true);
       }}

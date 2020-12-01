@@ -1,9 +1,16 @@
 import React from 'react';
 import { X } from 'phosphor-react';
 
-const EditsForm = ({ setFormIsOpen, selectedZone }) => {
-  console.log(selectedZone)
-  return (
+function submitEdit(e) {
+  e.preventDefault();
+  console.log(e);
+}
+
+const EditsForm = ({
+  setFormIsOpen, selectedZone: {
+    zoName, zoUsety, zoUsede, multifam, mnlsEff, plcEff, lApDu, mxhtEff, mxduEff, dUpAcEff, farEff,
+  },
+}) => (
   <>
     <div className="edits__header">
       Edit Zone Info
@@ -16,7 +23,7 @@ const EditsForm = ({ setFormIsOpen, selectedZone }) => {
       </button>
     </div>
     <div className="edits__form-wrapper">
-      <form className="edits__form">
+      <form className="edits__form" onSubmit={(e) => submitEdit(e)}>
         <p className="edits__paragraph">
           <span className="edits__asterisk">*</span>
           {' '}
@@ -37,34 +44,34 @@ const EditsForm = ({ setFormIsOpen, selectedZone }) => {
               {' '}
               Email
             </span>
-            <input name="email" className="edits__input edits__field" required />
+            <input name="email" type="email" className="edits__input edits__field" required />
           </label>
         </fieldset>
         <fieldset className="edits__section">
           <label htmlFor="zo_name" className="edits__row">
             Zone Name
-            <input name="zo_name" className="edits__input edits__field" />
+            <input name="zo_name" className="edits__input edits__field" defaultValue={zoName} />
           </label>
-          <label htmlFor="zo_name" className="edits__row">
+          <label htmlFor="zo_usety" className="edits__row">
             Zone Use Type
-            <select name="zo_name" className="edits__select edits__field">
-              <option value="0">No Zone</option>
-              <option value="1">Residential</option>
-              <option value="2">Non-Residential</option>
-              <option value="3">Mixed Use (Residential and Non-Residential)</option>
-              <option value="4">Other (Open space, etc.)</option>
+            <select name="zo_usety" className="edits__select edits__field" defaultValue={zoUsety}>
+              <option defaultValue="0">No Zone</option>
+              <option defaultValue="1">Residential</option>
+              <option defaultValue="2">Non-Residential</option>
+              <option defaultValue="3">Mixed Use (Residential and Non-Residential)</option>
+              <option defaultValue="4">Other (Open space, etc.)</option>
             </select>
           </label>
           <label htmlFor="zo_usede" className="edits__row edits__row--multi-line">
             Zone Use Description
-            <textarea name="zo_usede" className="edits__textarea edits__field" />
+            <textarea name="zo_usede" className="edits__textarea edits__field" defaultValue={zoUsede} />
           </label>
           <label htmlFor="multifam" className="edits__row">
             Multifamily Housing
-            <select name="multifam" className="edits__select edits__field">
-              <option value="0">No</option>
-              <option value="1">By special permit</option>
-              <option value="2">By right</option>
+            <select name="multifam" className="edits__select edits__field" defaultValue={multifam}>
+              <option defaultValue="0">No</option>
+              <option defaultValue="1">By special permit</option>
+              <option defaultValue="2">By right</option>
             </select>
           </label>
           <label htmlFor="minlotsize" className="edits__row">
@@ -73,7 +80,7 @@ const EditsForm = ({ setFormIsOpen, selectedZone }) => {
           </label>
           <label htmlFor="pctlotcov" className="edits__row">
             Percent Lot Coverage
-            <input type="number" name="pctlotcov" min="0" max="100" className="edits__input edits__field" />
+            <input name="pctlotcov" min="0" max="100" className="edits__input edits__field" />
           </label>
           <label htmlFor="lapdu" className="edits__row">
             Minimum Lot Area per Dwelling Unit (sf)
@@ -100,10 +107,14 @@ const EditsForm = ({ setFormIsOpen, selectedZone }) => {
             <input type="number" name="far" min="0" className="edits__input edits__field" />
           </label>
         </fieldset>
+        <label htmlFor="general" className="edits__row edits__row--multi-line">
+          General comments
+          <textarea name="general" className="edits__textarea edits__field" />
+        </label>
         <button type="submit" className="button edits__button">Submit</button>
       </form>
     </div>
   </>
-)}
+);
 
 export default EditsForm;

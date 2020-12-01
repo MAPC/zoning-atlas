@@ -6,11 +6,12 @@ import LeafletMap from '../map/LeafletMap';
 import EditsForm from '../EditsForm';
 
 const DataContainer = ({
-  reactTable, view, formIsOpen, setFormIsOpen,
+  reactTable, view
 }) => {
   useEffect(() => {
-    ReactModal.setAppElement('#___gatsby');
+    ReactModal.setAppElement('body');
   }, []);
+  const [formIsOpen, setFormIsOpen] = useState(false);
   const [selectedZone, setZone] = useState();
   return (
     <div className="data-container">
@@ -34,7 +35,9 @@ const DataContainer = ({
         )}
       <ReactModal
         isOpen={formIsOpen}
+        shouldCloseOnOverlayClick
         contentLabel="Edit form"
+        onRequestClose={() => setFormIsOpen(false)}
         overlayClassName="modal__overlay modal__overlay--dark"
         className="modal__content-wrapper edits__wrapper"
       >
