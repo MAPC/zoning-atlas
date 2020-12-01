@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div className="header__wrapper">
       <header className="header">
-        <Link to="/" className="header__logo-wrapper">
+        <Link to="/data" className="header__logo-wrapper">
           <img src={logo} className="header__logo" alt="MAPC Zoning Atlas" />
           <h1 className="header__title">Zoning Atlas</h1>
         </Link>
@@ -15,8 +15,8 @@ const Header = () => {
           <ul className="navigation__list">
             <li className="navigation__item">
               <Link
-                to="/"
-                className={urlPath === '/' ? 'navigation__link navigation__link--active' : 'navigation__link'}
+                to="/data"
+                className={urlPath === '/data' ? 'navigation__link navigation__link--active' : 'navigation__link'}
               >
                 Data
               </Link>
