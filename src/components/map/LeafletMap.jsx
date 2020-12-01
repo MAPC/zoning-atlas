@@ -7,7 +7,7 @@ import EsriLeafletGeoSearch from 'react-esri-leaflet/plugins/EsriLeafletGeoSearc
 import Layers from './Layers';
 import ZoningPopup from './Popup';
 
-const LeafletMap = ({ reactTable, setFormIsOpen }) => {
+const LeafletMap = ({ reactTable, setFormIsOpen, setZone }) => {
   const [selectedAttr, setSelected] = useState();
   const [popupLatLng, setLatLng] = useState();
   return (
@@ -39,7 +39,7 @@ const LeafletMap = ({ reactTable, setFormIsOpen }) => {
         </LayersControl>
         <EsriLeafletGeoSearch useMapBounds={false} position="topleft" />
         <Layers reactTable={reactTable} setSelected={setSelected} setLatLng={setLatLng} />
-        {selectedAttr ? <ZoningPopup selectedAttr={selectedAttr} latLng={popupLatLng} setFormIsOpen={setFormIsOpen} /> : ''}
+        {selectedAttr ? <ZoningPopup selectedAttr={selectedAttr} latLng={popupLatLng} setFormIsOpen={setFormIsOpen} setZone={setZone} /> : ''}
         <ZoomControl position="bottomright" />
       </MapContainer>
       <a href="http://mapbox.com/about/maps" className="map__watermark" target="_blank">Mapbox</a>

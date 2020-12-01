@@ -2,7 +2,7 @@ import React from 'react';
 import Table from './Table';
 import TablePagination from './TablePagination';
 
-const TableWrapper = ({ reactTable, setFormIsOpen }) => (
+const TableWrapper = ({ reactTable, setFormIsOpen, setZone }) => (
   <div className="tabular-data">
     <Table
       getTableProps={reactTable.getTableProps}
@@ -11,6 +11,7 @@ const TableWrapper = ({ reactTable, setFormIsOpen }) => (
       page={reactTable.page}
       prepareRow={reactTable.prepareRow}
       setFormIsOpen={setFormIsOpen}
+      setZone={setZone}
     />
     <TablePagination
       gotoPage={reactTable.gotoPage}

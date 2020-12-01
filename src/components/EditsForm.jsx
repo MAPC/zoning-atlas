@@ -1,7 +1,9 @@
 import React from 'react';
 import { X } from 'phosphor-react';
 
-const EditsForm = ({ setFormIsOpen }) => (
+const EditsForm = ({ setFormIsOpen, selectedZone }) => {
+  console.log(selectedZone)
+  return (
   <>
     <div className="edits__header">
       Edit Zone Info
@@ -102,6 +104,6 @@ const EditsForm = ({ setFormIsOpen }) => (
       </form>
     </div>
   </>
-);
+)}
 
 export default EditsForm;
