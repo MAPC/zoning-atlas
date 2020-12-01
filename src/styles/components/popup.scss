@@ -45,8 +45,11 @@
 }
 
 .leaflet-popup-content .popup__edit {
+  background: none;
+  border: none;
+  cursor: pointer;
   display: block;
-  margin: 0;
+  margin: 0 auto;
   text-align: center;
   color: $color_bg-green;
   font-family: 'SwiftNeueLTPro', serif;

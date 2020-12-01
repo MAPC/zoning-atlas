@@ -27,7 +27,7 @@ function checkEsval(input) {
 }
 
 const ZoningPopup = ({
-  latLng, selectedAttr: {
+  latLng, setFormIsOpen, selectedAttr: {
     muni_name, ZO_NAME_1, ZO_USETY_1, ZO_USEDE, MULTIFAM, MNLS_EFF_1, PCTLOTCOV, LApDU, MXHT_EFF_1, MXDU_EFF_1, DUpAC_EFF_1, FAR_EFF_1, FAR_ESVAL, REVIEWDATE,
   },
 }) => (
@@ -101,11 +101,11 @@ const ZoningPopup = ({
         <span className="popup__datum">{REVIEWDATE}</span>
       </li>
     </ul>
-    <a className="popup__edit" href="#">
+    <button className="popup__edit" onClick={() => setFormIsOpen(true) }>
       Submit an edit
       {' '}
       <i className="fas fa-external-link-alt icon" />
-    </a>
+    </button>
   </Popup>
 );
 

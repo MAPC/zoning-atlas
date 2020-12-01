@@ -51,7 +51,7 @@ export default function Tabular({ data }) {
   const reactTable = useTable({
     columns, data, initialState: { pageSize: 10 }, defaultColumn, filterTypes, defaultCanFilter: false,
   }, useFilters, useSortBy, usePagination);
-
+  const [formIsOpen, setFormIsOpen] = useState(false);
   const [view, setView] = useState('spatial');
 
   return (
@@ -83,6 +83,8 @@ export default function Tabular({ data }) {
         <DataContainer
           reactTable={reactTable}
           view={view}
+          formIsOpen={formIsOpen}
+          setFormIsOpen={setFormIsOpen}
         />
         <ContributeMenu />
       </main>

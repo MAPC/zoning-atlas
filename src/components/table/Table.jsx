@@ -7,6 +7,7 @@ const Table = ({
   headerGroups,
   page,
   prepareRow,
+  setFormIsOpen
 }) => (
   <div className="table__wrapper">
     <table {...getTableProps()} className="table">
@@ -33,10 +34,10 @@ const Table = ({
                   <div
                     className="icon__wrapper"
                     role="button"
-                    onClick={() => console.log(row.values)}
+                    onClick={() => setFormIsOpen(true)}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter') {
-                        console.log(row.values);
+                        setFormIsOpen(true);
                       }
                     }}
                     tabIndex="0"
