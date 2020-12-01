@@ -3,13 +3,12 @@ require('dotenv').config({
 });
 
 module.exports = {
-  pathPrefix: '/zoning-atlas',
   siteMetadata: {
-    title: `MAPC Zoning Atlas - Staging`,
-    description: `Staging and experimental site for MAPC Zoning Atlas`,
+    title: `MAPC Zoning Atlas`,
+    description: `MAPC Zoning Atlas`,
     author: `@mapcmetroboston`,
   },
-  
+
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
