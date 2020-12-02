@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { X } from 'phosphor-react';
 import ChoroplethSelect from './ChoroplethSelect';
 
-const Legend = () => {
+const Legend = ({ layerStyle, setLayerStyle }) => {
   const [isVisible, setVisibility] = useState(true);
   return (
     <div
@@ -26,7 +26,7 @@ const Legend = () => {
           <X size="1rem" />
         </button>
       </div>
-      { isVisible ? <ChoroplethSelect /> : ''}
+      { isVisible ? <ChoroplethSelect layerStyle={layerStyle} setLayerStyle={setLayerStyle} /> : ''}
     </div>
   );
 };

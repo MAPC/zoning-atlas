@@ -1,17 +1,5 @@
 import React from 'react';
-
-const legendEntries = {
-  zoUsety: [
-    { color: '#EDE47B', value: 'Residential' },
-    { color: '#E2A620', value: 'Mixed residential/Non-residential' },
-    { color: '#EE3125', value: 'Non-residential' },
-    { color: '#98D09A', value: 'Open Space & Recreation' },
-    { color: '#D8D8D8', value: 'No Zone' },
-  ],
-  multifam: {},
-  effDensity: {},
-  effFar: {},
-};
+import legendEntries from '../../utils/setLegendColors';
 
 function setLegend(option) {
   return legendEntries[option].map((entry) => (
@@ -24,34 +12,39 @@ function setLegend(option) {
   ));
 }
 
-const ChoroplethSelect = () => (
-  <form className="legend__form">
-    <h4 className="legend__subtitle">Map Layers</h4>
+const ChoroplethSelect = ({ layerStyle, setLayerStyle }) => (
+  <form className="legend__form" onChange={(e) => setLayerStyle(e.target.id)}>
     <fieldset className="legend__fieldset">
+      <legend className="legend__subtitle">Map Layers</legend>
       <label htmlFor="zoUsety">
-        <input type="radio" id="zoUsety" name="legend" className="legend__input" />
+        <input type="radio" id="zoUsety" name="legend" className="legend__input" defaultChecked={layerStyle === 'zoUsety'} />
         <span className="legend__entry">Zone Type</span>
       </label>
-      <label htmlFor="multifam">
-        <input type="radio" id="multifam" name="legend" className="legend__input" />
+      <label htmlFor="multiFam">
+        <input type="radio" id="multiFam" name="legend" className="legend__input" defaultChecked={layerStyle === 'multiFam'} />
         <span className="legend__entry">Multifamily Housing</span>
       </label>
       <label htmlFor="effDensity">
-        <input type="radio" id="effDensity" name="legend" className="legend__input" />
+        <input type="radio" id="effDensity" name="legend" className="legend__input" defaultChecked={layerStyle === 'effDensity'} />
         <span className="legend__entry">Effective Density</span>
       </label>
       <label htmlFor="effFar">
-        <input type="radio" id="effFar" name="legend" className="legend__input" />
+        <input type="radio" id="effFar" name="legend" className="legend__input" defaultChecked={layerStyle === 'effFar'} />
         <span className="legend__entry">Effective FAR</span>
       </label>
     </fieldset>
-    <h4 className="legend__subtitle">Zone Type</h4>
     <fieldset className="legend__fieldset">
+      <legend className="legend__subtitle">Zone Type</legend>
       <ul className="legend__list">
-        {setLegend('zoUsety')}
+        {setLegend(layerStyle)}
       </ul>
     </fieldset>
-    <button type="reset" className="legend__reset-button">Reset map settings</button>
+    <input
+      type="reset"
+      className="legend__reset-button"
+      onClick={() => setLayerStyle('zoUsety')}
+      value="Reset map settings"
+    />
   </form>
 );
 
