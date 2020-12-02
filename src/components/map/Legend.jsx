@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { X } from 'phosphor-react';
 import ChoroplethSelect from './ChoroplethSelect';
 
 const Legend = () => {
   const [isVisible, setVisibility] = useState(true);
   return (
     <div
-      className="legend"
+      className={isVisible ? 'legend legend--active' : 'legend'}
       onClick={() => setVisibility(true)}
       onKeyDown={(e) => {
         if (e.key === 'Enter') {
@@ -15,7 +16,16 @@ const Legend = () => {
       tabIndex={0}
       role="button"
     >
-      <h3 className="legend__title">Legend</h3>
+      <div className="legend__header">
+        <h3 className="legend__title">Legend</h3>
+        <button
+          type="button"
+          onClick={() => setVisibility(false)}
+          className="edits__exit"
+        >
+          <X size="1rem" />
+        </button>
+      </div>
       { isVisible ? <ChoroplethSelect /> : ''}
     </div>
   );

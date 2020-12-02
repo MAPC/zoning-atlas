@@ -6,28 +6,42 @@
   position: absolute;
   right: 0;
   top: 0;
+  width: 6.25rem;
   z-index: 400;
 
+  &--active {
+    border-bottom: .5rem solid $color_bg-green;
+    width: 17.25rem;
+  }
+
+  &__header {
+    align-items: center;
+    background: $color_bg-green;
+    border-radius: 9px 9px 0 0;
+    display: flex;
+    justify-content: space-between;
+    height: 2.5rem;
+    padding: 0 1rem;
+  }
+
   &__title {
+    color: $color_font-white;
     font-family: 'Calibre', sans-serif;
     font-size: 1rem;
     font-weight: 600;
-    margin: 0 auto;
-    height: 2.5rem;
-    width: 6.25rem;
-
-    &:hover {
-      -webkit-transition: .2s;
-      background-color: $color_bg-green;
-      box-shadow: $color_light-gray 2px 3px 8px;
-      color: $color_font-white;
-      transition: .2s;
-    }
+    padding: 0;
   }
 
   &__form {
+    margin: .5rem 1.125rem;
+  }
+
+  &__fieldset {
     display: flex;
     flex-direction: column;
+    border: none;
+    margin: 0;
+    padding: 0;
   }
 
   &__subtitle {
@@ -35,12 +49,36 @@
     font-family: 'Calibre', sans-serif;
     font-size: 1rem;
     font-weight: 600;
+    margin: 0;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__input {
+    margin: 0;
   }
 
   &__entry {
     color: $color_font-black;
     font-family: 'Calibre', sans-serif;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 300;
+    margin: 0 0 0 12px;
+  }
+
+  &__reset-button {
+    background: $color_button-gray;
+    border: 1px solid $color_default-gray;
+    color: $color_font-black;
+    font-family: 'Calibre', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 300;
+    height: 2rem;
+    margin: 1rem 0;
+    width: 9.375rem;
   }
 }

@@ -1,41 +1,59 @@
 import React from 'react';
 
-const ChoroplethSelect = () => (
-  <div className="legend__form-wrapper">
-    <form className="legend__form">
-      <h4 className="legend__subtitle">Map Layers</h4>
-      <label htmlFor="effDensity" className="legend__entry">
-        <input type="radio" name="effDensity" />
-        Effective Dentisty
-      </label>
-      <label htmlFor="effFar" className="legend__entry">
-        <input type="radio" name="effFar" />
-        Effective FAR
-      </label>
-      <label htmlFor="multifam" className="legend__entry">
-        <input type="radio" name="multifam" />
-        Multifamily Housing
-      </label>
-      <label htmlFor="zoUsety" className="legend__entry">
-        <input type="radio" name="zoUsety" />
-        Zone Type
-      </label>
-      <h4 className="legend__subtitle">Zone Type</h4>
-      <svg height="132" width="168">
-        <circle cx="5" cy="5" r="5" fill="#EDE47B" />
-        <text x="22" y="10" fill="#231F20" className="legend__entry">Residential</text>
-        <circle cx="5" cy="28" r="5" fill="#E2A620" />
-        <text x="22" y="30" fill="#231F20" className="legend__entry">Mixed residential/Non-residential</text>
-        <circle cx="5" cy="46" r="5" fill="#EE3125" />
-        <text x="22" y="50" fill="#231F20" className="legend__entry">Non-residential</text>
-        <circle cx="5" cy="64" r="5" fill="#98D09A" />
-        <text x="22" y="70" fill="#231F20" className="legend__entry">Open Space & Recreation</text>
-        <circle cx="5" cy="82" r="5" fill="#D8D8D8" />
-        <text x="22" y="90" fill="#231F20" className="legend__entry">No Zone</text>
+const legendEntries = {
+  zoUsety: [
+    { color: '#EDE47B', value: 'Residential' },
+    { color: '#E2A620', value: 'Mixed residential/Non-residential' },
+    { color: '#EE3125', value: 'Non-residential' },
+    { color: '#98D09A', value: 'Open Space & Recreation' },
+    { color: '#D8D8D8', value: 'No Zone' },
+  ],
+  multifam: {},
+  effDensity: {},
+  effFar: {},
+};
+
+function setLegend(option) {
+  return legendEntries[option].map((entry) => (
+    <li className="legend__list-row" key={entry.value}>
+      <svg width="10" height="10">
+        <circle cx="5" cy="5" r="5" fill={entry.color} />
       </svg>
-      <button type="reset">Reset map settings</button>
-    </form>
-  </div>
+      <span className="legend__entry">{entry.value}</span>
+    </li>
+  ));
+}
+
+const ChoroplethSelect = () => (
+  <form className="legend__form">
+    <h4 className="legend__subtitle">Map Layers</h4>
+    <fieldset className="legend__fieldset">
+      <label htmlFor="zoUsety">
+        <input type="radio" id="zoUsety" name="legend" className="legend__input" />
+        <span className="legend__entry">Zone Type</span>
+      </label>
+      <label htmlFor="multifam">
+        <input type="radio" id="multifam" name="legend" className="legend__input" />
+        <span className="legend__entry">Multifamily Housing</span>
+      </label>
+      <label htmlFor="effDensity">
+        <input type="radio" id="effDensity" name="legend" className="legend__input" />
+        <span className="legend__entry">Effective Density</span>
+      </label>
+      <label htmlFor="effFar">
+        <input type="radio" id="effFar" name="legend" className="legend__input" />
+        <span className="legend__entry">Effective FAR</span>
+      </label>
+    </fieldset>
+    <h4 className="legend__subtitle">Zone Type</h4>
+    <fieldset className="legend__fieldset">
+      <ul className="legend__list">
+        {setLegend('zoUsety')}
+      </ul>
+    </fieldset>
+    <button type="reset" className="legend__reset-button">Reset map settings</button>
+  </form>
 );
 
 export default ChoroplethSelect;
+export { setLegend };
