@@ -4,6 +4,7 @@ import { useMap, useMapEvent } from 'react-leaflet';
 import { zoneUse } from '../../utils/setZoneUse';
 import { multiFamily } from '../../utils/setMultiFamily';
 import { lotDetails } from '../../utils/setLotDetails';
+import setLegendColors from '../../utils/setLegendColors';
 
 function setSimplifyFactor(zoom) {
   switch (zoom) {
@@ -59,7 +60,7 @@ function setWhere(columns) {
   return whereStatements.map((statement) => `(${statement})`).join(' AND ');
 }
 
-const Layers = ({ reactTable, setSelected, setLatLng }) => {
+const Layers = ({ reactTable, setSelected, setLatLng, layerStyle }) => {
   const mapRef = useMap();
   const [zoom, setZoom] = useState(mapRef.getZoom());
 
@@ -71,11 +72,11 @@ const Layers = ({ reactTable, setSelected, setLatLng }) => {
     <FeatureLayer
       url="https://geo.mapc.org/server/rest/services/gisdata/ZoningKitchenSinkTest_v03/MapServer/0"
       simplifyFactor={setSimplifyFactor(zoom)}
-      style={{
-        color: 'blue',
-        weight: 0.5,
-        fillOpacity: 0.2,
-        opacity: 1,
+      style={(feature) => {
+        if (layerStyle === 'zoUsety') {
+          return { color: 'blue' };
+        }
+        return { color: 'red' };
       }}
       where={setWhere(reactTable.columns)}
       eventHandlers={{
