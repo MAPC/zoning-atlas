@@ -1,0 +1,46 @@
+.legend {
+  background-color: $color_font-white;
+  border: 1px solid $color_default-gray;
+  border-radius: 9px;
+  margin: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 400;
+
+  &__title {
+    font-family: 'Calibre', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 auto;
+    height: 2.5rem;
+    width: 6.25rem;
+
+    &:hover {
+      -webkit-transition: .2s;
+      background-color: $color_bg-green;
+      box-shadow: $color_light-gray 2px 3px 8px;
+      color: $color_font-white;
+      transition: .2s;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__subtitle {
+    color: $color_font-black;
+    font-family: 'Calibre', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  &__entry {
+    color: $color_font-black;
+    font-family: 'Calibre', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}
