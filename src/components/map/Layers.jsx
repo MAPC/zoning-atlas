@@ -73,8 +73,50 @@ const Layers = ({ reactTable, setSelected, setLatLng, layerStyle }) => {
       url="https://geo.mapc.org/server/rest/services/gisdata/ZoningKitchenSinkTest_v03/MapServer/0"
       simplifyFactor={setSimplifyFactor(zoom)}
       style={(feature) => {
+        let colorRow;
         if (layerStyle === 'zoUsety') {
-          return { color: 'blue' };
+          colorRow = feature.properties.ZO_USETY_1
+            ? setLegendColors.zoUsety.find((option) => option.id === feature.properties.ZO_USETY_1).color
+            : setLegendColors.zoUsety[4].color;
+          return {
+            color: colorRow,
+            weight: 0.5,
+            fillOpacity: 0.5,
+            opacity: 1,
+          };
+        }
+        if (layerStyle === 'multiFam') {
+          colorRow = feature.properties.MULTIFAM
+            ? setLegendColors.multiFam.find((option) => option.id === feature.properties.MULTIFAM).color
+            : setLegendColors.multiFam[2].color;
+          return {
+            color: colorRow,
+            weight: 0.5,
+            fillOpacity: 0.5,
+            opacity: 1,
+          };
+        }
+        if (layerStyle === 'effDensity') { // not yet set
+          colorRow = feature.properties.DUpAC_EFF_1
+            ? setLegendColors.effDensity.find((option) => feature.properties.DUpAC_EFF_1 >= option.min && feature.properties.DUpAC_EFF_1 < option.max ).color
+            : setLegendColors.effDensity[11].color;
+          return {
+            color: colorRow,
+            weight: 0.5,
+            fillOpacity: 1,
+            opacity: 1,
+          };
+        }
+        if (layerStyle === 'effFar') {
+          colorRow = feature.properties.EFFAR
+            ? setLegendColors.effFar.find((option) => option.value > feature.properties.far_eff).color
+            : setLegendColors.effFar[2].color;
+          return {
+            color: colorRow,
+            weight: 0.5,
+            fillOpacity: 0.9,
+            opacity: 1,
+          };
         }
         return { color: 'red' };
       }}

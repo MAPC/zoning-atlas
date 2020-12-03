@@ -12,13 +12,20 @@ function setLegend(option) {
   ));
 }
 
+const legendTitle = {
+  zoUsety: 'Zone Use Type',
+  multiFam: 'Multifamily Housing',
+  effDensity: 'Effective Dwelling Units per Acre',
+  effFar: 'Effective FAR',
+};
+
 const ChoroplethSelect = ({ layerStyle, setLayerStyle }) => (
   <form className="legend__form" onChange={(e) => setLayerStyle(e.target.id)}>
     <fieldset className="legend__fieldset">
       <legend className="legend__subtitle">Map Layers</legend>
       <label htmlFor="zoUsety">
         <input type="radio" id="zoUsety" name="legend" className="legend__input" defaultChecked={layerStyle === 'zoUsety'} />
-        <span className="legend__entry">Zone Type</span>
+        <span className="legend__entry">Zone Use Type</span>
       </label>
       <label htmlFor="multiFam">
         <input type="radio" id="multiFam" name="legend" className="legend__input" defaultChecked={layerStyle === 'multiFam'} />
@@ -26,7 +33,7 @@ const ChoroplethSelect = ({ layerStyle, setLayerStyle }) => (
       </label>
       <label htmlFor="effDensity">
         <input type="radio" id="effDensity" name="legend" className="legend__input" defaultChecked={layerStyle === 'effDensity'} />
-        <span className="legend__entry">Effective Density</span>
+        <span className="legend__entry">Effective Dwelling Units per Acre</span>
       </label>
       <label htmlFor="effFar">
         <input type="radio" id="effFar" name="legend" className="legend__input" defaultChecked={layerStyle === 'effFar'} />
@@ -34,7 +41,7 @@ const ChoroplethSelect = ({ layerStyle, setLayerStyle }) => (
       </label>
     </fieldset>
     <fieldset className="legend__fieldset">
-      <legend className="legend__subtitle">Zone Type</legend>
+      <legend className="legend__subtitle">{legendTitle[layerStyle]}</legend>
       <ul className="legend__list">
         {setLegend(layerStyle)}
       </ul>
