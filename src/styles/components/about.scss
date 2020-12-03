@@ -1,0 +1,28 @@
+.about {
+  &__content {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__options {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__category {
+    font-family: 'Calibre', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 2.25rem 0;
+
+    &--active {
+      -webkit-transition: border-bottom .1s ease-out;
+      border-bottom: 5px solid $color_bg-green;
+      color: $color_bg-green;
+      transition: border-bottom .1s ease-out;
+    }
+  }
+}

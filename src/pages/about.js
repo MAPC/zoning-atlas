@@ -25,28 +25,33 @@ const About = () => {
         <p>
           What for many years lived in excel spreadsheets, collected from disparate sources, we have moved to the web. We welcome feedback and will continue to work to find new ways to update. Our Goal is for this to be a living resource informing both policy and practice.
         </p>
-        <section>
+        <div className="about__content">
           <nav>
-            <ul>
+            <ul className="about__options">
               <Category
                 title="Calculated Fields"
                 sectionOption="calculatedFields"
+                currentSection={section}
                 setSection={setSection}
               />
               <Category
                 title="Data"
                 sectionOption="data"
+                currentSection={section}
                 setSection={setSection}
               />
               <Category
                 title="General Feedback"
                 sectionOption="generalFeedback"
+                currentSection={section}
                 setSection={setSection}
               />
             </ul>
           </nav>
-          {aboutContent[section]}
-        </section>
+          <section>
+            {aboutContent[section]}
+          </section>
+        </div>
       </main>
     </Layout>
   );
