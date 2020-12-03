@@ -2,9 +2,19 @@
 /* eslint-disable react/jsx-filename-extension */
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
+import Category from '../components/about/Category';
+import CalculatedFields from '../components/about/CalculatedFields';
+import Data from '../components/about/Data';
+import GeneralFeedback from '../components/about/GeneralFeedback';
 
 const About = () => {
   const [section, setSection] = useState('calculatedFields');
+  const aboutContent = {
+    calculatedFields: <CalculatedFields />,
+    data: <Data />,
+    generalFeedback: <GeneralFeedback />,
+  };
+
   return (
     <Layout>
       <main className="main__wrapper">
@@ -18,51 +28,24 @@ const About = () => {
         <section>
           <nav>
             <ul>
-              <li>
-                <div
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => setSection('calculatedFields')}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter') {
-                      setSection('calculatedFields');
-                    }
-                  }}
-                >
-                  Calcuated Fields
-                </div>
-              </li>
-              <li>
-                <div
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => setSection('data')}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter') {
-                      setSection('data');
-                    }
-                  }}
-                >
-                  Data
-                </div>
-              </li>
-              <li>
-                <div
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => setSection('generalFeedback')}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter') {
-                      setSection('generalFeedback');
-                    }
-                  }}
-                >
-                  General Feedback
-                </div>
-              </li>
+              <Category
+                title="Calculated Fields"
+                sectionOption="calculatedFields"
+                setSection={setSection}
+              />
+              <Category
+                title="Data"
+                sectionOption="data"
+                setSection={setSection}
+              />
+              <Category
+                title="General Feedback"
+                sectionOption="generalFeedback"
+                setSection={setSection}
+              />
             </ul>
           </nav>
-          {section}
+          {aboutContent[section]}
         </section>
       </main>
     </Layout>
