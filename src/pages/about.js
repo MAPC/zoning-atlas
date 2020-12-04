@@ -48,7 +48,7 @@ const About = () => {
               />
             </ul>
           </nav>
-          <section>
+          <section className="about__section">
             {aboutContent[section]}
           </section>
         </div>

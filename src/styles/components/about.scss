@@ -8,8 +8,9 @@
 
   &__options {
     list-style: none;
-    margin: 0;
+    margin: 0 5.625rem 0 0;
     padding: 0;
+    width: 15rem;
   }
 
   &__category {
@@ -24,5 +25,44 @@
       color: $color_bg-green;
       transition: border-bottom .1s ease-out;
     }
+  }
+
+  &__subtitle {
+    color: $color_bg-green;
+    font-family: 'SwiftNeueLTPro', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+  }
+
+  &__section {
+    width: 100%;
+  }
+}
+
+.accordion {
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__button {
+    background: none;
+    border: none;
+  }
+
+  &__icon {
+    -webkit-transition: transform .3s ease-out;
+    transition: transform .3s ease-out;
+    transform: rotate(0deg);
+    &--active {
+      -webkit-transition: transform .3s ease-out;
+      transition: transform .3s ease-out;
+      transform: rotate(90deg);
+    }
+  }
+
+  &__divider {
+    color: $color_bg-beige;
   }
 }

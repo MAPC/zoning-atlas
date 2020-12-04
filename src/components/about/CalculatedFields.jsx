@@ -1,7 +1,9 @@
 import React from 'react';
 
 const CalculatedFields = () => (
-  <div>How are calculated fields calculated?</div>
+  <>
+    <h3 className="about__subtitle">How are calculated fields calculated?</h3>
+  </>
 );
 
 export default CalculatedFields;
