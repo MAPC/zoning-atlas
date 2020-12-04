@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useState } from 'react';
 import { FeatureLayer } from 'react-esri-leaflet';
 import { useMap, useMapEvent } from 'react-leaflet';
@@ -60,7 +61,9 @@ function setWhere(columns) {
   return whereStatements.map((statement) => `(${statement})`).join(' AND ');
 }
 
-const Layers = ({ reactTable, setSelected, setLatLng, layerStyle }) => {
+const Layers = ({
+  reactTable, setSelected, setLatLng, layerStyle,
+}) => {
   const mapRef = useMap();
   const [zoom, setZoom] = useState(mapRef.getZoom());
 
@@ -78,47 +81,40 @@ const Layers = ({ reactTable, setSelected, setLatLng, layerStyle }) => {
           colorRow = feature.properties.ZO_USETY_1
             ? setLegendColors.zoUsety.find((option) => option.id === feature.properties.ZO_USETY_1).color
             : setLegendColors.zoUsety[4].color;
-          return {
-            color: colorRow,
-            weight: 0.5,
-            fillOpacity: 0.5,
-            opacity: 1,
-          };
         }
         if (layerStyle === 'multiFam') {
           colorRow = feature.properties.MULTIFAM
             ? setLegendColors.multiFam.find((option) => option.id === feature.properties.MULTIFAM).color
             : setLegendColors.multiFam[2].color;
-          return {
-            color: colorRow,
-            weight: 0.5,
-            fillOpacity: 0.5,
-            opacity: 1,
-          };
+        }
+        if (layerStyle === 'effMxht') {
+          colorRow = setLegendColors.effMxht.find((option) => feature.properties.MXHT_EFF_1 >= option.min && feature.properties.MXHT_EFF_1 < option.max)
+            ? setLegendColors.effMxht.find((option) => feature.properties.MXHT_EFF_1 >= option.min && feature.properties.MXHT_EFF_1 < option.max).color
+            : dataNa;
+        }
+        if (layerStyle === 'effMxdu') {
+          colorRow = feature.properties.MXDU_EFF_1
+            ? setLegendColors.effMxdu.find((option) => feature.properties.MXDU_EFF_1 >= option.min && feature.properties.MXDU_EFF_1 < option.max).color
+            : dataNa;
+          console.log(feature.properties.MXDU_EFF_1)
+          console.log(colorRow)
         }
         if (layerStyle === 'effDensity') { // not yet set
           colorRow = feature.properties.DUpAC_EFF_1
-            ? setLegendColors.effDensity.find((option) => feature.properties.DUpAC_EFF_1 >= option.min && feature.properties.DUpAC_EFF_1 < option.max ).color
+            ? setLegendColors.effDensity.find((option) => feature.properties.DUpAC_EFF_1 >= option.min && feature.properties.DUpAC_EFF_1 < option.max).color
             : dataNa;
-          return {
-            color: colorRow,
-            weight: 0.5,
-            fillOpacity: 1,
-            opacity: 1,
-          };
         }
         if (layerStyle === 'effFar') {
           colorRow = feature.properties.FAR_EFF
-            ? setLegendColors.effFar.find((option) => feature.properties.FAR_EFF >= option.min && feature.properties.FAR_EFF < option.max ).color
-            : dataNa
-          return {
-            color: colorRow,
-            weight: 0.5,
-            fillOpacity: 0.9,
-            opacity: 1,
-          };
+            ? setLegendColors.effFar.find((option) => feature.properties.FAR_EFF >= option.min && feature.properties.FAR_EFF < option.max).color
+            : dataNa;
         }
-        return { color: 'red' };
+        return {
+          color: colorRow,
+          weight: 0.5,
+          fillOpacity: 1,
+          opacity: 1,
+        };
       }}
       where={setWhere(reactTable.columns)}
       eventHandlers={{
