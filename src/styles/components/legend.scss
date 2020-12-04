@@ -16,20 +16,29 @@
 
   &__header {
     align-items: center;
-    background: $color_bg-green;
-    border-radius: 9px 9px 0 0;
+    background: $color_font-white;
+    border-radius: 9px;
     display: flex;
     justify-content: space-between;
     height: 2.5rem;
     padding: 0 1rem;
+
+    &--active {
+      background: $color_bg-green;
+      border-radius: 9px 9px 0 0;
+    }
   }
 
   &__title {
-    color: $color_font-white;
+    color: $color_default-gray;
     font-family: 'Calibre', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     padding: 0;
+
+    &--active {
+      color: $color_font-white;
+    }
   }
 
   &__form {
