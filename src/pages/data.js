@@ -74,7 +74,7 @@ export default function Tabular({ data }) {
           href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css"
         />
       </Helmet>
-      <main className="main__wrapper">
+      <main className="main__wrapper main__wrapper--default">
         <DataOptionsHeader
           view={view}
           setView={setView}
