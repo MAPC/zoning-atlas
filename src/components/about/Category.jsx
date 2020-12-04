@@ -1,6 +1,8 @@
 import React from 'react';
 
-const Category = ({ title, sectionOption, currentSection, setSection}) => (
+const Category = ({
+  title, sectionOption, currentSection, setSection,
+}) => (
   <li className={sectionOption === currentSection ? 'about__category about__category--active' : 'about__category'}>
     <div
       role="button"

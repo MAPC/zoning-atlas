@@ -12,21 +12,27 @@ const AccordionField = ({ title, content }) => {
   const [isActive, setActive] = useState(false);
   return (
     <div>
-      <header className="accordion__header">
-        <h3 className="about__subtitle">{ title }</h3>
-        <button
-          type="button"
-          onClick={() => toggleVisibility(isActive, setActive)}
-          className="accordion__button"
-        >
-          <img
-            src={metrocommonTriangle}
-            alt="Decorative triangle"
-            className={ isActive ? 'accordion__icon accordion__icon--active' : 'accordion__icon' }
-          />
-        </button>
+      <header
+        className="accordion__header"
+        onClick={() => toggleVisibility(isActive, setActive)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            toggleVisibility(isActive, setActive);
+          }
+        }}
+        role="button"
+        tabIndex={0}
+      >
+        <h3 className="about__subtitle accordion__title">{ title }</h3>
+        <img
+          src={metrocommonTriangle}
+          alt="Decorative triangle"
+          className={isActive ? 'accordion__icon accordion__icon--active' : 'accordion__icon'}
+        />
       </header>
-      { isActive ? content : '' }
+      <div className="accordion__content">
+        { isActive ? content : '' }
+      </div>
       <hr className="accordion__divider" />
     </div>
   );

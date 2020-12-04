@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin: 5.75rem 0;
   }
 
   &__options {
@@ -15,9 +16,9 @@
 
   &__category {
     font-family: 'Calibre', sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    margin: 2.25rem 0;
+    margin: 0 0 2.25rem 0;
 
     &--active {
       -webkit-transition: border-bottom .1s ease-out;
@@ -32,6 +33,7 @@
     font-family: 'SwiftNeueLTPro', serif;
     font-size: 1.25rem;
     font-weight: 400;
+    margin: 0;
   }
 
   &__section {
@@ -44,6 +46,10 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  &__title {
+    width: 29rem;
   }
 
   &__button {
@@ -62,7 +68,12 @@
     }
   }
 
+  &__content {
+    margin-top: 1.25rem;
+  }
+
   &__divider {
     color: $color_bg-beige;
+    margin: 1.875rem 0;
   }
 }
