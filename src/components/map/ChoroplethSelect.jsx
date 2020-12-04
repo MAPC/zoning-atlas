@@ -52,7 +52,7 @@ const ChoroplethSelect = ({ layerStyle, setLayerStyle }) => (
     </fieldset>
     <fieldset className="legend__fieldset">
       <legend className="legend__subtitle">{legendTitle[layerStyle]}</legend>
-      <ul className="legend__list">
+      <ul className={legendEntries[layerStyle].length > 6 ? "legend__list legend__list--two-col" : "legend__list legend__list--one-col"}>
         {setLegend(layerStyle)}
       </ul>
     </fieldset>

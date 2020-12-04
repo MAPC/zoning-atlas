@@ -53,9 +53,25 @@
   }
 
   &__list {
+    display: grid;
     list-style: none;
     margin: 0;
     padding: 0;
+
+    &--one-col {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+
+    &--two-col {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(6, 1fr);
+      grid-auto-flow: column;
+    }
+  }
+
+  &__list:first-child {
+    background-color: red;
   }
 
   &__input {
