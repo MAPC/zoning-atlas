@@ -15,7 +15,7 @@ const LeafletMap = ({ reactTable, setFormIsOpen, setZone }) => {
   return (
     <div className="map__wrapper">
       <MapContainer
-        center={[42.3317, -71.0408]}
+        center={[42.3317, -70.75]}
         zoom={9}
         maxZoom={14}
         minZoom={9}

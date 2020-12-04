@@ -4,7 +4,7 @@ import { useMap, useMapEvent } from 'react-leaflet';
 import { zoneUse } from '../../utils/setZoneUse';
 import { multiFamily } from '../../utils/setMultiFamily';
 import { lotDetails } from '../../utils/setLotDetails';
-import setLegendColors from '../../utils/setLegendColors';
+import setLegendColors, { dataNa } from '../../utils/setLegendColors';
 
 function setSimplifyFactor(zoom) {
   switch (zoom) {
@@ -99,7 +99,7 @@ const Layers = ({ reactTable, setSelected, setLatLng, layerStyle }) => {
         if (layerStyle === 'effDensity') { // not yet set
           colorRow = feature.properties.DUpAC_EFF_1
             ? setLegendColors.effDensity.find((option) => feature.properties.DUpAC_EFF_1 >= option.min && feature.properties.DUpAC_EFF_1 < option.max ).color
-            : setLegendColors.effDensity[11].color;
+            : dataNa;
           return {
             color: colorRow,
             weight: 0.5,
@@ -108,9 +108,9 @@ const Layers = ({ reactTable, setSelected, setLatLng, layerStyle }) => {
           };
         }
         if (layerStyle === 'effFar') {
-          colorRow = feature.properties.EFFAR
-            ? setLegendColors.effFar.find((option) => option.value > feature.properties.far_eff).color
-            : setLegendColors.effFar[2].color;
+          colorRow = feature.properties.FAR_EFF
+            ? setLegendColors.effFar.find((option) => feature.properties.FAR_EFF >= option.min && feature.properties.FAR_EFF < option.max ).color
+            : dataNa
           return {
             color: colorRow,
             weight: 0.5,
