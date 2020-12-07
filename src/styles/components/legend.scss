@@ -1,0 +1,118 @@
+.legend {
+  background-color: $color_font-white;
+  border: 1px solid $color_default-gray;
+  border-radius: 9px;
+  margin: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 6.25rem;
+  z-index: 400;
+
+  &--active {
+    border-bottom: .5rem solid $color_bg-green;
+    width: 17.25rem;
+  }
+
+  &__header {
+    align-items: center;
+    background: $color_font-white;
+    border-radius: 9px;
+    display: flex;
+    justify-content: center;
+    height: 2.5rem;
+    padding: 0 1rem;
+
+    &:hover {
+      background-color: $color_bg-green;
+
+      & > .legend__title {
+        color: white;
+      }
+    }
+
+    &--active {
+      background: $color_bg-green;
+      border-radius: 9px 9px 0 0;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    color: $color_default-gray;
+    font-family: 'Calibre', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0;
+
+    &--active {
+      color: $color_font-white;
+    }
+  }
+
+  &__form {
+    margin: .5rem 1.125rem;
+  }
+
+  &__fieldset {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__subtitle {
+    color: $color_font-black;
+    font-family: 'Calibre', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  &__list {
+    display: grid;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &--one-col {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+
+    &--two-col {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(6, 1fr);
+      grid-auto-flow: column;
+    }
+  }
+
+  &__list:first-child {
+    background-color: red;
+  }
+
+  &__input {
+    margin: 0;
+  }
+
+  &__entry {
+    color: $color_font-black;
+    font-family: 'Calibre', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 0 0 0 12px;
+  }
+
+  &__reset-button {
+    background: $color_button-gray;
+    border: 1px solid $color_default-gray;
+    color: $color_font-black;
+    font-family: 'Calibre', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 300;
+    height: 2rem;
+    margin: 1rem 0;
+    width: 9.375rem;
+  }
+}

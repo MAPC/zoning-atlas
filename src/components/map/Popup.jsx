@@ -28,7 +28,7 @@ function checkEsval(input) {
 
 const ZoningPopup = ({
   latLng, setFormIsOpen, selectedAttr: {
-    muni_name, ZO_NAME_1, ZO_USETY_1, ZO_USEDE, MULTIFAM, MNLS_EFF_1, PCTLOTCOV, LApDU, MXHT_EFF_1, MXDU_EFF_1, DUpAC_EFF_1, FAR_EFF_1, FAR_ESVAL, REVIEWDATE,
+    muni_name, ZO_NAME_1, ZO_USETY_1, ZO_USEDE, MULTIFAM, MNLS_EFF_1, PCTLOTCOV, LApDU, MXHT_EFF_1, MXDU_EFF_1, DUpAC_EFF_1, far_eff, FAR_ESVAL, REVIEWDATE,
   }, setZone,
 }) => (
   <Popup position={latLng}>
@@ -91,7 +91,7 @@ const ZoningPopup = ({
         <span className="popup__category">Effective Floor-Area Ratio:</span>
         {' '}
         <span className="popup__datum">
-          { checkValue(FAR_EFF_1) }
+          { checkValue(far_eff) }
           { checkEsval(FAR_ESVAL) }
         </span>
       </li>
@@ -117,7 +117,7 @@ const ZoningPopup = ({
           mxhtEff: MXHT_EFF_1,
           mxduEff: MXDU_EFF_1,
           dUpAcEff: DUpAC_EFF_1,
-          farEff: FAR_EFF_1,
+          farEff: far_eff,
         });
         setFormIsOpen(true);
       }}

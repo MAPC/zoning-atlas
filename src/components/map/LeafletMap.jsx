@@ -6,14 +6,16 @@ import {
 import EsriLeafletGeoSearch from 'react-esri-leaflet/plugins/EsriLeafletGeoSearch';
 import Layers from './Layers';
 import ZoningPopup from './Popup';
+import Legend from './Legend';
 
 const LeafletMap = ({ reactTable, setFormIsOpen, setZone }) => {
   const [selectedAttr, setSelected] = useState();
   const [popupLatLng, setLatLng] = useState();
+  const [layerStyle, setLayerStyle] = useState('zoUsety');
   return (
     <div className="map__wrapper">
       <MapContainer
-        center={[42.3317, -71.0408]}
+        center={[42.3317, -70.75]}
         zoom={9}
         maxZoom={14}
         minZoom={9}
@@ -38,14 +40,12 @@ const LeafletMap = ({ reactTable, setFormIsOpen, setZone }) => {
           </LayersControl.BaseLayer>
         </LayersControl>
         <EsriLeafletGeoSearch useMapBounds={false} position="topleft" />
-        <Layers reactTable={reactTable} setSelected={setSelected} setLatLng={setLatLng} />
+        <Layers reactTable={reactTable} setSelected={setSelected} setLatLng={setLatLng} layerStyle={layerStyle} />
         {selectedAttr ? <ZoningPopup selectedAttr={selectedAttr} latLng={popupLatLng} setFormIsOpen={setFormIsOpen} setZone={setZone} /> : ''}
         <ZoomControl position="bottomright" />
+        <Legend position="topright" layerStyle={layerStyle} setLayerStyle={setLayerStyle} />
       </MapContainer>
       <a href="http://mapbox.com/about/maps" className="map__watermark" target="_blank">Mapbox</a>
-      <div className="map__legend">
-        Legend
-      </div>
     </div>
   );
 };
