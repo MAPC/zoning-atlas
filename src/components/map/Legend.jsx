@@ -7,18 +7,18 @@ const Legend = ({ layerStyle, setLayerStyle }) => {
   return (
     <div
       className={isVisible ? 'legend legend--active' : 'legend'}
+      onClick={() => (!isVisible ? setVisibility(true) : '')}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') {
+          setVisibility(true);
+        }
+      }}
+      tabIndex={0}
+      role="button"
     >
       <div className={isVisible ? 'legend__header legend__header--active' : 'legend__header'}>
         <h3
           className={isVisible ? 'legend__title legend__title--active' : 'legend__title'}
-          onClick={() => setVisibility(true)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              setVisibility(true);
-            }
-          }}
-          tabIndex={0}
-          role="button"
         >
           Legend
         </h3>
