@@ -3,7 +3,7 @@ import ReactModal from 'react-modal';
 import TableFilters from '../filters/TableFilters';
 import TableWrapper from '../table/TableWrapper';
 import LeafletMap from '../map/LeafletMap';
-import EditsForm from '../EditsForm';
+import EditsForm from '../form/EditsForm';
 
 const DataContainer = ({
   reactTable, view
