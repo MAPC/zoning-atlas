@@ -105,8 +105,8 @@ const Layers = ({
             : dataNa;
         }
         if (layerStyle === 'effFar') {
-          colorRow = feature.properties.FAR_EFF
-            ? setLegendColors.effFar.find((option) => feature.properties.FAR_EFF >= option.min && feature.properties.FAR_EFF < option.max).color
+          colorRow = feature.properties.FAR_EFF_1
+            ? setLegendColors.effFar.find((option) => feature.properties.FAR_EFF_1 >= option.min && feature.properties.FAR_EFF_1 < option.max).color
             : dataNa;
         }
         return {
