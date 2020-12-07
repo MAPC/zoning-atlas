@@ -1,9 +1,20 @@
 import React from 'react';
+import Airtable from 'airtable';
 import { X } from 'phosphor-react';
 
 function submitEdit(e) {
-  e.preventDefault();
   console.log(e);
+  e.preventDefault();
+  const base = new Airtable({
+    apiKey: process.env.GATSBY_AIRTABLE_API_KEY,
+  }).base(process.env.GATSBY_AIRTABLE_API_BASE);
+  base('Edits').create([{
+    fields: { Name: 'foo', Email: 'bar' },
+  }], (err, records) => {
+    if (err) {
+      console.error(err);
+    }
+  });
 }
 
 const EditsForm = ({
