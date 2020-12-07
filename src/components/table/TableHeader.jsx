@@ -34,29 +34,20 @@ const handleHover = (isHovered, colIsSorted, colIsSortedDesc) => {
   return '';
 };
 
-const TableHeader = ({ column }) => {
-  const [isHovered, setHover] = useState(false);
-  return (
-    <th
-      {...column.getHeaderProps(column.getSortByToggleProps())}
-      className="table__header"
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      onFocus={() => setHover(true)}
-      onKeyDown={(e) => {
-        if (e.key === 'Tab') {
-          setHover(false);
-        } else if (e.key === 'Enter') {
-          column.toggleSortBy();
-        }
-      }}
-      tabIndex="0"
-    >
-      {column.render('Header')}
-      {handleHover(isHovered, column.isSorted, column.isSortedDesc)}
-    </th>
-  );
-};
+const TableHeader = ({ column }) => (
+  <th
+    {...column.getHeaderProps(column.getSortByToggleProps())}
+    className="table__header"
+    onKeyDown={(e) => {
+      if (e.key === 'Enter') {
+        column.toggleSortBy();
+      }
+    }}
+    tabIndex="0"
+  >
+    <span>{column.render('Header')}</span>
+  </th>
+);
 
 export default TableHeader;
 export { arrowDown, arrowUp, handleHover };

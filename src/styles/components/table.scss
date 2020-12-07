@@ -24,10 +24,10 @@
     font-size: 1rem;
     font-weight: normal;
     height: 2.75rem;
-    // padding: .5rem 1rem;
-    // width: 8.75rem;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-width: 10rem;
+    padding: 0 1.5rem;
     white-space: nowrap;
 
     &--edit {
@@ -37,6 +37,11 @@
     &:focus {
       border: 2px solid $color_accent-green;
       box-shadow: 0 0 5px $color_accent-green;
+    }
+
+    &:hover {
+      text-overflow: unset;
+      max-width: unset;
     }
   }
 }
