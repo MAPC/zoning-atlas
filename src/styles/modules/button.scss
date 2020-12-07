@@ -25,4 +25,20 @@
     align-items: center;
     justify-content: center;
   }
+
+  &--pagination {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    height: 1.5rem;
+    justify-content: center;
+    margin: 0 .25rem;
+    width: 2.5rem;
+
+    &:disabled:hover {
+      background-color: $color_button-gray;
+      box-shadow: none;
+      color: $color_default-gray;
+    }
+  }
 }
