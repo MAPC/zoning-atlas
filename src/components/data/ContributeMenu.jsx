@@ -5,18 +5,12 @@ const ContributeMenu = () => (
   <aside className="contribute-menu__wrapper">
     <span className="data-options__title contribute-menu__title">Contribute</span>
     <div className="contribute-menu__options-wrapper">
-      <button className="button button--icon" type="button">
-        <UploadSimple
-          size="1rem"
-          weight="bold"
-        />
-      </button>
-      <button className="button button--icon" type="button">
+      <a href="mailto:LPerkinsHigh@mapc.org?subject=MAPC Zoning Atlas submission" className="button button--icon">
         <Envelope
           size="1rem"
           weight="bold"
         />
-      </button>
+      </a>
     </div>
   </aside>
 );
