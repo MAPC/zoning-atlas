@@ -23,8 +23,12 @@
     font-family: 'SwiftNeueLTPro';
     font-size: 1rem;
     font-weight: normal;
-    padding: .5rem 1rem;
-    min-width: 8.75rem;
+    height: 2.75rem;
+    // padding: .5rem 1rem;
+    // width: 8.75rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
     &--edit {
       min-width: unset;

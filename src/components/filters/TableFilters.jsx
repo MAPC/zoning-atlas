@@ -25,7 +25,9 @@ const TableFilters = ({ headerGroups }) => {
 
   return (
     <aside className="filters-panel">
-      <h2 className="filters-panel__header">Filters</h2>
+      <div className="filters-panel__header-wrapper">
+        <h2 className="filters-panel__header">Filters</h2>
+      </div>
       <nav className="filters-panel__body">
         <ul className="filters-panel__categories">
           <FilterCategory

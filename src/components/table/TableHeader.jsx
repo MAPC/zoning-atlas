@@ -52,7 +52,7 @@ const TableHeader = ({ column }) => {
       }}
       tabIndex="0"
     >
-      <span>{column.render('Header')}</span>
+      {column.render('Header')}
       {handleHover(isHovered, column.isSorted, column.isSortedDesc)}
     </th>
   );
