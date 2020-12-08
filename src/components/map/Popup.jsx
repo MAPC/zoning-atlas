@@ -28,7 +28,7 @@ function checkEsval(input) {
 
 const ZoningPopup = ({
   latLng, setFormIsOpen, selectedAttr: {
-    muni_name, ZO_NAME_1, ZO_USETY_1, ZO_USEDE, MULTIFAM, MNLS_EFF_1, PCTLOTCOV, LApDU, MXHT_EFF_1, MXDU_EFF_1, DUpAC_EFF_1, far_eff, FAR_ESVAL, REVIEWDATE,
+    muni_name, ZO_NAME_1, ZO_USETY_1, ZO_USEDE, MULTIFAM, MNLS_EFF_1, PCTLOTCOV, LApDU, MXHT_EFF_1, MXDU_EFF_1, DUpAC_EFF_1, far_eff, FAR_ESVAL, REVIEWDATE, OBJECTID_1
   }, setZone,
 }) => (
   <Popup position={latLng}>
@@ -106,11 +106,12 @@ const ZoningPopup = ({
       className="popup__edit"
       onClick={() => {
         setZone({
+          id: OBJECTID_1,
           muni: muni_name,
           zoName: ZO_NAME_1,
-          zoUsety: ZO_USETY_1,
+          zoUsety: setZoneUse(ZO_USETY_1),
           zoUsede: ZO_USEDE,
-          multifam: MULTIFAM,
+          multifam: setMultifamily(MULTIFAM),
           mnlsEff: MNLS_EFF_1,
           plcEff: PCTLOTCOV,
           lApDu: LApDU,

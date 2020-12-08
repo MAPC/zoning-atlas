@@ -24,10 +24,12 @@ function submitEdit(e, formValues) {
 
 const EditsForm = ({
   setFormIsOpen, selectedZone: {
-    zoName, zoUsety, zoUsede, multifam, mnlsEff, plcEff, lApDu, mxhtEff, mxduEff, dUpAcEff, farEff,
-  },
+    zoName, zoUsety, zoUsede, multifam, id
+  }, view
 }) => {
-  const [formValues, setFormValues] = useState({ });
+  const updatedMultiFam = multiFamily[multifam].toString();
+  const updatedZoUsety = zoneUse[zoUsety].toString();
+  const [formValues, setFormValues] = useState({ zo_name: zoName, zo_usety: updatedZoUsety, zo_usede: zoUsede, multifam: updatedMultiFam, id, view });
   return (
     <>
       <div className="edits__header">
@@ -48,8 +50,8 @@ const EditsForm = ({
             Indicates required field
           </p>
           <fieldset className="edits__section">
-            <Input name="name" label="Name" isNumeric={false} isRequired setFormValues={setFormValues} formValues={formValues} />
-            <Input name="email" label="Email" isNumeric={false} isRequired setFormValues={setFormValues} formValues={formValues} />
+            <Input name="name" label="Name" isNumeric={false} required setFormValues={setFormValues} formValues={formValues} />
+            <Input name="email" label="Email" isNumeric={false} required setFormValues={setFormValues} formValues={formValues} />
           </fieldset>
           <fieldset className="edits__section">
             <Input name="zo_name" label="Zone Name" defaultValue={zoName} isNumeric={false} setFormValues={setFormValues} formValues={formValues} />

@@ -26,6 +26,7 @@ export default function Tabular({ data }) {
   }), []);
 
   data = useMemo(() => data.postgres.allUpdatedDraftDatabasesList.map((row) => ({
+    id: row.id,
     muni: row.muni,
     zoName: row.zoName,
     zoUsety: setZoneUse(row.zoUsety),
@@ -49,7 +50,7 @@ export default function Tabular({ data }) {
 
   const columns = useMemo(() => setColumns, []);
   const reactTable = useTable({
-    columns, data, initialState: { pageSize: 10 }, defaultColumn, filterTypes, defaultCanFilter: false,
+    columns, data, initialState: { pageSize: 10, hiddenColumns: ['id'] }, defaultColumn, filterTypes, defaultCanFilter: false,
   }, useFilters, useSortBy, usePagination);
   const [view, setView] = useState('spatial');
 
@@ -93,6 +94,7 @@ export const data = graphql`
   query {
     postgres {
       allUpdatedDraftDatabasesList {
+        id
         muni
         zoName
         zoUsety

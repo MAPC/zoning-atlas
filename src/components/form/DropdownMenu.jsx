@@ -24,10 +24,14 @@ const DropdownMenu = ({
 DropdownMenu.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  defaultValue: PropTypes.number.isRequired,
+  defaultValue: PropTypes.number,
   options: PropTypes.object.isRequired,
   setFormValues: PropTypes.func.isRequired,
   formValues: PropTypes.object.isRequired,
+};
+
+DropdownMenu.defaultProps = {
+  defaultValue: '',
 };
 
 export default DropdownMenu;

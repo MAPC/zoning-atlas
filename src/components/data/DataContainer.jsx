@@ -44,6 +44,7 @@ const DataContainer = ({
         <EditsForm
           setFormIsOpen={setFormIsOpen}
           selectedZone={selectedZone}
+          view={view}
         />
       </ReactModal>
     </div>

@@ -69,6 +69,10 @@ const setColumns = [{
 }, {
   Header: 'Date Spatial Data Received',
   accessor: 'spatialrec',
+}, {
+  Header: 'ID',
+  accessor: 'id',
+  show: false,
 }];
 
 export default setColumns;
