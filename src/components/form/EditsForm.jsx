@@ -4,10 +4,11 @@ import { X } from 'phosphor-react';
 import DropdownMenu from './DropdownMenu';
 import Input from './Input';
 import Textarea from './Textarea';
+import ResponseMessage from './ResponseMessage';
 import { multiFamily } from '../../utils/setMultiFamily';
 import { zoneUse } from '../../utils/setZoneUse';
 
-function submitEdit(e, formValues) {
+function submitEdit(e, formValues, setSuccess) {
   e.preventDefault();
   const base = new Airtable({
     apiKey: process.env.GATSBY_AIRTABLE_API_KEY,
@@ -16,19 +17,30 @@ function submitEdit(e, formValues) {
     fields: formValues,
   }], (err) => {
     if (err) {
+      setSuccess(false);
       console.error(err);
+    } else {
+      setSuccess(true);
     }
   });
 }
 
 const EditsForm = ({
   setFormIsOpen, selectedZone: {
-    zoName, zoUsety, zoUsede, multifam, id
-  }, view
+    zoName, zoUsety, zoUsede, multifam, id,
+  }, view,
 }) => {
-  const updatedMultiFam = multiFamily[multifam].toString();
-  const updatedZoUsety = zoneUse[zoUsety].toString();
-  const [formValues, setFormValues] = useState({ zo_name: zoName, zo_usety: updatedZoUsety, zo_usede: zoUsede, multifam: updatedMultiFam, id, view, isResolved: 'false' });
+  const [formValues, setFormValues] = useState({
+    zo_name: zoName,
+    zo_usety: zoneUse[zoUsety].toString(),
+    zo_usede: zoUsede,
+    multifam: multiFamily[multifam].toString(),
+    id,
+    view,
+    isResolved: 'false',
+  });
+  const [formSubmitted, setFormSubmit] = useState();
+  const [success, setSuccess] = useState();
   return (
     <>
       <div className="edits__header">
@@ -42,15 +54,21 @@ const EditsForm = ({
         </button>
       </div>
       <div className="edits__form-wrapper">
-        <form className="edits__form" onSubmit={(e) => submitEdit(e, formValues)}>
+        <form
+          className="edits__form"
+          onSubmit={(e) => {
+            setFormSubmit(true);
+            submitEdit(e, formValues, setSuccess);
+          }}
+        >
           <p className="edits__paragraph">
             <span className="edits__asterisk">*</span>
             {' '}
             Indicates required field
           </p>
           <fieldset className="edits__section">
-            <Input name="name" label="Name" isNumeric={false} required setFormValues={setFormValues} formValues={formValues} />
-            <Input name="email" label="Email" isNumeric={false} required setFormValues={setFormValues} formValues={formValues} />
+            <Input name="name" label="Name" isNumeric={false} isRequired setFormValues={setFormValues} formValues={formValues} />
+            <Input name="email" label="Email" isNumeric={false} isRequired setFormValues={setFormValues} formValues={formValues} />
           </fieldset>
           <fieldset className="edits__section">
             <Input name="zo_name" label="Zone Name" defaultValue={zoName} isNumeric={false} setFormValues={setFormValues} formValues={formValues} />
@@ -68,6 +86,7 @@ const EditsForm = ({
           </fieldset>
           <Textarea name="gencomments" label="General comments" setFormValues={setFormValues} formValues={formValues} />
           <button type="submit" className="button edits__button">Submit</button>
+          {formSubmitted ? <ResponseMessage success={success} /> : ''}
         </form>
       </div>
     </>
