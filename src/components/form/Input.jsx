@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Input = ({
-  name, label, max, isNumeric, defaultValue, isRequired,
+  name, label, max, isNumeric, defaultValue, isRequired, setFormValues, formValues
 }) => (
   <label htmlFor={name} className="edits__row">
     { isRequired ? (
@@ -19,6 +19,11 @@ const Input = ({
       name={label}
       className="edits__input edits__field"
       required={isRequired}
+      onChange={(e) => {
+        const tempState = formValues;
+        tempState[name] = e.target.value;
+        setFormValues(tempState);
+      }}
     />
   </label>
 );
@@ -32,6 +37,8 @@ Input.propTypes = {
   defaultValue: PropTypes.oneOfType([
     PropTypes.string, PropTypes.number,
   ]),
+  setFormValues: PropTypes.func.isRequired,
+  formValues: PropTypes.object.isRequired,
 };
 
 Input.defaultProps = {
