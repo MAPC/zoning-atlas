@@ -4,6 +4,8 @@ import {
   useTable, usePagination, useSortBy, useFilters,
 } from 'react-table';
 import { graphql } from 'gatsby';
+import ReactModal from 'react-modal';
+import { myContext } from '../context/provider';
 import setZoneUse from '../utils/setZoneUse';
 import setMultifamily from '../utils/setMultiFamily';
 import { multiple, inclusiveOr, numericRange } from '../utils/setFilterTypes';
@@ -56,36 +58,52 @@ export default function Tabular({ data }) {
 
   return (
     <Layout>
-      <Helmet
-        title="Zoning Atlas"
-      >
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-          crossOrigin=""
-        />
-        <script
-          src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-          integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-          crossOrigin=""
-        />
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css"
-        />
-      </Helmet>
-      <main className="main__wrapper main__wrapper--default">
-        <DataOptionsHeader
-          view={view}
-          setView={setView}
-        />
-        <DataContainer
-          reactTable={reactTable}
-          view={view}
-        />
-        <ContributeMenu />
-      </main>
+      <myContext.Consumer>
+        {(context) => (
+          <>
+            <Helmet
+              title="Zoning Atlas"
+            >
+              <link
+                rel="stylesheet"
+                href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+                integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+                crossOrigin=""
+              />
+              <script
+                src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+                integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+                crossOrigin=""
+              />
+              <link
+                rel="stylesheet"
+                href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css"
+              />
+            </Helmet>
+            <main className="main__wrapper main__wrapper--default">
+              <ReactModal
+                isOpen={context.disclaimerIsOpen}
+                shouldCloseOnOverlayClick
+                contentLabel="Disclaimer"
+                onRequestClose={() => context.changeDisclaimerIsOpen(false)}
+                overlayClassName="modal__overlay modal__overlay--light"
+                className="modal__content-wrapper"
+              >
+                Hello world
+              </ReactModal>
+              <DataOptionsHeader
+                view={view}
+                setView={setView}
+              />
+              <DataContainer
+                reactTable={reactTable}
+                view={view}
+              />
+              <ContributeMenu />
+            </main>
+          </>
+        )}
+      </myContext.Consumer>
     </Layout>
   );
 }
