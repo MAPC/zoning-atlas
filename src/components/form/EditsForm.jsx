@@ -9,7 +9,6 @@ import { zoneUse } from '../../utils/setZoneUse';
 
 function submitEdit(e, formValues) {
   e.preventDefault();
-  console.log(formValues);
   const base = new Airtable({
     apiKey: process.env.GATSBY_AIRTABLE_API_KEY,
   }).base(process.env.GATSBY_AIRTABLE_API_BASE);
@@ -29,7 +28,7 @@ const EditsForm = ({
 }) => {
   const updatedMultiFam = multiFamily[multifam].toString();
   const updatedZoUsety = zoneUse[zoUsety].toString();
-  const [formValues, setFormValues] = useState({ zo_name: zoName, zo_usety: updatedZoUsety, zo_usede: zoUsede, multifam: updatedMultiFam, id, view });
+  const [formValues, setFormValues] = useState({ zo_name: zoName, zo_usety: updatedZoUsety, zo_usede: zoUsede, multifam: updatedMultiFam, id, view, isResolved: 'false' });
   return (
     <>
       <div className="edits__header">
