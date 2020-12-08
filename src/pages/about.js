@@ -7,8 +7,9 @@ import CalculatedFields from '../components/about/CalculatedFields';
 import Data from '../components/about/Data';
 import GeneralFeedback from '../components/about/GeneralFeedback';
 
-const About = () => {
-  const [section, setSection] = useState('calculatedFields');
+const About = ({ location }) => {
+  const { state = {} } = location;
+  const [section, setSection] = useState(state.passedSection ? state.passedSection : 'calculatedFields');
   const aboutContent = {
     calculatedFields: <CalculatedFields />,
     data: <Data />,

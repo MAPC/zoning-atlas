@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'gatsby';
 import Airtable from 'airtable';
 import { X } from 'phosphor-react';
 import DropdownMenu from './DropdownMenu';
@@ -61,6 +62,14 @@ const EditsForm = ({
             submitEdit(e, formValues, setSuccess);
           }}
         >
+          <p className="edits__paragraph">
+            For instructions on how to fill out this form, visit the &quot;General Feedback&quot; section of the
+            {' '}
+            <Link to="/about" state={{ passedSection: 'generalFeedback' }}>
+              About page
+            </Link>
+            .
+          </p>
           <p className="edits__paragraph">
             <span className="edits__asterisk">*</span>
             {' '}
