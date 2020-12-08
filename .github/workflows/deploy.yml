@@ -16,7 +16,7 @@ jobs:
           DB_USER: ${{ secrets.DB_USER }}
           HOST: ${{ secrets.HOST }}
           GATSBY_AIRTABLE_API_KEY: ${{ secrets.GATSBY_AIRTABLE_API_KEY }}
-          GATSBY_AIRTABLE_API_BASE: ${{ GATSBY_AIRTABLE_API_BASE }}  
+          GATSBY_AIRTABLE_API_BASE: ${{ secrets.GATSBY_AIRTABLE_API_BASE }}  
       - uses: actions/checkout@v2
       - uses: enriikke/gatsby-gh-pages-action@v2
         with:
