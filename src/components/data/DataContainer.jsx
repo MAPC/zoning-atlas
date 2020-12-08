@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ReactModal from 'react-modal';
 import TableFilters from '../filters/TableFilters';
 import TableWrapper from '../table/TableWrapper';
@@ -8,9 +8,6 @@ import EditsForm from '../form/EditsForm';
 const DataContainer = ({
   reactTable, view
 }) => {
-  useEffect(() => {
-    ReactModal.setAppElement('body');
-  }, []);
   const [formIsOpen, setFormIsOpen] = useState(false);
   const [selectedZone, setZone] = useState();
   return (

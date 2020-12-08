@@ -1,10 +1,14 @@
 /* eslint-disable react/jsx-filename-extension */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import ReactModal from 'react-modal';
 
 export const myContext = React.createContext();
 
 const Provider = (props) => {
   const [disclaimerIsOpen, setDisclaimerIsOpen] = useState(true);
+  useEffect(() => {
+    ReactModal.setAppElement('body');
+  }, []);
 
   return (
     <myContext.Provider value={{

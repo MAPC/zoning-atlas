@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import {
   useTable, usePagination, useSortBy, useFilters,
@@ -11,6 +11,7 @@ import setMultifamily from '../utils/setMultiFamily';
 import { multiple, inclusiveOr, numericRange } from '../utils/setFilterTypes';
 import setColumns from '../utils/setColumns';
 import Layout from '../components/Layout';
+import Disclaimer from '../components/Disclaimer';
 import DataOptionsHeader from '../components/data/DataOptionsHeader';
 import DataContainer from '../components/data/DataContainer';
 import ContributeMenu from '../components/data/ContributeMenu';
@@ -87,9 +88,9 @@ export default function Tabular({ data }) {
                 contentLabel="Disclaimer"
                 onRequestClose={() => context.changeDisclaimerIsOpen(false)}
                 overlayClassName="modal__overlay modal__overlay--light"
-                className="modal__content-wrapper"
+                className="modal__content-wrapper disclaimer__wrapper"
               >
-                Hello world
+                <Disclaimer closeModal={context.changeDisclaimerIsOpen} />
               </ReactModal>
               <DataOptionsHeader
                 view={view}
