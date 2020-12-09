@@ -16,7 +16,7 @@ const Header = () => {
             <li className="navigation__item">
               <Link
                 to="/data"
-                className={urlPath === '/data' ? 'navigation__link navigation__link--active' : 'navigation__link'}
+                className={urlPath === '/' || urlPath.includes('/data') ? 'navigation__link navigation__link--active' : 'navigation__link'}
               >
                 Data
               </Link>
@@ -24,7 +24,7 @@ const Header = () => {
             <li className="navigation__item">
               <Link
                 to="/reports"
-                className={urlPath === '/reports' ? 'navigation__link navigation__link--active' : 'navigation__link'}
+                className={urlPath.includes('/reports') ? 'navigation__link navigation__link--active' : 'navigation__link'}
               >
                 Reports
               </Link>
@@ -32,7 +32,7 @@ const Header = () => {
             <li className="navigation__item">
               <Link
                 to="/about"
-                className={urlPath === '/about' ? 'navigation__link navigation__link--active' : 'navigation__link'}
+                className={urlPath.includes('/about') ? 'navigation__link navigation__link--active' : 'navigation__link'}
               >
                 About
               </Link>

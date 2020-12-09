@@ -15,7 +15,6 @@ import Disclaimer from '../components/Disclaimer';
 import DataOptionsHeader from '../components/data/DataOptionsHeader';
 import DataContainer from '../components/data/DataContainer';
 import ContributeMenu from '../components/data/ContributeMenu';
-import '../styles/app.scss';
 
 export default function Tabular({ data }) {
   const filterTypes = React.useMemo(() => ({
