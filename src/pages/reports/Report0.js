@@ -4,7 +4,7 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import Layout from '../../components/Layout';
 
 const Report0 = () => (
-  <Layout>
+  <Layout title="Report 0: The MAPC Zoning Atlas - MAPC Zoning Atlas">
     <main className="main__wrapper">
       <div className="main__wrapper--report">
         <h2>Report 0: The MAPC Zoning Atlas</h2>

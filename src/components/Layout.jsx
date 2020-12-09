@@ -4,12 +4,12 @@ import Header from './Header';
 import Footer from './Footer';
 import { myContext } from '../context/provider';
 
-const Layout = ({ children }) => (
+const Layout = ({ title, children }) => (
   <myContext.Consumer>
     {function (context) {
       return (
         <>
-          <Helmet title="Zoning Atlas" />
+          <Helmet title={title} />
           <Header />
           {children}
           <Footer />

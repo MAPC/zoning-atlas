@@ -25,7 +25,7 @@ const About = ({ data, location }) => {
   };
 
   return (
-    <Layout>
+    <Layout title="About - MAPC Zoning Atlas">
       <main className="main__wrapper">
         <div className="main__wrapper--narrow">
           <h2>What am I looking at?</h2>

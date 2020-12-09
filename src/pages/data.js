@@ -57,7 +57,7 @@ export default function Tabular({ data }) {
   const [view, setView] = useState('spatial');
 
   return (
-    <Layout>
+    <Layout title="MAPC Zoning Atlas">
       <myContext.Consumer>
         {(context) => (
           <>

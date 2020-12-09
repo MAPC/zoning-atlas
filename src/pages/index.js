@@ -6,7 +6,7 @@ import '../styles/app.scss';
 
 const Index = () => (
   <div style={{ height: '100%' }}>
-    <Helmet title="MAPC Zoning Atlas" />
+    <Helmet title="Zoning Atlas" />
     <main
       style={{
         display: 'flex',

@@ -16,7 +16,7 @@ const Reports = ({ data }) => {
     />
   ));
   return (
-    <Layout>
+    <Layout title="Reports - MAPC Zoning Atlas">
       <main className="main__wrapper">
         <div className="main__wrapper--narrow">
           <h2>Explore Related Reports & Publications</h2>
