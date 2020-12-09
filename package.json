@@ -28,6 +28,7 @@
     "esri-leaflet-geocoder": "^2.3.3",
     "gatsby": "^2.25.3",
     "gatsby-cli": "^2.12.117",
+    "gatsby-plugin-anchor-links": "^1.2.0",
     "gatsby-plugin-manifest": "^2.5.2",
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-react-leaflet": "^2.0.13",
