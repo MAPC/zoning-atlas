@@ -63,9 +63,9 @@ const EditsForm = ({
           }}
         >
           <p className="edits__paragraph">
-            For instructions on how to fill out this form, visit the &quot;General Feedback&quot; section of the
+            For instructions on how to fill out this form, visit the &quot;Feedback&quot; section of the
             {' '}
-            <Link to="/about" state={{ passedSection: 'generalFeedback' }}>
+            <Link to="/about" state={{ passedSection: 'feedback' }}>
               About page
             </Link>
             .

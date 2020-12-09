@@ -3,17 +3,17 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout';
 import Category from '../components/about/Category';
-import CalculatedFields from '../components/about/CalculatedFields';
 import Data from '../components/about/Data';
-import GeneralFeedback from '../components/about/GeneralFeedback';
+import Feedback from '../components/about/Feedback';
+import Disclaimer from '../components/about/Disclaimer';
 
 const About = ({ location }) => {
   const { state = {} } = location;
-  const [section, setSection] = useState(state.passedSection ? state.passedSection : 'calculatedFields');
+  const [section, setSection] = useState(state.passedSection ? state.passedSection : 'data');
   const aboutContent = {
-    calculatedFields: <CalculatedFields />,
     data: <Data />,
-    generalFeedback: <GeneralFeedback />,
+    feedback: <Feedback />,
+    disclaimer: <Disclaimer />,
   };
 
   return (
@@ -31,20 +31,20 @@ const About = ({ location }) => {
             <nav>
               <ul className="about__options">
                 <Category
-                  title="Calculated Fields"
-                  sectionOption="calculatedFields"
-                  currentSection={section}
-                  setSection={setSection}
-                />
-                <Category
                   title="Data"
                   sectionOption="data"
                   currentSection={section}
                   setSection={setSection}
                 />
                 <Category
-                  title="General Feedback"
-                  sectionOption="generalFeedback"
+                  title="Feedback"
+                  sectionOption="feedback"
+                  currentSection={section}
+                  setSection={setSection}
+                />
+                <Category
+                  title="Disclaimer"
+                  sectionOption="disclaimer"
                   currentSection={section}
                   setSection={setSection}
                 />
