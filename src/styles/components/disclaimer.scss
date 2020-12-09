@@ -24,10 +24,6 @@
     cursor: pointer;
   }
 
-  &__text {
-    font-size: 80%;
-  }
-
   &__actions-wrapper {
     align-items: center;
     display: flex;
@@ -36,7 +32,7 @@
   }
 
   &__link {
-    font-family: 'Calibre', sans-serif;
+    color: $color_accent-green;
   }
 
   &__button {
