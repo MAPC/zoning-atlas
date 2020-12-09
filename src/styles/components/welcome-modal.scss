@@ -33,6 +33,10 @@
 
   &__link {
     color: $color_accent-green;
+
+    &:hover {
+      color: $color_bg-green;
+    }
   }
 
   &__button {
