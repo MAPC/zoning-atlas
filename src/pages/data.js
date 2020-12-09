@@ -83,14 +83,14 @@ export default function Tabular({ data }) {
             </Helmet>
             <main className="main__wrapper main__wrapper--default">
               <ReactModal
-                isOpen={context.disclaimerIsOpen}
+                isOpen={context ? context.disclaimerIsOpen : true}
                 shouldCloseOnOverlayClick
                 contentLabel="Disclaimer"
-                onRequestClose={() => context.changeDisclaimerIsOpen(false)}
+                onRequestClose={() => (context ? context.changeDisclaimerIsOpen(false) : false)}
                 overlayClassName="modal__overlay modal__overlay--light"
                 className="modal__content-wrapper disclaimer__wrapper"
               >
-                <Disclaimer closeModal={context.changeDisclaimerIsOpen} />
+                <Disclaimer closeModal={context ? context.changeDisclaimerIsOpen : () => {}} />
               </ReactModal>
               <DataOptionsHeader
                 view={view}
