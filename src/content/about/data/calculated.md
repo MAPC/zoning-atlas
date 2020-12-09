@@ -3,6 +3,7 @@ data-site: "Calculated"
 title: "When and how are fields calculated?"
 page: "About"
 section: "Data"
+order: 4
 ---
 Here is an example:
 

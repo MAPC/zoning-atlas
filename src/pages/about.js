@@ -7,12 +7,16 @@ import Category from '../components/about/Category';
 import AccordionField from '../components/about/AccordionField';
 import Disclaimer from '../components/about/Disclaimer';
 
-const About = ({ data, location }) => {
-  const dataSections = data.allMarkdownRemark.nodes
-    .filter((node) => node.frontmatter.section === 'Data')
+function createSection(data, section) {
+  return data
+    .filter((node) => node.frontmatter.section === section)
+    .sort((node1, node2) => node1.frontmatter.order > node2.frontmatter.order)
     .map((node) => <AccordionField title={node.frontmatter.title} content={node.html} />);
-  const feedbackSections = data.allMarkdownRemark.nodes.filter((node) => node.frontmatter.section === 'Feedback')
-    .map((node) => <AccordionField title={node.frontmatter.title} content={node.html} />);;
+}
+
+const About = ({ data, location }) => {
+  const dataSections = createSection(data.allMarkdownRemark.nodes, 'Data');
+  const feedbackSections = createSection(data.allMarkdownRemark.nodes, 'Feedback');
   const [section, setSection] = useState(location.state && location.state.passedSection ? location.state.passedSection : 'data');
   const aboutContent = {
     data: dataSections,
@@ -71,7 +75,7 @@ query {
     nodes {
       html
       id
-      frontmatter {page, section, title}
+      frontmatter {page, section, title, order}
     }
   }
 }`;
