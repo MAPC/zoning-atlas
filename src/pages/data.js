@@ -11,7 +11,7 @@ import setMultifamily from '../utils/setMultiFamily';
 import { multiple, inclusiveOr, numericRange } from '../utils/setFilterTypes';
 import setColumns from '../utils/setColumns';
 import Layout from '../components/Layout';
-import Disclaimer from '../components/Disclaimer';
+import WelcomeModal from '../components/WelcomeModal';
 import DataOptionsHeader from '../components/data/DataOptionsHeader';
 import DataContainer from '../components/data/DataContainer';
 import ContributeMenu from '../components/data/ContributeMenu';
@@ -82,14 +82,14 @@ export default function Tabular({ data }) {
             </Helmet>
             <main className="main__wrapper main__wrapper--default">
               <ReactModal
-                isOpen={context ? context.disclaimerIsOpen : true}
+                isOpen={context ? context.welcomeIsOpen : true}
                 shouldCloseOnOverlayClick
-                contentLabel="Disclaimer"
-                onRequestClose={() => (context ? context.changeDisclaimerIsOpen(false) : false)}
+                contentLabel="Welcome"
+                onRequestClose={() => (context ? context.changeWelcomeIsOpen(false) : false)}
                 overlayClassName="modal__overlay modal__overlay--light"
-                className="modal__content-wrapper disclaimer__wrapper"
+                className="modal__content-wrapper welcome-modal__wrapper"
               >
-                <Disclaimer closeModal={context ? context.changeDisclaimerIsOpen : () => {}} />
+                <WelcomeModal closeModal={context ? context.changeWelcomeIsOpen : () => {}} />
               </ReactModal>
               <DataOptionsHeader
                 view={view}

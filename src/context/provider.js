@@ -5,15 +5,15 @@ import ReactModal from 'react-modal';
 export const myContext = React.createContext();
 
 const Provider = (props) => {
-  const [disclaimerIsOpen, setDisclaimerIsOpen] = useState(true);
+  const [welcomeIsOpen, setWelcomeIsOpen] = useState(true);
   useEffect(() => {
     ReactModal.setAppElement('body');
   }, []);
 
   return (
     <myContext.Provider value={{
-      disclaimerIsOpen,
-      changeDisclaimerIsOpen: () => setDisclaimerIsOpen(!disclaimerIsOpen),
+      welcomeIsOpen,
+      changeWelcomeIsOpen: () => setWelcomeIsOpen(!welcomeIsOpen),
     }}
     >
       {props.children}
