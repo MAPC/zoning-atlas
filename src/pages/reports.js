@@ -53,10 +53,11 @@ const Reports = ({ data }) => {
 export default Reports;
 export const data = graphql`
 query {
-  allMarkdownRemark {
+  allMarkdownRemark(filter: {frontmatter: {page: {in: "Reports"}}}) {
     nodes {
       html
       id
     }
   }
-}`;
+}
+`;

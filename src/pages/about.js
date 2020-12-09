@@ -1,18 +1,22 @@
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-filename-extension */
 import React, { useState } from 'react';
+import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Category from '../components/about/Category';
-import Data from '../components/about/Data';
-import Feedback from '../components/about/Feedback';
+import AccordionField from '../components/about/AccordionField';
 import Disclaimer from '../components/about/Disclaimer';
 
-const About = ({ location }) => {
-  const { state = {} } = location;
-  const [section, setSection] = useState(state.passedSection ? state.passedSection : 'data');
+const About = ({ data, location }) => {
+  const dataSections = data.allMarkdownRemark.nodes
+    .filter((node) => node.frontmatter.section === 'Data')
+    .map((node) => <AccordionField title={node.frontmatter.title} content={node.html} />);
+  const feedbackSections = data.allMarkdownRemark.nodes.filter((node) => node.frontmatter.section === 'Feedback')
+    .map((node) => <AccordionField title={node.frontmatter.title} content={node.html} />);;
+  const [section, setSection] = useState(location.state && location.state.passedSection ? location.state.passedSection : 'data');
   const aboutContent = {
-    data: <Data />,
-    feedback: <Feedback />,
+    data: dataSections,
+    feedback: feedbackSections,
     disclaimer: <Disclaimer />,
   };
 
@@ -61,3 +65,13 @@ const About = ({ location }) => {
 };
 
 export default About;
+export const data = graphql`
+query {
+  allMarkdownRemark(filter: {frontmatter: {page: {in: "About"}}}) {
+    nodes {
+      html
+      id
+      frontmatter {page, section, title}
+    }
+  }
+}`;

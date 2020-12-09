@@ -30,9 +30,7 @@ const AccordionField = ({ title, content }) => {
           className={isActive ? 'accordion__icon accordion__icon--active' : 'accordion__icon'}
         />
       </header>
-      <div className="accordion__content">
-        { isActive ? content : '' }
-      </div>
+      {isActive ? <div className="accordion__content" dangerouslySetInnerHTML={{ __html: content }} /> : ''}
       <hr className="accordion__divider" />
     </div>
   );
