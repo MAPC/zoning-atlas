@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import {
   useTable, usePagination, useSortBy, useFilters,
@@ -61,9 +61,7 @@ export default function Tabular({ data }) {
       <myContext.Consumer>
         {(context) => (
           <>
-            <Helmet
-              title="Zoning Atlas"
-            >
+            <Helmet>
               <link
                 rel="stylesheet"
                 href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"

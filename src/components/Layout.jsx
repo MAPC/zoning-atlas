@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import Header from './Header';
 import Footer from './Footer';
 import { myContext } from '../context/provider';
@@ -8,6 +9,7 @@ const Layout = ({ children }) => (
     {function (context) {
       return (
         <>
+          <Helmet title="Zoning Atlas" />
           <Header />
           {children}
           <Footer />
