@@ -18,11 +18,11 @@
   }
 
   &__transparent-overlay {
-    background: linear-gradient(to right, $color_bg-beige, rgba(240,239,231, .5));
+    background: linear-gradient(to right, $color_bg-beige, rgba(240,239,231, .5), rgba(240,239,231, 0));
     height: 31.25rem;
     position: absolute;
     top: 0;
-    width: inherit;
+    width: 15rem;
   }
 
   &__hero {
@@ -33,7 +33,46 @@
     max-width: 40rem;
   }
 
+  &__navigation-box {
+    position: relative;
+    top: 4.6875rem;
+    width: 50.625rem;
+  }
+
+  &__title-box {
+    background-color: $color_bg-green;
+    color: $color_font-white;
+    display: flex;
+    flex-direction: column;
+    height: 9.375rem;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 43.75rem;
+    z-index: 10;
+  }
+
   &__date {
-    margin: 0;
+    font-family: 'Calibre', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 .75rem 0 2.75rem;
+  }
+
+  &__title {
+    color: $color_font-white;
+    font-size: 3rem;
+    font-weight: 400;
+    margin: 0 0 0 2.75rem;
+  }
+
+  &__navigation {
+    background-color: $color_font-white;
+    box-shadow: rgba(0, 0, 0, .1) 0 3px 6px;
+    position: absolute;
+    top: 4.6875rem;
+    height: calc(100% - 4.6875rem);
+    width: 43.75rem;
   }
 }
