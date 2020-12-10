@@ -1,0 +1,39 @@
+.report {
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: $container_width;
+  }
+
+  &__header-wrapper {
+    background-color: $color_bg-beige;
+  }
+
+  &__hero-wrapper {
+    height: 31.25rem;
+    position: relative;
+    width: 40rem;
+  }
+
+  &__transparent-overlay {
+    background: linear-gradient(to right, $color_bg-beige, rgba(240,239,231, .5));
+    height: 31.25rem;
+    position: absolute;
+    top: 0;
+    width: inherit;
+  }
+
+  &__hero {
+    background-image: url('./../images/Antique-Homes-Triple-Decker-Pair.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 31.25rem;
+    max-width: 40rem;
+  }
+
+  &__date {
+    margin: 0;
+  }
+}

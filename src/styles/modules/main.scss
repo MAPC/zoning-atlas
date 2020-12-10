@@ -11,7 +11,9 @@
     }
 
     &--report {
-      padding: 0 30px 0 40px;
+      margin: 0;
+      max-width: unset;
+      // padding: 0 30px 0 40px;
     }
   }
 }
