@@ -49,7 +49,7 @@ const EditsForm = ({
         <button
           type="button"
           onClick={() => setFormIsOpen(false)}
-          // className="edits__exit"
+          className="edits__exit"
         >
           <X size="1rem" />
         </button>

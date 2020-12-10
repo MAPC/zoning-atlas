@@ -19,7 +19,7 @@ const WelcomeModal = ({ closeModal }) => (
     </p>
     <div className="welcome-modal__actions-wrapper">
       <Link to="/about" className="welcome-modal__link" onClick={() => closeModal(false)}>Learn more</Link>
-      <button onClick={() => closeModal(false)} className="button welcome-modal__button">Continue to the atlas</button>
+      <button onClick={() => closeModal(false)} className="button welcome-modal__button">Continue to the Atlas</button>
     </div>
   </article>
 );

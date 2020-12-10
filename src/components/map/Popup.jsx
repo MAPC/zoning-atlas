@@ -34,13 +34,7 @@ const ZoningPopup = ({
   <Popup position={latLng}>
     <h3 className="popup__title">
       <span className="popup__title popup__title--muni">{muni_name}</span>
-      { ZO_NAME_1 ? (
-        <>
-          <br />
-          <span className="popup__title popup__title--zoname">{ZO_NAME_1}</span>
-        </>
-      )
-        : '' }
+      { ZO_NAME_1 ? <span className="popup__title popup__title--zoname">{ZO_NAME_1}</span> : '' }
     </h3>
     <hr />
     <ul className="popup__list">
