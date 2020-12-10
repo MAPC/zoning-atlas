@@ -70,9 +70,47 @@
   &__navigation {
     background-color: $color_font-white;
     box-shadow: rgba(0, 0, 0, .1) 0 3px 6px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 4rem;
+    padding-left: 100px;
     position: absolute;
     top: 4.6875rem;
-    height: calc(100% - 4.6875rem);
-    width: 43.75rem;
+    height: calc(25rem - 4rem);
+    width: calc(43.75rem - 100px);
+  }
+
+  &__triangle {
+    align-self: flex-start;
+    margin-bottom: .5rem;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+  }
+
+  &__list-item {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  &__line {
+    border: none;
+    border-top: 3px dotted $color_accent-green;
+    margin: 0 1.125rem 0 0;
+    width: 4.5rem;
+  }
+
+  &__link {
+    color: $color_bg-green;
+    font-family: 'Calibre', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-decoration: none;
   }
 }
