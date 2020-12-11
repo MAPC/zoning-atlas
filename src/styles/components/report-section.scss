@@ -1,0 +1,20 @@
+.report-section {
+  margin: 0 auto;
+  max-width: $container_width;
+
+  &__subtitle {
+    margin: 4.375rem 0 0;
+  }
+
+  &__underline {
+    border: none;
+    border-top: 5px solid $color_bg-green;
+    margin: 0 0 1.875rem 0;
+    width: 43.75rem;
+  }
+
+  &__no-image {
+    padding-left: 8.125rem;
+    width: 47.5rem;
+  }
+}
