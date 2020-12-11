@@ -6,6 +6,9 @@ import Layout from '../../components/Layout';
 import Header from '../../components/reports/Header';
 import About from '../../components/reports/About';
 import NoImageSection from '../../components/reports/NoImageSection';
+import LeftImageSection from '../../components/reports/LeftImageSection';
+
+import Beverly from '../../images/Beverly Rantoul_IMG_0411.jpg';
 
 const Report0 = ({ data }) => {
   const sections = data.allMarkdownRemark.nodes.sort((node1, node2) => node1.frontmatter.order > node2.frontmatter.order);
@@ -15,6 +18,7 @@ const Report0 = ({ data }) => {
         <Header items={sections} />
         <About content={sections[0]} />
         <NoImageSection content={sections[1]} />
+        <LeftImageSection content={sections[2]} image={Beverly} />
       </main>
     </Layout>
   );
@@ -27,7 +31,7 @@ query {
     nodes {
       html
       id
-      frontmatter {page, section, title, order, toc}
+      frontmatter {page, section, title, order, toc, credit}
     }
   }
 }`;
