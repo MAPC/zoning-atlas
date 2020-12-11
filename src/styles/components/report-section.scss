@@ -2,6 +2,13 @@
   margin: 0 auto;
   max-width: $container_width;
 
+  &__link {
+    color: $color_default-gray;
+    &:hover {
+      color: $color_bg-green;
+    }
+  }
+
   &__subtitle {
     margin: 4.375rem 0 0;
   }

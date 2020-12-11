@@ -1,0 +1,43 @@
+.footnote {
+  display: inline-block;
+}
+
+.superscript {
+  color: $color_bg-green;
+  display: inline-block;
+  font-family: 'Calibre', sans-serif;
+  font-size: 1.25rem;
+  position: relative;
+}
+
+.superscript .tooltip {
+  background-color: $color_bg-green;
+  border-radius: .5rem;
+  color: $color_font-white;
+  font-family: 'SwiftNeueLTPro', serif;
+  font-size: .75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  padding: 1.25rem 1.5rem;
+  position: absolute;
+  margin-left: -7.5rem;
+  visibility: hidden;
+  width: 12.25rem;
+  z-index: 1;
+  bottom: 140%;
+}
+
+.superscript .tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: $color_bg-green transparent transparent transparent;
+}
+
+.superscript:hover .tooltip {
+  visibility: visible;
+}
