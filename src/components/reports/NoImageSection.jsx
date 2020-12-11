@@ -4,7 +4,7 @@ import SubsectionTitle from './SubsectionTitle';
 const NoImageSection = ({ content }) => (
   <div className="report-section">
     <div className="report-section__no-image">
-      { content.frontmatter.title ? <SubsectionTitle title={content.frontmatter.title} /> : ''}
+      { content.frontmatter.title ? <SubsectionTitle frontmatter={content.frontmatter} /> : ''}
       <div dangerouslySetInnerHTML={{ __html: content.html }} />
     </div>
   </div>

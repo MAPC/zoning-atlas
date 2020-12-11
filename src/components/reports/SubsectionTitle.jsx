@@ -1,10 +1,10 @@
 import React from 'react';
 
-const SubsectionTitle = ({ title }) => (
+const SubsectionTitle = ({ frontmatter }) => (
   <>
-    <h2 className="report-section__subtitle">{title}</h2>
+    <h2 className="report-section__subtitle" id={frontmatter.section}>{frontmatter.title}</h2>
     <hr className="report-section__underline" />
   </>
 );
 
-export default SubsectionTitle
+export default SubsectionTitle;

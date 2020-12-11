@@ -8,11 +8,11 @@ import About from '../../components/reports/About';
 import NoImageSection from '../../components/reports/NoImageSection';
 
 const Report0 = ({ data }) => {
-  const sections = data.allMarkdownRemark.nodes;
+  const sections = data.allMarkdownRemark.nodes.sort((node1, node2) => node1.frontmatter.order > node2.frontmatter.order);
   return (
     <Layout title="Report 0: The MAPC Zoning Atlas - MAPC Zoning Atlas">
       <main className="main__wrapper main__wrapper--report">
-        <Header />
+        <Header items={sections} />
         <About content={sections[0]} />
         <NoImageSection content={sections[1]} />
       </main>
@@ -27,7 +27,7 @@ query {
     nodes {
       html
       id
-      frontmatter {page, section, title, order}
+      frontmatter {page, section, title, order, toc}
     }
   }
 }`;
