@@ -10,13 +10,13 @@ import setLegendColors, { dataNa } from '../../utils/setLegendColors';
 function setSimplifyFactor(zoom) {
   switch (zoom) {
     case 9:
-      return 0.9;
-    case 10:
-      return 0.7;
-    case 11:
-      return 0.5;
-    case 12:
       return 0.25;
+    case 10:
+      return 0.2;
+    case 11:
+      return 0.15;
+    case 12:
+      return 0.1;
     default:
       return 0;
   }
@@ -74,45 +74,44 @@ const Layers = ({
   return (
     <>
       <FeatureLayer
-        url="https://geo.mapc.org/server/rest/services/gisdata/ZoningKitchenSinkTest_v03/MapServer/0"
-        simplifyFactor={setSimplifyFactor(zoom)}
+        url={zoom < 11 ? 'https://geo.mapc.org/server/rest/services/gisdata/Zoning_2_lyr_v01/MapServer/0' : 'https://geo.mapc.org/server/rest/services/gisdata/Zoning_2_lyr_v01/MapServer/1'}
         pane="tilePane"
         style={(feature) => {
           let colorRow;
           if (layerStyle === 'zoUsety') {
-            colorRow = feature.properties.ZO_USETY_1
-              ? setLegendColors.zoUsety.find((option) => option.id === feature.properties.ZO_USETY_1).color
+            colorRow = feature.properties.zo_usety
+              ? setLegendColors.zoUsety.find((option) => option.id === feature.properties.zo_usety).color
               : setLegendColors.zoUsety[4].color;
           }
           if (layerStyle === 'multiFam') {
-            colorRow = feature.properties.MULTIFAM
-              ? setLegendColors.multiFam.find((option) => option.id === feature.properties.MULTIFAM).color
+            colorRow = feature.properties.multifam
+              ? setLegendColors.multiFam.find((option) => option.id === feature.properties.multifam).color
               : setLegendColors.multiFam[2].color;
           }
           if (layerStyle === 'effMxht') {
-            colorRow = setLegendColors.effMxht.find((option) => feature.properties.MXHT_EFF_1 >= option.min && feature.properties.MXHT_EFF_1 < option.max)
-              ? setLegendColors.effMxht.find((option) => feature.properties.MXHT_EFF_1 >= option.min && feature.properties.MXHT_EFF_1 < option.max).color
+            colorRow = setLegendColors.effMxht.find((option) => feature.properties.mxht_eff >= option.min && feature.properties.mxht_eff < option.max)
+              ? setLegendColors.effMxht.find((option) => feature.properties.mxht_eff >= option.min && feature.properties.mxht_eff < option.max).color
               : dataNa;
           }
           if (layerStyle === 'effMxdu') {
-            colorRow = feature.properties.MXDU_EFF_1
-              ? setLegendColors.effMxdu.find((option) => feature.properties.MXDU_EFF_1 >= option.min && feature.properties.MXDU_EFF_1 < option.max).color
+            colorRow = feature.properties.mxdu_eff
+              ? setLegendColors.effMxdu.find((option) => feature.properties.mxdu_eff >= option.min && feature.properties.mxdu_eff < option.max).color
               : dataNa;
           }
           if (layerStyle === 'effDensity') { // not yet set
-            colorRow = feature.properties.DUpAC_EFF_1
-              ? setLegendColors.effDensity.find((option) => feature.properties.DUpAC_EFF_1 >= option.min && feature.properties.DUpAC_EFF_1 < option.max).color
+            colorRow = feature.properties.dupac_eff
+              ? setLegendColors.effDensity.find((option) => feature.properties.dupac_eff >= option.min && feature.properties.dupac_eff < option.max).color
               : dataNa;
           }
           if (layerStyle === 'effFar') {
-            colorRow = feature.properties.FAR_EFF_1
-              ? setLegendColors.effFar.find((option) => feature.properties.FAR_EFF_1 >= option.min && feature.properties.FAR_EFF_1 < option.max).color
+            colorRow = feature.properties.far_eff
+              ? setLegendColors.effFar.find((option) => feature.properties.far_eff >= option.min && feature.properties.far_eff < option.max).color
               : dataNa;
           }
           return {
             color: colorRow,
             weight: 0.5,
-            fillOpacity: .8,
+            fillOpacity: 0.8,
             opacity: 1,
           };
         }}
