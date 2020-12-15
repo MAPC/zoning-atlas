@@ -8,8 +8,10 @@ import About from '../../components/reports/About';
 import NoImageSection from '../../components/reports/NoImageSection';
 import LeftImageSection from '../../components/reports/LeftImageSection';
 import RightCalloutSection from '../../components/reports/RightCalloutSection';
+import BannerImage from '../../components/reports/BannerImage';
 import Beverly from '../../images/Beverly Rantoul_IMG_0411.jpg';
 import History from '../../images/P1177284.png';
+import Brookline from '../../images/Construction in Brookline.png';
 
 const callout1 = [{
   title: 'Two elements to Municipal Zoning',
@@ -31,6 +33,7 @@ const Report0 = ({ data }) => {
         <RightCalloutSection content={sections[3]} calloutContent={callout1} />
         <NoImageSection content={sections[4]} />
         <LeftImageSection content={sections[5]} image={History} />
+        <BannerImage content={sections[6]} image={Brookline} />
       </main>
     </Layout>
   );

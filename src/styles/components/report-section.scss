@@ -66,6 +66,18 @@
     margin-top: .625rem;
   }
 
+  &__banner {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    margin-top: 2.75rem;
+  }
+
+  &__banner-text {
+    background-color: $color_bg-beige;
+    padding: 2.5rem 7rem;
+  }
+
   p:first-child {
     margin-top: 0;
   }
