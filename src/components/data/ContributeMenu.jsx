@@ -5,7 +5,7 @@ const ContributeMenu = () => (
   <aside className="contribute-menu__wrapper">
     <span className="data-options__title contribute-menu__title">Contribute</span>
     <div className="contribute-menu__options-wrapper">
-      <a href="mailto:LPerkinsHigh@mapc.org?subject=MAPC Zoning Atlas submission" className="button button--icon">
+      <a href="mailto:zoning@mapc.org?subject=MAPC Zoning Atlas submission" className="button button--icon">
         <Envelope
           size="1rem"
           weight="bold"
