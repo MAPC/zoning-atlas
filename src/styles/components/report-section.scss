@@ -31,6 +31,21 @@
     margin-top: 2.75rem;
   }
 
+  &__right-callout {
+    margin-top: 2.75rem;
+    padding-left: 8.125rem;
+
+    &-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &-text {
+      width: 47.5rem;
+    }
+  }
+
   &__image-wrapper {
     display: flex;
     flex-direction: column;
@@ -49,5 +64,13 @@
     font-style: italic;
     text-align: center;
     margin-top: .625rem;
+  }
+
+  p:first-child {
+    margin-top: 0;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
   }
 }
