@@ -1,0 +1,12 @@
+---
+page: "report0"
+section: "recommendations"
+order: 22
+---
+<h3 class="report-section__subtitle">D. Code Structure and Standardization</h3>
+
+Zoning district boundaries, even in electronic format, are only part of the puzzle. The regulatory information described in a municipality’s zoning bylaws or ordinance fills in the details about what can or can’t be built in any zone. Yet, extracting information from these documents can be very hard to do, depending on how the codes are structured. As we described earlier in this report, zoning codes are wildly different in the way they are presented and the information they contain. This makes it difficult to produced standardized district information, even when all data are available. Some of the barriers could be overcome without making any substantive change to the zoning or publication method. For example, if there were a standard practice of presenting dimensional restrictions in a tabular format (rather than narrative), municipalities could make this change rather easily while providing great benefit to those seeking to find particular standards.
+
+Given the diversity of local contexts and fierce sense of local autonomy present throughout Massachusetts, requiring all zoning to adhere to a standarized format is not a practical or politically realistic vision for the near future. However, it may be possible to establish a set of core attributes and encourage municipalities to report or estimate the equivalent values for each district. For example, if maximum dwelling units per acre was one such core attribute, then a municipality could report the value equivalent to their actual regulatory measure (such as 40,000 square feet minimum lot size for single family homes.) Where a strict equivalent is not available, a municipality could provide an estimate, much as MAPC has done in this process. The difference, of course, is whether MAPC is making those calculations and assumptions, or a municipal staffperson familiar with the details and applications of the subject district.
+
+Over time, the Commonwealth should consider the pros and cons of establishing standard definitions and structures for zoning bylaws, so that they are more readily comparable.

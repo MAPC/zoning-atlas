@@ -15,6 +15,10 @@ import History from '../../images/P1177284.png';
 import Brookline from '../../images/Construction in Brookline.png';
 import Observations from '../../images/DJI_0219.png';
 import Marblehead from '../../images/Marblehead Vinnin Square.png';
+import Recommendations1 from '../../images/DJI_0724.MOV.00_00_19_13.Still002.png';
+import Recommendations2 from '../../images/DJI_0736.MOV.00_00_00_00.Still001.png';
+import Recommendations3 from '../../images/Crossing at Main Street with new housing.png';
+import Recommendations4 from '../../images/Public facilities feedback - Copy.png';
 
 const callout1 = [{
   title: 'Two elements to Municipal Zoning',
@@ -60,6 +64,11 @@ const Report0 = ({ data }) => {
         <NoImageSection content={sections[12]} />
         <LeftImageSection content={sections[13]} image={Observations} />
         <RightImageSection content={sections[14]} image={Marblehead} />
+        <NoImageSection content={sections[15]} />
+        <BannerImage content={[sections[16], sections[17]]} image={Recommendations1} />
+        <BannerImage content={[sections[18], sections[19]]} image={Recommendations2} />
+        <BannerImage content={[sections[20], sections[21]]} image={Recommendations3} />
+        <BannerImage content={[sections[22], sections[23]]} image={Recommendations4} />
       </main>
     </Layout>
   );

@@ -9,7 +9,7 @@
     }
   }
 
-  &__subtitle {
+  &__title {
     margin: 4.375rem 0 0;
   }
 
@@ -18,6 +18,14 @@
     border-top: 5px solid $color_bg-green;
     margin: 0 0 1.875rem 0;
     width: 43.75rem;
+  }
+
+  &__subtitle {
+    color: $color_default-gray;
+    font-family: 'Calibre', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 1.875rem 0 0;
   }
 
   &__no-image {
