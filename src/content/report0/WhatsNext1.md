@@ -4,7 +4,6 @@ section: "whats-next"
 title: "What's Next"
 order: 15
 toc: true
-credit: "SET CREDIT"
 ---
 The Zoning Atlas will always be a work in progress. The initial release is admittedly incomplete and likely inaccurate in places. Yet it is an essential framework that can be filled in and refined over time to create a more complete representation of the region’s land use controls. MAPC will dedicate resources to maintaining the data and web portal, and will also continue to collect and incorporate new and better data, contingent on available funding. MAPC is also harvesting the Zoning Atlas for insight about municipal zoning policies. In 2021, we will be releasing a series of report examining regional patterns in multifamily housing policies, commercial development capacity, and zoning around tranist stations.
 

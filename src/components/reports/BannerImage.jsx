@@ -1,7 +1,6 @@
 import React from 'react';
-import Image from './Image';
+import CreditedImage from './CreditedImage';
 import NoImageSection from './NoImageSection';
-import SubsectionTitle from './SubsectionTitle';
 
 const BannerImage = ({ content, image }) => (
   <div className="report-section">
@@ -10,7 +9,7 @@ const BannerImage = ({ content, image }) => (
         <div dangerouslySetInnerHTML={{ __html: content[0].html }} className="report-section__banner-text" />
         <NoImageSection content={content[1]} />
       </div>
-      <Image image={image} credit={content[0].frontmatter.credit} orientation="right" />
+      <CreditedImage image={image} credit={content[0].frontmatter.credit} orientation="right" />
     </div>
   </div>
 );

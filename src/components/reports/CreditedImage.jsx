@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Image = ({ image, credit, orientation }) => (
+const CreditedImage = ({ image, credit, orientation }) => (
   <div className={`report-section__image-wrapper report-section__image-wrapper--${orientation}`}>
     <img src={image} className="report-section__image" />
-    <span className="report-section__image-credit">Photo Credit: {credit}</span>
+    { credit ? <span className="report-section__image-credit">Photo Credit: {credit}</span> : ''}
   </div>
 );
 
-export default Image;
+export default CreditedImage;

@@ -2,7 +2,6 @@
 page: "report0"
 section: "recommendations"
 order: 19
-credit: "SET CREDIT"
 ---
 Planning Boards can adopt a policy to create and maintain a GIS representation of the zoning district boundaries that can serve as the definitive legal version of the municipality’s district boundaries. At the very least, GIS data should be consistent and contemporaneous with the published zoning bylaw or ordinance.
 

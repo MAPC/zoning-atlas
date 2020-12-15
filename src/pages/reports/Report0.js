@@ -10,6 +10,7 @@ import LeftImageSection from '../../components/reports/LeftImageSection';
 import RightImageSection from '../../components/reports/RightImageSection';
 import RightCalloutSection from '../../components/reports/RightCalloutSection';
 import BannerImage from '../../components/reports/BannerImage';
+import ImageBox from '../../components/reports/ImageBox';
 import Beverly from '../../images/Beverly Rantoul_IMG_0411.jpg';
 import History from '../../images/P1177284.png';
 import Brookline from '../../images/Construction in Brookline.png';
@@ -27,7 +28,7 @@ const callout1 = [{
 
 const callout2 = [{
   title: 'Two elements to Municipal Zoning',
-  content: ['Zoning Map', `Municipality's Zoning Bylaws`],
+  content: ['Zoning Map', 'Municipality\'s Zoning Bylaws'],
 }, {
   title: 'Two types of Districts',
   content: ['Base Zoning Districts', 'Overlay Districts'],
@@ -51,29 +52,49 @@ const callout5 = [{
 const Report0 = ({ data }) => {
   const sections = data.allMarkdownRemark.nodes.sort((node1, node2) => node1.frontmatter.order > node2.frontmatter.order);
   return (
-    <Layout title="Report 0: The MAPC Zoning Atlas - MAPC Zoning Atlas">
+    <Layout title="Introduction to the Zoning Atlas - MAPC Zoning Atlas">
       <main className="main__wrapper main__wrapper--report">
         <Header items={sections} />
         <About content={sections[0]} />
-        <RightCalloutSection content={sections[1]} calloutContent={callout1} />
-        <LeftImageSection content={sections[2]} image={Beverly} />
-        <RightCalloutSection content={sections[3]} calloutContent={callout2} />
-        <NoImageSection content={sections[4]} />
-        <LeftImageSection content={sections[5]} image={History} />
-        <BannerImage content={[sections[6], sections[7]]} image={Brookline} />
-        <NoImageSection content={sections[8]} />
-        <RightCalloutSection content={sections[9]} calloutContent={callout3} marginTop={false} />
-        Image section here
-        <RightCalloutSection content={sections[10]} calloutContent={callout4} />
-        <RightCalloutSection content={sections[11]} calloutContent={callout5} />
-        <NoImageSection content={sections[12]} />
-        <LeftImageSection content={sections[13]} image={Observations} />
-        <RightImageSection content={sections[14]} image={Marblehead} />
-        <NoImageSection content={sections[15]} />
-        <BannerImage content={[sections[16], sections[17]]} image={Recommendations1} />
-        <BannerImage content={[sections[18], sections[19]]} image={Recommendations2} />
-        <BannerImage content={[sections[20], sections[21]]} image={Recommendations3} />
-        <BannerImage content={[sections[22], sections[23]]} image={Recommendations4} />
+        <section>
+          <RightCalloutSection content={sections[1]} calloutContent={callout1} />
+          <LeftImageSection content={sections[2]} image={Beverly} />
+        </section>
+        <section>
+          <RightCalloutSection content={sections[3]} calloutContent={callout2} />
+        </section>
+        <section>
+          <NoImageSection content={sections[4]} />
+          <LeftImageSection content={sections[5]} image={History} />
+        </section>
+        <section>
+          <BannerImage content={[sections[6], sections[7]]} image={Brookline} />
+        </section>
+        <section>
+          <NoImageSection content={sections[8]} />
+          <RightCalloutSection content={sections[9]} calloutContent={callout3} marginTop={false} />
+          <ImageBox />
+          <RightCalloutSection content={sections[10]} calloutContent={callout4} />
+        </section>
+        <section>
+          <RightCalloutSection content={sections[11]} calloutContent={callout5} />
+        </section>
+        <section>
+          <NoImageSection content={sections[12]} />
+          <LeftImageSection content={sections[13]} image={Observations} />
+        </section>
+        <section>
+          <RightImageSection content={sections[14]} image={Marblehead} />
+        </section>
+        <section>
+          <NoImageSection content={sections[15]} />
+          <BannerImage content={[sections[16], sections[17]]} image={Recommendations1} />
+          <BannerImage content={[sections[18], sections[19]]} image={Recommendations2} />
+          <BannerImage content={[sections[20], sections[21]]} image={Recommendations3} />
+        </section>
+        <section>
+          <BannerImage content={[sections[22], sections[23]]} image={Recommendations4} />
+        </section>
       </main>
     </Layout>
   );

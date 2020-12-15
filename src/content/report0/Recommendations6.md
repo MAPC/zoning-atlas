@@ -2,7 +2,6 @@
 page: "report0"
 section: "recommendations"
 order: 21
-credit: "SET CREDIT"
 ---
 In the interest of transparency and informed engagement, municipalities should publish the GIS version of their zoning boundaries online, in a format accessible to viewers and users. The ideal would be for every municipality to make it available as an interactive map on their website that could be explored, with a download and/or API option so that stakeholders may access it as a public resource. The published data should be accompanied by metadata specifying its origin, including the corresponding ordinance or bylaw.
 

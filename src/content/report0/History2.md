@@ -2,7 +2,7 @@
 page: "report0"
 section: "history-of-the-zoning-atlas"
 order: 6
-credit: 'SET CREDIT'
+credit: 'Alex Koppelman'
 ---
 The data were also used to develop ‘buildout’ analyses that estimated the total number of units that could be built on undeveloped areas under base zoning. In the intervening period since that 1999 release, the need for regional zoning data has arisen in MAPC’s work numerous times and has been requested by municipalities and other organizations with whom we collaborate.
 

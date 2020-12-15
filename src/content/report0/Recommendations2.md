@@ -2,6 +2,5 @@
 page: "report0"
 section: "recommendations"
 order: 17
-credit: "SET CREDIT"
 ---
 Municipal staff and boards are encouraged to review the district boundaries, designations, and numerical attributes for the zones in their community, and to submit corrections and updates to MAPC.

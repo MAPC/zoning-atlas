@@ -2,7 +2,6 @@
 page: "report0"
 section: "observations"
 order: 14
-credit: 'SET CREDIT'
 ---
 Additionally, as municipalities update their codes, they often layer modifications over existing laws, creating a patchwork of rules and parameters that make interpretation even harder [need an example to help explain]. Rarely do municipalities undertake a complete “recodification” of their zoning that would reconcile all the many overlapping modifications, redundancies, and conflicts.
 
