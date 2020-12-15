@@ -16,7 +16,7 @@ const legendEntries = {
     { color: '#ccb68c', value: 'No', id: 0 },
   ],
   effMxht: [
-    { color: scale[0], value: '25–30', min: 25, max: 30 },
+    { color: scale[0], value: '10–30', min: 10, max: 30 },
     { color: scale[1], value: '30–35', min: 30, max: 35 },
     { color: scale[2], value: '35–40', min: 35, max: 40 },
     { color: scale[3], value: '40–45', min: 40, max: 45 },

@@ -98,8 +98,8 @@ const Layers = ({
               ? setLegendColors.effMxdu.find((option) => feature.properties.mxdu_eff >= option.min && feature.properties.mxdu_eff < option.max).color
               : dataNa;
           }
-          if (layerStyle === 'effDensity') { // not yet set
-            colorRow = feature.properties.dupac_eff
+          if (layerStyle === 'effDensity') {
+            colorRow = setLegendColors.effDensity.find((option) => feature.properties.dupac_eff >= option.min && feature.properties.dupac_eff < option.max)
               ? setLegendColors.effDensity.find((option) => feature.properties.dupac_eff >= option.min && feature.properties.dupac_eff < option.max).color
               : dataNa;
           }
