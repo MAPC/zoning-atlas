@@ -96,6 +96,7 @@ const ZoningPopup = ({
       </li>
     </ul>
     <button
+    // muni_name, zo_name, zo_usety, zo_usede, multifam, mnls_eff, pctlotcov, lapdu, mxht_eff, mxdu_eff, dupac_eff, far_eff, far_esval, reviewdate, objectid
       type="button"
       className="popup__edit"
       onClick={() => {
@@ -105,7 +106,7 @@ const ZoningPopup = ({
           zoName: zo_name,
           zoUsety: setZoneUse(zo_usety),
           zoUsede: zo_usede,
-          multifam: setMultifamily(MULTIFAM),
+          multifam: setMultifamily(multifam),
           mnlsEff: mnls_eff,
           plcEff: pctlotcov,
           lapdu: lapdu,

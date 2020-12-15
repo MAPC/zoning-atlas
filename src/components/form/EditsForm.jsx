@@ -28,7 +28,7 @@ function submitEdit(e, formValues, setSuccess) {
 
 const EditsForm = ({
   setFormIsOpen, selectedZone: {
-    zoName, zoUsety, zoUsede, multifam, id,
+    muni, zoName, zoUsety, zoUsede, multifam, id,
   }, view,
 }) => {
   const [formValues, setFormValues] = useState({
@@ -80,6 +80,10 @@ const EditsForm = ({
             <Input name="email" label="Email" isNumeric={false} isRequired setFormValues={setFormValues} formValues={formValues} />
           </fieldset>
           <fieldset className="edits__section">
+            <span className="edits__row">
+              <span>Municipality</span>
+              <span className="edits__field">{muni}</span>
+            </span>
             <Input name="zo_name" label="Zone Name" defaultValue={zoName} isNumeric={false} setFormValues={setFormValues} formValues={formValues} />
             <DropdownMenu name="zo_usety" label="Zone Use Type" defaultValue={zoneUse[zoUsety]} options={zoneUse} setFormValues={setFormValues} formValues={formValues} />
             <Textarea name="zo_usede" label="Zone Use Description" defaultValue={zoUsede} setFormValues={setFormValues} formValues={formValues} />
