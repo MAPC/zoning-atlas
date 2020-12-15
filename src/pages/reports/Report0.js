@@ -56,43 +56,44 @@ const Report0 = ({ data }) => {
       <main className="main__wrapper main__wrapper--report">
         <Header items={sections} />
         <About content={sections[0]} />
-        <section>
+        <section className="report__introduction">
           <RightCalloutSection content={sections[1]} calloutContent={callout1} />
           <LeftImageSection content={sections[2]} image={Beverly} />
         </section>
-        <section>
+        <section className="report__basics">
           <RightCalloutSection content={sections[3]} calloutContent={callout2} />
         </section>
-        <section>
+        <section className="report__history">
           <NoImageSection content={sections[4]} />
           <LeftImageSection content={sections[5]} image={History} />
         </section>
-        <section>
+        <section className="report__history report__creating">
           <BannerImage content={[sections[6], sections[7]]} image={Brookline} />
         </section>
-        <section>
+        <section className="report__collecting">
           <NoImageSection content={sections[8]} />
           <RightCalloutSection content={sections[9]} calloutContent={callout3} marginTop={false} />
           <ImageBox />
           <RightCalloutSection content={sections[10]} calloutContent={callout4} />
         </section>
-        <section>
+        <section className="report__base-attributes">
           <RightCalloutSection content={sections[11]} calloutContent={callout5} />
         </section>
-        <section>
+
+        <section className="report__observations">
           <NoImageSection content={sections[12]} />
-          <LeftImageSection content={sections[13]} image={Observations} />
+          <LeftImageSection content={sections[13]} image={Observations}/>
         </section>
-        <section>
+        <section className="report__whats-next">
           <RightImageSection content={sections[14]} image={Marblehead} />
         </section>
-        <section>
+        <section className="report__recommendations">
           <NoImageSection content={sections[15]} />
           <BannerImage content={[sections[16], sections[17]]} image={Recommendations1} />
           <BannerImage content={[sections[18], sections[19]]} image={Recommendations2} />
           <BannerImage content={[sections[20], sections[21]]} image={Recommendations3} />
         </section>
-        <section>
+        <section className="report__recommendations report__glossary">
           <BannerImage content={[sections[22], sections[23]]} image={Recommendations4} />
         </section>
       </main>
