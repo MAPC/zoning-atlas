@@ -1,0 +1,26 @@
+.callout-box {
+  background-color: $color_bg-beige;
+  padding: 1.5rem 2.125rem;
+  position: relative;
+  width: 17.75rem;
+
+  &__subtitle-wrapper {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+  }
+
+  &__subtitle {
+    font-family: 'Calibre', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.625rem;
+    margin: 0;
+  }
+
+  &__triangle {
+    left: -3rem;
+    position: absolute;
+    transform: rotate(-90deg);
+  }
+}
