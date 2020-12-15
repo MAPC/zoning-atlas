@@ -12,6 +12,7 @@ import BannerImage from '../../components/reports/BannerImage';
 import Beverly from '../../images/Beverly Rantoul_IMG_0411.jpg';
 import History from '../../images/P1177284.png';
 import Brookline from '../../images/Construction in Brookline.png';
+import Observations from '../../images/DJI_0219.png';
 
 const callout1 = [{
   title: 'Two elements to Municipal Zoning',
@@ -19,6 +20,21 @@ const callout1 = [{
 }, {
   title: 'Two types of Districts',
   content: ['Base Zoning Districts', 'Overlay Districts'],
+}];
+
+const callout2 = [{
+  title: 'Example title',
+  content: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'],
+}];
+
+const callout3 = [{
+  title: 'Core Fields',
+  content: ['Residential uses, including allowance of multifamily housing', 'Minimum lot size', 'Dwelling units allowed per acre', 'Maximum height', 'Maximum floor-area-ratio (FAR)'],
+}];
+
+const callout4 = [{
+  title: 'Attribute Table',
+  content: ['Identifying information', 'Use Information', 'Dimensional regulations', 'Text fields', 'Metadata'],
 }];
 
 const Report0 = ({ data }) => {
@@ -34,7 +50,13 @@ const Report0 = ({ data }) => {
         <NoImageSection content={sections[4]} />
         <LeftImageSection content={sections[5]} image={History} />
         <BannerImage content={[sections[6], sections[7]]} image={Brookline} />
-        {/* <NoImageSection content={sections[7]} /> */}
+        <NoImageSection content={sections[8]} />
+        <RightCalloutSection content={sections[9]} calloutContent={callout2} marginTop={false} />
+        Image section here
+        <RightCalloutSection content={sections[10]} calloutContent={callout3} />
+        <RightCalloutSection content={sections[11]} calloutContent={callout4} />
+        <NoImageSection content={sections[12]} />
+        <LeftImageSection content={sections[13]} image={Observations} />
       </main>
     </Layout>
   );

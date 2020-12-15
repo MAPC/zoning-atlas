@@ -1,0 +1,21 @@
+---
+page: "report0"
+section: "observations"
+order: 14
+credit: 'SET CREDIT'
+---
+Additionally, as municipalities update their codes, they often layer modifications over existing laws, creating a patchwork of rules and parameters that make interpretation even harder [need an example to help explain]. Rarely do municipalities undertake a complete “recodification” of their zoning that would reconcile all the many overlapping modifications, redundancies, and conflicts.
+
+Another challenge to interpreting and standardizing municipal zoning codes is that there are many terms within the general land use lexicon that have no standard definition, and that municipalities may interpret differently. The terms multifamily, accessory dwelling unit, and percent lot coverage, for example, may refer to slightly different things in different municipalities.
+
+Most of the time municipalities will include a definitions section that explains specific terms, or will describe specifications in detail within the document, but there are cases in which these or similar terms are used without further explanation.
+
+This tangle is compounded by the wide variety of repositories and formats for zoning codes, ranging from PDF files or Microsoft Word documents posted on the municipal website to HTML pages hosted by third-party providers such as Municode. Some municipalities even post the zoning text as a scanned document, hampering users’ ability to search, copy, or quote the code itself.
+
+The lack of standard formats and definitions for zoning codes renders local bylaws and ordinances largely inaccessible and opaque to those without abundant time to find and parse the zoning text. Put simply, current practices with regard to municipal zoning generally run counter to the principles of government transparency and equitable engagement. They are also exclusionary, because they privilege those developers with inside knowledge and relationships, while disadvantaging those who have not previously worked in a given community. This is especially true for developers seeking to build much-needed workforce and affordable housing in suburban towns, where byzantine regulatory pathways stand between a proposal and an approval. It’s no wonder so many developers opt for a comprehensive permit to build multifamily housing
+
+The difficulties of seeking access to electronic zoning data also hinder the understanding local zoning. Even as a regional public agency, we had trouble getting municipalities to provide data in a timely manner. Some never did so. Whether by accident or intention, a minority of municipalities publish their zoning in an electronic format that is readily accessible by taxpayers and other stakeholders. Parallel research found that more than half of municipalities statewide charge for access to zoning data solicited through a public records request. Ten municipalities gave no response to our request for spatial zoning data, and at least one municipality is on record as considering the electronic data to be exempt from the public records act and unavailable for public access.
+
+Part of the challenge of accessing zoning data stems from the limited capacity of municipalities to maintain and publish electronic GIS records. Zoning changes, including the creation of new districts and the modification of existing district boundaries, are commonly authorized by changes to the text of the bylaw or ordinance itself. These changes must then be translated into new district boundaries on the zoning map itself, a task which may become an afterthought. In many cases, the available spatial data lags one or more revisions behind the code, if it is published at all. Six municipalities that have updated their zoning since 1999 but that did not make corresponding updates to their electronic zoning map. Additional barriers exist for those municipalities that don’t even have direct access to their own zoning data, having outsourced the maintenance of the electronic records to consultants who may charge a fee for each change or record request.
+
+It doesn’t help that most municipalities consider the paper zoning maps to be the ‘official’ record of district boundaries, despite electronic zoning data offering far greater utility for municipal staff, project proponents, and resident stakeholders.
