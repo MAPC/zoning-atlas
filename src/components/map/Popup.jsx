@@ -28,13 +28,13 @@ function checkEsval(input) {
 
 const ZoningPopup = ({
   latLng, setFormIsOpen, selectedAttr: {
-    muni_name, ZO_NAME_1, ZO_USETY_1, ZO_USEDE, MULTIFAM, MNLS_EFF_1, PCTLOTCOV, LApDU, MXHT_EFF_1, MXDU_EFF_1, DUpAC_EFF_1, far_eff, FAR_ESVAL, REVIEWDATE, OBJECTID_1
+    muni_name, zo_name, zo_usety, zo_usede, multifam, mnls_eff, pctlotcov, lapdu, mxht_eff, mxdu_eff, dupac_eff, far_eff, far_esval, reviewdate, objectid
   }, setZone,
 }) => (
   <Popup position={latLng}>
     <h3 className="popup__title">
       <span className="popup__title popup__title--muni">{muni_name}</span>
-      { ZO_NAME_1 ? <span className="popup__title popup__title--zoname">{ZO_NAME_1}</span> : '' }
+      { zo_name ? <span className="popup__title popup__title--zoname">{zo_name}</span> : '' }
     </h3>
     <hr />
     <ul className="popup__list">
@@ -42,57 +42,57 @@ const ZoningPopup = ({
         <span className="popup__category">Zone Use:</span>
         {' '}
         <span className="popup__datum">
-          {setZoneUse(ZO_USETY_1)}
-          {ZO_USEDE ? ` (${ZO_USEDE})` : ''}
+          {setZoneUse(zo_usety)}
+          {zo_usede && zo_usede !== ' ' ? ` (${zo_usede})` : ''}
         </span>
       </li>
       <li className="popup__item">
         <span className="popup__category">Multifamily Housing:</span>
         {' '}
-        <span className="popup__datum">{checkValue(setMultifamily(MULTIFAM))}</span>
+        <span className="popup__datum">{checkValue(setMultifamily(multifam))}</span>
       </li>
       <li className="popup__item">
         <span className="popup__category">Effective Minimum Lot Size:</span>
         {' '}
-        <span className="popup__datum">{setSquareFeet(MNLS_EFF_1)}</span>
+        <span className="popup__datum">{setSquareFeet(mnls_eff)}</span>
       </li>
       <li className="popup__item">
         <span className="popup__category">Effective Percent Lot Coverage:</span>
         {' '}
-        <span className="popup__datum">{checkValue(PCTLOTCOV)}</span>
+        <span className="popup__datum">{checkValue(pctlotcov)}</span>
       </li>
       <li className="popup__item">
         <span className="popup__category">Minimum Lot Area per Dwelling Unit:</span>
         {' '}
-        <span className="popup__datum">{setSquareFeet(LApDU)}</span>
+        <span className="popup__datum">{setSquareFeet(lapdu)}</span>
       </li>
       <li className="popup__item">
         <span className="popup__category">Effective Maximum Height:</span>
         {' '}
-        <span className="popup__datum">{setSquareFeet(MXHT_EFF_1)}</span>
+        <span className="popup__datum">{setSquareFeet(mxht_eff)}</span>
       </li>
       <li className="popup__item">
         <span className="popup__category">Effective Maximum Dwelling Units:</span>
         {' '}
-        <span className="popup__datum">{checkValue(MXDU_EFF_1)}</span>
+        <span className="popup__datum">{checkValue(mxdu_eff)}</span>
       </li>
       <li className="popup__item">
         <span className="popup__category">Effective Maximum Dwelling Units per Acre:</span>
         {' '}
-        <span className="popup__datum">{checkValue(DUpAC_EFF_1)}</span>
+        <span className="popup__datum">{checkValue(dupac_eff)}</span>
       </li>
       <li className="popup__item">
         <span className="popup__category">Effective Floor-Area Ratio:</span>
         {' '}
         <span className="popup__datum">
           { checkValue(far_eff) }
-          { checkEsval(FAR_ESVAL) }
+          { checkEsval(far_esval) }
         </span>
       </li>
       <li className="popup__item">
         <span className="popup__category">Spatial data received </span>
         {' '}
-        <span className="popup__datum">{REVIEWDATE}</span>
+        <span className="popup__datum">{reviewdate}</span>
       </li>
     </ul>
     <button
@@ -100,18 +100,18 @@ const ZoningPopup = ({
       className="popup__edit"
       onClick={() => {
         setZone({
-          id: OBJECTID_1,
+          id: objectid,
           muni: muni_name,
-          zoName: ZO_NAME_1,
-          zoUsety: setZoneUse(ZO_USETY_1),
-          zoUsede: ZO_USEDE,
+          zoName: zo_name,
+          zoUsety: setZoneUse(zo_usety),
+          zoUsede: zo_usede,
           multifam: setMultifamily(MULTIFAM),
-          mnlsEff: MNLS_EFF_1,
-          plcEff: PCTLOTCOV,
-          lApDu: LApDU,
-          mxhtEff: MXHT_EFF_1,
-          mxduEff: MXDU_EFF_1,
-          dUpAcEff: DUpAC_EFF_1,
+          mnlsEff: mnls_eff,
+          plcEff: pctlotcov,
+          lapdu: lapdu,
+          mxhtEff: mxht_eff,
+          mxduEff: mxdu_eff,
+          dUpAcEff: dupac_eff,
           farEff: far_eff,
         });
         setFormIsOpen(true);
