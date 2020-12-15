@@ -14,6 +14,7 @@ jobs:
         with:
           DB_PASS: ${{ secrets.DB_PASS }}
           DB_USER: ${{ secrets.DB_USER }}
+          GOOGLE_ANALYTICS_ID:  ${{ secrets.GOOGLE_ANALYTICS_ID }}
           HOST: ${{ secrets.HOST }}
           GATSBY_AIRTABLE_API_KEY: ${{ secrets.GATSBY_AIRTABLE_API_KEY }}
           GATSBY_AIRTABLE_API_BASE: ${{ secrets.GATSBY_AIRTABLE_API_BASE }}  
