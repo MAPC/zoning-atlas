@@ -7,7 +7,7 @@ const RightImageSection = ({ content, image }) => (
     <div className="report-section__right-image">
       { content.frontmatter.title ? <SubsectionTitle frontmatter={content.frontmatter} /> : ''}
       <div className="report-section__right-image-content">
-        <div dangerouslySetInnerHTML={{ __html: content.html }} className="report-section__right-image-text" />
+        <div dangerouslySetInnerHTML={{ __html: content.html }} className="report-section__right-image-text" className="report-section__content" />
         <Image image={image} credit={content.frontmatter.credit} orientation="right" />
       </div>
     </div>
