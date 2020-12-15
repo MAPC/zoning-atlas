@@ -31,6 +31,21 @@
     margin-top: 2.75rem;
   }
 
+  &__right-image {
+    margin-top: 2.75rem;
+    padding-left: 8.125rem;
+  }
+
+  &__right-image-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__right-image-text {
+    width: 47.5rem;
+  }
+
   &__right-callout {
     margin-top: 2.75rem;
     padding-left: 8.125rem;
