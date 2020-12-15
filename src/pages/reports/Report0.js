@@ -7,8 +7,16 @@ import Header from '../../components/reports/Header';
 import About from '../../components/reports/About';
 import NoImageSection from '../../components/reports/NoImageSection';
 import LeftImageSection from '../../components/reports/LeftImageSection';
-
+import RightCalloutSection from '../../components/reports/RightCalloutSection';
 import Beverly from '../../images/Beverly Rantoul_IMG_0411.jpg';
+
+const callout1 = [{
+  title: 'Two elements to Municipal Zoning',
+  content: ['Zoning Map', `Municipality's Zoning Bylaws`],
+}, {
+  title: 'Two types of Districts',
+  content: ['Base Zoning Districts', 'Overlay Districts'],
+}];
 
 const Report0 = ({ data }) => {
   const sections = data.allMarkdownRemark.nodes.sort((node1, node2) => node1.frontmatter.order > node2.frontmatter.order);
@@ -19,6 +27,8 @@ const Report0 = ({ data }) => {
         <About content={sections[0]} />
         <NoImageSection content={sections[1]} />
         <LeftImageSection content={sections[2]} image={Beverly} />
+        <RightCalloutSection content={sections[3]} calloutContent={callout1} />
+        <NoImageSection content={sections[4]} />
       </main>
     </Layout>
   );
