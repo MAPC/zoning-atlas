@@ -33,7 +33,8 @@ const Report0 = ({ data }) => {
         <RightCalloutSection content={sections[3]} calloutContent={callout1} />
         <NoImageSection content={sections[4]} />
         <LeftImageSection content={sections[5]} image={History} />
-        <BannerImage content={sections[6]} image={Brookline} />
+        <BannerImage content={[sections[6], sections[7]]} image={Brookline} />
+        {/* <NoImageSection content={sections[7]} /> */}
       </main>
     </Layout>
   );
