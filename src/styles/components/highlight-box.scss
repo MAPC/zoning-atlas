@@ -1,0 +1,24 @@
+.highlight-box {
+  &__wrapper {
+    background-color: $color_bg-beige;
+    display: flex;
+    margin: 0 1.25rem 3.75rem;
+    padding: 1.25rem;
+    position: relative;
+  }
+
+  &__title {
+    margin-left: 2.75rem;
+  }
+
+  &__description {
+    margin: 0 2.25rem 1rem 5rem;
+  }
+
+  &__triangle {
+    left: -1rem;
+    position: absolute;
+    transform: rotate(-90deg);
+    width: 2.25rem;
+  }
+}

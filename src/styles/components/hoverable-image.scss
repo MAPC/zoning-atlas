@@ -7,10 +7,11 @@
   }
 
   &__wrapper {
-    // border: 2px solid $color_bg-green;
     position: relative;
-    height: 18.75rem;
-    width: 36.25rem;
+
+    &--bordered {
+      border: 2px solid $color_bg-green;
+    }
 
     &:hover {
       background: $color_bg-green;
@@ -27,13 +28,20 @@
 
   &__overlay {
     align-items: flex-start;
-    bottom: 1.875rem;
     display: none;
     flex-direction: column;
     justify-content: center;
     left: 0;
     margin: 1rem;
     position: absolute;
+
+    &--small {
+      bottom: 1.875rem;
+    }
+
+    &--large {
+      bottom: 2.5rem;
+    }
   }
 
   &__image {
@@ -48,11 +56,18 @@
     font-style: normal;
     font-weight: 600;
     margin: 1rem 0 0 0;
+
+    // &--large {
+    //   font-size: 1.75rem;
+    //   line-height: 2.5rem;
+    // }
   }
 
   &__triangle {
-    // height: 1.5rem;
-    // margin-bottom: 1rem;
+    &--large {
+      height: 1.5rem;
+      margin-bottom: 1rem;
+    }
   }
 
   &__caption {
