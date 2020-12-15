@@ -21,6 +21,11 @@ import Recommendations3 from '../../images/Crossing at Main Street with new hous
 import Recommendations4 from '../../images/Public facilities feedback - Copy.png';
 
 const callout1 = [{
+  title: 'Authors',
+  content: ['Tim Reardon', 'Jessie Partridge Guerrero', 'Lily Perkins-High'],
+}];
+
+const callout2 = [{
   title: 'Two elements to Municipal Zoning',
   content: ['Zoning Map', `Municipality's Zoning Bylaws`],
 }, {
@@ -28,17 +33,17 @@ const callout1 = [{
   content: ['Base Zoning Districts', 'Overlay Districts'],
 }];
 
-const callout2 = [{
+const callout3 = [{
   title: 'Example title',
   content: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'],
 }];
 
-const callout3 = [{
+const callout4 = [{
   title: 'Core Fields',
   content: ['Residential uses, including allowance of multifamily housing', 'Minimum lot size', 'Dwelling units allowed per acre', 'Maximum height', 'Maximum floor-area-ratio (FAR)'],
 }];
 
-const callout4 = [{
+const callout5 = [{
   title: 'Attribute Table',
   content: ['Identifying information', 'Use Information', 'Dimensional regulations', 'Text fields', 'Metadata'],
 }];
@@ -50,17 +55,17 @@ const Report0 = ({ data }) => {
       <main className="main__wrapper main__wrapper--report">
         <Header items={sections} />
         <About content={sections[0]} />
-        <NoImageSection content={sections[1]} />
+        <RightCalloutSection content={sections[1]} calloutContent={callout1} />
         <LeftImageSection content={sections[2]} image={Beverly} />
-        <RightCalloutSection content={sections[3]} calloutContent={callout1} />
+        <RightCalloutSection content={sections[3]} calloutContent={callout2} />
         <NoImageSection content={sections[4]} />
         <LeftImageSection content={sections[5]} image={History} />
         <BannerImage content={[sections[6], sections[7]]} image={Brookline} />
         <NoImageSection content={sections[8]} />
-        <RightCalloutSection content={sections[9]} calloutContent={callout2} marginTop={false} />
+        <RightCalloutSection content={sections[9]} calloutContent={callout3} marginTop={false} />
         Image section here
-        <RightCalloutSection content={sections[10]} calloutContent={callout3} />
-        <RightCalloutSection content={sections[11]} calloutContent={callout4} />
+        <RightCalloutSection content={sections[10]} calloutContent={callout4} />
+        <RightCalloutSection content={sections[11]} calloutContent={callout5} />
         <NoImageSection content={sections[12]} />
         <LeftImageSection content={sections[13]} image={Observations} />
         <RightImageSection content={sections[14]} image={Marblehead} />
