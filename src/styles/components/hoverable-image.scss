@@ -1,4 +1,4 @@
-.report-link {
+.hoverable-image {
   &__marquee {
     display: flex;
     flex-direction: row;
@@ -7,35 +7,38 @@
   }
 
   &__wrapper {
+    // border: 2px solid $color_bg-green;
     position: relative;
-    height: 17.1875rem;
-    width: 14.0625rem;
+    height: 18.75rem;
+    width: 36.25rem;
 
     &:hover {
       background: $color_bg-green;
 
-      .report-link__image {
+      .hoverable-image__image {
         opacity: 0.15;
       }
 
-      .report-link__hover-content {
-        display: unset;
+      .hoverable-image__overlay {
+        display: flex;
       }
     }
   }
 
-  &__hover-content {
+  &__overlay {
+    align-items: flex-start;
     bottom: 1.875rem;
     display: none;
+    flex-direction: column;
+    justify-content: center;
     left: 0;
     margin: 1rem;
     position: absolute;
   }
 
   &__image {
-    height: 17.1875rem;
-    object-fit: cover;
-    width: 14.0625rem;
+    height: inherit;
+    width: inherit;
   }
 
   &__title {
@@ -45,5 +48,16 @@
     font-style: normal;
     font-weight: 600;
     margin: 1rem 0 0 0;
+  }
+
+  &__triangle {
+    // height: 1.5rem;
+    // margin-bottom: 1rem;
+  }
+
+  &__caption {
+    font-style: italic;
+    margin-bottom: 0;
+    text-align: center;
   }
 }
