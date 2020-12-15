@@ -22,7 +22,15 @@ const LeafletMap = ({ reactTable, setFormIsOpen, setZone }) => {
         zoomControl={false}
       >
         <LayersControl position="topleft">
-          <LayersControl.BaseLayer name="Streets" checked>
+          <LayersControl.BaseLayer name="Mapbox Light" checked>
+            <TileLayer
+              url="https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/{z}/{x}/{y}/?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA#1.07/0/0"
+              attribution='© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>'
+              tileSize={512}
+              zoomOffset={-1}
+            />
+          </LayersControl.BaseLayer>
+          <LayersControl.BaseLayer name="Streets">
             <TileLayer
               url="https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
               attribution='© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>'
