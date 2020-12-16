@@ -25,7 +25,7 @@ const setColumns = [{
   Header: 'Zone Use Description',
   accessor: 'zoUsede',
 }, {
-  Header: 'Multifamily',
+  Header: 'Multifamily Housing (2+ Units)',
   accessor: 'multifam',
   panel: 'multifam',
   Filter: MultiSelectColumnFilter,

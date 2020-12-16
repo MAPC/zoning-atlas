@@ -50,7 +50,7 @@ const TableFilters = ({ headerGroups }) => {
             category="multifam"
             columns={[headerGroups[0].headers[4]]}
             dispatch={dispatch}
-            text="Multifamily Housing"
+            text="Multifamily Housing (2+ Units)"
           />
           <FilterCategory
             activeCategory={state.activeCategory}

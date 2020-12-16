@@ -14,7 +14,7 @@ function setLegend(option) {
 
 const legendTitle = {
   zoUsety: 'Zone Use Type',
-  multiFam: 'Multifamily Housing',
+  multiFam: 'Multifamily Housing (2+ Units)',
   effMxht: 'Maximum Height',
   effMxdu: 'Maximum Dwelling Units',
   effDensity: 'Effective Dwelling Units per Acre',
@@ -31,7 +31,7 @@ const ChoroplethSelect = ({ layerStyle, setLayerStyle }) => (
       </label>
       <label htmlFor="multiFam">
         <input type="radio" id="multiFam" name="legend" className="legend__input" defaultChecked={layerStyle === 'multiFam'} />
-        <span className="legend__entry">Multifamily Housing</span>
+        <span className="legend__entry">Multifamily Housing (2+ Units)</span>
       </label>
       <label htmlFor="effMxht">
         <input type="radio" id="effMxht" name="legend" className="legend__input" defaultChecked={layerStyle === 'effMxht'} />

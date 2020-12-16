@@ -47,7 +47,7 @@ const ZoningPopup = ({
         </span>
       </li>
       <li className="popup__item">
-        <span className="popup__category">Multifamily Housing:</span>
+        <span className="popup__category">Multifamily Housing (2+ Units):</span>
         {' '}
         <span className="popup__datum">{checkValue(setMultifamily(multifam))}</span>
       </li>

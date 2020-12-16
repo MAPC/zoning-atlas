@@ -87,7 +87,7 @@ const EditsForm = ({
             <Input name="zo_name" label="Zone Name" defaultValue={zoName} isNumeric={false} setFormValues={setFormValues} formValues={formValues} />
             <DropdownMenu name="zo_usety" label="Zone Use Type" defaultValue={zoneUse[zoUsety]} options={zoneUse} setFormValues={setFormValues} formValues={formValues} />
             <Textarea name="zo_usede" label="Zone Use Description" defaultValue={zoUsede} setFormValues={setFormValues} formValues={formValues} />
-            <DropdownMenu name="multifam" label="Multifamily Housing" defaultValue={multiFamily[multifam]} options={multiFamily} setFormValues={setFormValues} formValues={formValues} />
+            <DropdownMenu name="multifam" label="Multifamily Housing (2+ Units)" defaultValue={multiFamily[multifam]} options={multiFamily} setFormValues={setFormValues} formValues={formValues} />
             <Input name="minlotsize" label="Minimum Lot Size (sf)" setFormValues={setFormValues} formValues={formValues} />
             <Input name="pctlotcov" label="Percent Lot Coverage" max={100} setFormValues={setFormValues} formValues={formValues} />
             <Input name="lapdu" label="Minimum Lot Area per Dwelling Unit (sf)" setFormValues={setFormValues} formValues={formValues} />
