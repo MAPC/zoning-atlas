@@ -62,7 +62,7 @@ function setWhere(columns) {
 }
 
 const Layers = ({
-  reactTable, setSelected, setLatLng, layerStyle,
+  reactTable, setSelected, setLatLng, layerStyle, displayOverlays
 }) => {
   const mapRef = useMap();
   const [zoom, setZoom] = useState(mapRef.getZoom());
@@ -123,7 +123,11 @@ const Layers = ({
           },
         }}
       />
-      <TileLayer pane="overlayPane" url="https://api.mapbox.com/styles/v1/ihill/ckirurvdm0c9v19qmri0meat6/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg" />
+      <TileLayer
+        pane="overlayPane"
+        url="https://api.mapbox.com/styles/v1/ihill/ckirurvdm0c9v19qmri0meat6/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
+        opacity={ displayOverlays ? 1 : 0 }
+      />
       <TileLayer pane="overlayPane" url="https://api.mapbox.com/styles/v1/ihill/cki9ablq87wb01apa878hhbj8/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg" />
     </>
   );

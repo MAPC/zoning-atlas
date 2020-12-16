@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { X } from 'phosphor-react';
 import ChoroplethSelect from './ChoroplethSelect';
 
-const Legend = ({ layerStyle, setLayerStyle }) => {
+const Legend = ({ layerStyle, setLayerStyle, displayOverlays, setDisplayOverlays }) => {
   const [isVisible, setVisibility] = useState(false);
   return (
     <div
@@ -32,7 +32,7 @@ const Legend = ({ layerStyle, setLayerStyle }) => {
           </button>
         ) : ''}
       </div>
-      { isVisible ? <ChoroplethSelect layerStyle={layerStyle} setLayerStyle={setLayerStyle} /> : ''}
+      { isVisible ? <ChoroplethSelect layerStyle={layerStyle} setLayerStyle={setLayerStyle} displayOverlays={displayOverlays} setDisplayOverlays={setDisplayOverlays} /> : ''}
     </div>
   );
 };

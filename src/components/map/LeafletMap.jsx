@@ -12,6 +12,7 @@ const LeafletMap = ({ reactTable, setFormIsOpen, setZone }) => {
   const [selectedAttr, setSelected] = useState();
   const [popupLatLng, setLatLng] = useState();
   const [layerStyle, setLayerStyle] = useState('zoUsety');
+  const [displayOverlays, setDisplayOverlays] = useState(false);
   return (
     <div className="map__wrapper">
       <MapContainer
@@ -48,10 +49,10 @@ const LeafletMap = ({ reactTable, setFormIsOpen, setZone }) => {
           </LayersControl.BaseLayer>
         </LayersControl>
         <EsriLeafletGeoSearch useMapBounds={false} position="topleft" />
-        <Layers reactTable={reactTable} setSelected={setSelected} setLatLng={setLatLng} layerStyle={layerStyle} />
+        <Layers reactTable={reactTable} setSelected={setSelected} setLatLng={setLatLng} layerStyle={layerStyle} displayOverlays={displayOverlays} />
         {selectedAttr ? <ZoningPopup selectedAttr={selectedAttr} latLng={popupLatLng} setFormIsOpen={setFormIsOpen} setZone={setZone} /> : ''}
         <ZoomControl position="bottomright" />
-        <Legend position="topright" layerStyle={layerStyle} setLayerStyle={setLayerStyle} />
+        <Legend position="topright" layerStyle={layerStyle} setLayerStyle={setLayerStyle} displayOverlays={displayOverlays} setDisplayOverlays={setDisplayOverlays} />
       </MapContainer>
       <a href="http://mapbox.com/about/maps" className="map__watermark" target="_blank">Mapbox</a>
     </div>

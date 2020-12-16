@@ -22,13 +22,16 @@ const legendTitle = {
   effFar: 'Effective FAR',
 };
 
-const ChoroplethSelect = ({ layerStyle, setLayerStyle }) => (
+const ChoroplethSelect = ({ layerStyle, setLayerStyle, displayOverlays, setDisplayOverlays }) => (
   <>
     <form
       className="legend__form"
       onChange={(e) => {
         if (e.target.name === 'legend') {
           setLayerStyle(e.target.id);
+        }
+        if (e.target.name === 'overlay') {
+          setDisplayOverlays(!displayOverlays);
         }
       }}
     >
@@ -69,7 +72,10 @@ const ChoroplethSelect = ({ layerStyle, setLayerStyle }) => (
       <input
         type="reset"
         className="legend__reset-button"
-        onClick={() => setLayerStyle('zoUsety')}
+        onClick={() => {
+          setLayerStyle('zoUsety');
+          setDisplayOverlays(false);
+        }}
         value="Reset map settings"
       />
     </form>
