@@ -6,6 +6,7 @@ import Category from '../components/about/Category';
 import DataSection from '../components/about/DataSection';
 import FeedbackSection from '../components/about/FeedbackSection';
 import Disclaimer from '../components/about/Disclaimer';
+import Contributors from '../components/about/Contributors';
 
 const About = ({ location }) => {
   const [section, setSection] = useState(location.state && location.state.passedSection ? location.state.passedSection : 'data');
@@ -14,6 +15,7 @@ const About = ({ location }) => {
     data: <DataSection />,
     feedback: <FeedbackSection />,
     disclaimer: <Disclaimer />,
+    contributors: <Contributors />,
   };
 
   return (
@@ -45,6 +47,12 @@ const About = ({ location }) => {
                 <Category
                   title="Disclaimer"
                   sectionOption="disclaimer"
+                  currentSection={section}
+                  setSection={setSection}
+                />
+                <Category
+                  title="Contributors"
+                  sectionOption="contributors"
                   currentSection={section}
                   setSection={setSection}
                 />
