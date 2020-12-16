@@ -50,7 +50,7 @@ const callout5 = [{
 }];
 
 const Report0 = ({ data }) => {
-  const sections = data.allMarkdownRemark.nodes.sort((node1, node2) => node1.frontmatter.order > node2.frontmatter.order);
+  const sections = data.allMarkdownRemark.nodes;
   return (
     <Layout title="Introduction to the Zoning Atlas - MAPC Zoning Atlas">
       <main className="main__wrapper main__wrapper--report">
@@ -104,7 +104,7 @@ const Report0 = ({ data }) => {
 export default Report0;
 export const data = graphql`
 query {
-  allMarkdownRemark(filter: {frontmatter: {page: {in: "report0"}}}) {
+  allMarkdownRemark(filter: {frontmatter: {page: {in: "report0"}}}, sort: {order: ASC, fields: frontmatter___order}) {
     nodes {
       html
       id
