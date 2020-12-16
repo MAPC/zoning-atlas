@@ -23,8 +23,15 @@ const legendTitle = {
 };
 
 const ChoroplethSelect = ({ layerStyle, setLayerStyle }) => (
-  <div className="legend__form">
-    <form onChange={(e) => setLayerStyle(e.target.id)}>
+  <>
+    <form
+      className="legend__form"
+      onChange={(e) => {
+        if (e.target.name === 'legend') {
+          setLayerStyle(e.target.id);
+        }
+      }}
+    >
       <fieldset className="legend__fieldset">
         <legend className="legend__subtitle">Map Layers</legend>
         <label htmlFor="zoUsety">
@@ -58,15 +65,15 @@ const ChoroplethSelect = ({ layerStyle, setLayerStyle }) => (
           {setLegend(layerStyle)}
         </ul>
       </fieldset>
+      <OverlayDistricts />
+      <input
+        type="reset"
+        className="legend__reset-button"
+        onClick={() => setLayerStyle('zoUsety')}
+        value="Reset map settings"
+      />
     </form>
-    <OverlayDistricts />
-    <input
-      type="reset"
-      className="legend__reset-button"
-      onClick={() => setLayerStyle('zoUsety')}
-      value="Reset map settings"
-    />
-  </div>
+  </>
 );
 
 export default ChoroplethSelect;
