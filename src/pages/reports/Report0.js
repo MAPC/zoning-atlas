@@ -23,7 +23,7 @@ import Recommendations4 from '../../images/Public facilities feedback - Copy.png
 
 const callout1 = [{
   title: 'Authors',
-  content: ['Tim Reardon', 'Jessie Partridge Guerrero', 'Lily Perkins-High'],
+  content: ['Tim Reardon, Director of Data Services', 'Jessie Partridge Guerrero, Research Manager', 'Lily Perkins-High, Analytical Services Manager', 'Editor: Karen Adelman, Senior Communications Strategist'],
 }];
 
 const callout2 = [{
