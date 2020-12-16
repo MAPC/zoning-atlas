@@ -28,7 +28,7 @@ const About = ({ location }) => {
             This Zoning Atlas is accumulation of years of effort by many staff and partners. What for many years lived in Excel spreadsheets, collected from disparate sources, we have moved to the web. The Metropolitan Area Planning Council (MAPC) is the regional planning agency serving the people who live and work in the 101 cities and towns of Metropolitan Boston. It’s these 101 municipalities for which we have collected and calculated zoning comparable zoning information.
           </p>
           <p>
-            We welcome feedback and will continue to work to find new ways to update. Our Goal is for this to be a living resource informing both policy and practice. Learn more about the history and why this tool is needed in <Link to="/reports/1">this report</Link>.
+            We welcome feedback and will continue to work to find new ways to update. Our goal is for this to be a living resource informing both policy and practice. Learn more about the history and why this tool is needed in <Link to="/reports/1">this report</Link>.
           </p>
           <div className="about__content">
             <nav>
@@ -46,14 +46,14 @@ const About = ({ location }) => {
                   setSection={setSection}
                 />
                 <Category
-                  title="Disclaimer"
-                  sectionOption="disclaimer"
+                  title="Contributors"
+                  sectionOption="contributors"
                   currentSection={section}
                   setSection={setSection}
                 />
                 <Category
-                  title="Contributors"
-                  sectionOption="contributors"
+                  title="Disclaimer"
+                  sectionOption="disclaimer"
                   currentSection={section}
                   setSection={setSection}
                 />

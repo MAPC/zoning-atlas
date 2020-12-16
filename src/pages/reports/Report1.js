@@ -89,7 +89,7 @@ const Report1 = ({ data }) => {
           <BannerImage content={[sections[18], sections[19]]} image={Recommendations2} />
           <BannerImage content={[sections[20], sections[21]]} image={Recommendations3} />
         </section>
-        <section className="report__recommendations report__glossary">
+        <section className="report__recommendations report__glossary" style={{ marginBottom: '9.375rem' }}>
           <BannerImage content={[sections[22], sections[23]]} image={Recommendations4} />
         </section>
       </main>
