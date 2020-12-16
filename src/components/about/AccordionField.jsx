@@ -8,7 +8,7 @@ function toggleVisibility(currentState, setActive) {
   return setActive(true);
 }
 
-const AccordionField = ({ title, content }) => {
+const AccordionField = ({ title, children }) => {
   const [isActive, setActive] = useState(false);
   return (
     <div>
@@ -30,7 +30,7 @@ const AccordionField = ({ title, content }) => {
           className={isActive ? 'accordion__icon accordion__icon--active' : 'accordion__icon'}
         />
       </header>
-      {isActive ? <div className="accordion__content" dangerouslySetInnerHTML={{ __html: content }} /> : ''}
+      {isActive ? <div className="accordion__content">{children}</div> : ''}
       <hr className="accordion__divider" />
     </div>
   );

@@ -36,7 +36,7 @@ function setWhere(columns) {
   }
   if (columns[4].filterValue) {
     whereStatements.push(columns[4].filterValue
-      .map((value) => `MULTIFAM = ${multiFamily[value]}`)
+      .map((value) => `multifam = ${multiFamily[value]}`)
       .join(' OR '));
   }
   if (columns[7].filterValue) {
