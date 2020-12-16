@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import HoverableImage from './HoverableImage';
-import report0 from '../../images/Antique-Homes-Triple-Decker-Pair-cropped.png';
+import report1 from '../../images/Antique-Homes-Triple-Decker-Pair-cropped.png';
 import triangleDownGreen from '../../images/triangleDownGreen.svg';
 
 const HighlightBox = () => (
@@ -20,8 +20,8 @@ const HighlightBox = () => (
         The Zoning Atlas will always be a work-in-progress, and it will rely on municipal collaboration and community input in order to best serve its purpose. As it continues to grow and develop, we hope it will be useful to municipal staff, researchers, and advocates in their work to build a better Greater Boston.
       </p>
     </div>
-    <Link to="/reports/0">
-      <HoverableImage image={report0} title="Introduction to the Zoning Atlas" width="18.75rem" height="22.875rem" size="large" />
+    <Link to="/reports/1">
+      <HoverableImage image={report1} title="Introduction to the Zoning Atlas" width="18.75rem" height="22.875rem" size="large" />
     </Link>
   </section>
 );
