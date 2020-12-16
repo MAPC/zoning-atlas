@@ -10,7 +10,9 @@
   }
 
   &__wrapper {
+    align-items: center;
     border: 2px solid $color_bg-green;
+    display: flex;
     position: relative;
     height: 18.75rem;
     width: 36.25rem;
@@ -42,7 +44,7 @@
   }
 
   &__image {
-    height: 18.75rem;
+    max-height: 18.75rem;
     width: 36.25rem;
   }
 
@@ -61,6 +63,7 @@
 
   &__triangle {
     height: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   &__caption {

@@ -14,10 +14,11 @@ import ImageBox from '../../components/reports/ImageBox';
 import Beverly from '../../images/Beverly Rantoul_IMG_0411.jpg';
 import History from '../../images/P1177284.png';
 import Brookline from '../../images/Construction in Brookline.png';
+import Collecting from '../../images/Collecting.png';
 import Observations from '../../images/DJI_0219.png';
 import Marblehead from '../../images/Marblehead Vinnin Square.png';
 import Recommendations1 from '../../images/DJI_0724.MOV.00_00_19_13.Still002.png';
-import Recommendations2 from '../../images/DJI_0736.MOV.00_00_00_00.Still001.png';
+import Recommendations2 from '../../images/Recommendations2.png';
 import Recommendations3 from '../../images/Crossing at Main Street with new housing.png';
 import Recommendations4 from '../../images/Public facilities feedback - Copy.png';
 
@@ -35,16 +36,11 @@ const callout2 = [{
 }];
 
 const callout3 = [{
-  title: 'Example title',
-  content: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'],
-}];
-
-const callout4 = [{
   title: 'Core Fields',
   content: ['Residential uses, including allowance of multifamily housing', 'Minimum lot size', 'Dwelling units allowed per acre', 'Maximum height', 'Maximum floor-area-ratio (FAR)'],
 }];
 
-const callout5 = [{
+const callout4 = [{
   title: 'Attribute Table',
   content: ['Identifying information', 'Use Information', 'Dimensional regulations', 'Text fields', 'Metadata'],
 }];
@@ -72,17 +68,17 @@ const Report1 = ({ data }) => {
         </section>
         <section className="report__collecting">
           <NoImageSection content={sections[8]} />
-          <RightCalloutSection content={sections[9]} calloutContent={callout3} marginTop={false} />
+          <RightImageSection content={sections[9]} calloutContent={callout3} image={Collecting} />
           <ImageBox />
-          <RightCalloutSection content={sections[10]} calloutContent={callout4} />
+          <RightCalloutSection content={sections[10]} calloutContent={callout3} />
         </section>
         <section className="report__base-attributes">
-          <RightCalloutSection content={sections[11]} calloutContent={callout5} />
+          <RightCalloutSection content={sections[11]} calloutContent={callout4} />
         </section>
 
         <section className="report__observations">
           <NoImageSection content={sections[12]} />
-          <LeftImageSection content={sections[13]} image={Observations}/>
+          <LeftImageSection content={sections[13]} image={Observations} />
         </section>
         <section className="report__whats-next">
           <RightImageSection content={sections[14]} image={Marblehead} />

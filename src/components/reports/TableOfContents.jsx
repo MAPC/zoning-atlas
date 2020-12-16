@@ -5,7 +5,7 @@ import triangle from '../../images/triangleDownGreen.svg';
 const TableOfContents = ({ items }) => {
   const tocItems = items.reduce((array, item) => {
     if (item.frontmatter.toc) {
-      const url = `/reports/0/#${item.frontmatter.section}`;
+      const url = `/reports/1/#${item.frontmatter.section}`;
       array.push((
         <li className="report__list-item" key={item.frontmatter.section}>
           <img src={triangle} className="report__triangle" />
