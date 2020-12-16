@@ -9,12 +9,15 @@ const HighlightBox = () => (
   <section className="highlight-box__wrapper">
     <img src={triangleDownGreen} className="highlight-box__triangle" alt="Decorative triangle" />
     <div>
-      <h2 className="highlight-box__title">Introducting the Zoning Atlas</h2>
+      <h2 className="highlight-box__title">Introduction to the Zoning Atlas</h2>
       <p className="highlight-box__description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Originally identified as one of the top ten &quot;Most Wanted Datasets&quot; in <em>MetroFuture: Making a Greater Boston Region</em>, the MAPC Zoning Atlas is a data product nine years in the making. It is the first regional zoning map since 1999, and the first to include information about multifamily housing, residential density, commercial density, and overlay districts.
       </p>
       <p className="highlight-box__description">
-        Id mundi quando mandamus sit, est vide option accusata et. Sit fugit nostrum et. Scripta periculis ei eam, te pro movet reformidans. Ei qui diceret voluptua luptatum, te dolorum detracto hendrerit sed, ad per offendit consetetur. No vis iuvaret appareat. Vivendum intellegat et qui, ei denique consequuntur vix. No epicuri hendrerit consetetur sit, sit dicta adipiscing ex, in facete detracto deterruisset duo. Scripta periculis ei eam, te pro movet reformidans. Pri posse graeco definitiones cu, id eam populo quaestio adipiscing, usu quod malorum te. Pri viderer tamquam ei. Sed no sumo stet, est ei quodsi feugait liberavisse, in pro quot facete definitiones. Vivendum intellegat et qui, ei denique consequuntur vix. Accusam explicari sed ei. Scripta periculis ei eam, te pro movet reformidans. Pri posse graeco definitiones cu, id eam populo quaestio adipiscing, usu quod malorum te.
+        <em>Introduction to the Zoning Atlas</em> is the first research brief to come from this massive undertaking. It outlines the processes and challenges of collecting and synthesizing 101 municipal zoning codes into one unified resource. Zoning codes can be remarkably complex, and discrepancies in their storage, maintenance, accessibility, and interpretation make creating a regional overview both difficult and necessary to achieve.
+      </p>
+      <p className="highlight-box__description">
+        The Zoning Atlas will always be a work-in-progress, and it will rely on municipal collaboration and community input in order to best serve its purpose. As it continues to grow and develop, we hope it will be useful to municipal staff, researchers, and advocates in their work to build a better Greater Boston.
       </p>
     </div>
     <Link to="/reports/0">
