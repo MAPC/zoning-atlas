@@ -10,9 +10,9 @@ import setLegendColors, { dataNa } from '../../utils/setLegendColors';
 function setSimplifyFactor(zoom) {
   switch (zoom) {
     case 9:
-      return 0.25;
+      return 0.35;
     case 10:
-      return 0.1;
+      return 0.25;
     default:
       return 0;
   }
