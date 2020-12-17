@@ -4,6 +4,7 @@ import {
   useTable, usePagination, useSortBy, useFilters,
 } from 'react-table';
 import { graphql } from 'gatsby';
+import * as d3 from 'd3-format';
 import ReactModal from 'react-modal';
 import { myContext } from '../context/provider';
 import setZoneUse from '../utils/setZoneUse';

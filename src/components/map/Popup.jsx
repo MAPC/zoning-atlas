@@ -28,12 +28,12 @@ function checkEsval(input) {
 
 const ZoningPopup = ({
   latLng, setFormIsOpen, selectedAttr: {
-    muni_name, zo_name, zo_usety, zo_usede, multifam, mnls_eff, pctlotcov, lapdu, mxht_eff, mxdu_eff, dupac_eff, far_eff, far_esval, reviewdate, objectid
+    muni, zo_name, zo_usety, zo_usede, multifam, mnls_eff, pctlotcov, lapdu, mxht_eff, mxdu_eff, dupac_eff, far_eff, far_esval, reviewdate, objectid
   }, setZone,
 }) => (
   <Popup position={latLng}>
     <h3 className="popup__title">
-      <span className="popup__title popup__title--muni">{muni_name}</span>
+      <span className="popup__title popup__title--muni">{muni}</span>
       { zo_name ? <span className="popup__title popup__title--zoname">{zo_name}</span> : '' }
     </h3>
     <hr />
@@ -96,13 +96,12 @@ const ZoningPopup = ({
       </li>
     </ul>
     <button
-    // muni_name, zo_name, zo_usety, zo_usede, multifam, mnls_eff, pctlotcov, lapdu, mxht_eff, mxdu_eff, dupac_eff, far_eff, far_esval, reviewdate, objectid
       type="button"
       className="popup__edit"
       onClick={() => {
         setZone({
           id: objectid,
-          muni: muni_name,
+          muni,
           zoName: zo_name,
           zoUsety: setZoneUse(zo_usety),
           zoUsede: zo_usede,
