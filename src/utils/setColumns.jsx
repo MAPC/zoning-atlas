@@ -61,7 +61,7 @@ const setColumns = [{
   filter: 'numericRange',
   panel: 'lotDetails',
 }, {
-  Header: 'Floor-Area Ratio, Effective',
+  Header: 'Floor Area Ratio, Effective',
   accessor: 'farEff',
   Filter: NumericRangeFilter,
   filter: 'numericRange',

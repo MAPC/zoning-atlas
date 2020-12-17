@@ -1,7 +1,7 @@
 ---
 page: "report1"
 section: "collecting-and-interpreting-zoning-codes"
-title: "Collecting and Interpretting Zoning Codes"
+title: "Collecting and Interpreting Zoning Codes"
 order: 9
 toc: true
 ---

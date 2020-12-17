@@ -29,11 +29,11 @@ Key attributes in the Zoning Atlas are summarized below. More details on how the
 
 **Maximum Building Floors (MAXFLRS):** This field specifies the maximum allowable building floors, or stories. As with the other dimensional regulations, the published value in the Atlas corresponds with the dimensional regulations of the greatest density use. MAXFLRS is populated for approximately 50% of the zones in the Atlas.
 
-**Maximum Dwelling Units (MAXDU):** This field describes the maximum number of dwelling units allowed on a lot by-right. As with the other dimensional regulations, the published value in the Atlas corresponds with the dimensional regulations of the greatest density use. MAXDU is populated for approximately 50% of the zones in the Atlas where residential development is allowed by right.
+**Maximum Dwelling Units (MAXDU):** This field describes the maximum number of dwelling units allowed on a lot by right. As with the other dimensional regulations, the published value in the Atlas corresponds with the dimensional regulations of the greatest density use. MAXDU is populated for approximately 50% of the zones in the Atlas where residential development is allowed by right.
 
 **Dwelling Units per Acre (DUpAC):** This field is an estimate of the maximum allowable housing density in terms of dwelling units per acre. DUpAC is based on actual zoning specifications for approximately 20% of the zones in the Atlas where residential development is allowed by right, and has been estimated for an additional 70% of such zones.
 
-**Floor-area Ratio (FAR):** This field estimates the maximum FAR allowed in a zone by right. It is either reported (based on zoning code) or estimated for approximately 40% of all districts.
+**Floor area Ratio (FAR):** This field estimates the maximum FAR allowed in a zone by right. It is either reported (based on zoning code) or estimated for approximately 40% of all districts.
 
 In the base zoning attribute table, there are actually multiple attributes that correspond to each of the measures described above, including values sourced directly from the zoning code, those that are estimated from other values, and those that are asserted based on analyst interpretation. There are also fields that describe how the final estimate was made and an "effective value" that represents MAPC's best estimate based on the information collected and analysis conducted.
 

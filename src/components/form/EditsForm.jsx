@@ -95,7 +95,7 @@ const EditsForm = ({
             <Input name="maxheight" label="Maximum Height (ft)" setFormValues={setFormValues} formValues={formValues} />
             <Input name="maxdu" label="Maximum Dwelling Units" setFormValues={setFormValues} formValues={formValues} />
             <Input name="dupac" label="Maximum Dwelling Units per Acre" setFormValues={setFormValues} formValues={formValues} />
-            <Input name="far" label="Floor-Area Ratio" setFormValues={setFormValues} formValues={formValues} />
+            <Input name="far" label="Floor Area Ratio" setFormValues={setFormValues} formValues={formValues} />
           </fieldset>
           <Textarea name="gen_coms" label="General comments" setFormValues={setFormValues} formValues={formValues} />
           <button type="submit" className="button edits__button">Submit</button>

@@ -82,7 +82,7 @@ const ZoningPopup = ({
         <span className="popup__datum">{checkValue(dupac_eff)}</span>
       </li>
       <li className="popup__item">
-        <span className="popup__category">Effective Floor-Area Ratio:</span>
+        <span className="popup__category">Effective Floor Area Ratio:</span>
         {' '}
         <span className="popup__datum">
           { checkValue(far_eff) }

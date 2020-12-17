@@ -37,7 +37,7 @@ const callout2 = [{
 
 const callout3 = [{
   title: 'Core Fields',
-  content: ['Residential uses, including allowance of multifamily housing', 'Minimum lot size', 'Dwelling units allowed per acre', 'Maximum height', 'Maximum floor-area-ratio (FAR)'],
+  content: ['Residential uses, including allowance of multifamily housing', 'Minimum lot size', 'Dwelling units allowed per acre', 'Maximum height', 'Maximum floor area ratio (FAR)'],
 }];
 
 const callout4 = [{

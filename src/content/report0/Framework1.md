@@ -12,7 +12,7 @@ For the purposes of our Zoning Atlas, therefore, MAPC defined a basic set of "co
 - Minimum lot size
 - Dwelling units allowed per acre
 - Maximum height
-- Maximum floor-area-ratio (FAR)
+- Maximum floor area ratio (FAR)
 - Whether multifamily housing was a permitted use, and if a special permit was required
 
 For ordinances and bylaws that regulate development using different use and intensity metrics, we had to estimate the desired value based on other fields available in the code. In some cases, we even had to estimate the fields we used to calculate our core fields. (The details of this process are included in the <a href="https://metropolitan-area-planning-counc.gitbook.io/zoning-atlas-appendix/" className="report-section__link">technical appendix</a>.) Where there were multiple uses or intensities allowed, our approach was to code districts according to the densest use allowable without a special permit, in order to provide an 'upper bound' estimate of by-right development potential.
