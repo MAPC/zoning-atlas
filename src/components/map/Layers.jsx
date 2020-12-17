@@ -27,12 +27,12 @@ function setWhere(columns) {
   }
   if (columns[2].filterValue) {
     whereStatements.push(columns[2].filterValue
-      .map((value) => `ZO_USETY_1 = ${zoneUse[value]}`)
+      .map((value) => `zo_usety = ${zoneUse[value]}`)
       .join(' OR '));
   }
   if (columns[4].filterValue) {
     whereStatements.push(columns[4].filterValue
-      .map((value) => `multifam = ${multiFamily[value]}`)
+      .map((value) => `mulfam2 = ${multiFamily[value]}`)
       .join(' OR '));
   }
   if (columns[7].filterValue) {
@@ -70,53 +70,48 @@ const Layers = ({
   return (
     <>
       <FeatureLayer
-        url={zoom < 11 ? 'https://geo.mapc.org/server/rest/services/gisdata/Zoning_2_lyr_v02/MapServer/1' : 'https://geo.mapc.org/server/rest/services/gisdata/Zoning_2_lyr_v02/MapServer/2'}
+        url={zoom < 11 ? 'https://geo.mapc.org/server/rest/services/gisdata/Zoning_Atlas_v01/MapServer/1' : 'https://geo.mapc.org/server/rest/services/gisdata/Zoning_Atlas_v01/MapServer/2'}
         pane="tilePane"
         simplifyFactor={setSimplifyFactor(zoom)}
-        style={{
-          weight: 0.75,
-          fillOpacity: 0.5,
-          opacity: 1,
+        style={(feature) => {
+          let colorRow;
+          if (layerStyle === 'zoUsety') {
+            colorRow = feature.properties.zo_usety
+              ? setLegendColors.zoUsety.find((option) => option.id === feature.properties.zo_usety).color
+              : setLegendColors.zoUsety[4].color;
+          }
+          if (layerStyle === 'multiFam') {
+            colorRow = feature.properties.mulfam2
+              ? setLegendColors.multiFam.find((option) => option.id === feature.properties.mulfam2).color
+              : setLegendColors.multiFam[2].color;
+          }
+          if (layerStyle === 'effMxht') {
+            colorRow = setLegendColors.effMxht.find((option) => feature.properties.mxht_eff >= option.min && feature.properties.mxht_eff < option.max)
+              ? setLegendColors.effMxht.find((option) => feature.properties.mxht_eff >= option.min && feature.properties.mxht_eff < option.max).color
+              : dataNa;
+          }
+          if (layerStyle === 'effMxdu') {
+            colorRow = feature.properties.mxdu_eff
+              ? setLegendColors.effMxdu.find((option) => feature.properties.mxdu_eff >= option.min && feature.properties.mxdu_eff < option.max).color
+              : dataNa;
+          }
+          if (layerStyle === 'effDensity') {
+            colorRow = setLegendColors.effDensity.find((option) => feature.properties.dupac_eff >= option.min && feature.properties.dupac_eff < option.max)
+              ? setLegendColors.effDensity.find((option) => feature.properties.dupac_eff >= option.min && feature.properties.dupac_eff < option.max).color
+              : dataNa;
+          }
+          if (layerStyle === 'effFar') {
+            colorRow = feature.properties.far_eff
+              ? setLegendColors.effFar.find((option) => feature.properties.far_eff >= option.min && feature.properties.far_eff < option.max).color
+              : dataNa;
+          }
+          return {
+            color: colorRow,
+            weight: 0.5,
+            fillOpacity: 0.8,
+            opacity: 1,
+          };
         }}
-        // style={(feature) => {
-        //   let colorRow;
-        //   if (layerStyle === 'zoUsety') {
-        //     colorRow = feature.properties.zo_usety
-        //       ? setLegendColors.zoUsety.find((option) => option.id === feature.properties.zo_usety).color
-        //       : setLegendColors.zoUsety[4].color;
-        //   }
-        //   if (layerStyle === 'multiFam') {
-        //     colorRow = feature.properties.multifam
-        //       ? setLegendColors.multiFam.find((option) => option.id === feature.properties.multifam).color
-        //       : setLegendColors.multiFam[2].color;
-        //   }
-        //   if (layerStyle === 'effMxht') {
-        //     colorRow = setLegendColors.effMxht.find((option) => feature.properties.mxht_eff >= option.min && feature.properties.mxht_eff < option.max)
-        //       ? setLegendColors.effMxht.find((option) => feature.properties.mxht_eff >= option.min && feature.properties.mxht_eff < option.max).color
-        //       : dataNa;
-        //   }
-        //   if (layerStyle === 'effMxdu') {
-        //     colorRow = feature.properties.mxdu_eff
-        //       ? setLegendColors.effMxdu.find((option) => feature.properties.mxdu_eff >= option.min && feature.properties.mxdu_eff < option.max).color
-        //       : dataNa;
-        //   }
-        //   if (layerStyle === 'effDensity') {
-        //     colorRow = setLegendColors.effDensity.find((option) => feature.properties.dupac_eff >= option.min && feature.properties.dupac_eff < option.max)
-        //       ? setLegendColors.effDensity.find((option) => feature.properties.dupac_eff >= option.min && feature.properties.dupac_eff < option.max).color
-        //       : dataNa;
-        //   }
-        //   if (layerStyle === 'effFar') {
-        //     colorRow = feature.properties.far_eff
-        //       ? setLegendColors.effFar.find((option) => feature.properties.far_eff >= option.min && feature.properties.far_eff < option.max).color
-        //       : dataNa;
-        //   }
-        //   return {
-        //     color: colorRow,
-        //     weight: 0.5,
-        //     fillOpacity: 0.8,
-        //     opacity: 1,
-        //   };
-        // }}
         where={setWhere(reactTable.columns)}
         eventHandlers={{
           click: (e) => {
