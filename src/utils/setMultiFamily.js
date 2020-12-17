@@ -7,7 +7,7 @@ export default function setMultifamily(id) {
     case 2:
       return 'By right';
     default:
-      return new Error();
+      return 'No';
   }
 }
 
