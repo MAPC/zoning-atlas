@@ -16,7 +16,7 @@ const Header = () => {
             <li className="navigation__item">
               <Link
                 to="/"
-                className={urlPath === '/' ? 'navigation__link navigation__link--active' : 'navigation__link'}
+                className={urlPath === '/' || (!urlPath.includes('reports') && !urlPath.includes('about')) ? 'navigation__link navigation__link--active' : 'navigation__link'}
               >
                 Data
               </Link>

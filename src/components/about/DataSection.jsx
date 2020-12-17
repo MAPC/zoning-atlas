@@ -12,7 +12,7 @@ const DataSection = () => (
     <p>
       MAPC has drafted an
       {' '}
-      <Link to="/reports/1">introductory report</Link>
+      <Link to="/reports/1" className="external-site__link">introductory report</Link>
       {' '}
       to communicate the history, creation, and collection of zoning data. This report goes into detail about the choice made by MAPC to choose or calculate data comparable across municipalities. Additionally, more detailed information about the Zoning Atlas can be found in the
       {' '}
