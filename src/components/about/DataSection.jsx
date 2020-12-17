@@ -5,9 +5,9 @@ import AccordionField from './AccordionField';
 
 const DataSection = () => (
   <section className="about__section">
-    <AccordionField title="Data calculations and caveats">
+    <AccordionField title="Data sources and technical methods">
     <p>
-      Since there is no central repository for municipal zoning data, MAPC contacted representatives of every city and town in the region to construct the Zoning Atlas. With this manual effort of non-standardized data, limitations and caveats are important to note.
+      Since there is no central repository for municipal zoning data, MAPC contacted representatives of every city and town in the region to construct the Zoning Atlas.  With this manual effort to collect non-standardized data, limitations and caveats are important to note.
     </p>
     <p>
       MAPC has drafted an
@@ -27,7 +27,7 @@ const DataSection = () => (
     </AccordionField>
     <AccordionField title="Where can I download the data?">
       <p>
-        You can download both spatial (.shp) and tabular (.csv) version of the data on this site on the
+        You can download both spatial (.shp) and tabular (.csv) versions of the data on this site on the
         {' '}
         <a className="external-site__link" href="https://datacommon.mapc.org/">MAPC DataCommon</a>
         .

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
-import Airtable from 'airtable';
+import axios from 'axios';
 import { X } from 'phosphor-react';
 import DropdownMenu from './DropdownMenu';
 import Input from './Input';
@@ -11,17 +11,17 @@ import { zoneUse } from '../../utils/setZoneUse';
 
 function submitEdit(e, formValues, setSuccess) {
   e.preventDefault();
-  const base = new Airtable({
-    apiKey: process.env.GATSBY_AIRTABLE_API_KEY,
-  }).base(process.env.GATSBY_AIRTABLE_API_BASE);
-  base('Edits').create([{
-    fields: formValues,
-  }], (err) => {
-    if (err) {
-      setSuccess(false);
-      console.error(err);
-    } else {
+  axios({
+    method: 'post',
+    url: 'https://zoning-atlas-api.mapc.org/form_submissions',
+    headers: { 'Content-Type': 'application/json', charset: 'utf-8' },
+    data: formValues,
+  }).then((response) => {
+    if (response.status >= 200 && response.status < 300) {
       setSuccess(true);
+    } else {
+      setSuccess(false);
+      console.log(err);
     }
   });
 }
@@ -37,8 +37,8 @@ const EditsForm = ({
     zo_usede: zoUsede,
     multifam: multiFamily[multifam].toString(),
     id,
-    view,
-    isResolved: 'false',
+    view_src: view,
+    resolved: false,
   });
   const [formSubmitted, setFormSubmit] = useState();
   const [success, setSuccess] = useState();
@@ -97,7 +97,7 @@ const EditsForm = ({
             <Input name="dupac" label="Maximum Dwelling Units per Acre" setFormValues={setFormValues} formValues={formValues} />
             <Input name="far" label="Floor-Area Ratio" setFormValues={setFormValues} formValues={formValues} />
           </fieldset>
-          <Textarea name="gencomments" label="General comments" setFormValues={setFormValues} formValues={formValues} />
+          <Textarea name="gen_coms" label="General comments" setFormValues={setFormValues} formValues={formValues} />
           <button type="submit" className="button edits__button">Submit</button>
           {formSubmitted ? <ResponseMessage success={success} /> : ''}
         </form>

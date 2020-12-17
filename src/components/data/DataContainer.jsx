@@ -6,10 +6,14 @@ import LeafletMap from '../map/LeafletMap';
 import EditsForm from '../form/EditsForm';
 
 const DataContainer = ({
-  reactTable, view
+  reactTable, view,
 }) => {
   const [formIsOpen, setFormIsOpen] = useState(false);
   const [selectedZone, setZone] = useState();
+  const viewBool = {
+    spatial: 0,
+    tabular: 1,
+  };
   return (
     <div className="data-container">
       <TableFilters
@@ -41,7 +45,7 @@ const DataContainer = ({
         <EditsForm
           setFormIsOpen={setFormIsOpen}
           selectedZone={selectedZone}
-          view={view}
+          view={viewBool[view]}
         />
       </ReactModal>
     </div>
