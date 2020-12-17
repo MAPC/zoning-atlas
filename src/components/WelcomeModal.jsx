@@ -15,7 +15,7 @@ const WelcomeModal = ({ closeModal }) => (
       </button>
     </header>
     <p>
-      Zoning Atlas is the Metropolitan Area Planning Council’s collaborative inventory and interpretation of municipal zoning data in Massachusetts. This dynamic online resource will improve over time as municipal staff and other contributors refine the data and provide updates.
+      Zoning Atlas is the Metropolitan Area Planning Council's collaborative inventory and interpretation of municipal zoning data in Massachusetts. This dynamic online resource will improve over time as municipal staff and other contributors refine the data and provide updates.
     </p>
     <div className="welcome-modal__actions-wrapper">
       <Link to="/about" className="welcome-modal__link" onClick={() => closeModal(false)}>Learn more</Link>

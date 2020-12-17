@@ -20,7 +20,7 @@ const FeedbackSection = () => (
     </AccordionField>
     <AccordionField title="What should I do if see something I think is off or have general feedback?">
       <p>
-        The Zoning Atlas is an open-source project, and your feedback and suggestions are always welcome. If you run into a technical issue while using the site, please email MAPC’s Digital Services team at
+        The Zoning Atlas is an open-source project, and your feedback and suggestions are always welcome. If you run into a technical issue while using the site, please email MAPC's Digital Services team at
         {' '}
         <a href="mailto:digitalservices@mapc.org" className="external-site__link">digitalservices@mapc.org</a>
         . Additionally, you can log issues and feature requests directly into our

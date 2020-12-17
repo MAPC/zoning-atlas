@@ -5,7 +5,7 @@ title: "Abstract"
 order: 1
 toc: false
 ---
-Zoning is the DNA of a community’s land use. It doesn’t determine everything, but it's an underlying, coded blueprint for change, or sometimes the lack thereof. It affects a community’s housing options, climate resilience, economy, public health, equity, transportation, emissions, and more.
+Zoning is the DNA of a community's land use. It doesn't determine everything, but it's an underlying, coded blueprint for change, or sometimes the lack thereof. It affects a community's housing options, climate resilience, economy, public health, equity, transportation, emissions, and more.
 
 Of course, these issues transcend local borders. In this sense, a city or town's zoning not only shapes the municipality's own future, but also that of its neighbors, and its neighbors' neighbors. For that reason, Greater Boston's larger challenges demand an understanding of land use regulations on a regional basis.
 
