@@ -22,7 +22,6 @@ function SearchView({
     });
     return [...options.values()];
   }, [id, preFilteredRows]);
-  console.log(options)
   return (
     <>
       <input className="filters__search" type="text" placeholder={searchText} onChange={(e) => setSearch(e.target.value.toLowerCase())} />

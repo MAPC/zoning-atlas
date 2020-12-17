@@ -5,8 +5,9 @@ const ExportMenu = ({ view, setView }) => (
   <aside className="export-menu__wrapper">
     <span className="data-options__title export-menu__title">Export</span>
     <div className="export-menu__options-wrapper">
-      <button className="button" type="button">.shp</button>
-      <button className="button" type="button">.csv</button>
+      <a href="https://datacommon.mapc.org/browser/datasets/421" className="button button--link">
+        csv / shp
+      </a>
       <button
         className="button button--icon"
         type="button"

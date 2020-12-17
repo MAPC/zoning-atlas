@@ -29,7 +29,7 @@ const DataSection = () => (
       <p>
         You can download both spatial (.shp) and tabular (.csv) versions of the data on this site on the
         {' '}
-        <a className="external-site__link" href="https://datacommon.mapc.org/">MAPC DataCommon</a>
+        <a className="external-site__link" href="https://datacommon.mapc.org/browser/datasets/421">MAPC DataCommon</a>
         .
       </p>
     </AccordionField>
