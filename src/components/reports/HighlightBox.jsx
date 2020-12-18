@@ -17,7 +17,7 @@ const HighlightBox = () => (
         <Link to="/reports/1" className="report-section__link"><em>Introduction to the Zoning Atlas</em></Link> is the first research brief to come from this massive undertaking. It outlines the processes and challenges of collecting and synthesizing 101 municipal zoning codes into one unified resource. Zoning codes can be remarkably complex, and discrepancies in their storage, maintenance, accessibility, and interpretation make creating a regional overview both difficult and necessary to achieve.
       </p>
       <p className="highlight-box__description">
-        The Zoning Atlas will always be a work-in-progress, and it will rely on municipal collaboration and community input in order to best serve its purpose. As it continues to grow and develop, we hope it will be useful to municipal staff, researchers, and advocates in their work to build a better Greater Boston.
+        The Zoning Atlas will always be a work in progress, and it will rely on municipal collaboration and community input in order to best serve its purpose. As it continues to grow and develop, we hope it will be useful to municipal staff, researchers, and advocates in their work to build a better Greater Boston.
       </p>
     </div>
     <Link to="/reports/1">
