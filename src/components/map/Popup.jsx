@@ -6,14 +6,14 @@ import setZoneUse from '../../utils/setZoneUse';
 import setMultifamily from '../../utils/setMultiFamily';
 
 function checkValue(input) {
-  if (input) {
+  if (input !== null) {
     return input;
   }
   return 'Data not available';
 }
 
 function setSquareFeet(input) {
-  if (input) {
+  if (input !== null) {
     return `${d3.format(',')(input)} sf`;
   }
   return 'Data not available';
@@ -28,7 +28,7 @@ function checkEsval(input) {
 
 const ZoningPopup = ({
   latLng, setFormIsOpen, selectedAttr: {
-    muni, zo_name, zo_usety, zo_usede, multifam, mnls_eff, pctlotcov, lapdu, mxht_eff, mxdu_eff, dupac_eff, far_eff, far_esval, reviewdate, objectid
+    muni, zo_name, zo_usety, zo_usede, mulfam2, mnls_eff, plc_eff, lapdu, mxht_eff, mxdu_eff, dupac_eff, far_eff, far_esval, spatitalrec, objectid
   }, setZone,
 }) => (
   <Popup position={latLng}>
@@ -49,7 +49,7 @@ const ZoningPopup = ({
       <li className="popup__item">
         <span className="popup__category">Multifamily Housing (2+ Units):</span>
         {' '}
-        <span className="popup__datum">{checkValue(setMultifamily(multifam))}</span>
+        <span className="popup__datum">{checkValue(setMultifamily(mulfam2))}</span>
       </li>
       <li className="popup__item">
         <span className="popup__category">Effective Minimum Lot Size:</span>
@@ -59,7 +59,7 @@ const ZoningPopup = ({
       <li className="popup__item">
         <span className="popup__category">Effective Percent Lot Coverage:</span>
         {' '}
-        <span className="popup__datum">{checkValue(pctlotcov)}</span>
+        <span className="popup__datum">{checkValue(plc_eff * 100)}</span>
       </li>
       <li className="popup__item">
         <span className="popup__category">Minimum Lot Area per Dwelling Unit:</span>
@@ -86,13 +86,13 @@ const ZoningPopup = ({
         {' '}
         <span className="popup__datum">
           { checkValue(far_eff) }
-          { checkEsval(far_esval) }
+          {/* { checkEsval(far_esval) } */}
         </span>
       </li>
       <li className="popup__item">
         <span className="popup__category">Spatial data received </span>
         {' '}
-        <span className="popup__datum">{reviewdate}</span>
+        <span className="popup__datum">{spatitalrec}</span>
       </li>
     </ul>
     <button
@@ -105,10 +105,10 @@ const ZoningPopup = ({
           zoName: zo_name,
           zoUsety: setZoneUse(zo_usety),
           zoUsede: zo_usede,
-          multifam: setMultifamily(multifam),
+          multifam: setMultifamily(mulfam2),
           mnlsEff: mnls_eff,
-          plcEff: pctlotcov,
-          lapdu: lapdu,
+          plcEff: plc_eff,
+          lapdu,
           mxhtEff: mxht_eff,
           mxduEff: mxdu_eff,
           dUpAcEff: dupac_eff,
