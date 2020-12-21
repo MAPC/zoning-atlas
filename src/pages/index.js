@@ -48,7 +48,7 @@ export default function Tabular({ data }) {
     dUpAcEsval: row.dupacEsval,
     farEff: row.farEff,
     farEsval: row.farEsval,
-    spatialrec: row.spatitalrec,
+    spatialrec: row.spatialrec,
   })), [data.postgres.allZoningAtlasesList]);
 
   const columns = useMemo(() => setColumns, []);
@@ -130,7 +130,7 @@ export const data = graphql`
         dupacEsval
         farEff
         farEsval
-        spatitalrec
+        spatialrec
       }
     }
   }
