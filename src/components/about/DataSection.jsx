@@ -27,10 +27,11 @@ const DataSection = () => (
     </AccordionField>
     <AccordionField title="Where can I download the data?">
       <p>
-        You can download both spatial (.shp) and tabular (.csv) versions of the data on this site on the
-        {' '}
-        <a className="external-site__link" href="https://datacommon.mapc.org/browser/datasets/421">MAPC DataCommon</a>
-        .
+        You can download both spatial and tabular data below:
+        <ul>
+          <li><a href="https://mapc365.sharepoint.com/:u:/s/DataServicesSP/EVZjRVVEcotIt7rlqWFTp5EBOqvbwavvGTCoGMZ8K2lQtw?e=4M8kyP">Spatial (.shp)</a></li>
+          <li><a href="https://mapc365.sharepoint.com/:x:/s/DataServicesSP/Efonrnmw_kdMhmG3Dw2BkTcBIpe2sC_2ADWTWfUjOs4JhQ?e=K65BCE">Tabular (.csv)</a></li>
+        </ul>
       </p>
     </AccordionField>
   </section>
