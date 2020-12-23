@@ -18,6 +18,21 @@ function setSimplifyFactor(zoom) {
   }
 }
 
+function setPrecision(zoom) {
+  switch (zoom) {
+    case 9:
+      return 3;
+    case 10:
+      return 3;
+    case 11:
+      return 4;
+    case 12:
+      return 4;
+    default:
+      return 5;
+  }
+}
+
 function setWhere(columns) {
   const whereStatements = [];
   if (columns[0].filterValue) {
@@ -74,6 +89,7 @@ const Layers = ({
         // url={zoom < 11 ? 'https://geo.mapc.org/server/rest/services/gisdata/Zoning_Atlas_v01/MapServer/1' : 'https://geo.mapc.org/server/rest/services/gisdata/Zoning_Atlas_v01/MapServer/2'}
         pane="tilePane"
         simplifyFactor={setSimplifyFactor(zoom)}
+        // precision={setPrecision(zoom)}
         style={(feature) => {
           let colorRow;
           if (layerStyle === 'zoUsety') {

@@ -7,7 +7,7 @@ const ExportMenu = ({ view, setView }) => (
       <a href="https://mapc365.sharepoint.com/:x:/s/DataServicesSP/Efonrnmw_kdMhmG3Dw2BkTcBIpe2sC_2ADWTWfUjOs4JhQ?e=K65BCE" className="button button--link">
         .csv
       </a>
-      <a href="https://mapc365.sharepoint.com/:u:/s/DataServicesSP/EVZjRVVEcotIt7rlqWFTp5EBOqvbwavvGTCoGMZ8K2lQtw?e=4M8kyP" className="button button--link">
+      <a href="https://mapc365.sharepoint.com/sites/DataServicesSP/Shared%20Documents/Forms/AllItems.aspx?originalPath=aHR0cHM6Ly9tYXBjMzY1LnNoYXJlcG9pbnQuY29tLzpmOi9zL0RhdGFTZXJ2aWNlc1NQL0VyS2tYU0xIX2lCT2xEaEpyVFhsZHJZQklJWjRaWGU0Qmt3N095VmFwVnBYM1E%5FcnRpbWU9ekZlV3AzeW4yRWc&viewid=8aabc982%2D537d%2D48a6%2D89f7%2D8d8f0e9b716c&id=%2Fsites%2FDataServicesSP%2FShared%20Documents%2FZoning%20Database%2FShapefiles" className="button button--link">
         .shp
       </a>
     </div>
