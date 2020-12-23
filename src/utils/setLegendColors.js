@@ -29,7 +29,7 @@ const legendEntries = {
     { color: dataNa, value: 'Data n/a' },
   ],
   effMxdu: [
-    { color: scale[0], value: '1–2', min: 1, max: 2 },
+    { color: scale[0], value: '0.5–2', min: .5, max: 2 },
     { color: scale[1], value: '2–3', min: 2, max: 3 },
     { color: scale[2], value: '3–5', min: 3, max: 5 },
     { color: scale[3], value: '5–10', min: 5, max: 10 },

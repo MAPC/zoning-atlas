@@ -10,7 +10,7 @@ import setLegendColors, { dataNa } from '../../utils/setLegendColors';
 function setSimplifyFactor(zoom) {
   switch (zoom) {
     case 9:
-      return 0.35;
+      return 0.45;
     case 10:
       return 0.25;
     default:
@@ -70,7 +70,8 @@ const Layers = ({
   return (
     <>
       <FeatureLayer
-        url={zoom < 11 ? 'https://geo.mapc.org/server/rest/services/gisdata/Zoning_Atlas_v01/MapServer/1' : 'https://geo.mapc.org/server/rest/services/gisdata/Zoning_Atlas_v01/MapServer/2'}
+        url="https://geo.mapc.org/server/rest/services/gisdata/Zoning_Atlas_v01/MapServer/2"
+        // url={zoom < 11 ? 'https://geo.mapc.org/server/rest/services/gisdata/Zoning_Atlas_v01/MapServer/1' : 'https://geo.mapc.org/server/rest/services/gisdata/Zoning_Atlas_v01/MapServer/2'}
         pane="tilePane"
         simplifyFactor={setSimplifyFactor(zoom)}
         style={(feature) => {
@@ -86,6 +87,7 @@ const Layers = ({
               : setLegendColors.multiFam[2].color;
           }
           if (layerStyle === 'effMxht') {
+            // console.log(feature.properties.mxht_eff)
             colorRow = setLegendColors.effMxht.find((option) => feature.properties.mxht_eff >= option.min && feature.properties.mxht_eff < option.max)
               ? setLegendColors.effMxht.find((option) => feature.properties.mxht_eff >= option.min && feature.properties.mxht_eff < option.max).color
               : dataNa;
