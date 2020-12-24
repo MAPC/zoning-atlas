@@ -36,7 +36,9 @@ const EditsForm = ({
     zo_usety: zoneUse[zoUsety].toString(),
     zo_usede: zoUsede,
     multifam: multiFamily[multifam].toString(),
-    id,
+    zone_objectid: view === 0 ? id : null,
+    zone_rowid: view === 1 ? id : null,
+    municipality: muni,
     view_src: view,
     resolved: false,
   });

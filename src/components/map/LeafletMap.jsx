@@ -18,8 +18,6 @@ const LeafletMap = ({ reactTable, setFormIsOpen, setZone }) => {
       <MapContainer
         center={[42.3317, -71.05]}
         zoom={10}
-        // center={[42.3317, -71.05]}
-        // zoom={9}
         maxZoom={14}
         minZoom={9}
         zoomControl={false}
