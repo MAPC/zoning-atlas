@@ -9,6 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import facebook from '../images/fb-social-image.png';
 
 function SEO({ description, lang, meta, title, summary }) {
   const { site } = useStaticQuery(
@@ -69,7 +70,10 @@ function SEO({ description, lang, meta, title, summary }) {
           name: 'twitter:description',
           content: metaDescription,
         },
-        { name: 'og:image', content: 'images/fb-social-image.png' },
+        {
+          name: 'og:image',
+          content: `https://zoningatlas.mapc.org/${facebook}`,
+        },
       ].concat(meta)}
     />
   );
@@ -79,6 +83,7 @@ SEO.defaultProps = {
   lang: 'en',
   meta: [],
   description: '',
+  summary: '',
 };
 
 SEO.propTypes = {
@@ -86,7 +91,7 @@ SEO.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
-  title: PropTypes.string,
+  summary: PropTypes.string,
 };
 
 export default SEO;
