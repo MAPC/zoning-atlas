@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Textarea = ({ name, label, defaultValue, setFormValues, formValues }) => (
+const Textarea = ({
+  name, label, defaultValue, setFormValues, formValues,
+}) => (
   <label htmlFor={name} className="edits__row edits__row--multi-line">
     {label}
     <textarea

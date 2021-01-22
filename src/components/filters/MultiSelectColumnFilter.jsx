@@ -16,18 +16,27 @@ function MultiSelectColumnFilter({ column }) {
   return (
     <>
       <div className="filters__views">
-        <button className={setClasses(subview, 'search')} onClick={() => setSubview('search')} type="button">
-          <MagnifyingGlass size={'1.5rem'} weight="bold" />
+        <button
+          className={setClasses(subview, 'search')}
+          onClick={() => setSubview('search')}
+          type="button"
+        >
+          <MagnifyingGlass size="1.5rem" weight="bold" />
         </button>
-        <button className={setClasses(subview, 'selected')} onClick={() => setSubview('selected')} type="button">
-          <CheckSquareOffset size={'1.5rem'} weight="bold" />
-          {' '}
-          |
-          {' '}
+        <button
+          className={setClasses(subview, 'selected')}
+          onClick={() => setSubview('selected')}
+          type="button"
+        >
+          <CheckSquareOffset size="1.5rem" weight="bold" /> |{' '}
           {column.filterValue ? column.filterValue.length : 0}
         </button>
       </div>
-      {subview === 'search' ? <SearchView column={column} /> : <ViewCurrentFilters column={column} />}
+      {subview === 'search' ? (
+        <SearchView column={column} />
+      ) : (
+        <ViewCurrentFilters column={column} />
+      )}
     </>
   );
 }

@@ -8,59 +8,55 @@ const Table = ({
   page,
   prepareRow,
   setFormIsOpen,
-  setZone
+  setZone,
 }) => (
   <div className="table__wrapper">
     <table {...getTableProps()} className="table">
       <thead>
-        {
-          headerGroups.map((headerGroup) => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              <th className="table__header table__header--edit">
-                Edit
-                <i className="fas fa-external-link-alt icon" />
-              </th>
-              {headerGroup.headers.map((column) => <TableHeader column={column} key={column.id} />)}
-            </tr>
-          ))
-  }
+        {headerGroups.map((headerGroup) => (
+          <tr {...headerGroup.getHeaderGroupProps()}>
+            <th className="table__header table__header--edit">
+              Edit
+              <i className="fas fa-external-link-alt icon" />
+            </th>
+            {headerGroup.headers.map((column) => (
+              <TableHeader column={column} key={column.id} />
+            ))}
+          </tr>
+        ))}
       </thead>
       <tbody {...getTableBodyProps()}>
-        {
-          page.map((row) => {
-            prepareRow(row);
-            return (
-              <tr {...row.getRowProps()} className="row" key={`row-${row.id}`}>
-                <td className="cell">
-                  <div
-                    className="icon__wrapper"
-                    role="button"
-                    onClick={() => {
+        {page.map((row) => {
+          prepareRow(row);
+          return (
+            <tr {...row.getRowProps()} className="row" key={`row-${row.id}`}>
+              <td className="cell">
+                <div
+                  className="icon__wrapper"
+                  role="button"
+                  onClick={() => {
+                    setFormIsOpen(true);
+                    setZone(row.values);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
                       setFormIsOpen(true);
                       setZone(row.values);
-                    }}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter') {
-                        setFormIsOpen(true);
-                        setZone(row.values);
-                      }
-                    }}
-                    tabIndex="0"
-                  >
-                    <i className="fas fa-edit icon icon__edit" />
-                  </div>
+                    }
+                  }}
+                  tabIndex="0"
+                >
+                  <i className="fas fa-edit icon icon__edit" />
+                </div>
+              </td>
+              {row.cells.map((cell) => (
+                <td {...cell.getCellProps()} className="cell">
+                  {cell.render('Cell')}
                 </td>
-                {
-                row.cells.map((cell) => (
-                  <td {...cell.getCellProps()} className="cell">
-                    {cell.render('Cell')}
-                  </td>
-                ))
-                }
-              </tr>
-            );
-          })
-  }
+              ))}
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   </div>

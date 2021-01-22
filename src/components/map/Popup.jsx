@@ -27,71 +27,90 @@ function checkEsval(input) {
 }
 
 const ZoningPopup = ({
-  latLng, setFormIsOpen, selectedAttr: {
-    muni, zo_name, zo_usety, zo_usede, mulfam2, mnls_eff, plc_eff, lapdu, mxht_eff, mxdu_eff, dupac_eff, far_eff, far_esval, spatitalrec, OBJECTID
-  }, setZone,
+  latLng,
+  setFormIsOpen,
+  selectedAttr: {
+    muni,
+    zo_name,
+    zo_usety,
+    zo_usede,
+    mulfam2,
+    mnls_eff,
+    plc_eff,
+    lapdu,
+    mxht_eff,
+    mxdu_eff,
+    dupac_eff,
+    far_eff,
+    far_esval,
+    spatitalrec,
+    OBJECTID,
+  },
+  setZone,
 }) => (
   <Popup position={latLng}>
     <h3 className="popup__title">
       <span className="popup__title popup__title--muni">{muni}</span>
-      { zo_name ? <span className="popup__title popup__title--zoname">{zo_name}</span> : '' }
+      {zo_name ? (
+        <span className="popup__title popup__title--zoname">{zo_name}</span>
+      ) : (
+        ''
+      )}
     </h3>
     <hr />
     <ul className="popup__list">
       <li className="popup__item">
-        <span className="popup__category">Zone Use:</span>
-        {' '}
+        <span className="popup__category">Zone Use:</span>{' '}
         <span className="popup__datum">
           {setZoneUse(zo_usety)}
           {zo_usede && zo_usede !== ' ' ? ` (${zo_usede})` : ''}
         </span>
       </li>
       <li className="popup__item">
-        <span className="popup__category">Multifamily Housing (2+ Units):</span>
-        {' '}
-        <span className="popup__datum">{checkValue(setMultifamily(mulfam2))}</span>
+        <span className="popup__category">Multifamily Housing (2+ Units):</span>{' '}
+        <span className="popup__datum">
+          {checkValue(setMultifamily(mulfam2))}
+        </span>
       </li>
       <li className="popup__item">
-        <span className="popup__category">Effective Minimum Lot Size:</span>
-        {' '}
+        <span className="popup__category">Effective Minimum Lot Size:</span>{' '}
         <span className="popup__datum">{setSquareFeet(mnls_eff)}</span>
       </li>
       <li className="popup__item">
-        <span className="popup__category">Effective Percent Lot Coverage:</span>
-        {' '}
+        <span className="popup__category">Effective Percent Lot Coverage:</span>{' '}
         <span className="popup__datum">{checkValue(plc_eff * 100)}</span>
       </li>
       <li className="popup__item">
-        <span className="popup__category">Minimum Lot Area per Dwelling Unit:</span>
-        {' '}
+        <span className="popup__category">
+          Minimum Lot Area per Dwelling Unit:
+        </span>{' '}
         <span className="popup__datum">{setSquareFeet(lapdu)}</span>
       </li>
       <li className="popup__item">
-        <span className="popup__category">Effective Maximum Height:</span>
-        {' '}
+        <span className="popup__category">Effective Maximum Height:</span>{' '}
         <span className="popup__datum">{setSquareFeet(mxht_eff)}</span>
       </li>
       <li className="popup__item">
-        <span className="popup__category">Effective Maximum Dwelling Units:</span>
-        {' '}
+        <span className="popup__category">
+          Effective Maximum Dwelling Units:
+        </span>{' '}
         <span className="popup__datum">{checkValue(mxdu_eff)}</span>
       </li>
       <li className="popup__item">
-        <span className="popup__category">Effective Maximum Dwelling Units per Acre:</span>
-        {' '}
+        <span className="popup__category">
+          Effective Maximum Dwelling Units per Acre:
+        </span>{' '}
         <span className="popup__datum">{checkValue(dupac_eff)}</span>
       </li>
       <li className="popup__item">
-        <span className="popup__category">Effective Floor Area Ratio:</span>
-        {' '}
+        <span className="popup__category">Effective Floor Area Ratio:</span>{' '}
         <span className="popup__datum">
-          { checkValue(far_eff) }
+          {checkValue(far_eff)}
           {/* { checkEsval(far_esval) } */}
         </span>
       </li>
       <li className="popup__item">
-        <span className="popup__category">Spatial data received </span>
-        {' '}
+        <span className="popup__category">Spatial data received </span>{' '}
         <span className="popup__datum">{spatitalrec}</span>
       </li>
     </ul>
@@ -117,9 +136,7 @@ const ZoningPopup = ({
         setFormIsOpen(true);
       }}
     >
-      Submit an edit
-      {' '}
-      <i className="fas fa-external-link-alt icon" />
+      Submit an edit <i className="fas fa-external-link-alt icon" />
     </button>
   </Popup>
 );

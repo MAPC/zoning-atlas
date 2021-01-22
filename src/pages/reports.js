@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
@@ -11,10 +10,7 @@ import report3 from '../images/report3.png';
 
 const Reports = ({ data }) => {
   const externalSites = data.allMarkdownRemark.nodes.map((node) => (
-    <ExternalSiteCell
-      body={node.html}
-      key={node.id}
-    />
+    <ExternalSiteCell body={node.html} key={node.id} />
   ));
   return (
     <Layout title="Reports - MAPC Zoning Atlas">
@@ -49,9 +45,7 @@ const Reports = ({ data }) => {
             </a>
           </section>
           <h2>Find and Download Data on Housing in the Region</h2>
-          <section className="external-site__grid">
-            {externalSites}
-          </section>
+          <section className="external-site__grid">{externalSites}</section>
         </div>
       </main>
     </Layout>
@@ -60,12 +54,12 @@ const Reports = ({ data }) => {
 
 export default Reports;
 export const data = graphql`
-query {
-  allMarkdownRemark(filter: {frontmatter: {page: {in: "Reports"}}}) {
-    nodes {
-      html
-      id
+  query {
+    allMarkdownRemark(filter: { frontmatter: { page: { in: "Reports" } } }) {
+      nodes {
+        html
+        id
+      }
     }
   }
-}
 `;

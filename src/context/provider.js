@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-filename-extension */
 import React, { useState, useEffect } from 'react';
 import ReactModal from 'react-modal';
 
@@ -11,18 +10,15 @@ const Provider = (props) => {
   }, []);
 
   return (
-    <myContext.Provider value={{
-      welcomeIsOpen,
-      changeWelcomeIsOpen: () => setWelcomeIsOpen(!welcomeIsOpen),
-    }}
+    <myContext.Provider
+      value={{
+        welcomeIsOpen,
+        changeWelcomeIsOpen: () => setWelcomeIsOpen(!welcomeIsOpen),
+      }}
     >
       {props.children}
     </myContext.Provider>
   );
 };
 
-export default ({ element }) => (
-  <Provider>
-    {element}
-  </Provider>
-);
+export default ({ element }) => <Provider>{element}</Provider>;

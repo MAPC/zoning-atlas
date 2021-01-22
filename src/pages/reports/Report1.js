@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../../components/Layout';
@@ -22,28 +21,54 @@ import Recommendations2 from '../../images/Recommendations2.png';
 import Recommendations3 from '../../images/Crossing at Main Street with new housing.png';
 import Recommendations4 from '../../images/Public facilities feedback - Copy.png';
 
-const callout1 = [{
-  title: 'Authors',
-  content: ['Tim Reardon, Director of Data Services', 'Jessie Partridge Guerrero, Research Manager', 'Lily Perkins-High, Analytical Services Manager', 'Editor: Karen Adelman, Senior Communications Strategist'],
-}];
+const callout1 = [
+  {
+    title: 'Authors',
+    content: [
+      'Tim Reardon, Director of Data Services',
+      'Jessie Partridge Guerrero, Research Manager',
+      'Lily Perkins-High, Analytical Services Manager',
+      'Editor: Karen Adelman, Senior Communications Strategist',
+    ],
+  },
+];
 
-const callout2 = [{
-  title: 'Two elements to Municipal Zoning',
-  content: ['Zoning Map', 'Municipality\'s Zoning Bylaws'],
-}, {
-  title: 'Two types of Districts',
-  content: ['Base Zoning Districts', 'Overlay Districts'],
-}];
+const callout2 = [
+  {
+    title: 'Two elements to Municipal Zoning',
+    content: ['Zoning Map', "Municipality's Zoning Bylaws"],
+  },
+  {
+    title: 'Two types of Districts',
+    content: ['Base Zoning Districts', 'Overlay Districts'],
+  },
+];
 
-const callout3 = [{
-  title: 'Core Fields',
-  content: ['Residential uses, including allowance of multifamily housing', 'Minimum lot size', 'Dwelling units allowed per acre', 'Maximum height', 'Maximum floor area ratio (FAR)'],
-}];
+const callout3 = [
+  {
+    title: 'Core Fields',
+    content: [
+      'Residential uses, including allowance of multifamily housing',
+      'Minimum lot size',
+      'Dwelling units allowed per acre',
+      'Maximum height',
+      'Maximum floor area ratio (FAR)',
+    ],
+  },
+];
 
-const callout4 = [{
-  title: 'Attribute Table',
-  content: ['Identifying information', 'Use Information', 'Dimensional regulations', 'Text fields', 'Metadata'],
-}];
+const callout4 = [
+  {
+    title: 'Attribute Table',
+    content: [
+      'Identifying information',
+      'Use Information',
+      'Dimensional regulations',
+      'Text fields',
+      'Metadata',
+    ],
+  },
+];
 
 const Report1 = ({ data }) => {
   const sections = data.allMarkdownRemark.nodes;
@@ -53,11 +78,17 @@ const Report1 = ({ data }) => {
         <Header items={sections} />
         <About content={sections[0]} />
         <section className="report__introduction">
-          <RightCalloutSection content={sections[1]} calloutContent={callout1} />
+          <RightCalloutSection
+            content={sections[1]}
+            calloutContent={callout1}
+          />
           <LeftImageSection content={sections[2]} image={Beverly} />
         </section>
         <section className="report__basics">
-          <RightCalloutSection content={sections[3]} calloutContent={callout2} />
+          <RightCalloutSection
+            content={sections[3]}
+            calloutContent={callout2}
+          />
         </section>
         <section className="report__history">
           <NoImageSection content={sections[4]} />
@@ -68,12 +99,22 @@ const Report1 = ({ data }) => {
         </section>
         <section className="report__collecting">
           <NoImageSection content={sections[8]} />
-          <RightImageSection content={sections[9]} calloutContent={callout3} image={Collecting} />
+          <RightImageSection
+            content={sections[9]}
+            calloutContent={callout3}
+            image={Collecting}
+          />
           <ImageBox />
-          <RightCalloutSection content={sections[10]} calloutContent={callout3} />
+          <RightCalloutSection
+            content={sections[10]}
+            calloutContent={callout3}
+          />
         </section>
         <section className="report__base-attributes">
-          <RightCalloutSection content={sections[11]} calloutContent={callout4} />
+          <RightCalloutSection
+            content={sections[11]}
+            calloutContent={callout4}
+          />
         </section>
 
         <section className="report__observations">
@@ -85,12 +126,27 @@ const Report1 = ({ data }) => {
         </section>
         <section className="report__recommendations">
           <NoImageSection content={sections[15]} />
-          <BannerImage content={[sections[16], sections[17]]} image={Recommendations1} />
-          <BannerImage content={[sections[18], sections[19]]} image={Recommendations2} />
-          <BannerImage content={[sections[20], sections[21]]} image={Recommendations3} />
+          <BannerImage
+            content={[sections[16], sections[17]]}
+            image={Recommendations1}
+          />
+          <BannerImage
+            content={[sections[18], sections[19]]}
+            image={Recommendations2}
+          />
+          <BannerImage
+            content={[sections[20], sections[21]]}
+            image={Recommendations3}
+          />
         </section>
-        <section className="report__recommendations report__glossary" style={{ marginBottom: '9.375rem' }}>
-          <BannerImage content={[sections[22], sections[23]]} image={Recommendations4} />
+        <section
+          className="report__recommendations report__glossary"
+          style={{ marginBottom: '9.375rem' }}
+        >
+          <BannerImage
+            content={[sections[22], sections[23]]}
+            image={Recommendations4}
+          />
         </section>
       </main>
     </Layout>
@@ -99,12 +155,23 @@ const Report1 = ({ data }) => {
 
 export default Report1;
 export const data = graphql`
-query {
-  allMarkdownRemark(filter: {frontmatter: {page: {in: "report1"}}}, sort: {order: ASC, fields: frontmatter___order}) {
-    nodes {
-      html
-      id
-      frontmatter {page, section, title, order, toc, credit}
+  query {
+    allMarkdownRemark(
+      filter: { frontmatter: { page: { in: "report1" } } }
+      sort: { order: ASC, fields: frontmatter___order }
+    ) {
+      nodes {
+        html
+        id
+        frontmatter {
+          page
+          section
+          title
+          order
+          toc
+          credit
+        }
+      }
     }
   }
-}`;
+`;
