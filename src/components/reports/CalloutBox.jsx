@@ -2,7 +2,7 @@ import React from 'react';
 import triangleDownGreen from '../../images/triangleDownGreen.svg';
 
 function setContent(content) {
-  return content.map(item => <p>{item}</p>);
+  return content.map((item) => <p>{item}</p>);
 }
 
 const CalloutBox = ({ content }) => {
@@ -16,11 +16,10 @@ const CalloutBox = ({ content }) => {
     </>
   ));
   return (
-  <aside className="callout-box__wrapper">
-    <div className="callout-box">
-      {items}
-    </div>
-  </aside>
-)};
+    <aside className="callout-box__wrapper">
+      <div className="callout-box">{items}</div>
+    </aside>
+  );
+};
 
 export default CalloutBox;

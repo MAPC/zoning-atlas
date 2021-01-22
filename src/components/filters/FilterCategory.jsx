@@ -47,4 +47,4 @@ FilterCategory.propTypes = {
 };
 
 export default FilterCategory;
-export { isActiveCategory, isFiltered }
+export { isActiveCategory, isFiltered };

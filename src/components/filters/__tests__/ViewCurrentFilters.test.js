@@ -1,5 +1,5 @@
 import { describe, test, expect } from '@jest/globals';
-import { render } from "@testing-library/react";
+import { render } from '@testing-library/react';
 import { setItems } from '../ViewCurrentFilters';
 
 describe('Current filters view', () => {

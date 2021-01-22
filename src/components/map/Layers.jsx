@@ -36,31 +36,41 @@ function setPrecision(zoom) {
 function setWhere(columns) {
   const whereStatements = [];
   if (columns[0].filterValue) {
-    whereStatements.push(columns[0].filterValue
-      .map((value) => `muni = '${value}'`)
-      .join(' OR '));
+    whereStatements.push(
+      columns[0].filterValue.map((value) => `muni = '${value}'`).join(' OR ')
+    );
   }
   if (columns[2].filterValue) {
-    whereStatements.push(columns[2].filterValue
-      .map((value) => `zo_usety = ${zoneUse[value]}`)
-      .join(' OR '));
+    whereStatements.push(
+      columns[2].filterValue
+        .map((value) => `zo_usety = ${zoneUse[value]}`)
+        .join(' OR ')
+    );
   }
   if (columns[4].filterValue) {
-    whereStatements.push(columns[4].filterValue
-      .map((value) => `mulfam2 = ${multiFamily[value]}`)
-      .join(' OR '));
+    whereStatements.push(
+      columns[4].filterValue
+        .map((value) => `mulfam2 = ${multiFamily[value]}`)
+        .join(' OR ')
+    );
   }
   if (columns[7].filterValue) {
     const value = columns[7].filterValue;
-    whereStatements.push(`LApDU ${lotDetails[value.operator]} ${+value.operand}`);
+    whereStatements.push(
+      `LApDU ${lotDetails[value.operator]} ${+value.operand}`
+    );
   }
   if (columns[10].filterValue) {
     const value = columns[10].filterValue;
-    whereStatements.push(`DUpAC_EFF ${lotDetails[value.operator]} ${+value.operand}`);
+    whereStatements.push(
+      `DUpAC_EFF ${lotDetails[value.operator]} ${+value.operand}`
+    );
   }
   if (columns[11].filterValue) {
     const value = columns[11].filterValue;
-    whereStatements.push(`FAR_EFF ${lotDetails[value.operator]} ${+value.operand}`);
+    whereStatements.push(
+      `FAR_EFF ${lotDetails[value.operator]} ${+value.operand}`
+    );
   }
 
   if (whereStatements.length === 0) {
@@ -73,7 +83,11 @@ function setWhere(columns) {
 }
 
 const Layers = ({
-  reactTable, setSelected, setLatLng, layerStyle, displayOverlays
+  reactTable,
+  setSelected,
+  setLatLng,
+  layerStyle,
+  displayOverlays,
 }) => {
   const mapRef = useMap();
   const [zoom, setZoom] = useState(mapRef.getZoom());
@@ -94,33 +108,61 @@ const Layers = ({
           let colorRow;
           if (layerStyle === 'zoUsety') {
             colorRow = feature.properties.zo_usety
-              ? setLegendColors.zoUsety.find((option) => option.id === feature.properties.zo_usety).color
+              ? setLegendColors.zoUsety.find(
+                  (option) => option.id === feature.properties.zo_usety
+                ).color
               : setLegendColors.zoUsety[4].color;
           }
           if (layerStyle === 'multiFam') {
             colorRow = feature.properties.mulfam2
-              ? setLegendColors.multiFam.find((option) => option.id === feature.properties.mulfam2).color
+              ? setLegendColors.multiFam.find(
+                  (option) => option.id === feature.properties.mulfam2
+                ).color
               : setLegendColors.multiFam[2].color;
           }
           if (layerStyle === 'effMxht') {
             // console.log(feature.properties.mxht_eff)
-            colorRow = setLegendColors.effMxht.find((option) => feature.properties.mxht_eff >= option.min && feature.properties.mxht_eff < option.max)
-              ? setLegendColors.effMxht.find((option) => feature.properties.mxht_eff >= option.min && feature.properties.mxht_eff < option.max).color
+            colorRow = setLegendColors.effMxht.find(
+              (option) =>
+                feature.properties.mxht_eff >= option.min &&
+                feature.properties.mxht_eff < option.max
+            )
+              ? setLegendColors.effMxht.find(
+                  (option) =>
+                    feature.properties.mxht_eff >= option.min &&
+                    feature.properties.mxht_eff < option.max
+                ).color
               : dataNa;
           }
           if (layerStyle === 'effMxdu') {
             colorRow = feature.properties.mxdu_eff
-              ? setLegendColors.effMxdu.find((option) => feature.properties.mxdu_eff >= option.min && feature.properties.mxdu_eff < option.max).color
+              ? setLegendColors.effMxdu.find(
+                  (option) =>
+                    feature.properties.mxdu_eff >= option.min &&
+                    feature.properties.mxdu_eff < option.max
+                ).color
               : dataNa;
           }
           if (layerStyle === 'effDensity') {
-            colorRow = setLegendColors.effDensity.find((option) => feature.properties.dupac_eff >= option.min && feature.properties.dupac_eff < option.max)
-              ? setLegendColors.effDensity.find((option) => feature.properties.dupac_eff >= option.min && feature.properties.dupac_eff < option.max).color
+            colorRow = setLegendColors.effDensity.find(
+              (option) =>
+                feature.properties.dupac_eff >= option.min &&
+                feature.properties.dupac_eff < option.max
+            )
+              ? setLegendColors.effDensity.find(
+                  (option) =>
+                    feature.properties.dupac_eff >= option.min &&
+                    feature.properties.dupac_eff < option.max
+                ).color
               : dataNa;
           }
           if (layerStyle === 'effFar') {
             colorRow = feature.properties.far_eff
-              ? setLegendColors.effFar.find((option) => feature.properties.far_eff >= option.min && feature.properties.far_eff < option.max).color
+              ? setLegendColors.effFar.find(
+                  (option) =>
+                    feature.properties.far_eff >= option.min &&
+                    feature.properties.far_eff < option.max
+                ).color
               : dataNa;
           }
           return {
@@ -141,9 +183,12 @@ const Layers = ({
       <TileLayer
         pane="overlayPane"
         url="https://api.mapbox.com/styles/v1/ihill/ckirurvdm0c9v19qmri0meat6/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
-        opacity={ displayOverlays ? 1 : 0 }
+        opacity={displayOverlays ? 1 : 0}
       />
-      <TileLayer pane="overlayPane" url="https://api.mapbox.com/styles/v1/ihill/cki9ablq87wb01apa878hhbj8/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg" />
+      <TileLayer
+        pane="overlayPane"
+        url="https://api.mapbox.com/styles/v1/ihill/cki9ablq87wb01apa878hhbj8/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaWhpbGwiLCJhIjoiY2plZzUwMTRzMW45NjJxb2R2Z2thOWF1YiJ9.szIAeMS4c9YTgNsJeG36gg"
+      />
     </>
   );
 };

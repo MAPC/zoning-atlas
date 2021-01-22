@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { X } from 'phosphor-react';
 import ChoroplethSelect from './ChoroplethSelect';
 
-const Legend = ({ layerStyle, setLayerStyle, displayOverlays, setDisplayOverlays }) => {
+const Legend = ({
+  layerStyle,
+  setLayerStyle,
+  displayOverlays,
+  setDisplayOverlays,
+}) => {
   const [isVisible, setVisibility] = useState(false);
   return (
     <div
@@ -16,13 +21,19 @@ const Legend = ({ layerStyle, setLayerStyle, displayOverlays, setDisplayOverlays
       tabIndex={0}
       role="button"
     >
-      <div className={isVisible ? 'legend__header legend__header--active' : 'legend__header'}>
+      <div
+        className={
+          isVisible ? 'legend__header legend__header--active' : 'legend__header'
+        }
+      >
         <h3
-          className={isVisible ? 'legend__title legend__title--active' : 'legend__title'}
+          className={
+            isVisible ? 'legend__title legend__title--active' : 'legend__title'
+          }
         >
           Legend
         </h3>
-        { isVisible ? (
+        {isVisible ? (
           <button
             type="button"
             onClick={() => setVisibility(false)}
@@ -30,9 +41,20 @@ const Legend = ({ layerStyle, setLayerStyle, displayOverlays, setDisplayOverlays
           >
             <X size="1rem" />
           </button>
-        ) : ''}
+        ) : (
+          ''
+        )}
       </div>
-      { isVisible ? <ChoroplethSelect layerStyle={layerStyle} setLayerStyle={setLayerStyle} displayOverlays={displayOverlays} setDisplayOverlays={setDisplayOverlays} /> : ''}
+      {isVisible ? (
+        <ChoroplethSelect
+          layerStyle={layerStyle}
+          setLayerStyle={setLayerStyle}
+          displayOverlays={displayOverlays}
+          setDisplayOverlays={setDisplayOverlays}
+        />
+      ) : (
+        ''
+      )}
     </div>
   );
 };

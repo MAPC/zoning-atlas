@@ -22,7 +22,12 @@ const legendTitle = {
   effFar: 'Effective FAR',
 };
 
-const ChoroplethSelect = ({ layerStyle, setLayerStyle, displayOverlays, setDisplayOverlays }) => (
+const ChoroplethSelect = ({
+  layerStyle,
+  setLayerStyle,
+  displayOverlays,
+  setDisplayOverlays,
+}) => (
   <>
     <form
       className="legend__form"
@@ -38,33 +43,77 @@ const ChoroplethSelect = ({ layerStyle, setLayerStyle, displayOverlays, setDispl
       <fieldset className="legend__fieldset">
         <legend className="legend__subtitle">Map Layers</legend>
         <label htmlFor="zoUsety">
-          <input type="radio" id="zoUsety" name="legend" className="legend__input" defaultChecked={layerStyle === 'zoUsety'} />
+          <input
+            type="radio"
+            id="zoUsety"
+            name="legend"
+            className="legend__input"
+            defaultChecked={layerStyle === 'zoUsety'}
+          />
           <span className="legend__entry">Zone Use Type</span>
         </label>
         <label htmlFor="multiFam">
-          <input type="radio" id="multiFam" name="legend" className="legend__input" defaultChecked={layerStyle === 'multiFam'} />
+          <input
+            type="radio"
+            id="multiFam"
+            name="legend"
+            className="legend__input"
+            defaultChecked={layerStyle === 'multiFam'}
+          />
           <span className="legend__entry">Multifamily Housing (2+ Units)</span>
         </label>
         <label htmlFor="effMxht">
-          <input type="radio" id="effMxht" name="legend" className="legend__input" defaultChecked={layerStyle === 'effMxht'} />
+          <input
+            type="radio"
+            id="effMxht"
+            name="legend"
+            className="legend__input"
+            defaultChecked={layerStyle === 'effMxht'}
+          />
           <span className="legend__entry">Maximum Height</span>
         </label>
         <label htmlFor="effMxdu">
-          <input type="radio" id="effMxdu" name="legend" className="legend__input" defaultChecked={layerStyle === 'effMxdu'} />
+          <input
+            type="radio"
+            id="effMxdu"
+            name="legend"
+            className="legend__input"
+            defaultChecked={layerStyle === 'effMxdu'}
+          />
           <span className="legend__entry">Maximum Dwelling Units</span>
         </label>
         <label htmlFor="effDensity">
-          <input type="radio" id="effDensity" name="legend" className="legend__input" defaultChecked={layerStyle === 'effDensity'} />
-          <span className="legend__entry">Effective Dwelling Units per Acre</span>
+          <input
+            type="radio"
+            id="effDensity"
+            name="legend"
+            className="legend__input"
+            defaultChecked={layerStyle === 'effDensity'}
+          />
+          <span className="legend__entry">
+            Effective Dwelling Units per Acre
+          </span>
         </label>
         <label htmlFor="effFar">
-          <input type="radio" id="effFar" name="legend" className="legend__input" defaultChecked={layerStyle === 'effFar'} />
+          <input
+            type="radio"
+            id="effFar"
+            name="legend"
+            className="legend__input"
+            defaultChecked={layerStyle === 'effFar'}
+          />
           <span className="legend__entry">Effective FAR</span>
         </label>
       </fieldset>
       <fieldset className="legend__fieldset">
         <legend className="legend__subtitle">{legendTitle[layerStyle]}</legend>
-        <ul className={legendEntries[layerStyle].length > 6 ? 'legend__list legend__list--two-col' : 'legend__list legend__list--one-col'}>
+        <ul
+          className={
+            legendEntries[layerStyle].length > 6
+              ? 'legend__list legend__list--two-col'
+              : 'legend__list legend__list--one-col'
+          }
+        >
           {setLegend(layerStyle)}
         </ul>
       </fieldset>

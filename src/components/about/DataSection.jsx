@@ -6,20 +6,20 @@ import AccordionField from './AccordionField';
 const DataSection = () => (
   <section className="about__section">
     <AccordionField title="Data sources and technical methods">
-    <p>
-      Since there is no central repository for municipal zoning data, MAPC contacted representatives of every city and town in the region to construct the Zoning Atlas.  With this manual effort to collect non-standardized data, limitations and caveats are important to note.
-    </p>
-    <p>
-      MAPC has drafted an
-      {' '}
-      <Link to="/reports/1" className="external-site__link">introductory report</Link>
-      {' '}
-      to communicate the history, creation, and collection of zoning data. This report goes into detail about the choice made by MAPC to choose or calculate data comparable across municipalities. Additionally, more detailed information about the Zoning Atlas can be found in the
-      {' '}
-      <a href="https://metropolitan-area-planning-counc.gitbook.io/zoning-atlas-appendix/" className="external-site__link">technical appendix</a>
-      {' '}
-      which shares examples and notes about the data collection and creation process.
-    </p>
+      <p>
+        Since there is no central repository for municipal zoning data, MAPC contacted representatives of every city and town in the region to construct the Zoning Atlas.  With this manual effort to collect non-standardized data, limitations and caveats are important to note.
+      </p>
+      <p>
+        MAPC has drafted an
+        {' '}
+        <Link to="/reports/1" className="external-site__link">introductory report</Link>
+        {' '}
+        to communicate the history, creation, and collection of zoning data. This report goes into detail about the choice made by MAPC to choose or calculate data comparable across municipalities. Additionally, more detailed information about the Zoning Atlas can be found in the
+        {' '}
+        <a href="https://metropolitan-area-planning-counc.gitbook.io/zoning-atlas-appendix/" className="external-site__link">technical appendix</a>
+        {' '}
+        which shares examples and notes about the data collection and creation process.
+      </p>
     </AccordionField>
     <AccordionField title="Is there metadata available?">
       <p>Yes:</p>
