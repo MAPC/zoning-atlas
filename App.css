@@ -1,0 +1,48 @@
+h1 {
+  width: 100%;
+  background: #00613F;
+  color: white;
+  z-index: 30;
+  position: relative;
+  padding: 1rem 0;
+  margin: 0;
+}
+.panel {
+ opacity: .5;
+}
+
+.panel--active {
+  opacity: 1;
+}
+
+.panel__content {
+  width: 320px;
+}
+
+.main {
+  background-color: aqua;
+  position: -webkit-sticky;
+  position: sticky;
+  max-height: 100vh;
+  top: -1px;
+}
+
+.map {
+  right: 0;
+  top: 0;
+  height: 100vh;
+  float: right;
+  position: sticky;
+  max-height: 100vh;
+  top: 0;
+  background-position: center;
+  background-size: cover;
+}
+
+img {
+  width: calc(100% - 320px);
+}
+
+.section {
+  background: red;
+}
