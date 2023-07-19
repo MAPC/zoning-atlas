@@ -47,9 +47,9 @@ jobs:
                   # Adding Rule SSH to Your Security Group
                   echo Allowing CircleCI_Build to access port 22 from IP $IP to the security group $GROUPID
                   aws ec2 authorize-security-group-ingress --group-id $GROUPID --ip-permissions '[{"IpProtocol": "tcp", "FromPort": 22, "ToPort": 22, "IpRanges": [{"CidrIp": "'$LATEST_IP/32'", "Description": "'CircleCI_Build'"}]}]'                 
-      # - run:
-      #     name: Move build artifacts to staging server
-      #     command: scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r _site/* perfect-fit@prep.mapc.org:/var/www/perfect-fit
+      - run:
+          name: Move build artifacts to staging server
+          command: scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r public/* zoningatlas@prep.mapc.org:/var/www/zoning-atlas
       - run:
               name: AWS whitelist remove CircleCI IP
               command: |
