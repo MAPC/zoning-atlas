@@ -27,7 +27,7 @@ jobs:
           override-ci-command: yarn install
       - run:
           name: Build site using gatsby
-          command: "yarn run gatsby telemetry --disable && yarn run gatsby build --prefix-paths"
+          command: "yarn run gatsby telemetry --disable && yarn run gatsby clean && yarn run gatsby build --prefix-paths"
       - aws-cli/setup
       - run:
               name: AWS whitelist add CircleCI IP
