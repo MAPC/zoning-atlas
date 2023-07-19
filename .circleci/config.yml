@@ -17,7 +17,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-          - "9a:29:68:ac:a9:9f:56:3b:87:1a:b5:e8:f7:9c:a5:71"
+          - "0f:c1:77:07:b6:a1:7a:b8:b6:c4:0c:8d:d5:ff:76:90"
           - "c7:89:8c:09:3e:6f:f3:c8:bd:6d:16:e4:60:13:f0:65"
       - checkout
       - node/install:
