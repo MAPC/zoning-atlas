@@ -1,0 +1,78 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/configuration-reference
+version: 2.1
+
+# Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
+# See: https://circleci.com/docs/orb-intro/
+orbs:
+  node: circleci/node@5.1.0
+  aws-cli: circleci/aws-cli@4.0.0
+
+# Define a job to be invoked later in a workflow.
+# See: https://circleci.com/docs/configuration-reference/#jobs
+jobs:
+  build_and_deploy:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+          - "0f:c1:77:07:b6:a1:7a:b8:b6:c4:0c:8d:d5:ff:76:90"
+          - "c7:89:8c:09:3e:6f:f3:c8:bd:6d:16:e4:60:13:f0:65"
+      - checkout
+      - node/install:
+          install-yarn: true
+          node-version: '14.21'
+      - node/install-packages:
+          override-ci-command: yarn install
+      - run:
+          name: Build site using gatsby
+          command: "yarn run gatsby telemetry --disable && yarn run gatsby clean && yarn run gatsby build --prefix-paths"
+      - aws-cli/setup
+      - run:
+              name: AWS whitelist add CircleCI IP
+              command: |
+                  
+                  # Get the public ip address
+                  LATEST_IP=$(wget -qO- http://checkip.amazonaws.com)
+                  IP="${IP-$LATEST_IP}"
+                  if [[ "${IP}" == "" ]]; then
+                    echo "Could not find your public IP"
+                    exit 1
+                  fi
+
+                  GROUPID=sg-e9bc309e
+                  [[ -n "${GROUPID}" ]] || (echo "Could not determine Security Group ID" && exit 0);
+                                                      
+                  # Adding Rule SSH to Your Security Group
+                  echo Allowing CircleCI_Build to access port 22 from IP $IP to the security group $GROUPID
+                  aws ec2 authorize-security-group-ingress --group-id $GROUPID --ip-permissions '[{"IpProtocol": "tcp", "FromPort": 22, "ToPort": 22, "IpRanges": [{"CidrIp": "'$LATEST_IP/32'", "Description": "'CircleCI_Build'"}]}]'                 
+      - run:
+          name: Move build artifacts to staging server
+          command: scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r public/* zoningatlas@prep.mapc.org:/var/www/zoning-atlas
+      - run:
+              name: AWS whitelist remove CircleCI IP
+              command: |
+
+                  # Get the public ip address
+                  LATEST_IP=$(wget -qO- http://checkip.amazonaws.com)
+                  IP=${IP-$LATEST_IP}
+                  [[ -n "$IP" ]] || (echo "Could not find your public IP" && exit 1);
+                  
+                  GROUPID=sg-e9bc309e
+                  [[ -n "$GROUPID" ]] || (echo "Could not determine Security Group ID" && exit 1);
+
+
+                  echo "Removing CircleCI_Build access from IP $IP to the security group $GROUPID"
+
+                  # Delete IP rules matching port
+                  aws ec2 revoke-security-group-ingress --group-id $GROUPID --ip-permissions '[{"IpProtocol": "tcp", "FromPort": 22, "ToPort": 22, "IpRanges": [{"CidrIp": "'$LATEST_IP/32'", "Description": "'CircleCI_Build'"}]}]'
+              when: always
+
+# Orchestrate jobs using workflows
+# See: https://circleci.com/docs/configuration-reference/#workflows
+workflows:
+  staging-build-deploy: # This is the name of the workflow, feel free to change it to better match your workflow.
+    # Inside the workflow, you define the jobs you want to run.
+    jobs:
+      - build_and_deploy
