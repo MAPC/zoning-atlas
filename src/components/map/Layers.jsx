@@ -99,7 +99,7 @@ const Layers = ({
   return (
     <>
       <FeatureLayer
-        url="https://geo.mapc.org/server/rest/services/gisdata/Zoning_Atlas_v01/MapServer/2"
+        url="https://tempgeo.mapc.org/arcgis/rest/services/Zoning_Atlas_v02/MapServer/1"
         // url={zoom < 11 ? 'https://geo.mapc.org/server/rest/services/gisdata/Zoning_Atlas_v01/MapServer/1' : 'https://geo.mapc.org/server/rest/services/gisdata/Zoning_Atlas_v01/MapServer/2'}
         pane="tilePane"
         simplifyFactor={setSimplifyFactor(zoom)}
