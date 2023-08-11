@@ -14,12 +14,12 @@ jobs:
         with:
           DB_PASS: ${{ secrets.DB_PASS }}
           DB_USER: ${{ secrets.DB_USER }}
-          GOOGLE_ANALYTICS_ID:  ${{ secrets.GOOGLE_ANALYTICS_ID }}
+          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
           HOST: ${{ secrets.HOST }}
           GATSBY_AIRTABLE_API_KEY: ${{ secrets.GATSBY_AIRTABLE_API_KEY }}
-          GATSBY_AIRTABLE_API_BASE: ${{ secrets.GATSBY_AIRTABLE_API_BASE }}  
+          GATSBY_AIRTABLE_API_BASE: ${{ secrets.GATSBY_AIRTABLE_API_BASE }}
       - uses: actions/checkout@v2
-      - uses: MAPC/gatsby-gh-pages-action
+      - uses: MAPC/gatsby-gh-pages-action@v2.2.1
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: gh-pages
