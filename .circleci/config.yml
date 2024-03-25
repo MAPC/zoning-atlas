@@ -5,7 +5,7 @@ version: 2.1
 # Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
 # See: https://circleci.com/docs/orb-intro/
 orbs:
-  node: circleci/node@5.1.0
+  node: circleci/node@5.2.0
   aws-cli: circleci/aws-cli@4.0.0
 
 # Define a job to be invoked later in a workflow.
@@ -22,7 +22,7 @@ jobs:
       - checkout
       - node/install:
           install-yarn: true
-          node-version: '14.21'
+          node-version: '16.13'
       - node/install-packages:
           override-ci-command: yarn install
       - run:
