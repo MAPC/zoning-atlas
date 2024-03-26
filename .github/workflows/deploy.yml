@@ -3,10 +3,17 @@ name: Gatsby Publish
 on:
   push:
     branches:
-      - master
+      - "main"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
+    environment:
+      name: github-pages
     runs-on: ubuntu-latest
     steps:
       - name: set environment variables
@@ -16,9 +23,10 @@ jobs:
           DB_USER: ${{ secrets.DB_USER }}
           GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
           HOST: ${{ secrets.HOST }}
+          GATSBY_ESRI_TOKEN: ${{ secrets.GATSBY_ESRI_TOKEN }}
           GATSBY_AIRTABLE_API_KEY: ${{ secrets.GATSBY_AIRTABLE_API_KEY }}
           GATSBY_AIRTABLE_API_BASE: ${{ secrets.GATSBY_AIRTABLE_API_BASE }}
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: enriikke/gatsby-gh-pages-action@v2
         with:
           access-token: x-access-token:${{ secrets.ACCESS_TOKEN }}
