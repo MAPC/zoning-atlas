@@ -29,6 +29,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - run: yarn
       - run: yarn run gatsby build --prefix-paths
 
       - name: Deploy
