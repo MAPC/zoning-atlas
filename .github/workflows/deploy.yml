@@ -1,34 +1,39 @@
-name: Gatsby Publish
+name: GitHub Pages
 
 on:
   push:
     branches:
-      - "main"
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+      - main
+  pull_request:
 
 jobs:
-  build:
-    environment:
-      name: github-pages
-    runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - name: set environment variables
-        uses: allenevans/set-env@v3.0.0
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          DB_PASS: ${{ secrets.DB_PASS }}
-          DB_USER: ${{ secrets.DB_USER }}
-          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}
-          HOST: ${{ secrets.HOST }}
-          GATSBY_ESRI_TOKEN: ${{ secrets.GATSBY_ESRI_TOKEN }}
-          GATSBY_AIRTABLE_API_KEY: ${{ secrets.GATSBY_AIRTABLE_API_KEY }}
-          GATSBY_AIRTABLE_API_BASE: ${{ secrets.GATSBY_AIRTABLE_API_BASE }}
-      - uses: actions/checkout@v4
-      - uses: enriikke/gatsby-gh-pages-action@v2
+          node-version: '18'
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
         with:
-          access-token: ${{ secrets.ACCESS_TOKEN }}
-          deploy-branch: gh-pages
-          gatsby-args: --prefix-paths
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - run: yarn run gatsby build --prefix-paths
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
