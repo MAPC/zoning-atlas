@@ -13,6 +13,7 @@ const LeafletMap = ({ reactTable, setFormIsOpen, setZone }) => {
   const [popupLatLng, setLatLng] = useState();
   const [layerStyle, setLayerStyle] = useState('zoUsety');
   const [displayOverlays, setDisplayOverlays] = useState(false);
+
   return (
     <div className="map__wrapper">
       <MapContainer
@@ -48,7 +49,7 @@ const LeafletMap = ({ reactTable, setFormIsOpen, setZone }) => {
             />
           </LayersControl.BaseLayer>
         </LayersControl>
-        <EsriLeafletGeoSearch useMapBounds={false} position="topleft" />
+        <EsriLeafletGeoSearch providers={{arcgisOnlineProvider: {maxSuggestions: 5, token: process.env.GATSBY_ESRI_TOKEN}}} useMapBounds={false} position="topleft" />
         <Layers reactTable={reactTable} setSelected={setSelected} setLatLng={setLatLng} layerStyle={layerStyle} displayOverlays={displayOverlays} />
         {selectedAttr ? <ZoningPopup selectedAttr={selectedAttr} latLng={popupLatLng} setFormIsOpen={setFormIsOpen} setZone={setZone} /> : ''}
         <ZoomControl position="bottomright" />

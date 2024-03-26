@@ -1,6 +1,14 @@
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === "build-html") {
     actions.setWebpackConfig({
+      resolve: {
+        alias: {
+          path: require.resolve("path-browserify")
+        },
+        fallback: {
+          fs: false,
+        }
+      },
       module: {
         rules: [
           {

@@ -156,22 +156,22 @@ const Report1 = ({ data }) => {
 export default Report1;
 export const data = graphql`
   query {
-    allMarkdownRemark(
-      filter: { frontmatter: { page: { in: "report1" } } }
-      sort: { order: ASC, fields: frontmatter___order }
-    ) {
-      nodes {
-        html
-        id
-        frontmatter {
-          page
-          section
-          title
-          order
-          toc
-          credit
-        }
-      }
-    }
+    allMarkdownRemark(                                                                                       
+      filter: {frontmatter: {page: {in: "report1"}}}
+      sort: {frontmatter: {order: ASC}}
+    ) {                                                                                                      
+      nodes {                                                                                                
+        html                                                                                                 
+        id                                                                                                   
+        frontmatter {                                                                                        
+          page                                                                                               
+          section                                                                                            
+          title                                                                                              
+          order                                                                                              
+          toc                                                                                                
+          credit                                                                                             
+        }                                                                                                    
+      }                                                                                                      
+    }                                                                                                        
   }
 `;

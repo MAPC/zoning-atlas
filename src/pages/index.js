@@ -35,7 +35,7 @@ export default function Tabular({ data }) {
 
   data = useMemo(
     () =>
-      data.postgres.allZoningAtlasesList.map((row) => ({
+      data.postgres.zoningAtlasesList.map((row) => ({
         id: row.objectid,
         muni: row.muni,
         zoName: row.zoName,
@@ -57,7 +57,7 @@ export default function Tabular({ data }) {
         farEsval: row.farEsval,
         spatialrec: row.spatialrec,
       })),
-    [data.postgres.allZoningAtlasesList]
+    [data.postgres.zoningAtlasesList]
   );
 
   const columns = useMemo(() => setColumns, []);
@@ -126,9 +126,9 @@ export default function Tabular({ data }) {
 }
 
 export const data = graphql`
-  query {
+  {
     postgres {
-      allZoningAtlasesList {
+      zoningAtlasesList {
         objectid
         muni
         zoName

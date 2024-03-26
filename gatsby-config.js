@@ -12,7 +12,17 @@ module.exports = {
   plugins: [
     'gatsby-plugin-anchor-links',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        cssLoaderOptions: {
+          esModule: false,
+          modules: {
+            namedExport: false,
+          },
+        },
+      },
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-google-analytics',
@@ -26,6 +36,7 @@ module.exports = {
         connectionString: `postgres://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.HOST}/gisdata`,
         schema: 'mapc',
         refetchInterval: 60, // Refetch data every 60 seconds
+        appendPlugins: [require("@graphile-contrib/pg-simplify-inflector")],
       },
     },
     {
