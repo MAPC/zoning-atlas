@@ -49,7 +49,7 @@ const LeafletMap = ({ reactTable, setFormIsOpen, setZone }) => {
             />
           </LayersControl.BaseLayer>
         </LayersControl>
-        <EsriLeafletGeoSearch providers={{arcgisOnlineProvider: {maxSuggestions: 5, token: process.env.GATSBY_ESRI_TOKEN}}} useMapBounds={false} position="topleft" />
+        <EsriLeafletGeoSearch providers={{arcgisOnlineProvider: {maxSuggestions: 5, token: process.env.GATSBY_ESRI_TOKEN || ""}}} useMapBounds={false} position="topleft" />
         <Layers reactTable={reactTable} setSelected={setSelected} setLatLng={setLatLng} layerStyle={layerStyle} displayOverlays={displayOverlays} />
         {selectedAttr ? <ZoningPopup selectedAttr={selectedAttr} latLng={popupLatLng} setFormIsOpen={setFormIsOpen} setZone={setZone} /> : ''}
         <ZoomControl position="bottomright" />
