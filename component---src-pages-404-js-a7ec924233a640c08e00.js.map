@@ -1,0 +1,1 @@
+{"version":3,"file":"component---src-pages-404-js-a7ec924233a640c08e00.js","mappings":"sLAEe,SAASA,IACtB,OAAOC,EAAAA,cAAA,WAAK,OACd,C","sources":["webpack://mapc-zoning-atlas/./src/pages/404.js"],"sourcesContent":["import React from 'react';\n\nexport default function Error404() {\n  return <div>404!</div>;\n}\n"],"names":["Error404","React"],"sourceRoot":""}
