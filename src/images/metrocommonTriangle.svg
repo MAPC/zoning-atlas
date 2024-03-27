@@ -1,3 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="21.176" viewBox="0 0 20 21.176">
-  <path id="Polygon_2" data-name="Polygon 2" d="M10.588,0,21.176,20H0Z" transform="translate(20) rotate(90)" fill="#00613f"/>
-</svg>
+<svg height="21.176" viewBox="0 0 20 21.176" width="20" xmlns="http://www.w3.org/2000/svg"><path d="m10.588 0 10.588 20h-21.176z" fill="#00613f" transform="matrix(0 1 -1 0 20 0)"/></svg>
