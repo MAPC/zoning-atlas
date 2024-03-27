@@ -8,6 +8,9 @@ import Layers from './Layers';
 import ZoningPopup from './Popup';
 import Legend from './Legend';
 
+import "leaflet/dist/leaflet.css";
+import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
+
 const LeafletMap = ({ reactTable, setFormIsOpen, setZone }) => {
   const [selectedAttr, setSelected] = useState();
   const [popupLatLng, setLatLng] = useState();

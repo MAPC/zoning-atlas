@@ -5,9 +5,6 @@ export const myContext = React.createContext();
 
 const Provider = (props) => {
   const [welcomeIsOpen, setWelcomeIsOpen] = useState(true);
-  useEffect(() => {
-    ReactModal.setAppElement('body');
-  }, []);
 
   return (
     <myContext.Provider
@@ -20,5 +17,7 @@ const Provider = (props) => {
     </myContext.Provider>
   );
 };
+
+ReactModal.setAppElement("#___gatsby");
 
 export default ({ element }) => <Provider>{element}</Provider>;

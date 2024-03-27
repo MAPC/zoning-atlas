@@ -7,13 +7,14 @@ import ExternalSiteCell from '../components/reports/ExternalSiteCell';
 import report1 from '../images/report1.png';
 import report2 from '../images/report2.png';
 import report3 from '../images/report3.png';
+import SEO from '../components/SEO';
 
 const Reports = ({ data }) => {
   const externalSites = data.allMarkdownRemark.nodes.map((node) => (
     <ExternalSiteCell body={node.html} key={node.id} />
   ));
   return (
-    <Layout title="Reports - MAPC Zoning Atlas">
+    <Layout>
       <main className="main__wrapper">
         <HighlightBox />
         <div className="main__wrapper--narrow">
@@ -50,6 +51,15 @@ const Reports = ({ data }) => {
       </main>
     </Layout>
   );
+};
+
+export const Head = () => { 
+  return (
+    <SEO title="Reports" pathname="/reports">
+      <html lang="en" />
+      <meta charSet="utf-8" />
+    </SEO>
+  ); 
 };
 
 export default Reports;

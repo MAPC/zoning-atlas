@@ -20,6 +20,7 @@ import Recommendations1 from '../../images/DJI_0724.MOV.00_00_19_13.Still002.png
 import Recommendations2 from '../../images/Recommendations2.png';
 import Recommendations3 from '../../images/Crossing at Main Street with new housing.png';
 import Recommendations4 from '../../images/Public facilities feedback - Copy.png';
+import SEO from '../../components/SEO';
 
 const callout1 = [
   {
@@ -73,7 +74,7 @@ const callout4 = [
 const Report1 = ({ data }) => {
   const sections = data.allMarkdownRemark.nodes;
   return (
-    <Layout title="Introduction to the Zoning Atlas - MAPC Zoning Atlas">
+    <Layout>
       <main className="main__wrapper main__wrapper--report">
         <Header items={sections} />
         <About content={sections[0]} />
@@ -151,6 +152,15 @@ const Report1 = ({ data }) => {
       </main>
     </Layout>
   );
+};
+
+export const Head = () => { 
+  return (
+    <SEO title="Introduction to the Zoning Atlas" pathname="/reports/1" >
+      <html lang="en" />
+      <meta charSet="utf-8" />
+    </SEO>
+  ); 
 };
 
 export default Report1;

@@ -7,6 +7,7 @@ import DataSection from '../components/about/DataSection';
 import FeedbackSection from '../components/about/FeedbackSection';
 import Disclaimer from '../components/about/Disclaimer';
 import Contributors from '../components/about/Contributors';
+import SEO from '../components/SEO';
 
 const About = ({ location }) => {
   const [section, setSection] = useState(
@@ -23,7 +24,7 @@ const About = ({ location }) => {
   };
 
   return (
-    <Layout title="About - MAPC Zoning Atlas">
+    <Layout>
       <main className="main__wrapper">
         <div className="main__wrapper--narrow">
           <h2>What am I looking at?</h2>
@@ -84,6 +85,15 @@ const About = ({ location }) => {
       </main>
     </Layout>
   );
+};
+
+export const Head = () => { 
+  return (
+    <SEO title="About" pathname="/about">
+      <html lang="en" />
+      <meta charSet="utf-8" />
+    </SEO>
+  ); 
 };
 
 export default About;

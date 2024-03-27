@@ -7,11 +7,11 @@ module.exports = {
     title: 'MAPC Zoning Atlas',
     description: 'MAPC Zoning Atlas',
     author: '@mapcmetroboston',
+    url: 'https://zoningatlas.mapc.org',
   },
 
   plugins: [
     'gatsby-plugin-anchor-links',
-    'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-sass`,
       options: {
@@ -23,11 +23,22 @@ module.exports = {
         },
       },
     },
-    'gatsby-plugin-react-helmet',
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: `${process.env.GOOGLE_ANALYTICS_ID}`,
+        trackingIds: [
+          `${process.env.GOOGLE_ANALYTICS_ID}`
+        ],
+        gtagConfig: {
+          optimize_id: "OPT_CONTAINER_ID",
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: true,
+          respectDNT: true,
+        },
       },
     },
     {

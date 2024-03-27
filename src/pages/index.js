@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from 'react';
-import { Helmet } from 'react-helmet';
 import { useTable, usePagination, useSortBy, useFilters } from 'react-table';
 import { graphql } from 'gatsby';
 import * as d3 from 'd3-format';
@@ -14,7 +13,8 @@ import WelcomeModal from '../components/WelcomeModal';
 import DataOptionsHeader from '../components/data/DataOptionsHeader';
 import DataContainer from '../components/data/DataContainer';
 import ContributeMenu from '../components/data/ContributeMenu';
-import SEO from '../components/seo';
+import SEO from '../components/SEO';
+import "leaflet/dist/leaflet.css";
 
 export default function Tabular({ data }) {
   const filterTypes = React.useMemo(
@@ -77,28 +77,10 @@ export default function Tabular({ data }) {
   const [view, setView] = useState('spatial');
 
   return (
-    <Layout title="MAPC Zoning Atlas">
-      <SEO title="MAPC Zoning Atlas" />
+    <Layout>
       <myContext.Consumer>
         {(context) => (
           <>
-            <Helmet>
-              <link
-                rel="stylesheet"
-                href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-                integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-                crossOrigin=""
-              />
-              <script
-                src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-                integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-                crossOrigin=""
-              />
-              <link
-                rel="stylesheet"
-                href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css"
-              />
-            </Helmet>
             <main className="main__wrapper main__wrapper--default">
               <ReactModal
                 isOpen={context ? context.welcomeIsOpen : true}
@@ -124,6 +106,15 @@ export default function Tabular({ data }) {
     </Layout>
   );
 }
+
+export const Head = () => { 
+  return (
+    <SEO title="MAPC Zoning Atlas" pathname="/">
+      <html lang="en" />
+      <meta charSet="utf-8" />
+    </SEO>
+  ); 
+};
 
 export const data = graphql`
   {
